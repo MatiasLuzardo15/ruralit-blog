@@ -300,6 +300,11 @@ nav.scrolled {
   box-shadow: 0 15px 40px var(--neon-glow);
 }
 
+.btn-giant.secondary:hover {
+  background: rgba(46, 125, 50, 0.05) !important;
+  box-shadow: none;
+}
+
 .hero-dashboard-preview {
   margin-top: 5rem;
   width: 90%;
