@@ -98,6 +98,28 @@ const App = () => {
       anchor.addEventListener('click', handleAnchorClick);
     });
 
+    // Accordion Logic
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close other items in the same accordion
+        const parentAccordion = item.parentElement;
+        parentAccordion.querySelectorAll('.accordion-item').forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.accordion-body').style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          const body = item.querySelector('.accordion-body');
+          body.style.maxHeight = body.scrollHeight + "px";
+        }
+      });
+    });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       themeToggle?.removeEventListener('click', handleThemeToggle);

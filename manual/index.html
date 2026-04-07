@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario | Ruralit</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Orbitron:wght@600;900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .manual-container {
+            padding-top: 10rem;
+            padding-bottom: 5rem;
+            max-width: 900px;
+        }
+
+        .manual-content {
+            background: var(--card-bg);
+            padding: 4rem;
+            border-radius: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .manual-content h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .manual-content h2 {
+            font-size: 1.8rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-green);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .manual-content h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .manual-content p,
+        .manual-content li {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .manual-content ul,
+        .manual-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .manual-content hr {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 4rem 0;
+        }
+
+        .step-highlight {
+            background: var(--bg-alt);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--neon-green);
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .manual-container {
+                padding-top: 7rem;
+            }
+
+            .manual-content {
+                padding: 2rem;
+            }
+
+            .manual-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                ruralit<span class="dot">.</span>
+            </a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn">
+                    <i data-lucide="moon" class="moon-icon"></i>
+                    <i data-lucide="sun" class="sun-icon" style="display: none;"></i>
+                </button>
+                <a href="https://www.ruralit.site/auth" class="btn-nav">ACCEDER</a>
+                <a href="/" class="btn-nav"
+                    style="background: var(--bg-alt); display: flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+                    VOLVER
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container manual-container">
+        <div class="manual-content">
+            <h1 class="orbitron">Manual de Usuario</h1>
+            <p><strong>Ruralit – Gestión Agropecuaria Inteligente</strong></p>
+            <p>Bienvenido a <strong>Ruralit</strong>. Esta guía detalla el funcionamiento real de las herramientas de
+                registro y análisis de tu establecimiento.</p>
+
+            <hr>
+
+            <h2>1. Registro Rápido</h2>
+            <p>En la pantalla de <strong>Inicio</strong>, el campo con el icono del rayo ⚡ (<em>"¿Qué hiciste
+                    hoy?"</em>) permite anotar movimientos de forma inmediata.</p>
+            <div class="step-highlight">
+                <h3>Uso:</h3>
+                <ol>
+                    <li>Escribe el concepto y el monto (ej: <code>pago luz tambo 5400</code>).</li>
+                    <li>Presiona el botón verde de <strong>Enviar</strong> (icono de avión).</li>
+                    <li>El sistema procesa y añade el registro automáticamente a tu libreta.</li>
+                </ol>
+            </div>
+
+            <hr>
+
+            <h2>2. Carga Detallada</h2>
+            <p>Usa los botones <strong>Cargar ingreso (+)</strong> o <strong>Cargar gasto (-)</strong> para registros
+                precisos:</p>
+            <ol>
+                <li>Ingresa el <strong>Monto</strong>.</li>
+                <li>Selecciona la <strong>Categoría</strong>.</li>
+                <li>Ajusta la fecha si es necesario y haz clic en <strong>Confirmar registro</strong>.</li>
+            </ol>
+            <p><em>(Nota: No se requiere tasa de rendimiento en estos registros operativos)</em>.</p>
+
+            <hr>
+
+            <h2>3. Gestión en la Libreta</h2>
+            <ul>
+                <li><strong>Historial:</strong> Revisa tus movimientos ordenados por fecha.</li>
+                <li><strong>Edición y Borrado:</strong> Para corregir o eliminar, pulsa sobre el registro deseado y
+                    utiliza las opciones dentro del detalle. <em>(No se utiliza el gesto de deslizar)</em>.</li>
+            </ul>
+
+            <hr>
+
+            <h2>4. Análisis de Balance y Filtros</h2>
+            <p>Ruralit permite analizar tus finanzas con tres niveles de profundidad:</p>
+            <ul>
+                <li><strong>Vistas:</strong> Puedes filtrar tus datos de forma <strong>Mensual</strong>,
+                    <strong>Trimestral</strong> o <strong>Anual</strong>.</li>
+                <li><strong>Tendencia de Margen:</strong> Los gráficos anuales no solo muestran ingresos y gastos mes a
+                    mes, sino también la línea de <strong>Tendencia de Margen</strong> para evaluar la rentabilidad
+                    real.</li>
+                <li><strong>Vista Trimestral:</strong> Muestra la distribución de gastos e ingresos agrupados
+                    específicamente por el trimestre seleccionado.</li>
+            </ul>
+
+            <hr>
+
+            <h2>5. Gestión de Proyectos e Inversiones</h2>
+            <p>En Ruralit, los movimientos pueden vincularse a <strong>Proyectos Directos</strong> o <strong>Metas de Ahorro</strong> para un seguimiento quirúrgico de la rentabilidad.</p>
+            
+            <h3>Tipos de Proyectos</h3>
+            <ul>
+                <li><strong>Operativos:</strong> Ganadería, Agricultura, Maquinaria o Infraestructura.</li>
+                <li><strong>Financieros:</strong> Metas de ahorro o fondos de reserva.</li>
+            </ul>
+
+            <div class="step-highlight">
+                <h3>Movimientos y ROI</h3>
+                <ul>
+                    <li><strong>Recuperación de Capital:</strong> El sistema calcula automáticamente el punto de equilibrio. Cada gasto suma al capital invertido y cada ingreso al recuperado.</li>
+                    <li><strong>Metas de Ahorro:</strong> El progreso se mide por acumulación. El sistema te alerta si el ritmo de ahorro disminuye.</li>
+                </ul>
+            </div>
+
+            <h3>Finalización y Reportes</h3>
+            <p>Una vez completado el ciclo, puedes <strong>Finalizar</strong> el proyecto para obtener un reporte profesional en PDF con el rendimiento neta y el desglose de movimientos.</p>
+
+            <hr>
+
+            <h2>6. Seguridad Avanzada</h2>
+            <p>Protegemos tu información financiera con múltiples capas:</p>
+            <ul>
+                <li><strong>PIN de Aplicación:</strong> Bloqueo rápido para el acceso físico al dispositivo.</li>
+                <li><strong>Autenticación de Dos Factores (2FA):</strong> Seguridad adicional vinculada a tu cuenta para
+                    evitar accesos no autorizados.</li>
+            </ul>
+
+            <hr>
+
+            <h2>7. Personalización</h2>
+            <p>Desde <strong>Ajustes</strong>, adapta la interfaz con <strong>Modo Oscuro</strong> y elige entre
+                diferentes <strong>Colores de Acento</strong> (Esmeralda, Trigo, Tierra, etc.).</p>
+
+            <hr>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <p>¿Consultas?</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank"
+                    class="btn-giant">
+                    Escríbenos a Soporte
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; display: flex; justify-content: center; width: 100%;">
+                <a href="/#blog"
+                    style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-muted); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1rem; transition: 0.3s;"
+                    onmouseover="this.style.color='var(--neon-green)'"
+                    onmouseout="this.style.color='var(--text-muted)'">
+                    <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                    VOLVER AL BLOG<span class="dot orbitron">.</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Logic
+        const htmlElement = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.querySelector('.moon-icon');
+        const sunIcon = document.querySelector('.sun-icon');
+
+        const setTheme = (theme) => {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (moonIcon && sunIcon) {
+                moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+                sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
+            }
+        };
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

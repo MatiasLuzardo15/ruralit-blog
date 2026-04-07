@@ -28,7 +28,7 @@ const RURALIT_STYLE = {
   card: 'var(--card-bg, #161B22)',
   border: 'var(--border, #21262D)',
   shadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
-  font: 'Inter Tight, sans-serif'
+  font: 'var(--font-main)',
 };
 
 const evolData = [
@@ -136,12 +136,12 @@ const BlogSection = () => {
   ];
 
   return (
-    <section id="blog" style={{ background: 'var(--bg)', padding: '80px 0' }}>
+    <section id="blog" style={{ background: 'var(--bg)', padding: '40px 0' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto', width: '90%' }}>
         
         <div style={{ textAlign: 'center', marginBottom: '35px' }}>
           <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '11px' }}>Insight Report</span>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
+          <h2 className="orbitron" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
             Gestión <span style={{ color: RURALIT_STYLE.green }}>profesional</span> simple
           </h2>
         </div>
@@ -197,7 +197,7 @@ const BlogSection = () => {
           {activeTab === 0 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '15px', color: 'var(--text)' }}>Carga natural.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Carga natural.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Olvidate de las planillas complejas. Ruralit entiende tus notas de voz o texto y organiza todo por vos.
                 </p>
@@ -210,7 +210,7 @@ const BlogSection = () => {
           {activeTab === 1 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '15px', color: 'var(--text)' }}>Anticipación Estratégica.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Anticipación Estratégica.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.
                 </p>
@@ -242,7 +242,7 @@ const BlogSection = () => {
           {activeTab === 2 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '15px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.
                 </p>
@@ -255,7 +255,7 @@ const BlogSection = () => {
           {activeTab === 3 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '15px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Tus datos están seguros y siempre accesibles. Sincronización automática y respaldo blindado.
                 </p>

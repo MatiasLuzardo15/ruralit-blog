@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes | Ruralit</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Orbitron:wght@600;900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .faq-page-container {
+            padding-top: 10rem;
+            padding-bottom: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-page-container {
+                padding-top: 7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                ruralit<span class="dot">.</span>
+            </a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn">
+                    <i data-lucide="moon" class="moon-icon"></i>
+                    <i data-lucide="sun" class="sun-icon" style="display: none;"></i>
+                </button>
+                <a href="https://www.ruralit.site/auth" class="btn-nav">ACCEDER</a>
+                <a href="/" class="btn-nav"
+                    style="background: var(--bg-alt); display: flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+                    VOLVER
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container faq-page-container">
+        <div class="section-header">
+            <span class="section-tag">Ayuda y Soporte</span>
+            <h1 class="orbitron">Preguntas <span class="highlight">Frecuentes</span></h1>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Todo lo que necesitás saber para empezar a
+                profesionalizar tu campo.</p>
+        </div>
+
+        <div class="faq-grid" style="margin-top: 5rem;">
+            <div class="faq-category">
+                <h3 class="orbitron">General<span class="dot">.</span></h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Qué es Ruralit? <i data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Ruralit es una "Libreta del Campo" digital diseñada para simplificar el registro de
+                                movimientos financieros y operativos. Permite llevar el control de múltiples
+                                establecimientos, gestionar inversiones y ver balances detallados de forma profesional,
+                                eliminando la necesidad de planillas de cálculo complejas o libretas de papel.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿A quién está dirigido? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>A productores agropecuarios (ganaderos, agrícolas o mixtos), administradores rurales y
+                                cualquier persona que necesite un control riguroso de sus ingresos, gastos e inversiones
+                                en el sector agro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="orbitron">Funcionalidades<span class="dot">.</span></h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Cómo funciona el registro con lenguaje natural? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Es una de nuestras funciones estrella. En lugar de llenar formularios largos, puedes
+                                escribir (o dictar) frases como: "Compré 50 novillos por 25000 dólares ayer" y el
+                                sistema detectará automáticamente el monto, la categoría y la fecha para registrar el
+                                movimiento en segundos.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Puedo gestionar más de un establecimiento? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Sí. Ruralit permite crear múltiples establecimientos dentro de la misma cuenta,
+                                manteniendo las finanzas y los reportes de cada uno de forma totalmente independiente.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Qué tipo de reportes puedo obtener? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Puedes generar balances mensuales y anuales automáticos, visualizar gráficos de evolución
+                                financiera y exportar reportes detallados en formato PDF para compartir con socios o
+                                contadores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="orbitron">Uso y Conectividad<span class="dot">.</span></h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Puedo usar Ruralit sin conexión a internet? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Por el momento, Ruralit requiere una conexión a internet activa para sincronizar tus
+                                datos en tiempo real de forma segura y asegurar que tu información esté siempre
+                                respaldada y accesible desde cualquier dispositivo.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Funciona en mi celular? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Absolutamente. Ruralit es una aplicación web progresiva optimizada para dispositivos
+                                móviles (Android y iOS), lo que te permite llevar tu gestión en el bolsillo en todo
+                                momento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3 class="orbitron">Seguridad y Privacidad<span class="dot">.</span></h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Están seguros mis datos? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Sí. Utilizamos estándares de seguridad de nivel bancario para proteger tu información.
+                                Los datos se almacenan en una base de datos encriptada y la autenticación es gestionada
+                                por proveedores líderes en seguridad.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Quién puede ver mis datos financieros? <i
+                                data-lucide="chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <p>Solo tú. Los datos pertenecen exclusivamente al usuario y están aislados. Nadie fuera de
+                                tu cuenta tiene acceso a la información de tus establecimientos o inversiones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-footer"
+            style="text-align: center; margin-top: 5rem; padding: 4rem 2rem; background: var(--bg-alt); border-radius: 3rem; border: 1px solid var(--border);">
+            <h3 class="orbitron" style="margin-bottom: 1rem;">¿No encontraste lo que buscabas?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Estamos para ayudarte a profesionalizar tu campo.
+            </p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank"
+                class="btn-giant" style="display: inline-flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="mail"></i>
+                Contáctanos ahora
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; display: flex; justify-content: center; width: 100%;">
+                <a href="/#blog"
+                    style="display: flex; align-items: center; gap: 0.6rem; color: var(--text-muted); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1rem; transition: 0.3s;"
+                    onmouseover="this.style.color='var(--neon-green)'"
+                    onmouseout="this.style.color='var(--text-muted)'">
+                    <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                    VOLVER AL BLOG<span class="dot orbitron">.</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Logic
+        const htmlElement = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const moonIcon = document.querySelector('.moon-icon');
+        const sunIcon = document.querySelector('.sun-icon');
+
+        const setTheme = (theme) => {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (moonIcon && sunIcon) {
+                moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+                sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
+            }
+        };
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        lucide.createIcons();
+
+        // Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close other items
+                item.parentElement.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-body').style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    const body = item.querySelector('.accordion-body');
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
