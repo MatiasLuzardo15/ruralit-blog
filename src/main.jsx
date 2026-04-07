@@ -57,7 +57,14 @@ const App = () => {
     const navLinks = document.getElementById('nav-links');
     
     const handleMenuToggle = () => {
-      navLinks?.classList.toggle('active');
+      const isActive = navLinks?.classList.toggle('active');
+      const openIcon = menuToggle?.querySelector('.open-icon');
+      const closeIcon = menuToggle?.querySelector('.close-icon');
+      
+      if (openIcon && closeIcon) {
+        openIcon.style.display = isActive ? 'none' : 'block';
+        closeIcon.style.display = isActive ? 'block' : 'none';
+      }
     };
 
     menuToggle?.addEventListener('click', handleMenuToggle);
@@ -66,6 +73,12 @@ const App = () => {
     navItems?.forEach(link => {
       link.addEventListener('click', () => {
         navLinks?.classList.remove('active');
+        const openIcon = menuToggle?.querySelector('.open-icon');
+        const closeIcon = menuToggle?.querySelector('.close-icon');
+        if (openIcon && closeIcon) {
+          openIcon.style.display = 'block';
+          closeIcon.style.display = 'none';
+        }
       });
     });
 
