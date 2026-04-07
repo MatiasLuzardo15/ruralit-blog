@@ -244,7 +244,12 @@ nav.scrolled {
 }
 
 .btn-nav {
-  padding: 0.7rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  height: 42px;
+  padding: 0 1.5rem;
   border: 1px solid var(--neon-green);
   border-radius: 2rem;
   font-weight: 700;
@@ -261,7 +266,12 @@ nav.scrolled {
 }
 
 .btn-nav-secondary {
-  padding: 0.7rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  height: 42px;
+  padding: 0 1.5rem;
   border: 1px solid var(--border);
   border-radius: 2rem;
   font-weight: 700;
