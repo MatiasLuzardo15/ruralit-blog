@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ruralit. | Inteligencia Financiera para el Campo</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ruralit es la plataforma de inteligencia financiera diseñada para que los productores agropecuarios modernos optimicen sus gastos, monitoreen ciclos y alcancen metas reales.">
+    
+    <!-- Fonts: Outfit (Main) & Orbitron (Logo/Headers) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Orbitron:wght@600;900&family=Inter+Tight:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                ruralit<span class="dot">.</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#problem">Problema</a>
+                <a href="#how-it-works">Cómo Funciona</a>
+                <a href="#features">Soluciones</a>
+                <a href="#use-cases">Casos</a>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button id="menu-toggle" class="menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+                <button id="theme-toggle" class="theme-btn">
+                    <i data-lucide="moon" class="moon-icon"></i>
+                    <i data-lucide="sun" class="sun-icon"></i>
+                </button>
+                <a href="/login" class="btn-nav">ACCEDER</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <div class="container hero-content">
+            <div class="reveal">
+                <span class="badge">Organización de Gastos para el Campo</span>
+                <h1 style="margin-top: 1rem;">Organizá los <span class="highlight">resultados</span> de tu campo en tiempo real</h1>
+                <p>Registrá gastos, analizá inversiones y tomá decisiones con datos reales, no intuición.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#how-it-works" class="btn-giant">VER CÓMO FUNCIONA</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-dashboard-preview reveal">
+            <div class="metric-pill pill-1">
+                <i data-lucide="zap"></i>
+                <span>Movimiento: Compra Gasoil</span>
+            </div>
+            <div class="metric-pill pill-2">
+                <i data-lucide="trending-up"></i>
+                <span>Margen Lote: +22.4%</span>
+            </div>
+            <div class="metric-pill pill-3">
+                <i data-lucide="globe"></i>
+                <span>USD: $39.55</span>
+            </div>
+            <img src="assets/balances.png" alt="Ruralit Dashboard Preview" style="width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));">
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section id="problem" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">El Problema</span>
+            <h2>¿Sabés cuánto estás <span class="highlight">perdiendo</span> hoy?</h2>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card reveal">
+                <i data-lucide="eye-off"></i>
+                <h3>Costos invisibles</h3>
+                <p>Gastos pequeños que no registrás pero que a fin de año devoran tu margen operativo.</p>
+            </div>
+            <div class="problem-card reveal">
+                <i data-lucide="trending-down"></i>
+                <h3>No sabés si ganás o perdés</h3>
+                <p>Llevás las cuentas en la cabeza o en un cuaderno. La falta de datos claros te genera incertidumbre.</p>
+            </div>
+            <div class="problem-card reveal">
+                <i data-lucide="alert-circle"></i>
+                <h3>Decisiones a ciegas</h3>
+                <p>Proyectos que avanzan sin claridad sobre el margen real de tu capital asignado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Cómo funciona</span>
+                <h2>Tres pasos hacia el <span class="highlight">control total</span></h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">01</div>
+                    <i data-lucide="pen-tool"></i>
+                    <h3>Registrás tus movimientos</h3>
+                    <p>Cargás gastos, inversiones o ingresos en segundos. Nuestro diccionario reconoce palabras clave para organizar todo por vos.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">02</div>
+                    <i data-lucide="settings"></i>
+                    <h3>Ruralit organiza todo</h3>
+                    <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y proyecto asignado.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">03</div>
+                    <i data-lucide="bar-chart-3"></i>
+                    <h3>Ves tu margen real</h3>
+                    <p>Accedés a tableros limpios con tu flujo de caja, margen por lote y evolución mensual en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- React Blog Section (Resumen de Gestión) -->
+    <div id="react-blog-root"></div>
+
+    <!-- Product Showcase Section -->
+    <section id="product-showcase" class="container reveal">
+        <div class="section-header">
+            <span class="section-tag">Lo que vas a ver en Ruralit</span>
+            <h2>Datos que se convierten en <span class="highlight">claridad</span></h2>
+        </div>
+        
+        <div class="product-layout">
+            <div class="product-info">
+                <div class="info-item reveal">
+                    <h4>Ganancia por actividad</h4>
+                    <p>Analizá qué lote o cultivo está dejando más margen neto después de gastos e impuestos.</p>
+                </div>
+                <div class="info-item reveal">
+                    <h4>Flujo de caja dinámico</h4>
+                    <p>Controlá tus ingresos y egresos proyectados para nunca quedarte sin liquidez operativa.</p>
+                </div>
+                <div class="info-item reveal">
+                    <h4>Costos ocultos detectados</h4>
+                    <p>Identificamos gastos invisibles en categorías que suelen pasar desapercibidas.</p>
+                </div>
+                <div class="info-item reveal">
+                    <h4>Evolución mensual</h4>
+                    <p>Compará tu rendimiento mes a mes para entender la estacionalidad de tu negocio.</p>
+                </div>
+            </div>
+            <div class="product-visual">
+                <img src="assets/secciones.png" alt="Secciones de Ruralit" style="width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15)); transition: 0.6s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px)'" onmouseout="this.style.transform='translateY(0)'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="use-cases">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Casos de Uso</span>
+                <h2>Adaptado a <span class="highlight">tu negocio</span></h2>
+            </div>
+            <div class="cases-grid">
+                <div class="case-card reveal">
+                    <div class="case-header">
+                        <i data-lucide="cow"></i>
+                        <h3>Ganadería</h3>
+                    </div>
+                    <p>Seguí el margen real por lote de animales. Controlá costos de suplementación y sanidad con precisión.</p>
+                    <span class="case-impact">Margen real por lote</span>
+                </div>
+                <div class="case-card reveal">
+                    <div class="case-header">
+                        <i data-lucide="wheat"></i>
+                        <h3>Agricultura</h3>
+                    </div>
+                    <p>Calculá el costo por hectárea y el punto de equilibrio de tu siembra. Monitoreá insumos y laboreos.</p>
+                    <span class="case-impact">Costos por hectárea</span>
+                </div>
+                <div class="case-card reveal">
+                    <div class="case-header">
+                        <i data-lucide="sheep"></i>
+                        <h3>Ovinos y Especialidades</h3>
+                    </div>
+                    <p>Llevá un seguimiento minucioso de inversiones en infraestructura y genética. Retorno a largo plazo.</p>
+                    <span class="case-impact">Seguimiento de inversión</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">Testimonios</span>
+            <h2>Lo que dicen los <span class="highlight">productores</span></h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <p>"Antes no sabía si realmente tenía margen al cerrar un lote. Ahora lo veo claro desde el primer día."</p>
+                <div class="user-info">
+                    <div class="avatar-placeholder">J</div>
+                    <div>
+                        <div class="user-name">Jorge M.</div>
+                        <div class="user-role">Ganadero, Rocha</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <p>"La facilidad para cargar gastos desde el teléfono mientras estoy en el campo cambió todo mi sistema."</p>
+                <div class="user-info">
+                    <div class="avatar-placeholder">R</div>
+                    <div>
+                        <div class="user-name">Ricardo P.</div>
+                        <div class="user-role">Agrónomo, Soriano</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container reveal">
+            <h2>Transformá tu campo en una <span class="highlight">empresa rentable</span></h2>
+            <p>Dejá de operar por intuición. Unite a los productores que ya toman decisiones basadas en datos.</p>
+            <div style="margin-top: 3rem;">
+                <a href="/login" class="btn-giant">COMENZAR AHORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">ruralit<span class="dot">.</span></div>
+            <p>&copy; 2026 Ruralit. Control financiero para tu campo.</p>
+            <div class="footer-links">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="main.js"></script>
+</body>
+</html>
