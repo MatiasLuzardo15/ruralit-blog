@@ -247,9 +247,9 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 130px;
-  height: 42px;
-  padding: 0 1.5rem;
+  min-width: 115px;
+  height: 38px;
+  padding: 0 1.2rem;
   border: 1px solid var(--neon-green);
   border-radius: 2rem;
   font-weight: 700;
@@ -269,9 +269,9 @@ nav.scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 130px;
-  height: 42px;
-  padding: 0 1.5rem;
+  min-width: 115px;
+  height: 38px;
+  padding: 0 1.2rem;
   border: 1px solid var(--border);
   border-radius: 2rem;
   font-weight: 700;
