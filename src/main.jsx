@@ -20,7 +20,7 @@ const App = () => {
 
       // Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal:not(.active)');
-      const triggerBottom = window.innerHeight / 5 * 4;
+      const triggerBottom = window.innerHeight / 10 * 9;
       revealElements.forEach(el => {
         const elTop = el.getBoundingClientRect().top;
         if (elTop < triggerBottom) {

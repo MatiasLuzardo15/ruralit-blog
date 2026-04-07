@@ -126,8 +126,8 @@ section {
 /* Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s var(--transition);
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s var(--transition);
 }
 
 .reveal.active {
