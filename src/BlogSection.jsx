@@ -50,37 +50,37 @@ const catData = [
 
 // Composable Sub-components
 const FeedbackHeader = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '20px', borderLeft: `4px solid ${RURALIT_STYLE.green}`, boxShadow: RURALIT_STYLE.shadow, display: 'flex', gap: '12px', alignItems: 'center' }}>
-    <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: RURALIT_STYLE.greenLight, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>
-       <Activity size={20} />
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '16px', padding: '15px', borderLeft: `4px solid ${RURALIT_STYLE.green}`, boxShadow: RURALIT_STYLE.shadow, display: 'flex', gap: '10px', alignItems: 'center' }}>
+    <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: RURALIT_STYLE.greenLight, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>
+       <Activity size={18} />
     </div>
     <div style={{ flex: 1 }}>
-      <p style={{ fontSize: '10px', fontWeight: 900, color: RURALIT_STYLE.green, textTransform: 'uppercase', margin: 0 }}>Diagnóstico</p>
-      <p style={{ fontSize: '14px', fontWeight: 600, color: RURALIT_STYLE.text1, margin: 0 }}>"Rendimiento del 42%. Excelente margen neto."</p>
+      <p style={{ fontSize: '9px', fontWeight: 900, color: RURALIT_STYLE.green, textTransform: 'uppercase', margin: 0 }}>Diagnóstico</p>
+      <p style={{ fontSize: '13px', fontWeight: 600, color: RURALIT_STYLE.text1, margin: 0 }}>"Rendimiento del 42%. Margen excelente."</p>
     </div>
   </div>
 );
 
 const ChartContainer = ({ title, children }) => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '24px', padding: '20px', boxShadow: RURALIT_STYLE.shadow, border: `1px solid ${RURALIT_STYLE.border}`, width: '100%' }}>
-    <p style={{ fontSize: '12px', fontWeight: 700, color: RURALIT_STYLE.text3, textTransform: 'uppercase', marginBottom: '15px' }}>{title}</p>
-    <div style={{ width: '100%', height: 200 }}>
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', boxShadow: RURALIT_STYLE.shadow, border: `1px solid ${RURALIT_STYLE.border}`, width: '100%' }}>
+    <p style={{ fontSize: '11px', fontWeight: 700, color: RURALIT_STYLE.text3, textTransform: 'uppercase', marginBottom: '12px' }}>{title}</p>
+    <div style={{ width: '100%', height: 160 }}>
       {children}
     </div>
   </div>
 );
 
 const CategoryBars = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '24px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <h3 style={{ fontSize: '15px', fontWeight: 800, color: RURALIT_STYLE.text1, marginBottom: '15px' }}>Distribución de Gastos</h3>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
+    <h3 style={{ fontSize: '14px', fontWeight: 800, color: RURALIT_STYLE.text1, marginBottom: '12px' }}>Distribución de Gastos</h3>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       {catData.map((item, i) => (
-        <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px' }}>
+        <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px' }}>
             <span style={{ fontWeight: 600, color: RURALIT_STYLE.text1 }}>{item.nombre}</span>
             <span style={{ fontWeight: 800 }}>{item.pct}%</span>
           </div>
-          <div style={{ height: '4px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', overflow: 'hidden' }}>
+          <div style={{ height: '3px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', overflow: 'hidden' }}>
             <div style={{ width: `${item.pct}%`, height: '100%', background: item.color }} />
           </div>
         </div>
@@ -90,16 +90,16 @@ const CategoryBars = () => (
 );
 
 const InvestmentCard = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '24px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-      <h4 style={{ fontSize: '16px', fontWeight: 800, color: RURALIT_STYLE.text1, margin: 0 }}>Lote Brangus</h4>
-      <div style={{ background: RURALIT_STYLE.greenLight, color: RURALIT_STYLE.green, padding: '2px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 700 }}>
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+      <h4 style={{ fontSize: '14px', fontWeight: 800, color: RURALIT_STYLE.text1, margin: 0 }}>Lote Brangus</h4>
+      <div style={{ background: RURALIT_STYLE.greenLight, color: RURALIT_STYLE.green, padding: '2px 6px', borderRadius: '5px', fontSize: '10px', fontWeight: 700 }}>
         ROI +18.4%
       </div>
     </div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-        <p style={{ fontSize: '11px', color: RURALIT_STYLE.text3, margin: 0 }}>Invertido: <b style={{color: '#fff'}}>USD 45k</b></p>
-        <p style={{ fontSize: '11px', color: RURALIT_STYLE.text3, margin: 0 }}>Días: <b style={{color: '#fff'}}>142/180</b></p>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+        <p style={{ fontSize: '10px', color: RURALIT_STYLE.text3, margin: 0 }}>Invertido: <b style={{color: '#fff'}}>USD 45k</b></p>
+        <p style={{ fontSize: '10px', color: RURALIT_STYLE.text3, margin: 0 }}>Días: <b style={{color: '#fff'}}>142/180</b></p>
     </div>
   </div>
 );
@@ -139,9 +139,9 @@ const BlogSection = () => {
     <section id="blog" style={{ background: 'var(--bg)', padding: '80px 0' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto', width: '90%' }}>
         
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '35px' }}>
           <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '11px' }}>Insight Report</span>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
             Gestión <span style={{ color: RURALIT_STYLE.green }}>profesional</span> simple
           </h2>
         </div>
@@ -149,14 +149,14 @@ const BlogSection = () => {
         {/* Tab Navigation */}
         <div style={{ 
           display: 'flex', 
-          gap: '8px', 
-          marginBottom: '40px',
+          gap: '6px', 
+          marginBottom: '30px',
           background: 'rgba(255,255,255,0.02)',
-          padding: '6px',
+          padding: '4px',
           borderRadius: '50px',
           border: '1px solid var(--border)',
           width: 'fit-content',
-          margin: '0 auto 40px auto',
+          margin: '0 auto 30px auto',
           maxWidth: '100%',
           overflowX: 'auto'
         }}>
@@ -168,14 +168,14 @@ const BlogSection = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
+                padding: '8px 16px',
                 borderRadius: '40px',
                 border: 'none',
                 background: activeTab === idx ? RURALIT_STYLE.green : 'transparent',
                 color: activeTab === idx ? '#fff' : 'var(--text-muted)',
                 cursor: 'pointer',
                 fontWeight: 700,
-                fontSize: '13px',
+                fontSize: '12px',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease'
               }}
@@ -188,10 +188,10 @@ const BlogSection = () => {
         {/* Content Area */}
         <div style={{ 
           background: 'var(--card-bg)', 
-          padding: '40px', 
-          borderRadius: '32px', 
+          padding: '24px', 
+          borderRadius: '24px', 
           border: '1px solid var(--border)',
-          minHeight: '350px'
+          minHeight: '300px'
         }}>
           
           {activeTab === 0 && (

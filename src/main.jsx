@@ -19,14 +19,12 @@ const App = () => {
       }
 
       // Scroll Reveal Animation
-      const revealElements = document.querySelectorAll('.reveal');
+      const revealElements = document.querySelectorAll('.reveal:not(.active)');
       const triggerBottom = window.innerHeight / 5 * 4;
       revealElements.forEach(el => {
         const elTop = el.getBoundingClientRect().top;
         if (elTop < triggerBottom) {
           el.classList.add('active');
-        } else {
-          el.classList.remove('active');
         }
       });
     };
