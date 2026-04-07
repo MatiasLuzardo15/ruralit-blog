@@ -245,18 +245,35 @@ nav.scrolled {
 
 .btn-nav {
   padding: 0.7rem 1.8rem;
+  border: 1px solid var(--neon-green);
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--neon-green);
+  background: rgba(46, 125, 50, 0.08);
+  transition: var(--transition);
+}
+
+.btn-nav:hover {
+  background: var(--neon-green);
+  color: white;
+  box-shadow: 0 0 20px var(--neon-glow);
+}
+
+.btn-nav-secondary {
+  padding: 0.7rem 1.8rem;
   border: 1px solid var(--border);
   border-radius: 2rem;
   font-weight: 700;
   font-size: 0.8rem;
   color: var(--text);
+  background: var(--bg-alt);
   transition: var(--transition);
 }
 
-.btn-nav:hover {
-  border-color: var(--neon-green);
-  color: var(--neon-green);
-  background: rgba(46, 125, 50, 0.05);
+.btn-nav-secondary:hover {
+  border-color: var(--text-muted);
+  opacity: 0.8;
 }
 
 /* Hero Section */
