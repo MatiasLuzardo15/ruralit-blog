@@ -136,12 +136,12 @@ const BlogSection = () => {
   ];
 
   return (
-    <section id="blog" style={{ background: 'var(--bg)', padding: '40px 0' }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto', width: '90%' }}>
+    <section id="blog" style={{ background: 'var(--bg)', padding: '80px 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '90%' }}>
 
         <div style={{ textAlign: 'center', marginBottom: '35px' }}>
-          <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '10px' }}>Insight Report</span>
-          <h2 className="orbitron" style={{ fontSize: 'clamp(1.4rem, 3.2vw, 2.1rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
+          <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '14px' }}>Insight Report</span>
+          <h2 className="orbitron" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900, lineHeight: 1.1 }}>
             Gestión <span style={{ color: RURALIT_STYLE.green }}>profesional</span> simple
           </h2>
         </div>
@@ -177,7 +177,7 @@ const BlogSection = () => {
                 color: activeTab === idx ? '#FFFFFF' : 'var(--text-muted)',
                 cursor: 'pointer',
                 fontWeight: 700,
-                fontSize: '11px',
+                fontSize: '14px',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease'
               }}
@@ -200,7 +200,7 @@ const BlogSection = () => {
           {activeTab === 0 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Carga natural.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Carga natural.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Olvidate de las planillas complejas. Ruralit entiende tus notas de voz o texto y organiza todo por vos.
                 </p>
@@ -213,7 +213,7 @@ const BlogSection = () => {
           {activeTab === 1 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>{activeTab === 1 ? 'Anticipación Estratégica.' : activeTab === 2 ? 'Rentabilidad Real.' : 'Seguridad de Grado Bancario.'}</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>{activeTab === 1 ? 'Anticipación Estratégica.' : activeTab === 2 ? 'Rentabilidad Real.' : 'Seguridad de Grado Bancario.'}</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   {activeTab === 1 ? 'Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.' :
                     activeTab === 2 ? 'Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.' :
@@ -247,7 +247,7 @@ const BlogSection = () => {
           {activeTab === 2 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.
                 </p>
@@ -260,7 +260,7 @@ const BlogSection = () => {
           {activeTab === 3 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Tu información se sincroniza en tiempo real con la nube para que nunca pierdas el control de tu establecimiento.
                 </p>
