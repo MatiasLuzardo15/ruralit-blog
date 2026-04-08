@@ -143,6 +143,15 @@ section {
   transform: translateY(0);
 }
 
+/* Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Theme & Menu Buttons */
 .theme-btn,
 .menu-btn {
@@ -1010,6 +1019,23 @@ footer {
 
   .nav-links.active {
     display: flex;
+  }
+
+  /* Blog Tabs Mobile Optimization */
+  .tab-label {
+    display: none;
+  }
+
+  .blog-tab-btn {
+    padding: 12px 20px !important;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .no-scrollbar {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    border-radius: 12px !important;
   }
 
   .nav-links a {

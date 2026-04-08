@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  AreaChart, 
-  Area, 
-  XAxis, 
-  Tooltip, 
-  ResponsiveContainer 
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  Tooltip,
+  ResponsiveContainer
 } from 'recharts';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  Wallet, 
-  Info, 
+import {
+  TrendingUp,
+  TrendingDown,
+  Wallet,
+  Info,
   Sprout,
   Activity,
   ShieldCheck,
@@ -52,18 +52,18 @@ const catData = [
 const FeedbackHeader = () => (
   <div style={{ background: RURALIT_STYLE.card, borderRadius: '16px', padding: '15px', borderLeft: `4px solid ${RURALIT_STYLE.green}`, boxShadow: RURALIT_STYLE.shadow, display: 'flex', gap: '10px', alignItems: 'center' }}>
     <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: RURALIT_STYLE.greenLight, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>
-       <Activity size={18} />
+      <Activity size={18} />
     </div>
     <div style={{ flex: 1 }}>
-      <p style={{ fontSize: '9px', fontWeight: 900, color: RURALIT_STYLE.green, textTransform: 'uppercase', margin: 0 }}>Diagnóstico</p>
-      <p style={{ fontSize: '13px', fontWeight: 600, color: RURALIT_STYLE.text1, margin: 0 }}>"Rendimiento del 42%. Margen excelente."</p>
+      <p style={{ fontSize: '8px', fontWeight: 900, color: RURALIT_STYLE.green, textTransform: 'uppercase', margin: 0 }}>Diagnóstico</p>
+      <p style={{ fontSize: '11px', fontWeight: 600, color: RURALIT_STYLE.text1, margin: 0 }}>"Rendimiento del 42%. Margen excelente."</p>
     </div>
   </div>
 );
 
 const ChartContainer = ({ title, children }) => (
   <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', boxShadow: RURALIT_STYLE.shadow, border: `1px solid ${RURALIT_STYLE.border}`, width: '100%' }}>
-    <p style={{ fontSize: '11px', fontWeight: 700, color: RURALIT_STYLE.text3, textTransform: 'uppercase', marginBottom: '12px' }}>{title}</p>
+    <p style={{ fontSize: '10px', fontWeight: 700, color: RURALIT_STYLE.text3, textTransform: 'uppercase', marginBottom: '12px' }}>{title}</p>
     <div style={{ width: '100%', height: 160 }}>
       {children}
     </div>
@@ -72,11 +72,11 @@ const ChartContainer = ({ title, children }) => (
 
 const CategoryBars = () => (
   <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <h3 style={{ fontSize: '14px', fontWeight: 800, color: RURALIT_STYLE.text1, marginBottom: '12px' }}>Distribución de Gastos</h3>
+    <h3 style={{ fontSize: '13px', fontWeight: 800, color: RURALIT_STYLE.text1, marginBottom: '12px' }}>Distribución de Gastos</h3>
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       {catData.map((item, i) => (
         <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px' }}>
             <span style={{ fontWeight: 600, color: RURALIT_STYLE.text1 }}>{item.nombre}</span>
             <span style={{ fontWeight: 800 }}>{item.pct}%</span>
           </div>
@@ -92,26 +92,26 @@ const CategoryBars = () => (
 const InvestmentCard = () => (
   <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-      <h4 style={{ fontSize: '14px', fontWeight: 800, color: RURALIT_STYLE.text1, margin: 0 }}>Lote Brangus</h4>
-      <div style={{ background: RURALIT_STYLE.greenLight, color: RURALIT_STYLE.green, padding: '2px 6px', borderRadius: '5px', fontSize: '10px', fontWeight: 700 }}>
+      <h4 style={{ fontSize: '13px', fontWeight: 800, color: RURALIT_STYLE.text1, margin: 0 }}>Lote Brangus</h4>
+      <div style={{ background: RURALIT_STYLE.greenLight, color: RURALIT_STYLE.green, padding: '2px 6px', borderRadius: '5px', fontSize: '9px', fontWeight: 700 }}>
         ROI +18.4%
       </div>
     </div>
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-        <p style={{ fontSize: '10px', color: RURALIT_STYLE.text3, margin: 0 }}>Invertido: <b style={{color: '#fff'}}>USD 45k</b></p>
-        <p style={{ fontSize: '10px', color: RURALIT_STYLE.text3, margin: 0 }}>Días: <b style={{color: '#fff'}}>142/180</b></p>
+      <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, margin: 0 }}>Invertido: <b style={{ color: RURALIT_STYLE.text1 }}>USD 45k</b></p>
+      <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, margin: 0 }}>Días: <b style={{ color: RURALIT_STYLE.text1 }}>142/180</b></p>
     </div>
   </div>
 );
 
 const SmartRegisterMock = () => (
   <div style={{ background: '#111827', borderRadius: '20px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <p style={{ fontSize: '10px', color: '#9CA3AF', marginBottom: '10px', fontWeight: 900 }}>DICCIONARIO INTELIGENTE</p>
-    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '12px', fontFamily: 'monospace', fontSize: '13px', color: RURALIT_STYLE.green, marginBottom: '12px' }}>
-      "Compramos 12 toros a 2500 usd c/u"
+    <p style={{ fontSize: '9px', color: '#9CA3AF', marginBottom: '10px', fontWeight: 900 }}>DICCIONARIO INTELIGENTE</p>
+    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '12px', fontFamily: 'monospace', fontSize: '12px', color: RURALIT_STYLE.green, marginBottom: '12px' }}>
+      "Compramos toros por 10000 usd"
     </div>
     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-      {['12 Unidades', 'USD 30.000', 'Hacienda'].map(tag => (
+      {['USD 10.000', 'Compra de ganado'].map(tag => (
         <span key={tag} style={{ background: 'rgba(46, 125, 50, 0.1)', color: RURALIT_STYLE.green, padding: '3px 8px', borderRadius: '6px', fontSize: '9px', fontWeight: 700, border: `1px solid ${RURALIT_STYLE.green}44` }}>
           ✓ {tag}
         </span>
@@ -138,30 +138,32 @@ const BlogSection = () => {
   return (
     <section id="blog" style={{ background: 'var(--bg)', padding: '40px 0' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto', width: '90%' }}>
-        
+
         <div style={{ textAlign: 'center', marginBottom: '35px' }}>
-          <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '11px' }}>Insight Report</span>
-          <h2 className="orbitron" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
+          <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '10px' }}>Insight Report</span>
+          <h2 className="orbitron" style={{ fontSize: 'clamp(1.4rem, 3.2vw, 2.1rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900 }}>
             Gestión <span style={{ color: RURALIT_STYLE.green }}>profesional</span> simple
           </h2>
         </div>
 
         {/* Tab Navigation */}
-        <div style={{ 
-          display: 'flex', 
-          gap: '6px', 
-          marginBottom: '30px',
-          background: 'rgba(255,255,255,0.02)',
-          padding: '4px',
-          borderRadius: '50px',
-          border: '1px solid var(--border)',
-          width: 'fit-content',
-          margin: '0 auto 30px auto',
-          maxWidth: '100%',
-          overflowX: 'auto'
-        }}>
+        <div
+          className="no-scrollbar"
+          style={{
+            display: 'flex',
+            gap: '6px',
+            marginBottom: '30px',
+            background: 'rgba(255,255,255,0.02)',
+            padding: '4px',
+            borderRadius: '50px',
+            border: '1px solid var(--border)',
+            width: 'fit-content',
+            margin: '0 auto 30px auto',
+            maxWidth: '100%',
+            overflowX: 'auto'
+          }}>
           {tabs.map((tab, idx) => (
-            <button 
+            <button
               key={idx}
               onClick={() => setActiveTab(idx)}
               style={{
@@ -172,33 +174,34 @@ const BlogSection = () => {
                 borderRadius: '40px',
                 border: 'none',
                 background: activeTab === idx ? RURALIT_STYLE.green : 'transparent',
-                color: activeTab === idx ? '#fff' : 'var(--text-muted)',
+                color: activeTab === idx ? '#FFFFFF' : 'var(--text-muted)',
                 cursor: 'pointer',
                 fontWeight: 700,
-                fontSize: '12px',
+                fontSize: '11px',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease'
               }}
+              className="blog-tab-btn"
             >
-              {tab.icon} {tab.label}
+              {tab.icon} <span className="tab-label">{tab.label}</span>
             </button>
           ))}
         </div>
 
         {/* Content Area */}
-        <div style={{ 
-          background: 'var(--card-bg)', 
-          padding: '24px', 
-          borderRadius: '24px', 
+        <div style={{
+          background: 'var(--card-bg)',
+          padding: '24px',
+          borderRadius: '24px',
           border: '1px solid var(--border)',
           minHeight: '300px'
         }}>
-          
+
           {activeTab === 0 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Carga natural.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Carga natural.</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Olvidate de las planillas complejas. Ruralit entiende tus notas de voz o texto y organiza todo por vos.
                 </p>
                 <FeedbackHeader />
@@ -210,9 +213,11 @@ const BlogSection = () => {
           {activeTab === 1 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Anticipación Estratégica.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.
+                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>{activeTab === 1 ? 'Anticipación Estratégica.' : activeTab === 2 ? 'Rentabilidad Real.' : 'Seguridad de Grado Bancario.'}</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
+                  {activeTab === 1 ? 'Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.' :
+                    activeTab === 2 ? 'Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.' :
+                      'Tus datos están seguros y siempre accesibles. Sincronización automática y respaldo blindado.'}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800 }}>
                   <CheckCircle2 size={18} /> Previsión de liquidez 2026
@@ -224,8 +229,8 @@ const BlogSection = () => {
                     <AreaChart data={evolData}>
                       <defs>
                         <linearGradient id="colorIng" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor={RURALIT_STYLE.green} stopOpacity={0.1}/>
-                          <stop offset="95%" stopColor={RURALIT_STYLE.green} stopOpacity={0}/>
+                          <stop offset="5%" stopColor={RURALIT_STYLE.green} stopOpacity={0.1} />
+                          <stop offset="95%" stopColor={RURALIT_STYLE.green} stopOpacity={0} />
                         </linearGradient>
                       </defs>
                       <XAxis dataKey="name" hide />
@@ -242,8 +247,8 @@ const BlogSection = () => {
           {activeTab === 2 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
                   Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.
                 </p>
                 <InvestmentCard />
@@ -255,20 +260,20 @@ const BlogSection = () => {
           {activeTab === 3 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '15px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '15px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Tus datos están seguros y siempre accesibles. Sincronización automática y respaldo blindado.
+                <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
+                  Tu información se sincroniza en tiempo real con la nube para que nunca pierdas el control de tu establecimiento.
                 </p>
                 <div style={{ background: RURALIT_STYLE.greenLight, padding: '15px', borderRadius: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <ShieldCheck color={RURALIT_STYLE.green} size={24} />
-                  <span style={{ fontSize: '13px', color: RURALIT_STYLE.green, fontWeight: 800 }}>DATOS ENCRIPTADOS Y DISPONIBLES OFFLINE</span>
+                  <span style={{ fontSize: '12px', color: RURALIT_STYLE.green, fontWeight: 800 }}>DATOS ENCRIPTADOS Y NUBE EN TIEMPO REAL</span>
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                 <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
-                    <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Estado del Mercado</p>
-                    <div style={{ fontSize: '20px', fontWeight: 900 }}>USD $39.55 <span style={{ color: '#38A169', fontSize: '12px' }}>+0.22%</span></div>
-                 </div>
+                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
+                  <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Seguridad de cuenta</p>
+                  <div style={{ fontSize: '16px', fontWeight: 900 }}>Doble Factor (2FA) <span style={{ color: '#38A169', fontSize: '12px' }}>Activado</span></div>
+                </div>
               </div>
             </div>
           )}
