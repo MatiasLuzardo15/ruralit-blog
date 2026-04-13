@@ -202,7 +202,7 @@ const BlogSection = () => {
               <div>
                 <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Carga natural.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Olvidate de las planillas complejas. Ruralit entiende tus notas de voz o texto y organiza todo por vos.
+                  Olvidate de las planillas complejas. Ruralit entiende texto en lenguaje natural y organiza todo por vos.
                 </p>
                 <FeedbackHeader />
               </div>
@@ -272,7 +272,11 @@ const BlogSection = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                 <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
                   <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Seguridad de cuenta</p>
-                  <div style={{ fontSize: '16px', fontWeight: 900 }}>Doble Factor (2FA) <span style={{ color: '#38A169', fontSize: '12px' }}>Activado</span></div>
+                  <div style={{ fontSize: '16px', fontWeight: 900 }}>Doble Factor (2FA) <span style={{ color: '#38A169', fontSize: '12px' }}>Opcional / Recomendado</span></div>
+                </div>
+                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
+                  <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Protección de App</p>
+                  <div style={{ fontSize: '16px', fontWeight: 900 }}>PIN de Acceso <span style={{ color: '#38A169', fontSize: '12px' }}>Configurable</span></div>
                 </div>
               </div>
             </div>
