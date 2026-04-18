@@ -33,7 +33,7 @@ Usa los botones **Cargar ingreso (+)** o **Cargar gasto (-)** para registros pre
 Ruralit permite analizar tus finanzas con tres niveles de profundidad:
 
 - **Vistas:** Puedes filtrar tus datos de forma **Mensual**, **Trimestral** o **Anual**.
-- **Tendencia de Margen:** Los gráficos anuales no solo muestran ingresos y gastos mes a mes, sino también la línea de **Tendencia de Margen** para evaluar la rentabilidad real.
+- **Tendencia de Margen:** Los gráficos anuales no solo muestran ingresos y gastos mes a mes, sino también la línea de **Tendencia de Margen** para visualizar tu desempeño financiero real.
 - **Vista Trimestral:** Muestra la distribución de gastos e ingresos agrupados específicamente por el trimestre seleccionado.
 
 ---

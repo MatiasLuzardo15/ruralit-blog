@@ -14,7 +14,10 @@ import {
   Sprout,
   Activity,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Globe,
+  FileText,
+  Download
 } from 'lucide-react';
 
 const RURALIT_STYLE = {
@@ -104,6 +107,52 @@ const InvestmentCard = () => (
   </div>
 );
 
+const MultimonedaMock = () => (
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
+    <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, marginBottom: '12px', fontWeight: 900 }}>CONVERSIÓN EN TIEMPO REAL</p>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', background: 'rgba(255,255,255,0.02)', borderRadius: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: '24px', height: '24px', borderRadius: '4px', background: '#3b82f622', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}>$</div>
+          <span style={{ fontSize: '11px', fontWeight: 600 }}>Peso Uruguayo (UYU)</span>
+        </div>
+        <span style={{ fontSize: '11px', fontWeight: 800 }}>$ 42.500</span>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ padding: '4px 10px', borderRadius: '20px', background: RURALIT_STYLE.border, fontSize: '9px', fontWeight: 800, color: RURALIT_STYLE.green }}>COTIZACIÓN: 39.55</div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', background: 'rgba(46, 125, 50, 0.05)', borderRadius: '10px', border: `1px solid ${RURALIT_STYLE.green}33` }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: '24px', height: '24px', borderRadius: '4px', background: `${RURALIT_STYLE.green}22`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>U$S</div>
+          <span style={{ fontSize: '11px', fontWeight: 600 }}>Dólar Estampado (USD)</span>
+        </div>
+        <span style={{ fontSize: '11px', fontWeight: 800 }}>U$S 1.074,58</span>
+      </div>
+    </div>
+  </div>
+);
+
+const ReportsMock = () => (
+  <div style={{ background: RURALIT_STYLE.card, borderRadius: '24px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}`, position: 'relative', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <FileText size={20} color={RURALIT_STYLE.green} />
+        <span style={{ fontSize: '13px', fontWeight: 700 }}>Informe_Anual_2026.pdf</span>
+      </div>
+      <Download size={18} color={RURALIT_STYLE.text3} />
+    </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {[1, 2, 3].map(i => (
+        <div key={i} style={{ height: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '4px', width: i === 3 ? '60%' : '100%' }} />
+      ))}
+    </div>
+    <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
+      <div style={{ flex: 1, height: '40px', background: 'rgba(46, 125, 50, 0.1)', borderRadius: '10px', border: `1px solid ${RURALIT_STYLE.green}44` }} />
+      <div style={{ flex: 1, height: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: '10px' }} />
+    </div>
+  </div>
+);
+
 const SmartRegisterMock = () => (
   <div style={{ background: '#111827', borderRadius: '20px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}` }}>
     <p style={{ fontSize: '9px', color: '#9CA3AF', marginBottom: '10px', fontWeight: 900 }}>DICCIONARIO INTELIGENTE</p>
@@ -132,6 +181,8 @@ const BlogSection = () => {
     { label: 'Simplicidad', icon: <Wallet size={16} /> },
     { label: 'Inteligencia', icon: <TrendingUp size={16} /> },
     { label: 'Resultados', icon: <Activity size={16} /> },
+    { label: 'Multimoneda', icon: <Globe size={16} /> },
+    { label: 'Reportes', icon: <FileText size={16} /> },
     { label: 'Seguridad', icon: <ShieldCheck size={16} /> }
   ];
 
@@ -213,11 +264,9 @@ const BlogSection = () => {
           {activeTab === 1 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>{activeTab === 1 ? 'Anticipación Estratégica.' : activeTab === 2 ? 'Rentabilidad Real.' : 'Seguridad de Grado Bancario.'}</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Anticipación Estratégica.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  {activeTab === 1 ? 'Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.' :
-                    activeTab === 2 ? 'Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.' :
-                      'Tus datos están seguros y siempre accesibles. Sincronización automática y respaldo blindado.'}
+                  Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800 }}>
                   <CheckCircle2 size={18} /> Previsión de liquidez 2026
@@ -247,9 +296,9 @@ const BlogSection = () => {
           {activeTab === 2 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Rentabilidad Real.</h3>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Resultados Claros.</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Controlá el margen de cada proyecto individualmente. Detectamos costos invisibles antes de que afecten tu capital.
+                  Visualizá el margen de cada proyecto y flujo de caja en tiempo real. Detectamos costos invisibles para que decidas con información real.
                 </p>
                 <InvestmentCard />
               </div>
@@ -258,6 +307,36 @@ const BlogSection = () => {
           )}
 
           {activeTab === 3 && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Claridad Multimoneda.</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
+                  Unificamos tus gastos en Pesos y Dólares automáticamente. Visualizá tu flujo de caja real sin importar la moneda de origen.
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800, fontSize: '13px' }}>
+                  <Globe size={18} /> Conversión automática con Pívot
+                </div>
+              </div>
+              <MultimonedaMock />
+            </div>
+          )}
+
+          {activeTab === 4 && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Informes en 1-Clic.</h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
+                  Generá reportes profesionales en segundos. Listos para compartir con tu socio, contador o el banco.
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800, fontSize: '13px' }}>
+                  <Download size={18} /> Exportación PDF y CSV
+                </div>
+              </div>
+              <ReportsMock />
+            </div>
+          )}
+
+          {activeTab === 5 && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
               <div>
                 <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>

@@ -1,6 +1,6 @@
 # Guía de Movimientos: Proyectos e Inversiones
 
-En Ruralit, los movimientos no solo viven en la libreta general, sino que pueden vincularse a **Proyectos Directos** o **Metas de Ahorro** para un seguimiento quirúrgico de la rentabilidad.
+En Ruralit, los movimientos no solo viven en la libreta general, sino que pueden vincularse a **Proyectos Directos** o **Metas de Ahorro** para un seguimiento quirúrgico de tu salud financiera.
 
 ---
 
