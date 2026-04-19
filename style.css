@@ -88,7 +88,7 @@ h4 {
 .orbitron {
   font-family: 'Orbitron', sans-serif !important;
   text-transform: lowercase;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 a {
@@ -736,15 +736,18 @@ nav.scrolled {
 }
 
 .case-card {
-  padding: 2.25rem;
+  padding: 2.5rem;
   background: var(--card-bg-glass, rgba(22, 27, 34, 0.4));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2.5rem;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 [data-theme="light"] {
@@ -787,11 +790,19 @@ nav.scrolled {
 
 .case-impact {
   display: inline-block;
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  font-weight: 700;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
   color: var(--neon-green);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .case-impact {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* Testimonials */
@@ -846,39 +857,87 @@ nav.scrolled {
   color: var(--text-muted);
 }
 
-/* Final CTA */
 .final-cta {
   text-align: center;
-  padding: 12rem 0;
+  padding: 10rem 0;
   position: relative;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/hero_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: var(--bg);
+  overflow: hidden;
 }
 
-@media (max-width: 992px) {
-    .final-cta {
-        padding: 8rem 0;
-    }
-}
-
-[data-theme="light"] .final-cta {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/hero_bg.png');
-  color: #FFFFFF;
-}
-
-.final-cta::after {
+.final-cta::before {
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+.cta-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 4rem;
+  padding: 8rem 4rem;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.4);
+}
+
+.cta-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 4rem;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--neon-green), transparent 40%, transparent 60%, var(--neon-green));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+[data-theme="light"] .cta-card {
+  background: #FFFFFF;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+[data-theme="light"] .cta-card::after {
+  opacity: 0.1;
+}
+
+.cta-glow-element {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--neon-glow) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(46, 125, 50, 0.08) 0%, transparent 70%);
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .final-cta {
+    padding: 6rem 0;
+  }
+  
+  .cta-card {
+    border-radius: 2.5rem;
+    padding: 5rem 1.5rem;
+  }
+  
+  .cta-card::after {
+    border-radius: 2.5rem;
+  }
 }
 
 .final-cta .container {
@@ -887,27 +946,29 @@ nav.scrolled {
 }
 
 .final-cta h2 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
   margin-bottom: 2rem;
-  color: #fff;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-[data-theme="light"] .final-cta h2 {
-  color: #FFFFFF;
-  text-shadow: none;
+  color: var(--text);
+  line-height: 1.1;
 }
 
 .final-cta p {
-  font-size: 1.3rem;
-  color: #a0a0a0;
-  max-width: 650px;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 550px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-[data-theme="light"] .final-cta p {
-  color: #FFFFFF;
-  opacity: 0.9;
+@media (max-width: 768px) {
+  .final-cta h2 {
+    font-size: 2rem;
+  }
+  
+  .final-cta p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
 }
 
 /* FAQ & Accordion Section */
