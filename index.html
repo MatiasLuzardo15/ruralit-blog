@@ -24,6 +24,10 @@
 </head>
 
 <body>
+    <!-- Ambient Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
     <!-- Navbar -->
     <nav id="navbar">
@@ -113,42 +117,6 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Cómo funciona</span>
-                <h2 class="orbitron">Tres pasos hacia el <span class="highlight">control total</span></h2>
-            </div>
-            <div class="steps-grid reveal">
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <i data-lucide="pen-tool"></i>
-                    <h3>Registrás tus movimientos</h3>
-                    <p>Cargás gastos, inversiones o ingresos en segundos. Nuestro sistema inteligente reconoce las
-                        palabras para organizar todo por vos.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <i data-lucide="settings"></i>
-                    <h3>Ruralit organiza todo</h3>
-                    <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y/o proyecto asignado.
-                    </p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <i data-lucide="bar-chart-3"></i>
-                    <h3>Ves tu margen real</h3>
-                    <p>Accedés a tableros limpios con tu flujo de caja, margen por lote y evolución mensual en tiempo
-                        real.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- React Blog Section (Resumen de Gestión) -->
-    <div id="react-blog-root"></div>
-
     <!-- Product Showcase Section -->
     <section id="product-showcase" class="container reveal">
         <div class="section-header">
@@ -183,6 +151,47 @@
             </div>
         </div>
     </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Cómo funciona</span>
+                <h2 class="orbitron">Tres pasos hacia el <span class="highlight">control total</span></h2>
+            </div>
+            <div class="steps-grid reveal">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <i data-lucide="pen-tool"></i>
+                    <div class="step-content">
+                        <h3>Registrás tus movimientos</h3>
+                        <p>Cargás gastos, inversiones o ingresos en segundos. Nuestro sistema inteligente reconoce las palabras para organizar todo por vos.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <i data-lucide="settings"></i>
+                    <div class="step-content">
+                        <h3>Ruralit organiza todo</h3>
+                        <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y/o proyecto asignado.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <i data-lucide="bar-chart-3"></i>
+                    <div class="step-content">
+                        <h3>Ves tu margen real</h3>
+                        <p>Accedés a tableros limpios con tu flujo de caja, margen por lote y evolución mensual en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- React Blog Section (Resumen de Gestión) -->
+    <div id="react-blog-root"></div>
+
+
 
     <!-- Use Cases Section -->
     <section id="use-cases" class="use-cases">
@@ -224,51 +233,6 @@
     </section>
 
 
-
-    <!-- Hoja de Ruta / Futuras Actualizaciones -->
-    <section class="container reveal" style="padding: 100px 0;">
-        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 30px; padding: 60px; text-align: center;">
-            <span class="section-tag" style="margin: 0 auto 20px auto;">Futuras Actualizaciones</span>
-            <h2 class="orbitron" style="margin-bottom: 20px;">Seguimos evolucionando <span class="highlight">con vos</span></h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 30px auto;">Estamos construyendo las herramientas que el productor moderno necesita para lograr una gestión verdaderamente profesional.</p>
-            <a href="/futuro/" class="btn-nav" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 50px;">
-                VER EL FUTURO DE RURALIT
-                <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
-            </a>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left; margin-top: 40px;">
-                <div style="padding: 24px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);">
-                    <i data-lucide="receipt" style="width: 28px; height: 28px; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h4 style="font-size: 18px; margin-bottom: 12px;">Gestión de Tickets</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Revisión y organización quirúrgica de tus comprobantes para que nada quede fuera del balance.</p>
-                </div>
-                
-                <div style="padding: 24px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);">
-                    <i data-lucide="users" style="width: 28px; height: 28px; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h4 style="font-size: 18px; margin-bottom: 12px;">Establecimientos Compartidos</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Colaboración real con tu familia, socios y asesores. Definí diferentes niveles de acceso para tu equipo.</p>
-                </div>
-                
-                <div style="padding: 24px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);">
-                    <i data-lucide="sliders" style="width: 28px; height: 28px; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h4 style="font-size: 18px; margin-bottom: 12px;">Rubros Personalizados</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Adaptabilidad total. Creá y diseñá tus propias categorías para que Ruralit se ajuste a tu medida.</p>
-                </div>
-
-                <div style="padding: 24px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);">
-                    <i data-lucide="percent" style="width: 28px; height: 28px; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h4 style="font-size: 18px; margin-bottom: 12px;">Impuestos Automatizados</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Cálculo impositivo inteligente durante el registro de venta, derivando porcentajes directamente a costos.</p>
-                </div>
-
-                <div style="padding: 24px; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);">
-                    <i data-lucide="sprout" style="width: 28px; height: 28px; color: var(--neon-green); margin-bottom: 20px;"></i>
-                    <h4 style="font-size: 18px; margin-bottom: 12px;">Agricultura Avanzada</h4>
-                    <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Monitoreo de insumos, laboreos, cálculo de costo por hectárea y punto de equilibrio por lote.</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="final-cta">
         <div class="container reveal">
             <h2 class="orbitron">Convertí tus datos en <span class="highlight">decisiones inteligentes.</span></h2>
