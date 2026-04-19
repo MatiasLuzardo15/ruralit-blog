@@ -172,9 +172,14 @@ const SmartRegisterMock = () => (
 const BlogSection = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const tabs = [
@@ -284,8 +289,23 @@ const BlogSection = () => {
                       </defs>
                       <XAxis dataKey="name" hide />
                       <Tooltip />
-                      <Area type="monotone" dataKey="Ingresos" stroke={RURALIT_STYLE.green} fill="url(#colorIng)" strokeWidth={2} />
-                      <Area type="monotone" dataKey="Gastos" stroke={RURALIT_STYLE.red} fill="transparent" strokeWidth={2} strokeDasharray="5 5" />
+                      <Area 
+                        type="monotone" 
+                        dataKey="Ingresos" 
+                        stroke={RURALIT_STYLE.green} 
+                        fill="url(#colorIng)" 
+                        strokeWidth={2} 
+                        isAnimationActive={!isMobile} 
+                      />
+                      <Area 
+                        type="monotone" 
+                        dataKey="Gastos" 
+                        stroke={RURALIT_STYLE.red} 
+                        fill="transparent" 
+                        strokeWidth={2} 
+                        strokeDasharray="5 5" 
+                        isAnimationActive={!isMobile} 
+                      />
                     </AreaChart>
                   </ResponsiveContainer>
                 </ChartContainer>

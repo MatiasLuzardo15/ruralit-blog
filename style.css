@@ -53,7 +53,7 @@ body {
   position: relative;
 }
 
-/* Ambient Blobs */
+/* Ambient Blobs - Hidden on mobile for performance */
 .blob {
   position: fixed;
   width: 600px;
@@ -63,6 +63,12 @@ body {
   border-radius: 50%;
   z-index: -1;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .blob {
+    display: none !important;
+  }
 }
 
 .blob-1 { top: -10%; left: -10%; }
@@ -158,6 +164,14 @@ section {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Simplified animation on mobile for faster loading */
+@media (max-width: 768px) {
+  .reveal {
+    transform: none;
+    transition: opacity 0.3s ease-out;
+  }
 }
 
 /* Hide Scrollbar Utility */
@@ -723,7 +737,7 @@ nav.scrolled {
 
 .case-card {
   padding: 2.25rem;
-  background: rgba(22, 27, 34, 0.4);
+  background: var(--card-bg-glass, rgba(22, 27, 34, 0.4));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -731,6 +745,10 @@ nav.scrolled {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="light"] {
+  --card-bg-glass: rgba(255, 255, 255, 0.7);
 }
 
 .case-card::before {
@@ -839,9 +857,15 @@ nav.scrolled {
   background-attachment: fixed;
 }
 
+@media (max-width: 992px) {
+    .final-cta {
+        padding: 8rem 0;
+    }
+}
+
 [data-theme="light"] .final-cta {
-  background: linear-gradient(rgba(249, 248, 243, 0.9), rgba(249, 248, 243, 0.9)), url('assets/hero_bg.png');
-  color: var(--text);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/hero_bg.png');
+  color: #FFFFFF;
 }
 
 .final-cta::after {
@@ -870,7 +894,8 @@ nav.scrolled {
 }
 
 [data-theme="light"] .final-cta h2 {
-  color: var(--text);
+  color: #FFFFFF;
+  text-shadow: none;
 }
 
 .final-cta p {
@@ -881,7 +906,8 @@ nav.scrolled {
 }
 
 [data-theme="light"] .final-cta p {
-  color: var(--text-muted);
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 /* FAQ & Accordion Section */

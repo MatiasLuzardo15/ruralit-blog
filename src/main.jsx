@@ -17,19 +17,21 @@ const App = () => {
       } else {
         navbar?.classList.remove('scrolled');
       }
-
-      // Scroll Reveal Animation
-      const revealElements = document.querySelectorAll('.reveal:not(.active)');
-      const triggerBottom = window.innerHeight / 10 * 9;
-      revealElements.forEach(el => {
-        const elTop = el.getBoundingClientRect().top;
-        if (elTop < triggerBottom) {
-          el.classList.add('active');
-        }
-      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Optimized Scroll Reveal with IntersectionObserver
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
 
     // Theme Toggle Logic
@@ -122,6 +124,7 @@ const App = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      revealObserver.disconnect();
       themeToggle?.removeEventListener('click', handleThemeToggle);
       menuToggle?.removeEventListener('click', handleMenuToggle);
     };
