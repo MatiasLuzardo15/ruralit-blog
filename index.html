@@ -30,7 +30,7 @@
     <div class="blob blob-3"></div>
 
     <!-- Navbar -->
-    <nav id="navbar">
+    <nav id="navbar" class="visible">
         <div class="container nav-container">
             <a href="#" class="logo">
                 ruralit<span class="dot">.</span>
@@ -38,6 +38,7 @@
             <div class="nav-links" id="nav-links">
                 <a href="#problem">Problema</a>
                 <a href="#how-it-works">Cómo Funciona</a>
+                <a href="/novedades/">Novedades</a>
                 <a href="#product-showcase">Soluciones</a>
                 <a href="#use-cases">Casos</a>
             </div>
@@ -56,7 +57,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header id="hero" class="hero">
         <div class="hero-glow"></div>
         <div class="container hero-content">
             <div class="reveal">
@@ -153,7 +154,7 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
+<!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header reveal">
@@ -234,7 +235,7 @@
     </section>
 
 
-    <section class="final-cta">
+    <section id="final-cta" class="final-cta">
         <div class="container">
             <div class="cta-card reveal">
                 <div class="cta-glow-element"></div>
@@ -261,9 +262,9 @@
                     <h4 style="margin-bottom: 2rem;">Producto<span class="dot orbitron">.</span></h4>
                     <ul class="footer-list">
                         <li><a href="#how-it-works">Cómo funciona</a></li>
+                        <li><a href="/novedades/">Novedades</a></li>
                         <li><a href="/faq/">FAQ</a></li>
                         <li><a href="/manual/">Manual</a></li>
-                        <li><a href="/futuro/">El futuro de Ruralit</a></li>
                         <li><a href="https://www.ruralit.site/login">Iniciar sesión</a></li>
                         <li><a href="https://www.ruralit.site/signup">Crear cuenta</a></li>
                     </ul>
@@ -312,6 +313,97 @@
     </footer>
 
     <!-- Scripts -->
+<script>
+      // Navbar scroll behavior
+      var lastScrollTop = 0;
+      var navbar = document.getElementById('navbar');
+      
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down - hide navbar
+          navbar.classList.remove('visible');
+          navbar.classList.add('hidden');
+        } else {
+          // Scrolling up - show navbar
+          navbar.classList.remove('hidden');
+          navbar.classList.add('visible');
+        }
+        
+        lastScrollTop = scrollTop;
+      });
+      
+      // Activate .reveal elements after a short delay
+      setTimeout(function() {
+        console.log('[HTML] Activating .reveal elements...');
+        document.querySelectorAll('.reveal').forEach(function(el, i) {
+          el.classList.add('active');
+          console.log('[HTML] Activated .reveal[' + i + ']', el.id || el.className);
+        });
+      }, 100);
+      
+      const sections = [
+        {id: 'hero', tag: 'header'},
+        {id: 'problem', tag: 'section'},
+        {id: 'product-showcase', tag: 'section'},
+        {id: 'how-it-works', tag: 'section'},
+        {id: 'use-cases', tag: 'section'},
+        {id: 'final-cta', tag: 'section'}
+      ];
+      sections.forEach(function(s) {
+        var el = document.getElementById(s.id);
+        console.log('[HTML] Section #' + s.id + ':', el ? 'FOUND' : 'NOT FOUND');
+        if (el) {
+          console.log('[HTML] #' + s.id + ' tag:', el.tagName);
+          console.log('[HTML] #' + s.id + ' display:', getComputedStyle(el).display);
+          console.log('[HTML] #' + s.id + ' visibility:', getComputedStyle(el).visibility);
+          console.log('[HTML] #' + s.id + ' opacity:', getComputedStyle(el).opacity);
+          console.log('[HTML] #' + s.id + ' has .reveal:', el.classList.contains('reveal'));
+          console.log('[HTML] #' + s.id + ' has .active:', el.classList.contains('active'));
+        }
+      });
+      
+      // Check all elements with class="reveal"
+      console.log('[HTML] Elements with .reveal:', document.querySelectorAll('.reveal').length);
+      document.querySelectorAll('.reveal').forEach(function(el, i) {
+        console.log('[HTML] .reveal[' + i + '] id:', el.id, 'opacity:', getComputedStyle(el).opacity);
+      });
+      
+      // Theme toggle
+      var htmlElement = document.documentElement;
+      var themeToggle = document.getElementById('theme-toggle');
+      var moonIcon = document.querySelector('.moon-icon');
+      var sunIcon = document.querySelector('.sun-icon');
+      
+      var setTheme = function(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (moonIcon && sunIcon) {
+          moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+          sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
+        }
+      };
+      
+      var savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+      
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          var currentTheme = htmlElement.getAttribute('data-theme');
+          var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setTheme(newTheme);
+        });
+      }
+      
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+        console.log('[HTML] Lucide icons initialized');
+      } else {
+        console.log('[HTML] Lucide NOT FOUND');
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
 </body>
 

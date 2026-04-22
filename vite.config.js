@@ -14,7 +14,7 @@ export default defineConfig({
         terminos: resolve(__dirname, 'terminos/index.html'),
         faq: resolve(__dirname, 'faq/index.html'),
         manual: resolve(__dirname, 'manual/index.html'),
-        futuro: resolve(__dirname, 'futuro/index.html'),
+        novas: resolve(__dirname, 'novedades/index.html'),
       },
     },
   },

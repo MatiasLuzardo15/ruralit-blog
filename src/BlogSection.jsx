@@ -1,386 +1,232 @@
-import React, { useState, useEffect } from 'react';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts';
-import {
-  TrendingUp,
-  TrendingDown,
-  Wallet,
-  Info,
-  Sprout,
-  Activity,
-  ShieldCheck,
-  CheckCircle2,
-  Globe,
-  FileText,
-  Download
-} from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-const RURALIT_STYLE = {
-  green: '#2E7D32',
-  greenLight: 'rgba(46, 125, 50, 0.1)',
-  red: '#C94A4A',
-  redLight: 'rgba(201, 74, 74, 0.1)',
-  text1: 'var(--text, #FFFFFF)',
-  text3: 'var(--text-muted, #98A2B3)',
-  bg: 'var(--bg, #0C0E10)',
-  card: 'var(--card-bg, #161B22)',
-  border: 'var(--border, #21262D)',
-  shadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
-  font: 'var(--font-main)',
+console.log('[Ruralit] BlogSection module loaded');
+
+const RURALIT = {
+  green: '#22c55e',
+  greenMuted: '#16a34a',
+  greenGlow: 'rgba(34, 197, 94, 0.15)',
+  text: 'var(--text)',
+  textMuted: 'var(--text-muted)',
+  bg: 'var(--bg)',
+  card: 'var(--card-bg)',
+  border: 'var(--border)',
 };
 
-const evolData = [
-  { name: '1', Ingresos: 12000, Gastos: 5000 },
-  { name: '5', Ingresos: 18000, Gastos: 7000 },
-  { name: '10', Ingresos: 15000, Gastos: 12000 },
-  { name: '15', Ingresos: 22000, Gastos: 8000 },
-  { name: '20', Ingresos: 35000, Gastos: 14000 },
-  { name: '25', Ingresos: 31000, Gastos: 13000 },
-  { name: '30', Ingresos: 42000, Gastos: 16000 },
-];
-
 const catData = [
-  { nombre: 'Insumos / Fertilizantes', monto: 8500, pct: 45, color: '#2E7D32' },
-  { nombre: 'Mano de Obra / Personal', monto: 4200, pct: 22, color: '#43A047' },
-  { nombre: 'Combustibles / Gasoil', monto: 3100, pct: 16, color: '#66BB6A' },
-  { nombre: 'Mantenimiento Maquinaria', monto: 1800, pct: 10, color: '#A5D6A7' },
+  { name: 'Insumos', pct: 45, color: '#22c55e' },
+  { name: 'Mano de Obra', pct: 22, color: '#4ade80' },
+  { name: 'Combustible', pct: 16, color: '#86efac' },
+  { name: 'Mantenimiento', pct: 10, color: '#bbf7d0' },
 ];
 
-// Composable Sub-components
-const FeedbackHeader = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '16px', padding: '15px', borderLeft: `4px solid ${RURALIT_STYLE.green}`, boxShadow: RURALIT_STYLE.shadow, display: 'flex', gap: '10px', alignItems: 'center' }}>
-    <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: RURALIT_STYLE.greenLight, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>
-      <Activity size={18} />
-    </div>
-    <div style={{ flex: 1 }}>
-      <p style={{ fontSize: '8px', fontWeight: 900, color: RURALIT_STYLE.green, textTransform: 'uppercase', margin: 0 }}>Diagnóstico</p>
-      <p style={{ fontSize: '11px', fontWeight: 600, color: RURALIT_STYLE.text1, margin: 0 }}>"Rendimiento del 42%. Margen excelente."</p>
-    </div>
-  </div>
-);
+const tabs = [
+  { id: 'simple', label: 'Simplicidad' },
+  { id: 'smart', label: 'Inteligencia' },
+  { id: 'results', label: 'Resultados' },
+  { id: 'multi', label: 'Multimoneda' },
+  { id: 'reports', label: 'Reportes' },
+  { id: 'secure', label: 'Seguridad' },
+];
 
-const ChartContainer = ({ title, children }) => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', boxShadow: RURALIT_STYLE.shadow, border: `1px solid ${RURALIT_STYLE.border}`, width: '100%' }}>
-    <p style={{ fontSize: '10px', fontWeight: 700, color: RURALIT_STYLE.text3, textTransform: 'uppercase', marginBottom: '12px' }}>{title}</p>
-    <div style={{ width: '100%', height: 160 }}>
-      {children}
-    </div>
-  </div>
-);
-
-const CategoryBars = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <h3 style={{ fontSize: '13px', fontWeight: 800, color: RURALIT_STYLE.text1, marginBottom: '12px' }}>Distribución de Gastos</h3>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {catData.map((item, i) => (
-        <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px' }}>
-            <span style={{ fontWeight: 600, color: RURALIT_STYLE.text1 }}>{item.nombre}</span>
-            <span style={{ fontWeight: 800 }}>{item.pct}%</span>
+const TabContent = ({ active }) => {
+  switch (active) {
+    case 'simple':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Carga natural</h3>
+            <p>Escribí en lenguaje natural. Ruralit organiza todo por vos.</p>
+            <div className="diagnostic-pill">
+              <span className="diagnostic-label">Diagnóstico</span>
+              <span className="diagnostic-value">Rendimiento 42% • Excelente</span>
+            </div>
           </div>
-          <div style={{ height: '3px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', overflow: 'hidden' }}>
-            <div style={{ width: `${item.pct}%`, height: '100%', background: item.color }} />
+          <div className="blog-col">
+            <div className="smart-register">
+              <span className="sr-label">Dictado inteligente</span>
+              <div className="sr-input">"Compramos 10 toros por USD 10.000"</div>
+              <div className="sr-tags">
+                <span className="sr-tag">✓ USD 10.000</span>
+                <span className="sr-tag">✓ Ganado</span>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const InvestmentCard = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-      <h4 style={{ fontSize: '13px', fontWeight: 800, color: RURALIT_STYLE.text1, margin: 0 }}>Lote Brangus</h4>
-      <div style={{ background: RURALIT_STYLE.greenLight, color: RURALIT_STYLE.green, padding: '2px 6px', borderRadius: '5px', fontSize: '9px', fontWeight: 700 }}>
-        ROI +18.4%
-      </div>
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-      <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, margin: 0 }}>Invertido: <b style={{ color: RURALIT_STYLE.text1 }}>USD 45k</b></p>
-      <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, margin: 0 }}>Días: <b style={{ color: RURALIT_STYLE.text1 }}>142/180</b></p>
-    </div>
-  </div>
-);
-
-const MultimonedaMock = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '20px', padding: '16px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <p style={{ fontSize: '9px', color: RURALIT_STYLE.text3, marginBottom: '12px', fontWeight: 900 }}>CONVERSIÓN EN TIEMPO REAL</p>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', background: 'rgba(255,255,255,0.02)', borderRadius: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{ width: '24px', height: '24px', borderRadius: '4px', background: '#3b82f622', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6' }}>$</div>
-          <span style={{ fontSize: '11px', fontWeight: 600 }}>Peso Uruguayo (UYU)</span>
-        </div>
-        <span style={{ fontSize: '11px', fontWeight: 800 }}>$ 42.500</span>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ padding: '4px 10px', borderRadius: '20px', background: RURALIT_STYLE.border, fontSize: '9px', fontWeight: 800, color: RURALIT_STYLE.green }}>COTIZACIÓN: 39.55</div>
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', background: 'rgba(46, 125, 50, 0.05)', borderRadius: '10px', border: `1px solid ${RURALIT_STYLE.green}33` }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{ width: '24px', height: '24px', borderRadius: '4px', background: `${RURALIT_STYLE.green}22`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: RURALIT_STYLE.green }}>U$S</div>
-          <span style={{ fontSize: '11px', fontWeight: 600 }}>Dólar Estampado (USD)</span>
-        </div>
-        <span style={{ fontSize: '11px', fontWeight: 800 }}>U$S 1.074,58</span>
-      </div>
-    </div>
-  </div>
-);
-
-const ReportsMock = () => (
-  <div style={{ background: RURALIT_STYLE.card, borderRadius: '24px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}`, position: 'relative', overflow: 'hidden' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <FileText size={20} color={RURALIT_STYLE.green} />
-        <span style={{ fontSize: '13px', fontWeight: 700 }}>Informe_Anual_2026.pdf</span>
-      </div>
-      <Download size={18} color={RURALIT_STYLE.text3} />
-    </div>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      {[1, 2, 3].map(i => (
-        <div key={i} style={{ height: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '4px', width: i === 3 ? '60%' : '100%' }} />
-      ))}
-    </div>
-    <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
-      <div style={{ flex: 1, height: '40px', background: 'rgba(46, 125, 50, 0.1)', borderRadius: '10px', border: `1px solid ${RURALIT_STYLE.green}44` }} />
-      <div style={{ flex: 1, height: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: '10px' }} />
-    </div>
-  </div>
-);
-
-const SmartRegisterMock = () => (
-  <div style={{ background: '#111827', borderRadius: '20px', padding: '20px', border: `1px solid ${RURALIT_STYLE.border}` }}>
-    <p style={{ fontSize: '9px', color: '#9CA3AF', marginBottom: '10px', fontWeight: 900 }}>DICCIONARIO INTELIGENTE</p>
-    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '12px', borderRadius: '12px', fontFamily: 'monospace', fontSize: '12px', color: RURALIT_STYLE.green, marginBottom: '12px' }}>
-      "Compramos toros por 10000 usd"
-    </div>
-    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-      {['USD 10.000', 'Compra de ganado'].map(tag => (
-        <span key={tag} style={{ background: 'rgba(46, 125, 50, 0.1)', color: RURALIT_STYLE.green, padding: '3px 8px', borderRadius: '6px', fontSize: '9px', fontWeight: 700, border: `1px solid ${RURALIT_STYLE.green}44` }}>
-          ✓ {tag}
-        </span>
-      ))}
-    </div>
-  </div>
-);
+        </>
+      );
+    case 'smart':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Anticipación estratégica</h3>
+            <p>Visualizá flujos futuros. No esperes a fin de año.</p>
+            <div className="preview-pill">
+              <span className="check-icon">✓</span>
+              Previsión 2026
+            </div>
+          </div>
+          <div className="blog-col">
+            <div className="mini-chart">
+              <div className="chart-bars">
+                {[35, 55, 40, 70, 60, 85, 95].map((h, i) => (
+                  <div key={i} className="bar" style={{ height: `${h}%` }} />
+                ))}
+              </div>
+              <div className="chart-labels">
+                <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span>
+              </div>
+            </div>
+          </div>
+        </>
+      );
+    case 'results':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Resultados claros</h3>
+            <p>Margen real por lote en tiempo real.</p>
+            <div className="investment-card">
+              <div className="inv-header">
+                <span className="inv-title">Lote Brangus</span>
+                <span className="inv-roi">+18.4% ROI</span>
+              </div>
+              <div className="inv-stats">
+                <span>Invertido: <b>USD 45k</b></span>
+                <span>Días: <b>142/180</b></span>
+              </div>
+            </div>
+          </div>
+          <div className="blog-col">
+            <div className="category-bars">
+              <h4>Distribución</h4>
+              {catData.map((cat, i) => (
+                <div key={i} className="cat-bar">
+                  <div className="cat-label">
+                    <span>{cat.name}</span>
+                    <span>{cat.pct}%</span>
+                  </div>
+                  <div className="cat-track">
+                    <div className="cat-fill" style={{ width: `${cat.pct}%`, background: cat.color }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    case 'multi':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Claridad multimoneda</h3>
+            <p>Unificá Pesos y Dólares automáticamente.</p>
+            <div className="preview-pill green">
+              <span>✓</span> Conversión pivote
+            </div>
+          </div>
+          <div className="blog-col">
+            <div className="currency-converter">
+              <div className="curr-row">
+                <span className="curr-flag">$</span>
+                <span className="curr-name">Peso UYU</span>
+                <span className="curr-val">$ 42.500</span>
+              </div>
+              <div className="curr-rate">39.55</div>
+              <div className="curr-row usd">
+                <span className="curr-flag">U$</span>
+                <span className="curr-name">Dólar USD</span>
+                <span className="curr-val">U$ 1.074,58</span>
+              </div>
+            </div>
+          </div>
+        </>
+      );
+    case 'reports':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Informes en 1 clic</h3>
+            <p>Reportes PDF/CSV listos para compartir.</p>
+            <div className="preview-pill">
+              <span>↓</span> Export PDF y CSV
+            </div>
+          </div>
+          <div className="blog-col">
+            <div className="report-preview">
+              <div className="rep-header">
+                <span className="rep-icon">📄</span>
+                <span>Informe_2026.pdf</span>
+              </div>
+              <div className="rep-lines">
+                <div /><div /><div />
+              </div>
+              <div className="rep-actions">
+                <div className="rep-btn" />
+                <div className="rep-btn outline" />
+              </div>
+            </div>
+          </div>
+        </>
+      );
+    case 'secure':
+      return (
+        <>
+          <div className="blog-col">
+            <h3>Seguridad bancaria</h3>
+            <p>Datos encriptados con sincronización en tiempo real.</p>
+            <div className="secure-badge">
+              <span>🔒</span> DATOS ENCRIPTADOS
+            </div>
+          </div>
+          <div className="blog-col">
+            <div className="security-options">
+              <div className="sec-option">
+                <span className="sec-label">Cuenta</span>
+                <span className="sec-value">2FA <em>Opcional</em></span>
+              </div>
+              <div className="sec-option">
+                <span className="sec-label">App</span>
+                <span className="sec-value">PIN <em>Configurable</em></span>
+              </div>
+            </div>
+          </div>
+        </>
+      );
+    default:
+      return null;
+  }
+};
 
 const BlogSection = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState('simple');
   const [mounted, setMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const tabs = [
-    { label: 'Simplicidad', icon: <Wallet size={16} /> },
-    { label: 'Inteligencia', icon: <TrendingUp size={16} /> },
-    { label: 'Resultados', icon: <Activity size={16} /> },
-    { label: 'Multimoneda', icon: <Globe size={16} /> },
-    { label: 'Reportes', icon: <FileText size={16} /> },
-    { label: 'Seguridad', icon: <ShieldCheck size={16} /> }
-  ];
-
   return (
-    <section id="blog" style={{ background: 'var(--bg)', padding: '80px 0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '90%' }}>
-
-        <div style={{ textAlign: 'center', marginBottom: '35px' }}>
-          <span style={{ color: RURALIT_STYLE.green, fontWeight: 900, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '14px' }}>Insight Report</span>
-          <h2 className="orbitron" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'var(--text)', marginTop: '8px', fontWeight: 900, lineHeight: 1.1 }}>
-            Gestión <span style={{ color: RURALIT_STYLE.green }}>profesional</span> simple
-          </h2>
+    <section id="blog" className="blog-section">
+      <div className="blog-container">
+        <div className="blog-header">
+          <span className="blog-tag">Insight Report</span>
+          <h2>Gestión <span className="highlight">profesional</span> simple</h2>
         </div>
 
-        {/* Tab Navigation */}
-        <div
-          className="no-scrollbar"
-          style={{
-            display: 'flex',
-            gap: '6px',
-            marginBottom: '30px',
-            background: 'rgba(255,255,255,0.02)',
-            padding: '4px',
-            borderRadius: '50px',
-            border: '1px solid var(--border)',
-            width: 'fit-content',
-            margin: '0 auto 30px auto',
-            maxWidth: '100%',
-            overflowX: 'auto'
-          }}>
-          {tabs.map((tab, idx) => (
+        <div className="blog-tabs">
+          {tabs.map((tab) => (
             <button
-              key={idx}
-              onClick={() => setActiveTab(idx)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '40px',
-                border: 'none',
-                background: activeTab === idx ? RURALIT_STYLE.green : 'transparent',
-                color: activeTab === idx ? '#FFFFFF' : 'var(--text-muted)',
-                cursor: 'pointer',
-                fontWeight: 700,
-                fontSize: '14px',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.3s ease'
-              }}
-              className="blog-tab-btn"
+              key={tab.id}
+              className={`blog-tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
             >
-              {tab.icon} <span className="tab-label">{tab.label}</span>
+              {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Content Area */}
-        <div style={{
-          background: 'var(--card-bg)',
-          padding: '24px',
-          borderRadius: '24px',
-          border: '1px solid var(--border)',
-          minHeight: '300px'
-        }}>
-
-          {activeTab === 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Carga natural.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Olvidate de las planillas complejas. Ruralit entiende texto en lenguaje natural y organiza todo por vos.
-                </p>
-                <FeedbackHeader />
-              </div>
-              <SmartRegisterMock />
-            </div>
-          )}
-
-          {activeTab === 1 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Anticipación Estratégica.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Visualizá flujos de caja y provisiones. No esperes a fin de año para saber cómo vas.
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800 }}>
-                  <CheckCircle2 size={18} /> Previsión de liquidez 2026
-                </div>
-              </div>
-              {mounted && (
-                <ChartContainer title="Evolución de Caja">
-                  <ResponsiveContainer>
-                    <AreaChart data={evolData}>
-                      <defs>
-                        <linearGradient id="colorIng" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor={RURALIT_STYLE.green} stopOpacity={0.1} />
-                          <stop offset="95%" stopColor={RURALIT_STYLE.green} stopOpacity={0} />
-                        </linearGradient>
-                      </defs>
-                      <XAxis dataKey="name" hide />
-                      <Tooltip />
-                      <Area 
-                        type="monotone" 
-                        dataKey="Ingresos" 
-                        stroke={RURALIT_STYLE.green} 
-                        fill="url(#colorIng)" 
-                        strokeWidth={2} 
-                        isAnimationActive={!isMobile} 
-                      />
-                      <Area 
-                        type="monotone" 
-                        dataKey="Gastos" 
-                        stroke={RURALIT_STYLE.red} 
-                        fill="transparent" 
-                        strokeWidth={2} 
-                        strokeDasharray="5 5" 
-                        isAnimationActive={!isMobile} 
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </ChartContainer>
-              )}
-            </div>
-          )}
-
-          {activeTab === 2 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Resultados Claros.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Visualizá el margen de cada proyecto y flujo de caja en tiempo real. Detectamos costos invisibles para que decidas con información real.
-                </p>
-                <InvestmentCard />
-              </div>
-              <CategoryBars />
-            </div>
-          )}
-
-          {activeTab === 3 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Claridad Multimoneda.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Unificamos tus gastos en Pesos y Dólares automáticamente. Visualizá tu flujo de caja real sin importar la moneda de origen.
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800, fontSize: '13px' }}>
-                  <Globe size={18} /> Conversión automática con Pívot
-                </div>
-              </div>
-              <MultimonedaMock />
-            </div>
-          )}
-
-          {activeTab === 4 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Informes en 1-Clic.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Generá reportes profesionales en segundos. Listos para compartir con tu socio, contador o el banco.
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: RURALIT_STYLE.green, fontWeight: 800, fontSize: '13px' }}>
-                  <Download size={18} /> Exportación PDF y CSV
-                </div>
-              </div>
-              <ReportsMock />
-            </div>
-          )}
-
-          {activeTab === 5 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
-              <div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '12px', color: 'var(--text)' }}>Seguridad de Grado Bancario.</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: 1.6, marginBottom: '25px' }}>
-                  Tu información se sincroniza en tiempo real con la nube para que nunca pierdas el control de tu establecimiento.
-                </p>
-                <div style={{ background: RURALIT_STYLE.greenLight, padding: '15px', borderRadius: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <ShieldCheck color={RURALIT_STYLE.green} size={24} />
-                  <span style={{ fontSize: '12px', color: RURALIT_STYLE.green, fontWeight: 800 }}>DATOS ENCRIPTADOS Y NUBE EN TIEMPO REAL</span>
-                </div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
-                  <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Seguridad de cuenta</p>
-                  <div style={{ fontSize: '16px', fontWeight: 900 }}>Doble Factor (2FA) <span style={{ color: '#38A169', fontSize: '12px' }}>Opcional / Recomendado</span></div>
-                </div>
-                <div style={{ padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: `1px dashed ${RURALIT_STYLE.border}` }}>
-                  <p style={{ fontSize: '12px', color: RURALIT_STYLE.text3, margin: '0 0 10px 0' }}>Protección de App</p>
-                  <div style={{ fontSize: '16px', fontWeight: 900 }}>PIN de Acceso <span style={{ color: '#38A169', fontSize: '12px' }}>Configurable</span></div>
-                </div>
-              </div>
-            </div>
-          )}
-
+        <div className={`blog-content ${mounted ? 'mounted' : ''}`}>
+          <TabContent active={activeTab} />
         </div>
       </div>
     </section>
