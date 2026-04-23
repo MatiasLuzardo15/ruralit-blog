@@ -373,19 +373,18 @@ nav.visible {
   min-width: 115px;
   height: 38px;
   padding: 0 1.2rem;
-  border: 1px solid var(--neon-green);
+  background: var(--neon-green);
+  color: white !important;
   border-radius: 2rem;
   font-weight: 700;
   font-size: 0.8rem;
-  color: var(--text);
-  background: rgba(46, 125, 50, 0.2);
   transition: var(--transition);
 }
 
 .btn-nav:hover {
-  background: var(--neon-green);
-  color: white;
-  box-shadow: 0 0 20px var(--neon-glow);
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--neon-glow);
 }
 
 .btn-nav-secondary {
