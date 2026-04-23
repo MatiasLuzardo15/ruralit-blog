@@ -65,6 +65,10 @@ body {
   pointer-events: none;
 }
 
+.menu-back-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .blob {
     display: none !important;
@@ -1337,6 +1341,23 @@ footer {
   }
 
   .nav-links.active {
+    display: flex;
+  }
+
+  .menu-back-btn {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10;
+  }
+
+  .nav-links.active .menu-back-btn {
     display: flex;
   }
 

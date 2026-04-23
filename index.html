@@ -36,6 +36,9 @@
                 ruralit<span class="dot">.</span>
             </a>
             <div class="nav-links" id="nav-links">
+                <button class="menu-back-btn" id="menu-back-btn">
+                    <i data-lucide="arrow-left"></i>
+                </button>
                 <a href="#problem">Problema</a>
                 <a href="#how-it-works">Cómo Funciona</a>
                 <a href="/novedades/">Novedades</a>
@@ -395,7 +398,45 @@
           setTheme(newTheme);
         });
       }
-      
+
+      // Menu toggle (mobile sidebar)
+      var menuToggle = document.getElementById('menu-toggle');
+      var navLinks = document.getElementById('nav-links');
+      var openIcon = document.querySelector('.open-icon');
+      var closeIcon = document.querySelector('.close-icon');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          if (openIcon && closeIcon) {
+            var isOpen = navLinks.classList.contains('active');
+            openIcon.style.display = isOpen ? 'none' : 'block';
+            closeIcon.style.display = isOpen ? 'block' : 'none';
+          }
+        });
+
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            if (openIcon && closeIcon) {
+              openIcon.style.display = 'block';
+              closeIcon.style.display = 'none';
+            }
+          });
+        });
+
+        var menuBackBtn = document.getElementById('menu-back-btn');
+        if (menuBackBtn) {
+          menuBackBtn.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            if (openIcon && closeIcon) {
+              openIcon.style.display = 'block';
+              closeIcon.style.display = 'none';
+            }
+          });
+        }
+      }
+
       // Initialize Lucide icons
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
