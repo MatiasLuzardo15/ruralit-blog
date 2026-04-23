@@ -388,10 +388,6 @@
       var setTheme = function(theme) {
         htmlElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        if (moonIcon && sunIcon) {
-          moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
-          sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
-        }
       };
       
       var savedTheme = localStorage.getItem('theme') || 'dark';

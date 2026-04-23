@@ -516,10 +516,6 @@
         const setTheme = (theme) => {
             htmlElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            if (moonIcon && sunIcon) {
-                moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
-                sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
-            }
         };
 
         const savedTheme = localStorage.getItem('theme') || 'dark';

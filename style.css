@@ -272,6 +272,12 @@ section {
   transition: var(--transition);
 }
 
+/* Theme Icon Toggle */
+[data-theme="light"] .sun-icon { display: none !important; }
+[data-theme="light"] .moon-icon { display: block !important; }
+[data-theme="dark"] .sun-icon { display: block !important; }
+[data-theme="dark"] .moon-icon { display: none !important; }
+
 .menu-btn {
   display: none;
 }
