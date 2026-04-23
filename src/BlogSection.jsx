@@ -1,6 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import {
+  Feather,
+  Brain,
+  TrendingUp,
+  Coins,
+  FileText,
+  ShieldCheck,
+} from 'lucide-react';
 
 console.log('[Ruralit] BlogSection module loaded');
+
+const iconMap = {
+  feather: Feather,
+  brain: Brain,
+  'trending-up': TrendingUp,
+  coins: Coins,
+  'file-text': FileText,
+  'shield-check': ShieldCheck,
+};
 
 const RURALIT = {
   green: '#22c55e',
@@ -21,12 +38,12 @@ const catData = [
 ];
 
 const tabs = [
-  { id: 'simple', label: 'Simplicidad' },
-  { id: 'smart', label: 'Inteligencia' },
-  { id: 'results', label: 'Resultados' },
-  { id: 'multi', label: 'Multimoneda' },
-  { id: 'reports', label: 'Reportes' },
-  { id: 'secure', label: 'Seguridad' },
+  { id: 'simple', label: 'Simplicidad', icon: 'feather' },
+  { id: 'smart', label: 'Inteligencia', icon: 'brain' },
+  { id: 'results', label: 'Resultados', icon: 'trending-up' },
+  { id: 'multi', label: 'Multimoneda', icon: 'coins' },
+  { id: 'reports', label: 'Reportes', icon: 'file-text' },
+  { id: 'secure', label: 'Seguridad', icon: 'shield-check' },
 ];
 
 const TabContent = ({ active }) => {
@@ -214,15 +231,19 @@ const BlogSection = () => {
         </div>
 
         <div className="blog-tabs">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`blog-tab ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const Icon = iconMap[tab.icon];
+            return (
+              <button
+                key={tab.id}
+                className={`blog-tab ${activeTab === tab.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                <Icon size={16} className="tab-icon" />
+                <span className="tab-label">{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         <div className={`blog-content ${mounted ? 'mounted' : ''}`}>

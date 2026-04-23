@@ -1459,9 +1459,19 @@ footer {
   margin-right: auto;
   overflow-x: auto;
   max-width: 100%;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.blog-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .blog-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 10px 20px;
   border-radius: 40px;
   border: none;
@@ -1472,6 +1482,10 @@ footer {
   font-size: 14px;
   white-space: nowrap;
   transition: all 0.3s ease;
+}
+
+.blog-tab .tab-icon {
+  flex-shrink: 0;
 }
 
 .blog-tab:hover {
@@ -1913,19 +1927,26 @@ footer {
   }
   
   .blog-tabs {
-    width: 100%;
-    justify-content: flex-start;
+    width: fit-content;
+    justify-content: center;
+    max-width: 100%;
   }
-  
+
   .blog-tab {
-    padding: 8px 14px;
-    font-size: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    min-width: 44px;
   }
-  
+
+  .tab-icon {
+    width: 18px;
+    height: 18px;
+  }
+
   .tab-label {
     display: none;
   }
-  
+
   .chart-bars {
     height: 80px;
   }
