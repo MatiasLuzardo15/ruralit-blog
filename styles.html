@@ -19,6 +19,7 @@
       --white: #ffffff;
       --muted: #6b7a5e;
       --fg: #0E1E12;
+      --alert: #C04A38;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -143,6 +144,7 @@
       text-align: center;
       display: block;
     }
+    .mobile-menu .btn-primary { color: var(--white); }
 
     /* Hero */
     .hero {
@@ -305,10 +307,28 @@
       gap: 24px;
     }
     .problema-card {
+      position: relative;
       background: var(--white);
       border-radius: 20px;
       padding: 32px;
       border: 1px solid rgba(14, 30, 18, 0.06);
+    }
+    .problema-card::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--alert);
+      box-shadow: 0 0 0 0 rgba(192, 74, 56, 0.5);
+      animation: radar-ping 2.4s ease-out infinite;
+    }
+    @keyframes radar-ping {
+      0%   { box-shadow: 0 0 0 0 rgba(192, 74, 56, 0.5); }
+      70%  { box-shadow: 0 0 0 14px rgba(192, 74, 56, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(192, 74, 56, 0); }
     }
     .problema-card h3 {
       font-size: 1.0625rem;
@@ -339,7 +359,7 @@
     }
     .soluciones-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
     }
     .solucion-card {
@@ -348,6 +368,11 @@
       padding: 28px 24px;
       border: 1px solid rgba(14, 30, 18, 0.06);
     }
+    .soluciones-grid > .solucion-card:nth-child(1) { grid-column: span 3; }
+    .soluciones-grid > .solucion-card:nth-child(2) { grid-column: span 3; }
+    .soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 2; }
+    .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 2; }
+    .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 2; }
     .solucion-icon {
       width: 44px;
       height: 44px;
@@ -368,6 +393,179 @@
       font-size: 0.875rem;
       color: var(--muted);
       line-height: 1.6;
+    }
+    button.solucion-card {
+      width: 100%;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    button.solucion-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(14, 30, 18, 0.08);
+      border-color: rgba(14, 30, 18, 0.14);
+    }
+    button.solucion-card:focus-visible {
+      outline: 2px solid var(--agri);
+      outline-offset: 3px;
+    }
+
+    .solucion-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .solucion-modal.open { display: flex; }
+    .solucion-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(14, 30, 18, 0.55);
+      backdrop-filter: blur(6px);
+      animation: modal-fade 0.3s ease;
+    }
+    .solucion-modal-panel {
+      position: relative;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 0;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 30px 80px rgba(14, 30, 18, 0.28);
+      animation: modal-pop 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.1);
+      overflow: hidden;
+    }
+    .solucion-modal-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 40px 40px 0;
+    }
+    .solucion-modal-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--dark);
+      display: grid;
+      place-items: center;
+    }
+    .solucion-modal-icon svg { width: 28px; height: 28px; color: var(--white); }
+    .solucion-modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      padding-right: 36px;
+    }
+    .solucion-modal-body {
+      padding: 22px 40px 36px;
+    }
+    .solucion-modal-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .solucion-modal-points {
+      list-style: none;
+      margin: 0 0 28px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .solucion-modal-points li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .solucion-modal-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(46, 158, 83, 0.12);
+    }
+    .solucion-modal-points li::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--agri);
+    }
+    .solucion-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--inner);
+      color: var(--muted);
+      display: grid;
+      place-items: center;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      z-index: 2;
+    }
+    .solucion-modal-close:hover {
+      background: var(--dark);
+      color: var(--white);
+      transform: rotate(90deg);
+    }
+    .solucion-modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dark);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(14, 30, 18, 0.15);
+    }
+    .solucion-modal-link:hover {
+      background: #1a3a24;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(14, 30, 18, 0.22);
+    }
+    .solucion-modal-link::after {
+      content: '→';
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modal-pop {
+      from { opacity: 0; transform: translateY(18px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @media (max-width: 768px) {
+      .solucion-modal { padding: 16px; }
+      .solucion-modal-head { padding: 32px 24px 0; gap: 14px; }
+      .solucion-modal-icon { width: 48px; height: 48px; border-radius: 14px; }
+      .solucion-modal-icon svg { width: 24px; height: 24px; }
+      .solucion-modal-title { font-size: 1.25rem; padding-right: 30px; }
+      .solucion-modal-body { padding: 18px 24px 28px; }
+      .solucion-modal-desc { font-size: 0.9375rem; margin-bottom: 18px; }
+      .solucion-modal-points { gap: 10px; margin-bottom: 22px; }
+      .solucion-modal-points li { font-size: 0.875rem; }
+      .solucion-modal-points { gap: 10px; margin-bottom: 22px; }
+      .solucion-modal-points li { font-size: 0.875rem; }
     }
 
     /* Cómo funciona */
@@ -713,6 +911,11 @@
       .hero { padding: 120px 40px 72px; }
       .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: repeat(2, 1fr); }
       .soluciones-grid { grid-template-columns: repeat(2, 1fr); }
+      .soluciones-grid > .solucion-card:nth-child(1) { grid-column: span 1; }
+      .soluciones-grid > .solucion-card:nth-child(2) { grid-column: span 1; }
+      .soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 1; }
+      .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 1; }
+      .soluciones-grid > .solucion-card:nth-child(5) { grid-column: 1 / -1; }
       .novedades-grid { grid-template-columns: repeat(2, 1fr); }
       .equipo-inner { grid-template-columns: 1fr; gap: 48px; }
       .footer-top { grid-template-columns: 1fr 1fr; }
@@ -725,7 +928,12 @@
       .hero { padding: 100px 20px 56px; }
       .hero h1 { font-size: 2.4rem; }
       .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: 1fr; }
-      .soluciones-grid { grid-template-columns: 1fr; }
+      .soluciones-grid { grid-template-columns: repeat(2, 1fr); }
+      .soluciones-grid > .solucion-card:nth-child(1),
+      .soluciones-grid > .solucion-card:nth-child(2),
+      .soluciones-grid > .solucion-card:nth-child(3),
+      .soluciones-grid > .solucion-card:nth-child(4),
+      .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 1; }
       .novedades-grid { grid-template-columns: 1fr; }
       .novedades-header { flex-direction: column; align-items: flex-start; gap: 16px; }
       footer { padding: 40px 20px 24px; }
@@ -772,7 +980,7 @@
       <p class="hero-sub fade-up" style="transition-delay:0.1s">Registrá gastos, organizá tus cuentas y lográ la claridad financiera necesaria para decidir el futuro de tu campo.</p>
       <div class="hero-actions fade-up" style="transition-delay:0.25s">
         <a href="#" class="btn-dark">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
           Ver cómo funciona
         </a>
         <a href="#" class="btn-ghost">Comienza ahora</a>
@@ -827,34 +1035,41 @@
         <h2 class="section-title">Herramientas que hacen la diferencia</h2>
       </div>
       <div class="soluciones-grid">
-        <div class="solucion-card fade-up" style="transition-delay:0.05s">
+        <button class="solucion-card fade-up" style="transition-delay:0.05s" data-modal-open data-modal-title="Dictado por voz" data-modal-desc="Registrá tus movimientos con solo hablar. Decí frases naturales y Ruralit interpreta el monto, la categoría y la moneda por vos, sin que tengas que tocar el teclado." data-modal-points="Funciona con frases cotidianas: «gasté 5000 en gasoil» o «vendí 40 novillos a 800»|Ideal desde el campo, con las manos ocupadas|Reconoce categoría, moneda y monto automáticamente|Cargá en segundos lo que antes te llevaba minutos" data-modal-link="/novedades/dictado-inteligente.html" data-modal-link-label="Ver artículo sobre dictado inteligente">
           <div class="solucion-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>
           </div>
           <h3>Dictado por voz</h3>
           <p>Decí "gasté 5000 en gasoil" y Ruralit carga el movimiento por vos. Sin tipear nada.</p>
-        </div>
-        <div class="solucion-card fade-up" style="transition-delay:0.15s">
+        </button>
+        <button class="solucion-card fade-up" style="transition-delay:0.15s" data-modal-open data-modal-title="Control de stock" data-modal-desc="Llevá registro de ganado, cosecha e insumos en un solo lugar. Sabé siempre qué tenés disponible, qué te falta reponer y qué movimientos internos ocurrieron, sin planillas manuales." data-modal-points="Ganado, cosecha e insumos en una sola vista|Movimientos internos entre lotes o establecimientos|Alertas cuando algo está por agotarse|Reemplazá la planilla de toda la vida" data-modal-link="/novedades/control-de-stock.html" data-modal-link-label="Ver artículo sobre control de stock">
           <div class="solucion-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
           </div>
           <h3>Control de stock</h3>
           <p>Ganado, cosecha, insumos: sabés qué tenés y qué te falta. Todo en un solo lugar.</p>
-        </div>
-        <div class="solucion-card fade-up" style="transition-delay:0.25s">
+        </button>
+        <button class="solucion-card fade-up" style="transition-delay:0.25s" data-modal-open data-modal-title="Trabajo en equipo" data-modal-desc="Compartí tu establecimiento con familia, socios o encargado manteniendo el control total. Cada persona ve solo lo que le corresponde, con roles y permisos específicos." data-modal-points="Roles: Encargado, Colaborador o Solo ver|Cada uno accede solo a lo que le corresponde|Invitación por email o link de WhatsApp en segundos|Vos mantenés el control total siempre" data-modal-link="/novedades/establecimientos-compartidos.html" data-modal-link-label="Ver artículo sobre establecimientos compartidos">
           <div class="solucion-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
           </div>
           <h3>Trabajo en equipo</h3>
           <p>Compartí tu establecimiento con familia, socios o encargado. Cada uno con su rol y permisos.</p>
-        </div>
-        <div class="solucion-card fade-up" style="transition-delay:0.35s">
+        </button>
+        <button class="solucion-card fade-up" style="transition-delay:0.35s" data-modal-open data-modal-title="Importá en segundos" data-modal-desc="Subí una planilla Excel o una factura PDF y Ruralit se encarga del resto. El sistema detecta los campos, los clasifica y los carga por vos, sin copiar y pegar nada." data-modal-points="Soporta planillas Excel y facturas PDF|Detección automática de campos y categorías|Sin copiar y pegar, sin revisar columna por columna|Ahorrá horas de carga manual cada mes" data-modal-link="/novedades/importar-datos-excel.html" data-modal-link-label="Ver artículo sobre importación de datos">
           <div class="solucion-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
           </div>
           <h3>Importá en segundos</h3>
           <p>Subí una planilla Excel o una factura PDF y Ruralit hace el resto. Sin cargar nada a mano.</p>
-        </div>
+        </button>
+        <button class="solucion-card fade-up" style="transition-delay:0.45s" data-modal-open data-modal-title="Proyectos e inversiones" data-modal-desc="Seguí el retorno de cada proyecto o meta de ahorro en su propia sección. Ruralit calcula el capital invertido y recuperado, y te muestra el punto de equilibrio al instante." data-modal-points="Proyectos operativos: ganadería, agricultura, maquinaria o infraestructura|Metas de ahorro y fondos de reserva con seguimiento de progreso|Cálculo automático de ROI y punto de equilibrio|Reporte profesional en PDF al finalizar el proyecto">
+          <div class="solucion-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>
+          </div>
+          <h3>Proyectos e inversiones</h3>
+          <p>Seguí el ROI de cada proyecto o meta de ahorro. Ruralit calcula el capital invertido y recuperado por vos.</p>
+        </button>
       </div>
     </div>
   </section>
@@ -875,7 +1090,7 @@
         <div class="paso fade-up" style="transition-delay:0.15s">
           <div class="paso-num">02</div>
           <h3>Ruralit organiza todo</h3>
-          <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y/o proyecto asignado.</p>
+          <p>La plataforma clasifica automáticamente cada dato por categoría y moneda. Los proyectos se registran en su propia sección.</p>
         </div>
         <div class="paso fade-up" style="transition-delay:0.25s">
           <div class="paso-num">03</div>
@@ -1089,7 +1304,7 @@
         <a href="#">Contacto</a>
       </div>
       <div class="footer-contact">
-        <a href="mailto:hola@ruralit.com">
+        <a href="mailto:matiasluzardevv@gmail.com">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
           Gmail
         </a>
@@ -1125,6 +1340,90 @@
       }
       lastScroll = y;
     }, { passive: true });
+  </script>
+
+  <div class="solucion-modal" id="solucionModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="solucionModalTitle">
+    <div class="solucion-modal-backdrop" data-modal-close></div>
+    <div class="solucion-modal-panel">
+      <button class="solucion-modal-close" type="button" aria-label="Cerrar" data-modal-close>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="solucion-modal-head">
+        <div class="solucion-modal-icon" id="solucionModalIcon"></div>
+        <h3 id="solucionModalTitle" class="solucion-modal-title"></h3>
+      </div>
+      <div class="solucion-modal-body">
+        <p class="solucion-modal-desc"></p>
+        <ul class="solucion-modal-points"></ul>
+        <a class="solucion-modal-link" style="display:none"></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('solucionModal');
+      var titleEl = modal.querySelector('.solucion-modal-title');
+      var descEl = modal.querySelector('.solucion-modal-desc');
+      var linkEl = modal.querySelector('.solucion-modal-link');
+      var iconEl = document.getElementById('solucionModalIcon');
+      var pointsEl = modal.querySelector('.solucion-modal-points');
+      var lastFocused = null;
+
+      function openModal(card) {
+        lastFocused = document.activeElement;
+        titleEl.textContent = card.getAttribute('data-modal-title') || '';
+        descEl.textContent = card.getAttribute('data-modal-desc') || '';
+
+        var iconSvg = card.querySelector('.solucion-icon svg');
+        if (iconSvg && iconEl) {
+          iconEl.innerHTML = '';
+          iconEl.appendChild(iconSvg.cloneNode(true));
+        }
+
+        var points = (card.getAttribute('data-modal-points') || '').split('|').filter(Boolean);
+        if (pointsEl) {
+          pointsEl.innerHTML = points.map(function (p) {
+            return '<li>' + p.trim() + '</li>';
+          }).join('');
+          pointsEl.style.display = points.length ? 'block' : 'none';
+        }
+
+        var link = card.getAttribute('data-modal-link');
+        var linkLabel = card.getAttribute('data-modal-link-label');
+        if (link) {
+          linkEl.href = link;
+          linkEl.textContent = linkLabel || 'Ver artículo';
+          linkEl.style.display = 'inline-flex';
+        } else {
+          linkEl.removeAttribute('href');
+          linkEl.style.display = 'none';
+        }
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modal.querySelector('.solucion-modal-close').focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+      }
+
+      document.querySelectorAll('[data-modal-open]').forEach(function (card) {
+        card.addEventListener('click', function () { openModal(card); });
+      });
+
+      modal.querySelectorAll('[data-modal-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
   </script>
 </body>
 </html>
