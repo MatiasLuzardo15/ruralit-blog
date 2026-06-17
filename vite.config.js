@@ -17,7 +17,6 @@ export default defineConfig({
         novas: resolve(__dirname, 'novedades/index.html'),
         'dictado-inteligente': resolve(__dirname, 'novedades/dictado-inteligente.html'),
         'motor-impositivo': resolve(__dirname, 'novedades/motor-impositivo.html'),
-        'organiza-los-gastos': resolve(__dirname, 'novedades/organizá-los-gastos.html'),
         'reporte-semanal': resolve(__dirname, 'novedades/reporte-semanal.html'),
         'alertas-inteligentes': resolve(__dirname, 'novedades/alertas-inteligentes.html'),
         'lectura-automatica': resolve(__dirname, 'novedades/lectura-automatica.html'),
