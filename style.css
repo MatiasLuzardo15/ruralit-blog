@@ -975,13 +975,61 @@ section { padding: 56px 80px; }
 }
 .demo-control-name { font-size: 0.875rem; font-weight: 600; color: var(--dark); }
 .demo-control-tag {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--amber);
-  background: rgba(199, 139, 46, 0.1);
-  padding: 3px 10px;
-  border-radius: 999px;
-}
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--amber);
+    background: rgba(199, 139, 46, 0.1);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+.demo-toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(46, 158, 83, 0.08);
+    border: 1px solid rgba(46, 158, 83, 0.2);
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-top: 20px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .demo-toast svg {
+    color: var(--agri);
+    flex-shrink: 0;
+  }
+  .demo-toast span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  .demo-live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    padding-left: 12px;
+    border-left: 1px solid rgba(46, 158, 83, 0.2);
+  }
+  .demo-live span:last-child {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--agri);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .demo-live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--agri);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
 .equipo-note {
   text-align: center;
   font-size: 0.9375rem;
@@ -989,39 +1037,58 @@ section { padding: 56px 80px; }
   margin-top: 32px;
   font-style: italic;
 }
-/* Animaciones específicas por paso */
-.demo-step[data-step="1"] {
-  animation: slideDownFadeIn 0.25s ease-out forwards;
-}
-.demo-step[data-step="2"] {
-  animation: slideUpFadeIn 0.25s ease-out 0.2s forwards;
-}
-.demo-step[data-step="3"] {
-  animation: slideLeftFadeIn 0.3s ease-out 0.4s forwards;
-}
-.demo-step[data-step="4"] {
-  animation: fadeIn 0.2s ease-out 0.7s forwards;
-}
-.demo-step[data-step="5"] {
-  animation: scaleFadeIn 0.3s ease-out 0.9s forwards;
+/* Sistema de estados para animación guiada - lenta y suave */
+.demo-step {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Animaciones para los permisos */
-.demo-perm-item {
+.demo-step.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-step.done {
+  opacity: 0.4;
+  transform: translateY(0);
+  transition-duration: 0.4s;
+}
+
+/* Panel de permisos destaca */
+.demo-step[data-step="4"].active {
+  opacity: 1;
+  transform: translateY(0) scale(1.02);
+}
+
+.demo-step[data-step="4"].done {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+/* Cierre suave */
+.demo-step.exit {
   opacity: 0;
-  transform: translateX(-6px);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
 }
-.demo-perm-item:nth-child(1) {
-  animation: slideLeftFadeIn 0.25s ease-out 1.1s forwards;
+
+/* Permisos animados individualmente */
+.demo-perm {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
-.demo-perm-item:nth-child(2) {
-  animation: slideLeftFadeIn 0.25s ease-out 1.2s forwards;
+
+.demo-perm.active {
+  opacity: 1;
+  transform: translateX(0);
 }
-.demo-perm-item:nth-child(3) {
-  animation: slideLeftFadeIn 0.25s ease-out 1.3s forwards;
-}
-.demo-perm-item:nth-child(4) {
-  animation: slideLeftFadeIn 0.25s ease-out 1.4s forwards;
+
+/* Toast con efecto especial */
+.demo-step[data-step="6"].active {
+  opacity: 1;
+  transform: translateY(0) scale(1.05);
 }
 
 /* Keyframes */
@@ -1048,6 +1115,17 @@ section { padding: 56px 80px; }
 @keyframes scaleFadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: translateY(8px) scale(0.9); }
+  70% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .section-novedades { background: var(--cream); }

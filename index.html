@@ -252,6 +252,15 @@
             <span class="demo-control-tag">Control total</span>
           </div>
         </div>
+        
+        <div class="demo-toast demo-step" data-step="6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Acceso configurado correctamente</span>
+          <div class="demo-live">
+            <span class="demo-live-dot"></span>
+            <span>En vivo</span>
+          </div>
+        </div>
       </div>
 
       <p class="equipo-note fade-up">Tu equipo trabaja. Vos mantenés el control.</p>
@@ -480,6 +489,97 @@
 
     setTimeout(runCycle, 1500);
   })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const demoSection = document.querySelector('.section-equipo');
+      if (!demoSection) return;
+      
+      // Obtener elementos por data-step para mayor claridad
+      const step1 = demoSection.querySelector('[data-step="1"]');
+      const step2 = demoSection.querySelector('[data-step="2"]');
+      const step3 = demoSection.querySelector('[data-step="3"]');
+      const step4 = demoSection.querySelector('[data-step="4"]');
+      const step5 = demoSection.querySelector('[data-step="5"]');
+      const step6 = demoSection.querySelector('[data-step="6"]');
+      const permItems = demoSection.querySelectorAll('.demo-perm');
+      
+      const allSteps = [step1, step2, step3, step4, step5, step6];
+      
+      function resetAll() {
+        allSteps.forEach(step => {
+          if (step) {
+            step.classList.remove('active', 'done', 'exit');
+          }
+        });
+        permItems.forEach(item => item.classList.remove('active'));
+      }
+      
+      function runDemoCycle() {
+        resetAll();
+        
+        // FASE 1: Compartir (0-1000ms)
+        setTimeout(() => {
+          step1.classList.add('active');
+        }, 0);
+        
+        // FASE 2: Juan se une (1000ms)
+        setTimeout(() => {
+          step1.classList.remove('active');
+          step1.classList.add('done');
+          step2.classList.add('active');
+        }, 1000);
+        
+        // FASE 3: Flecha (2000ms)
+        setTimeout(() => {
+          step2.classList.remove('active');
+          step2.classList.add('done');
+          step3.classList.add('active');
+        }, 2000);
+        
+        // FASE 4: Panel de permisos (3000ms) - Punto clave
+        setTimeout(() => {
+          step3.classList.remove('active');
+          step3.classList.add('done');
+          step4.classList.add('active');
+        }, 3000);
+        
+        // Permisos aparecen uno por uno (3100-3700ms)
+        setTimeout(() => permItems[0]?.classList.add('active'), 3100);
+        setTimeout(() => permItems[1]?.classList.add('active'), 3250);
+        setTimeout(() => permItems[2]?.classList.add('active'), 3400);
+        setTimeout(() => permItems[3]?.classList.add('active'), 3550);
+        
+        // FASE 5: Control total (4500ms)
+        setTimeout(() => {
+          step4.classList.remove('active');
+          step4.classList.add('done');
+          step5.classList.add('active');
+        }, 4500);
+        
+        // FASE 6: Toast de éxito (5500ms)
+        setTimeout(() => {
+          step5.classList.remove('active');
+          step5.classList.add('done');
+          step6.classList.add('active');
+        }, 5500);
+        
+        // FASE 7: Pausa para lectura (6500-7500ms)
+        
+        // CIERRE: Todo desaparece suavemente (7500ms)
+        setTimeout(() => {
+          allSteps.forEach(step => {
+            if (step) step.classList.add('exit');
+          });
+          permItems.forEach(item => item.classList.remove('active'));
+        }, 7500);
+        
+        // REINICIAR (8500ms)
+        setTimeout(runDemoCycle, 8500);
+      }
+      
+      runDemoCycle();
+    });
   </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
