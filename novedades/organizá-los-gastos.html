@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dictado inteligente: Cargá gastos con tu voz | Ruralit</title>
+    <title>Organizá los gastos de tu campo | Ruralit</title>
     <meta name="description"
-        content="Decí &quot;gasté 5000 en gasoil&quot; y Ruralit escucha, entiende y carga el movimiento por vos. Funciona offline con inteligencia artificial local.">
+        content="Clasificá gastos por lote, actividad y rubro para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -56,8 +56,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--agri);
-            background: rgba(46, 158, 83, 0.1);
+            color: var(--dark);
+            background: rgba(14, 30, 18, 0.07);
             padding: 5px 12px;
             border-radius: 4px;
             margin-bottom: 1.25rem;
@@ -241,6 +241,7 @@
         .related-card .card-category.cat-producto { color: var(--agri); }
         .related-card .card-category.cat-dashboard { color: var(--amber); }
         .related-card .card-category.cat-mejora { color: #C06040; }
+        .related-card .card-category.cat-guia { color: var(--dark); }
 
         .related-card h4 {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -405,17 +406,17 @@
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
                 <span class="breadcrumb-sep">›</span>
-                <a href="/novedades/">Producto</a>
+                <a href="/novedades/">Guía</a>
             </div>
-            <span class="article-category-tag">Producto</span>
-            <h1 class="article-title">Dictado inteligente: Cargá gastos con tu voz</h1>
+            <span class="article-category-tag">Guía</span>
+            <h1 class="article-title">Organizá los gastos de tu campo</h1>
             <p class="article-lead">
-                Decí "gasté 5000 en gasoil" y Ruralit escucha, entiende y carga el movimiento por vos. Sin tipear nada, directamente desde el campo.
+                Clasificá gastos por lote, actividad y rubro para tener claridad total sobre dónde va cada peso.
             </p>
             <div class="article-meta-row">
-                <span>15 de junio de 2026</span>
+                <span>Mayo de 2026</span>
                 <span class="meta-dot"></span>
-                <span>3 min de lectura</span>
+                <span>5 min de lectura</span>
                 <span class="meta-dot"></span>
                 <span>Equipo Ruralit</span>
             </div>
@@ -425,74 +426,79 @@
     <div class="article-content fade-up">
 
         <p>
-            En el campo, las cosas se mueven rápido. Un gasto acá, una compra allá, y antes de que te des cuenta tenés cinco movimientos sin registrar. Sabemos que no siempre tenés las manos libres para abrir una app y tipear cada detalle. Por eso construimos el <strong>dictado inteligente</strong>: una forma de registrar gastos usando solamente tu voz.
-        </p>
-
-        <h2>Cómo funciona</h2>
-
-        <p>
-            Tocás el ícono del micrófono dentro de Ruralit y simplemente hablás. Nada de formularios, nada de seleccionar categorías a mano. Decís lo que necesitás registrar y la plataforma se encarga del resto. La información se procesa con inteligencia artificial directamente en tu dispositivo, sin depender de una conexión a internet.
+            Llevás meses registrando gastos con disciplina. Gasoil, ración, veterinaria, sueldos, alambrado. Todo está cargado en Ruralit. Pero cuando querés saber cuánto te costó la cría en el lote sur, o cuánto gastaste en sanidad el trimestre pasado, la respuesta no aparece clara. Los datos están, pero no están <strong>organizados</strong>. Y los datos sin organización son solo ruido.
         </p>
 
         <p>
-            Algunos ejemplos de lo que podés decir:
+            Esta guía es para productores que ya registran movimientos pero quieren sacarle más jugo a la información. La clave no es cargar más datos: es clasificarlos bien desde el principio.
+        </p>
+
+        <h2>Tres niveles de organización</h2>
+
+        <p>
+            Ruralit te permite clasificar cada gasto en tres dimensiones que se cruzan entre sí. No son obligatorias todas, pero mientras más uses, más precisa va a ser la foto de tu establecimiento.
         </p>
 
         <ul>
-            <li><strong>"Gasté 5000 en gasoil"</strong> · Se registra un gasto de $5.000 en la categoría Combustible.</li>
-            <li><strong>"Compré ración por 12.000"</strong> · Se crea un movimiento en Suplementación con el monto correcto.</li>
-            <li><strong>"Pagué 30 dólares de sanidad"</strong> · Se carga en la divisa USD dentro de Sanidad animal.</li>
-            <li><strong>"Gasto de electricidad 4500 para el establecimiento La Esperanza"</strong> · Se asigna al proyecto o establecimiento específico.</li>
+            <li><strong>Rubro:</strong> es la categoría del gasto. Combustible, sanidad animal, suplementación, mano de obra, infraestructura, maquinaria. Es el nivel más básico y el que más te ayuda a ver en qué gastás tu plata en grande.</li>
+            <li><strong>Actividad:</strong> es la línea productiva donde incurre el gasto. Cría, invernada, agricultura, tambo. Un mismo rubro (por ejemplo, gasoil) puede estar asignado a dos actividades distintas, y eso cambia completamente el análisis.</li>
+            <li><strong>Lote o establecimiento:</strong> es el destino físico del gasto. El lote norte, el potrero de la esquina, el establecimiento La Esperanza. Acá es donde ves si un lote específico te está costando más de lo que debería.</li>
         </ul>
 
         <div class="article-callout">
-            <div class="callout-label">Funciona sin conexión</div>
+            <div class="callout-label">El cruce que cambia todo</div>
             <p>
-                El modelo de inteligencia artificial corre localmente en tu teléfono. Esto significa que podés dictar gastos estando en medio del campo, donde la señal de datos es débil o inexistente. Todo se procesa y se guarda en tu dispositivo, y se sincroniza cuando volvás a tener conexión.
+                Cuando combinás las tres dimensiones, podés responder preguntas que antes eran imposibles. ¿Cuánto gasté en sanidad animal en la actividad de cría durante el primer semestre en el lote sur? Esa respuesta, con los gastos bien clasificados, la tenés en segundos.
             </p>
         </div>
 
-        <h2>Organización automática</h2>
+        <h2>Por dónde empezar</h2>
 
         <p>
-            La parte más tediosa de registrar un gasto nunca fue tipear el monto · fue acordarse de elegir la categoría, la moneda y el proyecto correcto. Con el dictado inteligente, eso ya no es tu problema. Ruralit analiza tu frase y extrae tres datos clave:
+            Si nunca clasificaste gastos por lote o actividad, no intentes hacerlo todo de golpe. Arrancá con los rubros, que es lo más sencillo y lo que más impacto inmediato tiene. Una vez que tengas todos los gastos cargados con su rubro correcto, sumá las actividades. Y por último, cuando eso sea costumbre, empezá a asignar lotes.
         </p>
+
+        <p>
+            El orden importa porque cada nivel construye sobre el anterior. Si tenés rubros mal asignados, clasificar por actividad no te va a ayudar. Y si las actividades están mezcladas, el análisis por lote pierde sentido.
+        </p>
+
+        <h2>Un ejemplo concreto</h2>
+
+        <p>
+            Imaginá que cargás un gasto de $45.000 en ración. Sin clasificación, es solo un número. Con el rubro asignado (Suplementación), ya sabés cuánto gastás en feeding. Con la actividad asignada (Cría), sabés que ese gasto corresponde a la cría y no a la invernada. Y con el lote asignado (Potrero 3), podés comparar el costo de suplementación entre potreros y detectar cuál te está saliendo más caro.
+        </p>
+
+        <p>
+            Ese mismo gasto, cargado tres veces en el año, te permite ver una tendencia. ¿El costo de ración en el Potrero 3 está subiendo? ¿Está por encima del promedio de los otros potreros? ¿Vale la pena mantener esa carga animal ahí? Sin la clasificación, esas preguntas ni siquiera se te ocurrirían.
+        </p>
+
+        <h2>Errores comunes que conviene evitar</h2>
 
         <ul>
-            <li><strong>Categoría:</strong> Detecta si es gasoil, ración, sanidad, alquiler, o cualquier otra rubro, y lo clasifica automáticamente.</li>
-            <li><strong>Moneda:</strong> Reconoce si hablaste en pesos uruguayos, dólares, o la unidad que uses, y asigna la divisa correcta.</li>
-            <li><strong>Proyecto o establecimiento:</strong> Si mencionás un nombre de establecimiento o lote, lo vincula con el proyecto correspondiente.</li>
+            <li><strong>Cargar todo en "Otros":</strong> es el camino más rápido para perder información útil. Si un gasto no encaja en ningún rubro, creá uno nuevo antes de usar "Otros" como cajón de sastre.</li>
+            <li><strong>Mezclar actividades en un solo movimiento:</strong> si un gasto corresponde a dos actividades, divivilo en dos movimientos. La precisión vale más que la velocidad de carga.</li>
+            <li><strong>No asignar lote "porque es chico":</strong> los gastos chicos, sumados a lo largo del año, suelen ser los que más sorprenden. Asigná lote siempre que el gasto tenga un destino físico claro.</li>
         </ul>
-
-        <p>
-            Después de cada dictado, ves una vista previa con los datos interpretados para confirmar. Si algo no está bien, lo corregís con un toque. Pero en la mayoría de los casos, acierta a la primera.
-        </p>
-
-        <h2>Diseñado para el productor real</h2>
-
-        <p>
-            No construimos esta función para alguien sentado en una oficina con Wi-Fi estable. La construimos para el productor que está manejando el tractor, revisando alambrados, o volviendo de la bajada al pueblo. En esos momentos, sacar el teléfono y hablar es mucho más práctico que frenar y escribir.
-        </p>
-
-        <p>
-            El dictado inteligente también funciona en contextos ruidosos: el modelo está entrenado para filtrar el sonido ambiente y captar la instrucción con precisión. Y si estás en una zona sin señal, no hay problema: todo se almacena localmente y se sincroniza cuando tenés conexión de nuevo.
-        </p>
 
         <div class="article-divider"></div>
 
         <p>
-            El dictado inteligente ya está disponible en Ruralit. Si todavía no lo probaste, entrá a la app y tocá el micrófono. Vas a ver lo fácil que es registrar un gasto cuando no tenés que escribir nada.
+            La buena noticia es que en Ruralit la clasificación es parte del flujo de carga. No es un paso aparte ni una tarea extra. Cada vez que registrás un gasto, elegís el rubro, la actividad y el lote en el mismo formulario. Y si usás el dictado inteligente, la plataforma te sugiere la clasificación automáticamente a partir de lo que decís. La organización no es un esfuerzo adicional: es la forma natural de cargar los datos.
+        </p>
+
+        <p>
+            Si todavía no estás clasificando por lote y actividad, este es el momento de empezar. Los primeros días vas a estar acomodando gastos viejos, pero después se vuelve costumbre. Y cuando llegue el momento de tomar decisiones · comprar, vender, ajustar el stocking rate, cambiar de proveedor · vas a tener los números para decidir con claridad.
         </p>
     </div>
 
     <div class="related-section">
         <div class="related-header">Artículos relacionados</div>
         <div class="related-grid">
-            <a href="/novedades/alertas-inteligentes.html" class="related-card">
-                <span class="card-category cat-dashboard">Dashboard</span>
-                <h4>Alertas inteligentes en el Dashboard</h4>
-                <p>Carrusel de tarjetas con avisos automáticos para tu establecimiento.</p>
-                <span class="card-meta">Junio 2026 · 3 min</span>
+            <a href="/novedades/control-de-stock.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Control de stock y recursos</h4>
+                <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
             <a href="/novedades/lectura-automatica.html" class="related-card">
                 <span class="card-category cat-mejora">Mejora</span>
@@ -500,11 +506,11 @@
                 <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
                 <span class="card-meta">Marzo 2026 · 4 min</span>
             </a>
-            <a href="/novedades/control-de-stock.html" class="related-card">
+            <a href="/novedades/reporte-semanal.html" class="related-card">
                 <span class="card-category cat-producto">Producto</span>
-                <h4>Control de stock y recursos</h4>
-                <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
-                <span class="card-meta">Abril 2026 · 4 min</span>
+                <h4>Reporte semanal en tu email</h4>
+                <p>Cada lunes recibís un correo con barras de progreso y gráficos comparativos.</p>
+                <span class="card-meta">Mayo 2026 · 3 min</span>
             </a>
         </div>
     </div>

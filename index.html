@@ -182,13 +182,52 @@
         <p class="equipo-sub">Invitás a tu equipo en segundos y cada persona ve solo lo que le corresponde.</p>
       </div>
 
+      <ol class="demo-timeline" id="demoTimeline" aria-label="Pasos de la demo">
+        <li class="demo-tl-item" data-tl-step="1">
+          <span class="demo-tl-dot"></span>
+          <span class="demo-tl-label">Escribis el email o compartís un link de WhatsApp</span>
+        </li>
+        <li class="demo-tl-item" data-tl-step="4">
+          <span class="demo-tl-dot"></span>
+          <span class="demo-tl-label">Definís sus permisos</span>
+        </li>
+        <li class="demo-tl-item" data-tl-step="2">
+          <span class="demo-tl-dot"></span>
+          <span class="demo-tl-label">Juan se une al establecimiento</span>
+        </li>
+        <li class="demo-tl-item" data-tl-step="5">
+          <span class="demo-tl-dot"></span>
+          <span class="demo-tl-label">Vos mantenés el control total</span>
+        </li>
+        <li class="demo-tl-item" data-tl-step="6">
+          <span class="demo-tl-dot"></span>
+          <span class="demo-tl-label">Tu equipo queda conformado</span>
+        </li>
+      </ol>
+
       <div class="equipo-demo">
         <div class="demo-panel">
           <div class="demo-side">
             <div class="demo-action demo-step" data-step="1">
               <div class="demo-share">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="demo-share-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.698.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.61l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
-                <span>Compartir establecimiento</span>
+                <span>Compartir establecimiento "El Ceibo"</span>
+              </div>
+              <div class="demo-invite-form">
+                <input type="email" class="demo-invite-input" id="demoInviteEmail" placeholder="juan@campo.com" aria-label="Email del invitado" autocomplete="off" readonly />
+                <div class="demo-role-picker" id="demoRolePicker">
+                  <span class="demo-role-label">Rol</span>
+                  <div class="demo-role-options">
+                    <button type="button" class="demo-role" data-role="encargado">Encargado</button>
+                    <button type="button" class="demo-role" data-role="colaborador">Colaborador</button>
+                    <button type="button" class="demo-role" data-role="solo-ver">Solo ver</button>
+                  </div>
+                  <button type="button" class="demo-invite-btn" id="demoInviteBtn">
+                    <svg class="demo-invite-icon-send" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    <svg class="demo-invite-icon-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span class="demo-invite-btn-label">Enviar invitación</span>
+                  </button>
+                </div>
               </div>
               <div class="demo-share-channels">
                 <span class="demo-channel wa">
@@ -201,20 +240,6 @@
                 </span>
               </div>
             </div>
-            <div class="demo-join demo-step" data-step="2">
-              <div class="demo-avatar user">J</div>
-              <div class="demo-join-info">
-                <span class="demo-join-name">Juan se unió</span>
-                <span class="demo-join-badge">Colaborador</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-arrow demo-step" aria-hidden="true" data-step="3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
-
-          <div class="demo-side">
             <div class="demo-perms demo-step" data-step="4">
               <div class="demo-perms-head">
                 <div class="demo-avatar user sm">J</div>
@@ -243,25 +268,51 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="demo-control demo-step" data-step="5">
-          <div class="demo-avatar admin">V</div>
-          <div class="demo-control-info">
-            <span class="demo-control-name">Vos (Administrador)</span>
-            <span class="demo-control-tag">Control total</span>
+          <div class="demo-arrow demo-step" aria-hidden="true" data-step="3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+
+          <div class="demo-side">
+            <div class="demo-join demo-step" data-step="2">
+              <div class="demo-avatar user">J</div>
+              <div class="demo-join-info">
+                <span class="demo-join-name">Juan se unió</span>
+                <span class="demo-join-badge">Colaborador</span>
+              </div>
+            </div>
+            <div class="demo-control demo-step" data-step="5">
+              <div class="demo-avatar admin">V</div>
+              <div class="demo-control-info">
+                <span class="demo-control-name">Vos (Administrador)</span>
+                <span class="demo-control-tag">Control total</span>
+              </div>
+            </div>
+            <div class="demo-team demo-step" data-step="6">
+              <span class="demo-team-title">Tu equipo · El Ceibo</span>
+              <div class="demo-team-members">
+                <div class="demo-team-member">
+                  <div class="demo-team-avatar admin">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="demo-team-meta">
+                    <span class="demo-team-name">Vos</span>
+                    <span class="demo-team-role admin">Administrador</span>
+                  </div>
+                </div>
+                <div class="demo-team-member">
+                  <div class="demo-team-avatar user">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="demo-team-meta">
+                    <span class="demo-team-name">Juan</span>
+                    <span class="demo-team-role user">Colaborador</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div class="demo-toast demo-step" data-step="6">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Acceso configurado correctamente</span>
-          <div class="demo-live">
-            <span class="demo-live-dot"></span>
-            <span>En vivo</span>
-          </div>
-        </div>
-      </div>
 
       <p class="equipo-note fade-up">Tu equipo trabaja. Vos mantenés el control.</p>
     </div>
@@ -364,9 +415,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '-40px' });
+    }, { threshold: 0.1, rootMargin: '200px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
@@ -494,7 +546,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const demoSection = document.querySelector('.section-equipo');
       if (!demoSection) return;
-      
+
       // Obtener elementos por data-step para mayor claridad
       const step1 = demoSection.querySelector('[data-step="1"]');
       const step2 = demoSection.querySelector('[data-step="2"]');
@@ -503,82 +555,197 @@
       const step5 = demoSection.querySelector('[data-step="5"]');
       const step6 = demoSection.querySelector('[data-step="6"]');
       const permItems = demoSection.querySelectorAll('.demo-perm');
-      
+
       const allSteps = [step1, step2, step3, step4, step5, step6];
-      
+
+      // Línea de tiempo del flujo (persistente)
+      const tlItems = demoSection.querySelectorAll('.demo-tl-item');
+      function tlItemFor(stepNum) {
+        return demoSection.querySelector('.demo-tl-item[data-tl-step="' + stepNum + '"]');
+      }
+      function setTlState(stepNum, state) {
+        const item = tlItemFor(stepNum);
+        if (!item) return;
+        item.classList.remove('active', 'done');
+        if (state) item.classList.add(state);
+      }
+      function resetTimeline() {
+        tlItems.forEach(item => item.classList.remove('active', 'done'));
+      }
+
+      const emailInput = demoSection.querySelector('#demoInviteEmail');
+      const inviteBtn = demoSection.querySelector('#demoInviteBtn');
+      const inviteLabel = inviteBtn ? inviteBtn.querySelector('.demo-invite-btn-label') : null;
+      const roleButtons = demoSection.querySelectorAll('.demo-role');
+
+      const INVITE_EMAIL = 'juan@campo.com';
+      const INVITE_ROLE = 'colaborador';
+
+      // Timers activos para poder cancelar si se reinicia a mitad de secuencia
+      let activeTimers = [];
+      function schedule(fn, delay) {
+        const id = setTimeout(fn, delay);
+        activeTimers.push(id);
+        return id;
+      }
+      function clearTimers() {
+        activeTimers.forEach(clearTimeout);
+        activeTimers = [];
+      }
+
       function resetAll() {
+        clearTimers();
         allSteps.forEach(step => {
-          if (step) {
-            step.classList.remove('active', 'done', 'exit');
-          }
+          if (step) step.classList.remove('active', 'done', 'exit');
         });
         permItems.forEach(item => item.classList.remove('active'));
       }
-      
-      function runDemoCycle() {
-        resetAll();
-        
-        // FASE 1: Compartir (0-1000ms)
-        setTimeout(() => {
-          step1.classList.add('active');
-        }, 0);
-        
-        // FASE 2: Juan se une (1000ms)
-        setTimeout(() => {
-          step1.classList.remove('active');
-          step1.classList.add('done');
-          step2.classList.add('active');
-        }, 1000);
-        
-        // FASE 3: Flecha (2000ms)
-        setTimeout(() => {
-          step2.classList.remove('active');
-          step2.classList.add('done');
-          step3.classList.add('active');
-        }, 2000);
-        
-        // FASE 4: Panel de permisos (3000ms) - Punto clave
-        setTimeout(() => {
-          step3.classList.remove('active');
-          step3.classList.add('done');
+
+      function resetForm() {
+        if (emailInput) {
+          emailInput.value = '';
+          emailInput.classList.remove('typing', 'error');
+        }
+        if (inviteBtn) {
+          inviteBtn.classList.remove('sent', 'error');
+        }
+        if (inviteLabel) inviteLabel.textContent = 'Enviar invitación';
+        roleButtons.forEach(r => r.classList.remove('selected'));
+      }
+
+      // Selecciona el rol "Colaborador" como parte de la simulación
+      function selectRole(role, done) {
+        let found = null;
+        roleButtons.forEach(r => {
+          r.classList.remove('selected');
+          if (r.dataset.role === role) found = r;
+        });
+        if (found) {
+          found.classList.add('selected');
+          // pequeño foco visual antes de continuar
+          schedule(() => done && done(), 550);
+        } else {
+          done && done();
+        }
+      }
+
+      // Escribe el email letra por letra (efecto typewriter)
+      function typeEmail(text, done) {
+        if (!emailInput) { done && done(); return; }
+        emailInput.classList.add('typing');
+        let i = 0;
+        function tick() {
+          if (i > text.length) {
+            emailInput.classList.remove('typing');
+            done && done();
+            return;
+          }
+          emailInput.value = text.slice(0, i);
+          i++;
+          schedule(tick, 75);
+        }
+        tick();
+      }
+
+      function runInviteSequence() {
+        // Botón pasa a "enviado"
+        if (inviteBtn) inviteBtn.classList.add('sent');
+        if (inviteLabel) inviteLabel.textContent = 'Invitación enviada';
+
+        // FASE 1 -> done
+        step1.classList.remove('active');
+        step1.classList.add('done');
+        setTlState(1, 'done');
+
+        // FASE 2: Panel de permisos (1000ms) - se definen antes de que Juan se una
+        schedule(() => {
           step4.classList.add('active');
-        }, 3000);
-        
-        // Permisos aparecen uno por uno (3100-3700ms)
-        setTimeout(() => permItems[0]?.classList.add('active'), 3100);
-        setTimeout(() => permItems[1]?.classList.add('active'), 3250);
-        setTimeout(() => permItems[2]?.classList.add('active'), 3400);
-        setTimeout(() => permItems[3]?.classList.add('active'), 3550);
-        
-        // FASE 5: Control total (4500ms)
-        setTimeout(() => {
+          setTlState(4, 'active');
+        }, 1000);
+
+        // Permisos aparecen uno por uno (1100-1700ms)
+        schedule(() => permItems[0]?.classList.add('active'), 1100);
+        schedule(() => permItems[1]?.classList.add('active'), 1250);
+        schedule(() => permItems[2]?.classList.add('active'), 1400);
+        schedule(() => permItems[3]?.classList.add('active'), 1550);
+
+        // FASE 3: Flecha (2500ms)
+        schedule(() => {
           step4.classList.remove('active');
           step4.classList.add('done');
+          setTlState(4, 'done');
+          step3.classList.add('active');
+        }, 2500);
+
+        // FASE 4: Juan se une (3500ms)
+        schedule(() => {
+          step3.classList.remove('active');
+          step3.classList.add('done');
+          step2.classList.add('active');
+          setTlState(2, 'active');
+        }, 3500);
+
+        // FASE 5: Control total (4500ms)
+        schedule(() => {
+          step2.classList.remove('active');
+          step2.classList.add('done');
+          setTlState(2, 'done');
           step5.classList.add('active');
+          setTlState(5, 'active');
         }, 4500);
-        
-        // FASE 6: Toast de éxito (5500ms)
-        setTimeout(() => {
+
+        // FASE 6: Resumen del equipo (5500ms)
+        schedule(() => {
           step5.classList.remove('active');
           step5.classList.add('done');
+          setTlState(5, 'done');
           step6.classList.add('active');
+          setTlState(6, 'active');
         }, 5500);
-        
-        // FASE 7: Pausa para lectura (6500-7500ms)
-        
-        // CIERRE: Todo desaparece suavemente (7500ms)
-        setTimeout(() => {
+
+        // FINAL: Todo se muestra a opacidad completa (sin desvanecer) - paso 6 visible ~3.3s
+        schedule(() => {
           allSteps.forEach(step => {
-            if (step) step.classList.add('exit');
+            if (!step) return;
+            step.classList.remove('done', 'exit');
+            step.classList.add('active');
           });
-          permItems.forEach(item => item.classList.remove('active'));
-        }, 7500);
-        
-        // REINICIAR (8500ms)
-        setTimeout(runDemoCycle, 8500);
+          permItems.forEach(item => item.classList.add('active'));
+          setTlState(6, 'done');
+        }, 8800);
+
+        // REINICIAR ciclo (12500ms) - estado final visible ~3.7s
+        schedule(runDemoCycle, 12500);
       }
-      
-      runDemoCycle();
+
+      function runDemoCycle() {
+        resetAll();
+        resetForm();
+        resetTimeline();
+        // Paso 1 visible
+        step1.classList.add('active');
+        setTlState(1, 'active');
+        // Pequeña pausa para que se asiente, luego escribe el email
+        schedule(() => {
+          typeEmail(INVITE_EMAIL, () => {
+            // Tras escribir, selecciona el rol "Colaborador"
+            selectRole(INVITE_ROLE, () => {
+              // Breve pausa y se envía solo
+              schedule(runInviteSequence, 350);
+            });
+          });
+        }, 500);
+      }
+
+      // Iniciar cuando la sección es visible
+      const demoObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          runDemoCycle();
+          demoObserver.disconnect();
+        }
+      }, { threshold: 0.2 });
+
+      demoObserver.observe(demoSection);
     });
   </script>
   <script type="module" src="/src/main.jsx"></script>
