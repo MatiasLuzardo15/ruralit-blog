@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte semanal en tu email | Ruralit</title>
+    <meta name="description"
+        content="Cada lunes recibís un correo con barras de progreso y gráficos comparativos. Lo ves mientras tomás el mate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mozilla+Headline:wght@300;400;500;600;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://db.onlinewebfonts.com/c/53077f9a3eee9c479d37d6af20394ded?family=Cooper+BT+W01+Light">
+    <link rel="stylesheet"
+        href="https://db.onlinewebfonts.com/c/5ade3423145f3b9f7031574333ca0b73?family=Cooper+BT+W01+Medium">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .article-body {
+            background: var(--cream);
+            color: var(--fg);
+        }
+
+        .article-hero {
+            background: var(--cream);
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+            padding: 8rem 0 3rem;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .article-breadcrumb a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .article-breadcrumb a:hover {
+            color: var(--dark);
+        }
+
+        .article-breadcrumb .breadcrumb-sep {
+            color: rgba(14, 30, 18, 0.2);
+            font-size: 0.7rem;
+        }
+
+        .article-category-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--agri);
+            background: rgba(46, 158, 83, 0.1);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .article-meta-row .meta-dot {
+            width: 3px;
+            height: 3px;
+            background: var(--muted);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .article-content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+            width: 90%;
+        }
+
+        .article-content h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: var(--dark);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-callout {
+            background: rgba(46, 158, 83, 0.06);
+            border-left: 3px solid var(--agri);
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-callout p {
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .article-callout .callout-label {
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--agri);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content ul {
+            margin: 1rem 0 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .article-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .article-content ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            background: var(--agri);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .article-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(14, 30, 18, 0.08);
+            margin: 3rem 0;
+        }
+
+        .related-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 4rem;
+        }
+
+        .related-header {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid rgba(14, 30, 18, 0.06);
+            border-radius: 14px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .related-card:hover {
+            border-color: var(--agri);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(14, 30, 18, 0.08);
+        }
+
+        .related-card .card-category {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .related-card .card-category.cat-producto { color: var(--agri); }
+        .related-card .card-category.cat-dashboard { color: var(--amber); }
+        .related-card .card-category.cat-mejora { color: #C06040; }
+        .related-card .card-category.cat-guia { color: #2563EB; }
+
+        .related-card h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.35;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .related-card .card-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        .cta-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 5rem;
+        }
+
+        .cta-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+
+        .cta-card h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #b37a25;
+            transform: translateY(-1px);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 7rem 0 2rem;
+            }
+
+            .article-title {
+                font-size: 1.65rem;
+            }
+
+            .article-lead {
+                font-size: 1rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cta-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-meta-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .article-hero {
+                padding: 6.5rem 0 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.25rem;
+            }
+
+            .article-content p,
+            .article-content ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="article-body">
+    <nav id="navbar">
+        <a href="/" class="nav-logo"><img src="/z.svg" alt="Ruralit" /></a>
+        <div class="nav-links">
+            <a href="/#soluciones">Explora</a>
+            <a href="/#como">Cómo funciona</a>
+            <a href="/novedades/">Novedades</a>
+            <a href="/#casos">Casos</a>
+        </div>
+        <div class="nav-cta">
+            <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+            <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+        </div>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#soluciones">Explora</a>
+        <a href="/#como">Cómo funciona</a>
+        <a href="/novedades/">Novedades</a>
+        <a href="/#casos">Casos</a>
+        <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+        <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+    </div>
+
+    <div class="article-hero">
+        <div style="max-width: 680px; width: 90%; margin: 0 auto;">
+            <a href="/novedades/" class="btn-outline back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                VOLVER
+            </a>
+            <div class="article-breadcrumb">
+                <a href="/novedades/">Blog</a>
+                <span class="breadcrumb-sep">›</span>
+                <a href="/novedades/">Producto</a>
+            </div>
+            <span class="article-category-tag">Producto</span>
+            <h1 class="article-title">Reporte semanal en tu email</h1>
+            <p class="article-lead">
+                Cada lunes recibís un correo con barras de progreso y gráficos comparativos. Lo ves mientras tomás el mate.
+            </p>
+            <div class="article-meta-row">
+                <span>Mayo 2026</span>
+                <span class="meta-dot"></span>
+                <span>3 min de lectura</span>
+                <span class="meta-dot"></span>
+                <span>Equipo Ruralit</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content fade-up">
+
+        <p>
+            Hay un momento de la semana que es perfecto para revisar números: el lunes por la mañana, antes de que empiece el movimiento del campo. Es el momento en que todavía no arrancó la rutina y la cabeza está fresca. Pero la mayoría de los productores no revisan nada los lunes porque no tienen los números organizados ahí, listos para ver. Ruralit cambia eso.
+        </p>
+
+        <h2>La rutina del lunes</h2>
+
+        <p>
+            Imaginate esto: es lunes a la mañana, te serviste el mate, y antes de salir al campo abrís el correo. Ahí está tu reporte semanal de Ruralit. No tuviste que generar nada, no tuviste que entrar a la plataforma, no tuviste que buscar nada. Los números llegaron solos a tu bandeja de entrada, listos para que los mires en dos minutos.
+        </p>
+
+        <p>
+            La clave de un buen reporte no es la cantidad de datos sino la relevancia. Por eso el reporte semanal no es una planilla interminable ni un PDF de veinte páginas. Es un correo conciso con las métricas que importan: barras de progreso que te muestran de un vistazo cómo vas, gráficos comparativos que ponen esta semana al lado de la anterior, y alertas claras cuando algo necesita tu atención.
+        </p>
+
+        <h2>Qué incluye el reporte</h2>
+
+        <p>
+            Cada reporte semanal trae un resumen diseñado para que entiendas la situación financiera del campo sin tenerte que sentar frente a una computadora:
+        </p>
+
+        <ul>
+            <li><strong>Barras de progreso:</strong> Mostrán cuánto gastaste del presupuesto mensual en cada categoría. Verde si vas bien, rojo si te estás pasando. De un vistazo sabés si estás en ritmo o si hay que frenar algún rubro.</li>
+            <li><strong>Comparativa semanal:</strong> Graficos que comparan esta semana con la anterior. ¿Gastaste más en combustible? ¿Menos en sanidad? La comparación directa te da contexto, no solo números sueltos.</li>
+            <li><strong>Ingresos vs gastos:</strong> El balance neto de la semana, desglosado por establecimiento. Sabés si la semana fue positiva o negativa sin hacer ninguna cuenta.</li>
+            <li><strong>Alertas:</strong> Si algún gasto superó el promedio histórico, si una categoría se está yendo de presupuesto, o si hay un movimiento inusual, lo vas a ver destacado en el reporte.</li>
+        </ul>
+
+        <div class="article-callout">
+            <div class="callout-label">Sin distracciones</div>
+            <p>
+                Solo los números que importan. Nada de notificaciones innecesarias, nada de correos promocionales. Un email por semana con la información que necesitás para tomar decisiones. Si querás más detalle, entrás a la plataforma. Si no, con el correo alcanza.
+            </p>
+        </div>
+
+        <h2>Configurá tus preferencias</h2>
+
+        <p>
+            No todos quieren recibir el reporte los lunes, y no todos manejan un solo establecimiento. Por eso podés personalizar la frecuencia y el contenido del reporte:
+        </p>
+
+        <ul>
+            <li><strong>Frecuencia:</strong> Elegí entre reporte diario, semanal o mensual. El semanal es el más popular, pero si preferís un resumen más frecuente o más espaciado, vos decidís.</li>
+            <li><strong>Establecimientos:</strong> Si manejás más de uno, podés incluir todos en un solo correo o recibir reportes separados por establecimiento.</li>
+            <li><strong>Categorías:</strong> Si hay rubros que no te interesan, los sacás del reporte. Solo ves lo que querés ver.</li>
+        </ul>
+
+        <p>
+            La configuración toma dos minutos y después el reporte llega siempre igual, con los datos de la semana que pasó, en tu correo, sin que tengas que hacer nada.
+        </p>
+
+        <h2>Datos que generan acciones</h2>
+
+        <p>
+            Ver tus números una vez por semana no es un ejercicio académico. Es la forma más práctica de detectar problemas antes de que se conviertan en crisis. Si en el reporte del lunes ves que los gastos de combustible subieron un 40% respecto a la semana anterior, podés investigar el lunes y no a fin de mes cuando ya es tarde. Si la barra de sanidad se acerca al presupuesto, podés renegociar con el veterinario antes de que se pase.
+        </p>
+
+        <p>
+            Los productores que reciben el reporte semanal nos dicen lo mismo: "Antes no miraba los números hasta que tenía que entregarle algo al contador. Ahora los veo todos los lunes y ya sé si tengo que ajustar algo." Esa es la idea. Datos visibles en el momento justo para generar la acción correcta.
+        </p>
+
+        <div class="article-divider"></div>
+
+        <p>
+            El reporte semanal ya está disponible en Ruralit. Configurá la frecuencia que prefieras y empezá a recibir los números de tu campo cada lunes, directamente en tu correo.
+        </p>
+    </div>
+
+    <div class="related-section">
+        <div class="related-header">Artículos relacionados</div>
+        <div class="related-grid">
+            <a href="/novedades/dictado-inteligente.html" class="related-card">
+                <span class="card-category cat-producto">Producto</span>
+                <h4>Dictado inteligente</h4>
+                <p>Decí "gasté 5000 en gasoil" y Ruralit escucha, entiende y carga el movimiento por vos.</p>
+                <span class="card-meta">Junio 2026 · 3 min</span>
+            </a>
+            <a href="/novedades/organiz%C3%A1-los-gastos.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Organizá los gastos de tu campo</h4>
+                <p>Clasificá gastos por lote, actividad y rubro para tener claridad total.</p>
+                <span class="card-meta">Mayo 2026 · 5 min</span>
+            </a>
+            <a href="/novedades/alertas-inteligentes.html" class="related-card">
+                <span class="card-category cat-producto">Producto</span>
+                <h4>Alertas inteligentes en el Dashboard</h4>
+                <p>Carrusel de tarjetas con avisos automáticos para tu establecimiento.</p>
+                <span class="card-meta">Junio 2026 · 3 min</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-card">
+            <h3>Probá Ruralit gratis</h3>
+            <p>Organizá los resultados de tu campo con claridad financiera. Sin compromiso.</p>
+            <a href="https://www.ruralit.site/signup" class="cta-button">
+                Crear cuenta gratis
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">ruralit<span class="logo-dot">.</span></a>
+                <p>Una herramienta financiera para organizar tus ingresos y gastos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Producto</h4>
+                <a href="/#como">Cómo funciona</a>
+                <a href="/novedades/">Explora</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/manual/">Manual</a>
+            </div>
+            <div class="footer-col">
+                <h4>Cuenta</h4>
+                <a href="https://www.ruralit.site/login">Iniciar sesión</a>
+                <a href="https://www.ruralit.site/signup">Crear cuenta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/terminos/">Términos de uso</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/terminos/">Términos de uso</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-40px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                nav.style.boxShadow = '0 1px 20px rgba(14,30,18,0.08)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictado inteligente: Cargá gastos con tu voz | Ruralit</title>
+    <meta name="description"
+        content="Decí &quot;gasté 5000 en gasoil&quot; y Ruralit escucha, entiende y carga el movimiento por vos. Funciona offline con inteligencia artificial local.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Mozilla+Headline:wght@300;400;500;600;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://db.onlinewebfonts.com/c/53077f9a3eee9c479d37d6af20394ded?family=Cooper+BT+W01+Light">
+    <link rel="stylesheet"
+        href="https://db.onlinewebfonts.com/c/5ade3423145f3b9f7031574333ca0b73?family=Cooper+BT+W01+Medium">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .article-body {
+            background: var(--cream);
+            color: var(--fg);
+        }
+
+        .article-hero {
+            background: var(--cream);
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+            padding: 8rem 0 3rem;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .article-breadcrumb a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .article-breadcrumb a:hover {
+            color: var(--dark);
+        }
+
+        .article-breadcrumb .breadcrumb-sep {
+            color: rgba(14, 30, 18, 0.2);
+            font-size: 0.7rem;
+        }
+
+        .article-category-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--agri);
+            background: rgba(46, 158, 83, 0.1);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .article-meta-row .meta-dot {
+            width: 3px;
+            height: 3px;
+            background: var(--muted);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .article-content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+            width: 90%;
+        }
+
+        .article-content h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: var(--dark);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-callout {
+            background: rgba(46, 158, 83, 0.06);
+            border-left: 3px solid var(--agri);
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-callout p {
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .article-callout .callout-label {
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--agri);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content ul {
+            margin: 1rem 0 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .article-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .article-content ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            background: var(--agri);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .article-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(14, 30, 18, 0.08);
+            margin: 3rem 0;
+        }
+
+        .related-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 4rem;
+        }
+
+        .related-header {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid rgba(14, 30, 18, 0.06);
+            border-radius: 14px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .related-card:hover {
+            border-color: var(--agri);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(14, 30, 18, 0.08);
+        }
+
+        .related-card .card-category {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .related-card .card-category.cat-producto { color: var(--agri); }
+        .related-card .card-category.cat-dashboard { color: var(--amber); }
+        .related-card .card-category.cat-mejora { color: #C06040; }
+
+        .related-card h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.35;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .related-card .card-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        .cta-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 5rem;
+        }
+
+        .cta-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+
+        .cta-card h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #b37a25;
+            transform: translateY(-1px);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 7rem 0 2rem;
+            }
+
+            .article-title {
+                font-size: 1.65rem;
+            }
+
+            .article-lead {
+                font-size: 1rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cta-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-meta-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .article-hero {
+                padding: 6.5rem 0 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.25rem;
+            }
+
+            .article-content p,
+            .article-content ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="article-body">
+    <nav id="navbar">
+        <a href="/" class="nav-logo"><img src="/z.svg" alt="Ruralit" /></a>
+        <div class="nav-links">
+            <a href="/#soluciones">Explora</a>
+            <a href="/#como">Cómo funciona</a>
+            <a href="/novedades/">Novedades</a>
+            <a href="/#casos">Casos</a>
+        </div>
+        <div class="nav-cta">
+            <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+            <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+        </div>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#soluciones">Explora</a>
+        <a href="/#como">Cómo funciona</a>
+        <a href="/novedades/">Novedades</a>
+        <a href="/#casos">Casos</a>
+        <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+        <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+    </div>
+
+    <div class="article-hero">
+        <div style="max-width: 680px; width: 90%; margin: 0 auto;">
+            <a href="/novedades/" class="btn-outline back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                VOLVER
+            </a>
+            <div class="article-breadcrumb">
+                <a href="/novedades/">Blog</a>
+                <span class="breadcrumb-sep">›</span>
+                <a href="/novedades/">Producto</a>
+            </div>
+            <span class="article-category-tag">Producto</span>
+            <h1 class="article-title">Dictado inteligente: Cargá gastos con tu voz</h1>
+            <p class="article-lead">
+                Decí "gasté 5000 en gasoil" y Ruralit escucha, entiende y carga el movimiento por vos. Sin tipear nada, directamente desde el campo.
+            </p>
+            <div class="article-meta-row">
+                <span>15 de junio de 2026</span>
+                <span class="meta-dot"></span>
+                <span>3 min de lectura</span>
+                <span class="meta-dot"></span>
+                <span>Equipo Ruralit</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content fade-up">
+
+        <p>
+            En el campo, las cosas se mueven rápido. Un gasto acá, una compra allá, y antes de que te des cuenta tenés cinco movimientos sin registrar. Sabemos que no siempre tenés las manos libres para abrir una app y tipear cada detalle. Por eso construimos el <strong>dictado inteligente</strong>: una forma de registrar gastos usando solamente tu voz.
+        </p>
+
+        <h2>Cómo funciona</h2>
+
+        <p>
+            Tocás el ícono del micrófono dentro de Ruralit y simplemente hablás. Nada de formularios, nada de seleccionar categorías a mano. Decís lo que necesitás registrar y la plataforma se encarga del resto. La información se procesa con inteligencia artificial directamente en tu dispositivo, sin depender de una conexión a internet.
+        </p>
+
+        <p>
+            Algunos ejemplos de lo que podés decir:
+        </p>
+
+        <ul>
+            <li><strong>"Gasté 5000 en gasoil"</strong> — Se registra un gasto de $5.000 en la categoría Combustible.</li>
+            <li><strong>"Compré ración por 12.000"</strong> — Se crea un movimiento en Suplementación con el monto correcto.</li>
+            <li><strong>"Pagué 30 dólares de sanidad"</strong> — Se carga en la divisa USD dentro de Sanidad animal.</li>
+            <li><strong>"Gasto de electricidad 4500 para el establecimiento La Esperanza"</strong> — Se asigna al proyecto o establecimiento específico.</li>
+        </ul>
+
+        <div class="article-callout">
+            <div class="callout-label">Funciona sin conexión</div>
+            <p>
+                El modelo de inteligencia artificial corre localmente en tu teléfono. Esto significa que podés dictar gastos estando en medio del campo, donde la señal de datos es débil o inexistente. Todo se procesa y se guarda en tu dispositivo, y se sincroniza cuando volvés a tener conexión.
+            </p>
+        </div>
+
+        <h2>Organización automática</h2>
+
+        <p>
+            La parte más tediosa de registrar un gasto nunca fue tipear el monto — fue acordarse de elegir la categoría, la moneda y el proyecto correcto. Con el dictado inteligente, eso ya no estu problema. Ruralit analiza tu frase y extrae tres datos clave:
+        </p>
+
+        <ul>
+            <li><strong>Categoría:</strong> Detecta si es gasoil, ración, sanidad, alquiler, o cualquier otra rubro, y lo clasifica automáticamente.</li>
+            <li><strong>Moneda:</strong> Reconoce si hablaste en pesos uruguayos, dólares, o la unidad que uses, y asigna la divisa correcta.</li>
+            <li><strong>Proyecto o establecimiento:</strong> Si mencionás un nombre de establecimiento o lote, lo vincula con el proyecto correspondiente.</li>
+        </ul>
+
+        <p>
+            Después de cada dictado, ves una vista previa con los datos interpretados para confirmar. Si algo no está bien, lo corregís con un toque. Pero en la mayoría de los casos, acierta a la primera.
+        </p>
+
+        <h2>Diseñado para el productor real</h2>
+
+        <p>
+            No construimos esta función para alguien sentado en una oficina con Wi-Fi estable. La construimos para el productor que está manejando el tractor, revisando alambrados, o volviendo de la bajada al pueblo. En esos momentos, sacar el teléfono y hablar es mucho más práctico que frenar y escribir.
+        </p>
+
+        <p>
+            El dictado inteligente también funciona en contextos ruidosos: el modelo está entrenado para filtrar el sonido ambiente y captar la instrucción con precisión. Y si estás en una zona sin señal, no hay problema: todo se almacena localmente y se sincroniza cuando tenés conexión de nuevo.
+        </p>
+
+        <div class="article-divider"></div>
+
+        <p>
+            El dictado inteligente ya está disponible en Ruralit. Si todavía no lo probaste, entrá a la app y tocá el micrófono. Vas a ver lo fácil que es registrar un gasto cuando no tenés que escribir nada.
+        </p>
+    </div>
+
+    <div class="related-section">
+        <div class="related-header">Artículos relacionados</div>
+        <div class="related-grid">
+            <a href="/novedades/alertas-inteligentes.html" class="related-card">
+                <span class="card-category cat-dashboard">Dashboard</span>
+                <h4>Alertas inteligentes en el Dashboard</h4>
+                <p>Carrusel de tarjetas con avisos automáticos para tu establecimiento.</p>
+                <span class="card-meta">Junio 2026 · 3 min</span>
+            </a>
+            <a href="/novedades/lectura-automatica.html" class="related-card">
+                <span class="card-category cat-mejora">Mejora</span>
+                <h4>Lectura automática de facturas</h4>
+                <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
+                <span class="card-meta">Marzo 2026 · 4 min</span>
+            </a>
+            <a href="/novedades/control-de-stock.html" class="related-card">
+                <span class="card-category cat-producto">Producto</span>
+                <h4>Control de stock y recursos</h4>
+                <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-card">
+            <h3>Probá Ruralit gratis</h3>
+            <p>Organizá los resultados de tu campo con claridad financiera. Sin compromiso.</p>
+            <a href="https://www.ruralit.site/signup" class="cta-button">
+                Crear cuenta gratis
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">ruralit<span class="logo-dot">.</span></a>
+                <p>Una herramienta financiera para organizar tus ingresos y gastos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Producto</h4>
+                <a href="/#como">Cómo funciona</a>
+                <a href="/novedades/">Explora</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/manual/">Manual</a>
+            </div>
+            <div class="footer-col">
+                <h4>Cuenta</h4>
+                <a href="https://www.ruralit.site/login">Iniciar sesión</a>
+                <a href="https://www.ruralit.site/signup">Crear cuenta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/terminos/">Términos de uso</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/terminos/">Términos de uso</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com" target="_blank">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-40px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                nav.style.boxShadow = '0 1px 20px rgba(14,30,18,0.08)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

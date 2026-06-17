@@ -1,455 +1,468 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ruralit. | Inteligencia Financiera para el Campo</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Ruralit es la plataforma de inteligencia financiera diseñada para que los productores agropecuarios modernos optimicen sus gastos, monitoreen ciclos y alcancen metas reales.">
-
-    <!-- Fonts: Outfit (Main) & Orbitron (Logo/Headers) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&family=Orbitron:wght@600;900&family=Inter+Tight:wght@400;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ruralit — Organización de Gastos para el Campo</title>
+  <meta name="description" content="Ruralit es la plataforma de inteligencia financiera diseñada para que los productores agropecuarios modernos optimicen sus gastos, monitoreen ciclos y alcancen metas reales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&family=Mozilla+Headline:wght@300;400;500;600;700&family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/53077f9a3eee9c479d37d6af20394ded?family=Cooper+BT+W01+Light" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ade3423145f3b9f7031574333ca0b73?family=Cooper+BT+W01+Medium" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <!-- Ambient Background Elements -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
 
-    <!-- Navbar -->
-    <nav id="navbar" class="visible">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                ruralit<span class="dot">.</span>
-            </a>
-            <div class="nav-links" id="nav-links">
-                <button class="menu-back-btn" id="menu-back-btn">
-                    <i data-lucide="arrow-left"></i>
-                </button>
-                <a href="#problem">Problema</a>
-                <a href="#how-it-works">Cómo Funciona</a>
-                <a href="#product-showcase">Soluciones</a>
-                <a href="/novedades/" class="explore-link">
-                    Explora
-                    <span class="badge-pulse">3</span>
-                </a>
-                <a href="#use-cases">Casos</a>
-            </div>
-            <div class="nav-actions">
-                <a href="https://www.ruralit.site/login" class="btn-nav">ACCEDER</a>
-                <button id="theme-toggle" class="theme-btn">
-                    <i data-lucide="moon" class="moon-icon"></i>
-                    <i data-lucide="sun" class="sun-icon"></i>
-                </button>
-                <button id="menu-toggle" class="menu-btn">
-                    <i data-lucide="menu" class="open-icon"></i>
-                    <i data-lucide="x" class="close-icon" style="display: none;"></i>
-                </button>
-            </div>
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img src="/z.svg" alt="Ruralit" /></a>
+    <div class="nav-links">
+      <a href="#soluciones">Explora</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="/novedades/">Novedades</a>
+      <a href="#casos">Casos</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+      <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+    </div>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#soluciones">Explora</a>
+    <a href="#como">Cómo funciona</a>
+    <a href="/novedades/">Novedades</a>
+    <a href="#casos">Casos</a>
+    <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+    <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="fade-up font-cooper">Organización de Gastos para el Campo</h1>
+      <p class="hero-sub fade-up" style="transition-delay:0.1s">Registrá gastos, organizá tus cuentas y lográ la claridad financiera necesaria para decidir el futuro de tu campo.</p>
+      <div class="hero-actions fade-up" style="transition-delay:0.25s">
+        <a href="#como" class="btn-dark">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Ver cómo funciona
+        </a>
+        <a href="https://www.ruralit.site/signup" class="btn-ghost">Comienza ahora</a>
+      </div>
+      <div class="dashboard-preview fade-up" style="transition-delay:0.4s">
+        <div class="demo-input-box" id="demo-input-box">
+          <div class="demo-mic">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg>
+          </div>
+          <div class="demo-text-area">
+            <div class="demo-typing" id="demo-typing"><span id="demo-text"></span><span class="demo-cursor"></span></div>
+            <div class="demo-placeholder" id="demo-placeholder">Escribí un movimiento...</div>
+          </div>
+          <div class="demo-send" id="demo-send">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="hero" class="hero">
-        <div class="hero-glow"></div>
-        <div class="container hero-content">
-            <div class="reveal">
-                <span class="badge">Organización de Gastos para el Campo</span>
-                <h1 style="margin-top: 1rem;" class="orbitron">Organizá los <span class="highlight">resultados</span> de
-                    tu campo en tiempo real</h1>
-                <p>Registrá gastos, organizá tus cuentas y lográ la claridad financiera necesaria para decidir el futuro
-                    de tu campo.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#how-it-works" class="btn-giant secondary"
-                        style="background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green); box-shadow: none;">VER
-                        CÓMO FUNCIONA</a>
-                    <a href="https://www.ruralit.site/signup" class="btn-giant">COMIENZA AHORA</a>
+        <div class="demo-result" id="demo-result">
+          <div class="mov-item">
+            <div class="mov-icon is-expense" id="mov-icon" aria-hidden="true"></div>
+            <div class="mov-content">
+              <div class="mov-row">
+                <div class="mov-main">
+                  <div class="mov-title" id="mov-title">Gasoil</div>
+                  <div class="mov-meta">
+                    <span class="mov-date" id="mov-date">25/05/2026</span>
+                    <span class="mov-dot" aria-hidden="true">·</span>
+                    <span class="mov-badge" id="mov-badge">Combustible</span>
+                  </div>
                 </div>
+                <div class="mov-amount is-negative" id="mov-amount">-$ 4.500</div>
+              </div>
+              <div class="mov-quote" id="mov-quote">"Registré gasto de gasoil por $4.500"</div>
             </div>
+          </div>
         </div>
-        <div class="hero-dashboard-preview reveal">
-            <div class="metric-pill pill-1">
-                <i data-lucide="zap"></i>
-                <span>Movimiento: Compra Gasoil</span>
-            </div>
-            <div class="metric-pill pill-2">
-                <i data-lucide="trending-up"></i>
-                <span>Margen Lote: +22.4%</span>
-            </div>
-            <div class="metric-pill pill-3">
-                <i data-lucide="globe"></i>
-                <span>USD: $39.55</span>
-            </div>
-            <img src="assets/balances.png" alt="Ruralit Dashboard Preview"
-                style="width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-problema" id="problema">
+    <div class="container">
+      <div class="problema-intro fade-up">
+        <span class="eyebrow">El Problema</span>
+        <h2 class="section-title font-cooper">¿Sabés cuánto estás perdiendo hoy?</h2>
+        <p class="section-sub" style="margin:0 auto">Estas tres situaciones son más comunes de lo que parece — y cada una tiene un costo real sobre tu margen.</p>
+      </div>
+      <div class="problema-grid">
+        <div class="problema-card fade-up" style="transition-delay:0.05s">
+          <h3>Costos invisibles</h3>
+          <p>Gastos pequeños que no registrás pero que a fin de año devoran tu margen operativo.</p>
         </div>
-    </header>
-
-    <!-- Problem Section -->
-    <section id="problem" class="container">
-        <div class="section-header reveal">
-            <span class="section-tag">El Problema</span>
-            <h2 class="orbitron">¿Sabés cuánto estás <span class="highlight">perdiendo</span> hoy?</h2>
+        <div class="problema-card fade-up" style="transition-delay:0.15s">
+          <h3>No sabés si ganás o perdés</h3>
+          <p>Llevás las cuentas en la cabeza o en un cuaderno. La falta de datos claros te genera incertidumbre.</p>
         </div>
-        <div class="problem-grid reveal">
-            <div class="problem-card">
-                <i data-lucide="eye-off"></i>
-                <h3>Costos invisibles</h3>
-                <p>Gastos pequeños que no registrás pero que a fin de año devoran tu margen operativo.</p>
-            </div>
-            <div class="problem-card">
-                <i data-lucide="trending-down"></i>
-                <h3>No sabés si ganás o perdés</h3>
-                <p>Llevás las cuentas en la cabeza o en un cuaderno. La falta de datos claros te genera incertidumbre.
-                </p>
-            </div>
-            <div class="problem-card">
-                <i data-lucide="alert-circle"></i>
-                <h3>Decisiones a ciegas</h3>
-                <p>Proyectos que avanzan sin claridad sobre el margen real de tu capital asignado.</p>
-            </div>
+        <div class="problema-card fade-up" style="transition-delay:0.25s">
+          <h3>Decisiones a ciegas</h3>
+          <p>Proyectos que avanzan sin claridad sobre el margen real de tu capital asignado.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Product Showcase Section -->
-    <section id="product-showcase" class="container reveal">
-        <div class="section-header">
-            <span class="section-tag">Lo que vas a ver en Ruralit</span>
-            <h2 class="orbitron">Datos que se convierten en <span class="highlight">claridad</span></h2>
+  <section class="section-soluciones" id="soluciones">
+    <div class="container">
+      <div class="soluciones-header fade-up">
+        <span class="eyebrow">Ruralit</span>
+        <h2 class="section-title font-cooper">Herramientas que hacen la diferencia</h2>
+      </div>
+      <div class="soluciones-grid">
+        <div class="solucion-card fade-up" style="transition-delay:0.05s">
+          <div class="solucion-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>
+          </div>
+          <h3>Dictado por voz</h3>
+          <p>Decí "gasté 5000 en gasoil" y Ruralit carga el movimiento por vos. Sin tipear nada.</p>
         </div>
-
-        <div class="product-layout">
-            <div class="product-info">
-                <div class="info-item">
-                    <h4>Ganancia por actividad</h4>
-                    <p>Analizá qué lote o cultivo está dejando más margen neto después de gastos e impuestos.</p>
-                </div>
-                <div class="info-item">
-                    <h4>Flujo de caja dinámico</h4>
-                    <p>Controlá tus ingresos y egresos proyectados para nunca quedarte sin liquidez operativa.</p>
-                </div>
-                <div class="info-item">
-                    <h4>Costos ocultos detectados</h4>
-                    <p>Identificamos gastos invisibles en categorías que suelen pasar desapercibidas.</p>
-                </div>
-                <div class="info-item">
-                    <h4>Evolución mensual</h4>
-                    <p>Compará tu rendimiento mes a mes para entender la estacionalidad de tu negocio.</p>
-                </div>
-            </div>
-            <div class="product-visual">
-                <img src="assets/secciones.png" alt="Secciones de Ruralit" loading="lazy"
-                    style="width: 100%; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15)); transition: 0.6s ease; cursor: pointer;"
-                    onmouseover="this.style.transform='translateY(-15px)'"
-                    onmouseout="this.style.transform='translateY(0)'">
-            </div>
+        <div class="solucion-card fade-up" style="transition-delay:0.15s">
+          <div class="solucion-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+          </div>
+          <h3>Control de stock</h3>
+          <p>Ganado, cosecha, insumos: sabés qué tenés y qué te falta. Todo en un solo lugar.</p>
         </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Cómo funciona</span>
-                <h2 class="orbitron">Tres pasos hacia el <span class="highlight">control total</span></h2>
-            </div>
-            <div class="steps-grid reveal">
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <i data-lucide="pen-tool"></i>
-                    <div class="step-content">
-                        <h3>Registrás tus movimientos</h3>
-                        <p>Cargás gastos, inversiones o ingresos en segundos. Nuestro sistema inteligente reconoce las
-                            palabras para organizar todo por vos.</p>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <i data-lucide="settings"></i>
-                    <div class="step-content">
-                        <h3>Ruralit organiza todo</h3>
-                        <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y/o proyecto
-                            asignado.</p>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <i data-lucide="bar-chart-3"></i>
-                    <div class="step-content">
-                        <h3>Ves tu margen real</h3>
-                        <p>Accedés a tableros limpios con tu flujo de caja, margen por lote y evolución mensual en
-                            tiempo real.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="solucion-card fade-up" style="transition-delay:0.25s">
+          <div class="solucion-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+          </div>
+          <h3>Trabajo en equipo</h3>
+          <p>Compartí tu establecimiento con familia, socios o encargado. Cada uno con su rol y permisos.</p>
         </div>
-    </section>
-
-    <!-- React Blog Section (Resumen de Gestión) -->
-    <div id="react-blog-root"></div>
-
-
-
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="use-cases">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Casos de Uso</span>
-                <h2 class="orbitron">Adaptado a <span class="highlight">tu negocio</span></h2>
-            </div>
-            <div class="cases-grid reveal">
-                <div class="case-card">
-                    <div class="case-header">
-                        <i data-lucide="activity"></i>
-                        <h3>Ganadería</h3>
-                    </div>
-                    <p>Seguí el margen real por lote de animales. Controlá costos de suplementación y sanidad con
-                        precisión.</p>
-                    <span class="case-impact">Margen real por lote</span>
-                </div>
-                <div class="case-card">
-                    <div class="case-header">
-                        <i data-lucide="wheat"></i>
-                        <h3>Agricultura</h3>
-                    </div>
-                    <p>Calculá el costo por hectárea y el punto de equilibrio de tu siembra. Monitoreá insumos y
-                        laboreos.</p>
-                    <span class="case-impact">Costos por hectárea</span>
-                </div>
-                <div class="case-card">
-                    <div class="case-header">
-                        <i data-lucide="bar-chart-4"></i>
-                        <h3>Ovinos y Especialidades</h3>
-                    </div>
-                    <p>Llevá un seguimiento minucioso de inversiones en infraestructura y genética. Retorno a largo
-                        plazo.</p>
-                    <span class="case-impact">Seguimiento de inversión</span>
-                </div>
-            </div>
+        <div class="solucion-card fade-up" style="transition-delay:0.35s">
+          <div class="solucion-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+          </div>
+          <h3>Importá en segundos</h3>
+          <p>Subí una planilla Excel o una factura PDF y Ruralit hace el resto. Sin cargar nada a mano.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-
-    <section id="final-cta" class="final-cta">
-        <div class="container">
-            <div class="cta-card reveal">
-                <div class="cta-glow-element"></div>
-                <h2 class="orbitron">Convertí tus datos en <span class="highlight">decisiones inteligentes.</span></h2>
-                <p>Obtené visibilidad total de tu flujo de caja. Organizá tus cuentas y decidí tus próximos pasos con la
-                    claridad que tu establecimiento necesita.</p>
-                <div style="margin-top: 3rem;">
-                    <a href="https://www.ruralit.site/signup" class="btn-giant">COMIENZA AHORA</a>
-                </div>
-            </div>
+  <section class="section-como" id="como">
+    <div class="container">
+      <div class="como-header fade-up">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2 class="section-title font-cooper">Tres pasos hacia el control total</h2>
+      </div>
+      <div class="pasos-grid">
+        <div class="paso fade-up" style="transition-delay:0.05s">
+          <div class="paso-num font-cooper">01</div>
+          <h3>Registrás tus movimientos</h3>
+          <p>Cargás gastos, inversiones o ingresos en segundos. Nuestro sistema inteligente reconoce las palabras para organizar todo por vos.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo">ruralit<span class="dot">.</span></div>
-                    <p style="margin-top: 1.5rem; max-width: 250px; opacity: 0.7;">Una herramienta financiera para
-                        organizar tus ingresos y gastos.</p>
-                </div>
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 2rem;">Producto<span class="dot orbitron">.</span></h4>
-                    <ul class="footer-list">
-                        <li><a href="#how-it-works">Cómo funciona</a></li>
-                        <li><a href="/novedades/">Explora</a></li>
-                        <li><a href="/faq/">FAQ</a></li>
-                        <li><a href="/manual/">Manual</a></li>
-                        <li><a href="https://www.ruralit.site/login">Iniciar sesión</a></li>
-                        <li><a href="https://www.ruralit.site/signup">Crear cuenta</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 2rem;">Legal<span class="dot orbitron">.</span></h4>
-                    <ul class="footer-list">
-                        <li><a href="/privacidad/">Privacidad</a></li>
-                        <li><a href="/terminos/">Términos de uso</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 2rem;">Contacto<span class="dot orbitron">.</span></h4>
-                    <ul class="footer-list">
-                        <li>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=matiasluzardevv@gmail.com"
-                                target="_blank"
-                                style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
-                                <i data-lucide="mail" style="width: 16px; height: 16px;"></i> Gmail
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/matias-luzardo-a87280248" target="_blank"
-                                style="display: flex; align-items: center; gap: 0.5rem;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" style="min-width: 16px;">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect width="4" height="12" x="2" y="9"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Ruralit. Hecho en UY</p>
-                <p style="opacity: 0.5;">Control financiero simple e inteligente</p>
-            </div>
+        <div class="paso fade-up" style="transition-delay:0.15s">
+          <div class="paso-num font-cooper">02</div>
+          <h3>Ruralit organiza todo</h3>
+          <p>La plataforma clasifica automáticamente cada dato por categoría, moneda y/o proyecto asignado.</p>
         </div>
-    </footer>
+        <div class="paso fade-up" style="transition-delay:0.25s">
+          <div class="paso-num font-cooper">03</div>
+          <h3>Ves tu margen real</h3>
+          <p>Accedés a tableros limpios con tu flujo de caja, margen por lote y evolución mensual en tiempo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script>
-        // Navbar scroll behavior
-        var lastScrollTop = 0;
-        var navbar = document.getElementById('navbar');
+  <section class="section-equipo" id="equipo">
+    <div class="container">
+      <div class="equipo-header fade-up" style="text-align:center;margin-bottom:56px">
+        <span class="eyebrow" style="color:var(--amber)">Trabajo en equipo</span>
+        <h2 class="section-title font-cooper" style="color:var(--white)">Compartí tu establecimiento, sin perder el control</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6);margin:0 auto">Invitá a tu equipo y definí qué puede hacer cada persona.</p>
+      </div>
+      <div class="equipo-inner">
+        <div class="equipo-left fade-up">
+          <div class="equipo-badge">
+            <div class="equipo-badge-icon">E</div>
+            <span>La Esperanza · 3 usuarios · permisos por rol</span>
+          </div>
+          <div class="equipo-roles">
+            <div class="rol">
+              <div class="rol-header">
+                <span class="rol-name">Administrador</span>
+                <span class="rol-perms">Control total</span>
+              </div>
+              <div class="rol-tags">
+                <span class="rol-tag">Impuestos</span>
+                <span class="rol-tag">Usuarios</span>
+                <span class="rol-tag">Cierres</span>
+                <span class="rol-tag">Reportes</span>
+              </div>
+            </div>
+            <div class="rol">
+              <div class="rol-header">
+                <span class="rol-name">Encargado</span>
+                <span class="rol-perms">Carga diaria</span>
+              </div>
+              <div class="rol-tags">
+                <span class="rol-tag">Gastos</span>
+                <span class="rol-tag">Compras</span>
+                <span class="rol-tag">Stock</span>
+                <span class="rol-tag">Movimientos</span>
+              </div>
+            </div>
+            <div class="rol">
+              <div class="rol-header">
+                <span class="rol-name">Contador</span>
+                <span class="rol-perms">Solo lectura</span>
+              </div>
+              <div class="rol-tags">
+                <span class="rol-tag">Balances</span>
+                <span class="rol-tag">Reportes</span>
+                <span class="rol-tag">Exportaciones</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="equipo-right fade-up" style="transition-delay:0.15s">
+          <div class="equipo-steps">
+            <div class="equipo-step"><div class="step-circle">1</div><span class="step-text">Invitás a tu equipo al establecimiento</span></div>
+            <div class="equipo-step"><div class="step-circle">2</div><span class="step-text">Asignás el rol correspondiente a cada persona</span></div>
+            <div class="equipo-step"><div class="step-circle">3</div><span class="step-text">Cada uno accede solo a lo que le corresponde</span></div>
+            <div class="equipo-step"><div class="step-circle">4</div><span class="step-text">Trabajan juntos mientras vos mantenés el control</span></div>
+          </div>
+          <p class="equipo-note">Vos mantenés el control. Tu equipo solo ve y hace lo que le corresponde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        window.addEventListener('scroll', function () {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  <div id="react-blog-root"></div>
 
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down - hide navbar
-                navbar.classList.remove('visible');
-                navbar.classList.add('hidden');
-            } else {
-                // Scrolling up - show navbar
-                navbar.classList.remove('hidden');
-                navbar.classList.add('visible');
-            }
+  <section class="section-casos" id="casos">
+    <div class="container">
+      <div class="casos-header fade-up">
+        <span class="eyebrow">Casos de Uso</span>
+        <h2 class="section-title font-cooper">Adaptado a tu negocio</h2>
+      </div>
+      <div class="casos-grid">
+        <div class="caso-card fade-up" style="transition-delay:0.05s">
+          <h3>Ganadería</h3>
+          <p>Seguí el margen real por lote de animales. Controlá costos de suplementación y sanidad con precisión.</p>
+          <span class="caso-tag">
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+            Margen real por lote
+          </span>
+        </div>
+        <div class="caso-card fade-up" style="transition-delay:0.15s">
+          <h3>Agricultura</h3>
+          <p>Calculá el costo por hectárea y el punto de equilibrio de tu siembra. Monitoreá insumos y laboreos.</p>
+          <span class="caso-tag">
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+            Costos por hectárea
+          </span>
+        </div>
+        <div class="caso-card fade-up" style="transition-delay:0.25s">
+          <h3>Ovinos y Especialidades</h3>
+          <p>Llevá un seguimiento minucioso de inversiones en infraestructura y genética. Retorno a largo plazo.</p>
+          <span class="caso-tag">
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+            Seguimiento de inversión
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            lastScrollTop = scrollTop;
-        });
+  <section class="section-cta">
+    <div class="container fade-up">
+      <h2 class="section-title font-cooper" style="color:var(--white)">Convertí tus datos en decisiones inteligentes.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto 40px">Obtené visibilidad total de tu flujo de caja. Organizá tus cuentas y decidí tus próximos pasos con la claridad que tu establecimiento necesita.</p>
+      <a href="https://www.ruralit.site/signup" class="btn-amber">
+        Comienza ahora
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </a>
+    </div>
+  </section>
 
-        // Activate .reveal elements after a short delay
-        setTimeout(function () {
-            console.log('[HTML] Activating .reveal elements...');
-            document.querySelectorAll('.reveal').forEach(function (el, i) {
-                el.classList.add('active');
-                console.log('[HTML] Activated .reveal[' + i + ']', el.id || el.className);
-            });
-        }, 100);
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">ruralit<span class="logo-dot">.</span></a>
+        <p>Una herramienta financiera para organizar tus ingresos y gastos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <a href="#como">Cómo funciona</a>
+        <a href="#soluciones">Explora</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/manual/">Manual</a>
+      </div>
+      <div class="footer-col">
+        <h4>Cuenta</h4>
+        <a href="https://www.ruralit.site/login">Iniciar sesión</a>
+        <a href="https://www.ruralit.site/signup">Crear cuenta</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/terminos/">Términos de uso</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hola@ruralit.com" target="_blank">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="/privacidad/">Privacidad</a>
+        <a href="/terminos/">Términos de uso</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hola@ruralit.com" target="_blank">Contacto</a>
+      </div>
+      <div class="footer-contact">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hola@ruralit.com" target="_blank">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          Gmail
+        </a>
+        <a href="https://www.linkedin.com/in/matias-luzardo-a87280248" target="_blank">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
 
-        const sections = [
-            { id: 'hero', tag: 'header' },
-            { id: 'problem', tag: 'section' },
-            { id: 'product-showcase', tag: 'section' },
-            { id: 'how-it-works', tag: 'section' },
-            { id: 'use-cases', tag: 'section' },
-            { id: 'final-cta', tag: 'section' }
-        ];
-        sections.forEach(function (s) {
-            var el = document.getElementById(s.id);
-            console.log('[HTML] Section #' + s.id + ':', el ? 'FOUND' : 'NOT FOUND');
-            if (el) {
-                console.log('[HTML] #' + s.id + ' tag:', el.tagName);
-                console.log('[HTML] #' + s.id + ' display:', getComputedStyle(el).display);
-                console.log('[HTML] #' + s.id + ' visibility:', getComputedStyle(el).visibility);
-                console.log('[HTML] #' + s.id + ' opacity:', getComputedStyle(el).opacity);
-                console.log('[HTML] #' + s.id + ' has .reveal:', el.classList.contains('reveal'));
-                console.log('[HTML] #' + s.id + ' has .active:', el.classList.contains('active'));
-            }
-        });
-
-        // Check all elements with class="reveal"
-        console.log('[HTML] Elements with .reveal:', document.querySelectorAll('.reveal').length);
-        document.querySelectorAll('.reveal').forEach(function (el, i) {
-            console.log('[HTML] .reveal[' + i + '] id:', el.id, 'opacity:', getComputedStyle(el).opacity);
-        });
-
-        // Theme toggle
-        var htmlElement = document.documentElement;
-        var themeToggle = document.getElementById('theme-toggle');
-        var moonIcon = document.querySelector('.moon-icon');
-        var sunIcon = document.querySelector('.sun-icon');
-
-        var setTheme = function (theme) {
-            htmlElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        };
-
-        var savedTheme = localStorage.getItem('theme') || 'dark';
-        setTheme(savedTheme);
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function () {
-                var currentTheme = htmlElement.getAttribute('data-theme');
-                var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
-            });
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
+      });
+    }, { threshold: 0.1, rootMargin: '-40px' });
 
-        // Menu toggle (mobile sidebar)
-        var menuToggle = document.getElementById('menu-toggle');
-        var navLinks = document.getElementById('nav-links');
-        var openIcon = document.querySelector('.open-icon');
-        var closeIcon = document.querySelector('.close-icon');
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-                if (openIcon && closeIcon) {
-                    var isOpen = navLinks.classList.contains('active');
-                    openIcon.style.display = isOpen ? 'none' : 'block';
-                    closeIcon.style.display = isOpen ? 'block' : 'none';
-                }
-            });
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 60) {
+        nav.style.boxShadow = '0 1px 20px rgba(14,30,18,0.08)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  </script>
+  <script>
+  (function() {
+    const ICONS = {
+      gasoil: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 22h12"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 22V6.5L13 4v18"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 22V12l4-2v3.5"/><circle cx="17" cy="17" r="1.4"/></svg>',
+      racion: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12l1 4H5l1-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 6h14l-1 16H6L5 6z"/><path stroke-linecap="round" d="M9 10v8M15 10v8"/></svg>',
+      alambrado: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path stroke-linecap="round" d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>',
+      veterinaria: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3.5l1.5-3 2 6 2-9 2 12 2-6 1.5 3H21"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"/></svg>',
+      sueldo: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 21a8 8 0 0 1 16 0"/></svg>',
+      mantenimiento: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0 5.6 5.6l-2.5 2.5a4 4 0 0 1-5.6-5.6l-6.9 6.9a2.1 2.1 0 1 0 3 3l6.9-6.9a4 4 0 0 0 5.6-5.6l-2.5 2.5z"/></svg>',
+      venta: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8"/><path stroke-linecap="round" stroke-linejoin="round" d="M14 7h7v7"/></svg>',
+      stock: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path stroke-linecap="round" d="M3.3 8 12 13l8.7-5M12 22V13"/></svg>'
+    };
 
-            navLinks.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    navLinks.classList.remove('active');
-                    if (openIcon && closeIcon) {
-                        openIcon.style.display = 'block';
-                        closeIcon.style.display = 'none';
-                    }
-                });
-            });
+    const examples = [
+      { text: 'Registrar gasto de gasoil por $4.500', icon: 'gasoil', sign: '-', currency: '$ ', title: 'Gasoil', date: '25/05/2026', badge: 'Combustible', amount: '4.500', quote: '"Registré gasto de gasoil por $4.500"' },
+      { text: 'Anotar compra de ración por $8.200', icon: 'racion', sign: '-', currency: '$ ', title: 'Ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Anoté compra de ración por $8.200"' },
+      { text: 'Guardar pago de alambrado por $12.000', icon: 'alambrado', sign: '-', currency: '$ ', title: 'Alambrado', date: '25/05/2026', badge: 'Infraestructura', amount: '12.000', quote: '"Guardé pago de alambrado por $12.000"' },
+      { text: 'Anotar gasto de veterinaria por $3.800', icon: 'veterinaria', sign: '-', currency: '$ ', title: 'Veterinaria', date: '25/05/2026', badge: 'Sanidad', amount: '3.800', quote: '"Anoté gasto de veterinaria por $3.800"' },
+      { text: 'Cargar sueldo del peón rural por $28.000', icon: 'sueldo', sign: '-', currency: '$ ', title: 'Sueldo del peón', date: '25/05/2026', badge: 'Mano de obra', amount: '28.000', quote: '"Cargué sueldo del peón rural por $28.000"' },
+      { text: 'Registrar mantenimiento del tractor por $9.500', icon: 'mantenimiento', sign: '-', currency: '$ ', title: 'Mantenimiento del tractor', date: '25/05/2026', badge: 'Maquinaria', amount: '9.500', quote: '"Registré mantenimiento del tractor por $9.500"' },
+      { text: 'Registrar ingreso por venta de lana por USD 1.850', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de lana', date: '25/05/2026', badge: 'Venta de lana', amount: '1.850', quote: '"Registré ingreso por venta de lana por USD 1.850"' },
+      { text: 'Cargar venta de 12 terneros a USD 430 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '5.160', quote: '"Cargué venta de 12 terneros a USD 430 cada uno"' },
+      { text: 'Registrar salida de 8 terneros por venta a USD 445 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '3.560', quote: '"Registré salida de 8 terneros por venta a USD 445 cada uno"' },
+      { text: 'Cargar venta de 25 corderos a USD 92 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de corderos', date: '25/05/2026', badge: 'Venta de ganado', amount: '2.300', quote: '"Cargué venta de 25 corderos a USD 92 cada uno"' },
+      { text: 'Registrar compra de 20 bolsas de ración a $410 cada una', icon: 'racion', sign: '-', currency: '$ ', title: 'Compra de ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Compré 20 bolsas de ración a $410 cada una"' },
+      { text: 'Anotar ingreso de 15 ovejas al stock por USD 78 cada una', icon: 'stock', sign: '+', currency: 'US$ ', title: 'Ingreso de ovejas', date: '25/05/2026', badge: 'Stock', amount: '1.170', quote: '"Anoté ingreso de 15 ovejas al stock por USD 78 cada una"' }
+    ];
 
-            var menuBackBtn = document.getElementById('menu-back-btn');
-            if (menuBackBtn) {
-                menuBackBtn.addEventListener('click', function () {
-                    navLinks.classList.remove('active');
-                    if (openIcon && closeIcon) {
-                        openIcon.style.display = 'block';
-                        closeIcon.style.display = 'none';
-                    }
-                });
-            }
-        }
+    let currentIdx = 0;
+    const textEl = document.getElementById('demo-text');
+    const placeholderEl = document.getElementById('demo-placeholder');
+    const inputBox = document.getElementById('demo-input-box');
+    const sendBtn = document.getElementById('demo-send');
+    const resultEl = document.getElementById('demo-result');
+    const movIcon = document.getElementById('mov-icon');
+    const movTitle = document.getElementById('mov-title');
+    const movDate = document.getElementById('mov-date');
+    const movBadge = document.getElementById('mov-badge');
+    const movAmount = document.getElementById('mov-amount');
+    const movQuote = document.getElementById('mov-quote');
 
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-            console.log('[HTML] Lucide icons initialized');
+    function typeText(text, speed, callback) {
+      let i = 0;
+      placeholderEl.style.display = 'none';
+      textEl.textContent = '';
+      inputBox.classList.add('demo-active');
+
+      function typeChar() {
+        if (i < text.length) {
+          textEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeChar, speed);
         } else {
-            console.log('[HTML] Lucide NOT FOUND');
+          sendBtn.classList.add('demo-ready');
+          if (callback) setTimeout(callback, 800);
         }
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
-</body>
+      }
+      typeChar();
+    }
 
+    function showResult(ex) {
+      movIcon.innerHTML = ICONS[ex.icon] || ICONS.venta;
+      movIcon.classList.toggle('is-expense', ex.sign === '-');
+      movIcon.classList.toggle('is-income', ex.sign === '+');
+      movTitle.textContent = ex.title;
+      movDate.textContent = ex.date;
+      movBadge.textContent = ex.badge;
+      movAmount.textContent = ex.sign + ex.currency + ex.amount;
+      movAmount.classList.toggle('is-positive', ex.sign === '+');
+      movAmount.classList.toggle('is-negative', ex.sign === '-');
+      movQuote.textContent = ex.quote;
+      resultEl.classList.add('demo-show');
+    }
+
+    function clearAll(callback) {
+      resultEl.classList.remove('demo-show');
+      sendBtn.classList.remove('demo-ready');
+      inputBox.classList.remove('demo-active');
+
+      setTimeout(function() {
+        let txt = textEl.textContent;
+        let j = txt.length;
+        function eraseChar() {
+          if (j > 0) {
+            j--;
+            textEl.textContent = txt.substring(0, j);
+            setTimeout(eraseChar, 25);
+          } else {
+            placeholderEl.style.display = 'flex';
+            if (callback) setTimeout(callback, 400);
+          }
+        }
+        eraseChar();
+      }, 300);
+    }
+
+    function runCycle() {
+      const example = examples[currentIdx];
+      currentIdx = (currentIdx + 1) % examples.length;
+      typeText(example.text, 50, function() {
+        showResult(example);
+        setTimeout(function() {
+          clearAll(function() { runCycle(); });
+        }, 2500);
+      });
+    }
+
+    setTimeout(runCycle, 1500);
+  })();
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

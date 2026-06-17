@@ -1,256 +1,319 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import {
-  Feather,
-  Brain,
-  TrendingUp,
-  Coins,
-  FileText,
-  ShieldCheck,
-} from 'lucide-react';
+import React from 'react';
 
-console.log('[Ruralit] BlogSection module loaded');
-
-const iconMap = {
-  feather: Feather,
-  brain: Brain,
-  'trending-up': TrendingUp,
-  coins: Coins,
-  'file-text': FileText,
-  'shield-check': ShieldCheck,
-};
-
-const RURALIT = {
-  green: '#22c55e',
-  greenMuted: '#16a34a',
-  greenGlow: 'rgba(34, 197, 94, 0.15)',
-  text: 'var(--text)',
-  textMuted: 'var(--text-muted)',
-  bg: 'var(--bg)',
-  card: 'var(--card-bg)',
-  border: 'var(--border)',
-};
-
-const catData = [
-  { name: 'Insumos', pct: 45, color: '#22c55e' },
-  { name: 'Mano de Obra', pct: 22, color: '#4ade80' },
-  { name: 'Combustible', pct: 16, color: '#86efac' },
-  { name: 'Mantenimiento', pct: 10, color: '#bbf7d0' },
+const articles = [
+  {
+    id: 1,
+    category: 'Producto',
+    title: 'Dictado inteligente: Cargá gastos con tu voz',
+    excerpt:
+      'Decí "gasté 5000 en gasoil" y Ruralit escucha, entiende y carga el movimiento por vos. Sin tipear nada, directamente desde el campo.',
+    date: 'Junio 2026',
+    readTime: '3 min',
+    featured: true,
+    link: '/novedades/dictado-inteligente.html',
+  },
+  {
+    id: 2,
+    category: 'Mejora',
+    title: 'Motor Impositivo: Impuestos automáticos',
+    excerpt:
+      'Interruptores inteligentes para IMEBA o IVA al registrar una venta. Monto bruto y neto a la vista, sin calculadoras externas.',
+    date: 'Junio 2026',
+    readTime: '4 min',
+    link: '/novedades/motor-impositivo.html',
+  },
+  {
+    id: 3,
+    category: 'Guía',
+    title: 'Organizá los gastos de tu campo',
+    excerpt:
+      'Clasificá gastos por lote, actividad y rubro para tener claridad total sobre dónde va cada peso.',
+    date: 'Mayo 2026',
+    readTime: '5 min',
+    link: '/novedades/organiz%C3%A1-los-gastos.html',
+  },
+  {
+    id: 4,
+    category: 'Producto',
+    title: 'Reporte semanal en tu email',
+    excerpt:
+      'Cada lunes recibís un correo con barras de progreso y gráficos comparativos. Lo ves mientras tomás el mate.',
+    date: 'Mayo 2026',
+    readTime: '3 min',
+    link: '/novedades/reporte-semanal.html',
+  },
 ];
 
-const tabs = [
-  { id: 'simple', label: 'Simplicidad', icon: 'feather' },
-  { id: 'smart', label: 'Inteligencia', icon: 'brain' },
-  { id: 'results', label: 'Resultados', icon: 'trending-up' },
-  { id: 'multi', label: 'Multimoneda', icon: 'coins' },
-  { id: 'reports', label: 'Reportes', icon: 'file-text' },
-  { id: 'secure', label: 'Seguridad', icon: 'shield-check' },
-];
+const articleIcons = {
+  1: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+    </svg>
+  ),
+  2: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm2.492-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008v-.008zm2.508-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008H12v-.008zm0 2.25h.008v.008H12v-.008zm2.508-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM12 21a9 9 0 110-18 9 9 0 010 18z" />
+    </svg>
+  ),
+  3: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.166 1.403-.352 1.403-1.1V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+    </svg>
+  ),
+  4: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+    </svg>
+  ),
+};
 
-const TabContent = ({ active }) => {
-  switch (active) {
-    case 'simple':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Carga natural</h3>
-            <p>Escribí en lenguaje natural. Ruralit organiza todo por vos.</p>
-            <div className="diagnostic-pill">
-              <span className="diagnostic-label">Diagnóstico</span>
-              <span className="diagnostic-value">Rendimiento 42% • Excelente</span>
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="smart-register">
-              <span className="sr-label">Dictado inteligente</span>
-              <div className="sr-input">"Compramos 10 toros por USD 10.000"</div>
-              <div className="sr-tags">
-                <span className="sr-tag">✓ USD 10.000</span>
-                <span className="sr-tag">✓ Ganado</span>
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    case 'smart':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Anticipación estratégica</h3>
-            <p>Visualizá flujos futuros. No esperes a fin de año.</p>
-            <div className="preview-pill">
-              <span className="check-icon">✓</span>
-              Previsión 2026
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="mini-chart">
-              <div className="chart-bars">
-                {[35, 55, 40, 70, 60, 85, 95].map((h, i) => (
-                  <div key={i} className="bar" style={{ height: `${h}%` }} />
-                ))}
-              </div>
-              <div className="chart-labels">
-                <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span>
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    case 'results':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Resultados claros</h3>
-            <p>Margen real por lote en tiempo real.</p>
-            <div className="investment-card">
-              <div className="inv-header">
-                <span className="inv-title">Lote Brangus</span>
-                <span className="inv-roi">+18.4% ROI</span>
-              </div>
-              <div className="inv-stats">
-                <span>Invertido: <b>USD 45k</b></span>
-                <span>Días: <b>142/180</b></span>
-              </div>
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="category-bars">
-              <h4>Distribución</h4>
-              {catData.map((cat, i) => (
-                <div key={i} className="cat-bar">
-                  <div className="cat-label">
-                    <span>{cat.name}</span>
-                    <span>{cat.pct}%</span>
-                  </div>
-                  <div className="cat-track">
-                    <div className="cat-fill" style={{ width: `${cat.pct}%`, background: cat.color }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      );
-    case 'multi':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Claridad multimoneda</h3>
-            <p>Unificá Pesos y Dólares automáticamente.</p>
-            <div className="preview-pill green">
-              <span>✓</span> Conversión pivote
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="currency-converter">
-              <div className="curr-row">
-                <span className="curr-flag">$</span>
-                <span className="curr-name">Peso UYU</span>
-                <span className="curr-val">$ 42.500</span>
-              </div>
-              <div className="curr-rate">39.55</div>
-              <div className="curr-row usd">
-                <span className="curr-flag">U$</span>
-                <span className="curr-name">Dólar USD</span>
-                <span className="curr-val">U$ 1.074,58</span>
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    case 'reports':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Informes en 1 clic</h3>
-            <p>Reportes PDF/CSV listos para compartir.</p>
-            <div className="preview-pill">
-              <span>↓</span> Export PDF y CSV
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="report-preview">
-              <div className="rep-header">
-                <span className="rep-icon">📄</span>
-                <span>Informe_2026.pdf</span>
-              </div>
-              <div className="rep-lines">
-                <div /><div /><div />
-              </div>
-              <div className="rep-actions">
-                <div className="rep-btn" />
-                <div className="rep-btn outline" />
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    case 'secure':
-      return (
-        <>
-          <div className="blog-col">
-            <h3>Seguridad bancaria</h3>
-            <p>Datos encriptados con sincronización en tiempo real.</p>
-            <div className="secure-badge">
-              <span>🔒</span> DATOS ENCRIPTADOS
-            </div>
-          </div>
-          <div className="blog-col">
-            <div className="security-options">
-              <div className="sec-option">
-                <span className="sec-label">Cuenta</span>
-                <span className="sec-value">2FA <em>Opcional</em></span>
-              </div>
-              <div className="sec-option">
-                <span className="sec-label">App</span>
-                <span className="sec-value">PIN <em>Configurable</em></span>
-              </div>
-            </div>
-          </div>
-        </>
-      );
-    default:
-      return null;
+const categoryStyles = {
+  Producto: { bg: '#2E9E53', text: '#FFFFFF' },
+  Mejora: { bg: '#C78B2E', text: '#FFFFFF' },
+  Guía: { bg: '#2563EB', text: '#FFFFFF' },
+  Finanzas: { bg: '#0D9488', text: '#FFFFFF' },
+  Campo: { bg: '#92400E', text: '#FFFFFF' },
+};
+
+const styles = `
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+  @import url('https://db.onlinewebfonts.com/c/53077f9a3eee9c479d37d6af20394ded?family=Cooper+BT+W01+Light');
+
+  .blog-section {
+    --dark: #0E1E12;
+    --cream: #F8F1E5;
+    --amber: #C78B2E;
+    --agri: #2E9E53;
+    --card: #E9E1D5;
+    --inner: #F0EBE3;
+    --white: #ffffff;
+    --muted: #6b7a5e;
+    --fg: #0E1E12;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    padding: 96px 80px;
+    width: 100%;
+    box-sizing: border-box;
   }
-};
+
+  .blog-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .blog-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .blog-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+
+  .blog-header h2 {
+    font-family: 'Cooper BT W01 Light', Georgia, serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(14, 30, 18, 0.06);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(14, 30, 18, 0.12);
+  }
+
+  .blog-card-img {
+    height: 140px;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-card-img svg {
+    width: 40px;
+    height: 40px;
+    color: var(--dark);
+    opacity: 0.7;
+  }
+
+  .blog-card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-category {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    width: fit-content;
+    line-height: 1.4;
+  }
+
+  .blog-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+
+  .blog-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .blog-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--amber);
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s ease;
+  }
+
+  .blog-link:hover {
+    color: #a07120;
+  }
+
+  .blog-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--dark);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .blog-cta:hover {
+    background: #1a2e1f;
+  }
+
+  @media (max-width: 1024px) {
+    .blog-section {
+      padding: 72px 40px;
+    }
+
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-section {
+      padding: 56px 20px;
+    }
+
+    .blog-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
 
 const BlogSection = () => {
-  const [activeTab, setActiveTab] = useState('simple');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <section id="blog" className="blog-section">
-      <div className="blog-container">
-        <div className="blog-header">
-          <span className="blog-tag">Insight Report</span>
-          <h2>Gestión <span className="highlight">profesional</span> simple</h2>
-        </div>
+    <>
+      <style>{styles}</style>
+      <section id="blog" className="blog-section">
+        <div className="blog-container">
+          <div className="blog-header">
+            <div>
+              <span className="blog-eyebrow">Novedades</span>
+              <h2>Desde Ruralit</h2>
+            </div>
+            <a href="/novedades/" className="blog-cta">
+              Ver todas las novedades
+            </a>
+          </div>
 
-        <div className="blog-tabs">
-          {tabs.map((tab) => {
-            const Icon = iconMap[tab.icon];
-            return (
-              <button
-                key={tab.id}
-                className={`blog-tab ${activeTab === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.id)}
+          <div className="blog-grid">
+            {articles.map((article) => (
+              <a
+                key={article.id}
+                href={article.link}
+                className="blog-card"
               >
-                <Icon size={16} className="tab-icon" />
-                <span className="tab-label">{tab.label}</span>
-              </button>
-            );
-          })}
+                <div className="blog-card-img">
+                  {articleIcons[article.id]}
+                </div>
+                <div className="blog-card-body">
+                  <span
+                    className="blog-category"
+                    style={{
+                      background: categoryStyles[article.category].bg,
+                      color: categoryStyles[article.category].text,
+                    }}
+                  >
+                    {article.category}
+                  </span>
+                  <div className="blog-title">{article.title}</div>
+                  <div className="blog-meta">
+                    {article.date} &middot; {article.readTime} de lectura
+                  </div>
+                  <span className="blog-link">
+                    Leer art&iacute;culo &rarr;
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-
-        <div className={`blog-content ${mounted ? 'mounted' : ''}`}>
-          <TabContent active={activeTab} />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
