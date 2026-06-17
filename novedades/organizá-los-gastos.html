@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizá los gastos de tu campo | Ruralit</title>
     <meta name="description"
-        content="Clasificá gastos por lote, actividad y rubro para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
+        content="Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -324,7 +324,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -399,9 +407,9 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
@@ -411,7 +419,7 @@
             <span class="article-category-tag">Guía</span>
             <h1 class="article-title">Organizá los gastos de tu campo</h1>
             <p class="article-lead">
-                Clasificá gastos por lote, actividad y rubro para tener claridad total sobre dónde va cada peso.
+                Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.
             </p>
             <div class="article-meta-row">
                 <span>Mayo de 2026</span>
@@ -426,68 +434,68 @@
     <div class="article-content fade-up">
 
         <p>
-            Llevás meses registrando gastos con disciplina. Gasoil, ración, veterinaria, sueldos, alambrado. Todo está cargado en Ruralit. Pero cuando querés saber cuánto te costó la cría en el lote sur, o cuánto gastaste en sanidad el trimestre pasado, la respuesta no aparece clara. Los datos están, pero no están <strong>organizados</strong>. Y los datos sin organización son solo ruido.
+            Llevás meses registrando gastos con disciplina. Gasoil, ración, veterinaria, sueldos, alambrado. Todo está cargado en Ruralit. Pero cuando querés saber cuánto gastaste en sanidad el trimestre pasado, o cuánto se fue en suplementación el mes pasado, la respuesta no aparece clara. Los datos están, pero no están <strong>organizados</strong>. Y los datos sin organización son solo ruido.
         </p>
 
         <p>
             Esta guía es para productores que ya registran movimientos pero quieren sacarle más jugo a la información. La clave no es cargar más datos: es clasificarlos bien desde el principio.
         </p>
 
-        <h2>Tres niveles de organización</h2>
+        <h2>Cómo se clasifican los gastos</h2>
 
         <p>
-            Ruralit te permite clasificar cada gasto en tres dimensiones que se cruzan entre sí. No son obligatorias todas, pero mientras más uses, más precisa va a ser la foto de tu establecimiento.
+            En Ruralit, cada gasto se clasifica principalmente por su <strong>categoría</strong> y su <strong>monto</strong>. Además, podés vincularlo con el <strong>stock o inventario</strong> cuando corresponde. Estos tres datos son los que te permiten después ver con claridad en qué se va tu plata.
         </p>
 
         <ul>
-            <li><strong>Rubro:</strong> es la categoría del gasto. Combustible, sanidad animal, suplementación, mano de obra, infraestructura, maquinaria. Es el nivel más básico y el que más te ayuda a ver en qué gastás tu plata en grande.</li>
-            <li><strong>Actividad:</strong> es la línea productiva donde incurre el gasto. Cría, invernada, agricultura, tambo. Un mismo rubro (por ejemplo, gasoil) puede estar asignado a dos actividades distintas, y eso cambia completamente el análisis.</li>
-            <li><strong>Lote o establecimiento:</strong> es el destino físico del gasto. El lote norte, el potrero de la esquina, el establecimiento La Esperanza. Acá es donde ves si un lote específico te está costando más de lo que debería.</li>
+            <li><strong>Categoría:</strong> es el tipo de gasto. Combustible, sanidad animal, suplementación, mano de obra, infraestructura, maquinaria. Es lo que más te ayuda a ver en qué gastás tu plata a grandes rasgos.</li>
+            <li><strong>Monto:</strong> el importe del movimiento, en la moneda que corresponda. Tener los montos bien cargados es lo que te permite comparar períodos y ver tendencias.</li>
+            <li><strong>Stock o inventario:</strong> cuando un gasto está relacionado con un recurso de tu establecimiento (por ejemplo, la compra de bolsas de ración), podés vincularlo manualmente con el stock para que ambos datos queden conectados.</li>
         </ul>
 
         <div class="article-callout">
-            <div class="callout-label">El cruce que cambia todo</div>
+            <div class="callout-label">El rubro se define al principio</div>
             <p>
-                Cuando combinás las tres dimensiones, podés responder preguntas que antes eran imposibles. ¿Cuánto gasté en sanidad animal en la actividad de cría durante el primer semestre en el lote sur? Esa respuesta, con los gastos bien clasificados, la tenés en segundos.
+                El rubro de tu establecimiento se define durante la configuración inicial de la app. No es algo que cambiás movimiento por movimiento: lo elegís una vez al arrancar y después se mantiene. Si en algún momento necesitás cambiarlo, lo hacés desde configuraciones, pero no es una función pensada para convivir con varios rubros a la vez. No hay métricas que calculen variaciones por rubro.
             </p>
         </div>
 
         <h2>Por dónde empezar</h2>
 
         <p>
-            Si nunca clasificaste gastos por lote o actividad, no intentes hacerlo todo de golpe. Arrancá con los rubros, que es lo más sencillo y lo que más impacto inmediato tiene. Una vez que tengas todos los gastos cargados con su rubro correcto, sumá las actividades. Y por último, cuando eso sea costumbre, empezá a asignar lotes.
+            Si recién arrancás con Ruralit, lo primero es asegurarte de tener bien definido el rubro en la configuración inicial. Eso te ahorra headaches más adelante. Después, cuando cargues gastos, el foco tiene que estar en elegir bien la categoría y cargar el monto correcto.
         </p>
 
         <p>
-            El orden importa porque cada nivel construye sobre el anterior. Si tenés rubros mal asignados, clasificar por actividad no te va a ayudar. Y si las actividades están mezcladas, el análisis por lote pierde sentido.
+            La vinculación con stock o inventario es opcional y la hacés vos cuando un gasto tiene relación con un recurso concreto. No es obligatoria, pero mientras más la uses, más precisa va a ser la foto de tu establecimiento.
         </p>
 
         <h2>Un ejemplo concreto</h2>
 
         <p>
-            Imaginá que cargás un gasto de $45.000 en ración. Sin clasificación, es solo un número. Con el rubro asignado (Suplementación), ya sabés cuánto gastás en feeding. Con la actividad asignada (Cría), sabés que ese gasto corresponde a la cría y no a la invernada. Y con el lote asignado (Potrero 3), podés comparar el costo de suplementación entre potreros y detectar cuál te está saliendo más caro.
+            Imaginá que cargás un gasto de $45.000 en ración. Sin clasificación, es solo un número. Con la categoría asignada (Suplementación), ya sabés cuánto gastás en feeding. Y si lo vinculás con el stock de ración, ves al mismo tiempo cuánto entró al inventario y cuánto te queda disponible.
         </p>
 
         <p>
-            Ese mismo gasto, cargado tres veces en el año, te permite ver una tendencia. ¿El costo de ración en el Potrero 3 está subiendo? ¿Está por encima del promedio de los otros potreros? ¿Vale la pena mantener esa carga animal ahí? Sin la clasificación, esas preguntas ni siquiera se te ocurrirían.
+            Ese mismo gasto, cargado tres veces en el año, te permite ver una tendencia. ¿El costo de ración está subiendo? ¿Está por encima de lo que habías previsto? Sin la clasificación, esas preguntas ni siquiera se te ocurrirían.
         </p>
 
         <h2>Errores comunes que conviene evitar</h2>
 
         <ul>
-            <li><strong>Cargar todo en "Otros":</strong> es el camino más rápido para perder información útil. Si un gasto no encaja en ningún rubro, creá uno nuevo antes de usar "Otros" como cajón de sastre.</li>
-            <li><strong>Mezclar actividades en un solo movimiento:</strong> si un gasto corresponde a dos actividades, divivilo en dos movimientos. La precisión vale más que la velocidad de carga.</li>
-            <li><strong>No asignar lote "porque es chico":</strong> los gastos chicos, sumados a lo largo del año, suelen ser los que más sorprenden. Asigná lote siempre que el gasto tenga un destino físico claro.</li>
+            <li><strong>Cargar todo en "Otros":</strong> es el camino más rápido para perder información útil. Si un gasto no encaja en ninguna categoría, buscala la más cercana antes de usar "Otros" como cajón de sastre.</li>
+            <li><strong>No cargar el monto correcto:</strong> un monto mal cargado te arruina cualquier comparación entre períodos. Vale la pena tomarse el segundo extra para verificarlo.</li>
+            <li><strong>No vincular con stock cuando corresponde:</strong> si compraste ración o gasoil, vincular el gasto con el inventario te da una visión integral. No lo saltees por "ahorrar tiempo".</li>
         </ul>
 
         <div class="article-divider"></div>
 
         <p>
-            La buena noticia es que en Ruralit la clasificación es parte del flujo de carga. No es un paso aparte ni una tarea extra. Cada vez que registrás un gasto, elegís el rubro, la actividad y el lote en el mismo formulario. Y si usás el dictado inteligente, la plataforma te sugiere la clasificación automáticamente a partir de lo que decís. La organización no es un esfuerzo adicional: es la forma natural de cargar los datos.
+            La buena noticia es que en Ruralit la clasificación es parte del flujo de carga. No es un paso aparte ni una tarea extra. Cada vez que registrás un gasto, elegís la categoría y cargás el monto en el mismo formulario. Y si usás el dictado inteligente, la plataforma te sugiere la categoría automáticamente a partir de lo que decís. La organización no es un esfuerzo adicional: es la forma natural de cargar los datos.
         </p>
 
         <p>
-            Si todavía no estás clasificando por lote y actividad, este es el momento de empezar. Los primeros días vas a estar acomodando gastos viejos, pero después se vuelve costumbre. Y cuando llegue el momento de tomar decisiones · comprar, vender, ajustar el stocking rate, cambiar de proveedor · vas a tener los números para decidir con claridad.
+            Si todavía no estás prestandle atención a la categoría de cada gasto, este es el momento de empezar. Los primeros días vas a estar acomodando gastos viejos, pero después se vuelve costumbre. Y cuando llegue el momento de tomar decisiones · comprar, vender, ajustar el stocking rate, cambiar de proveedor · vas a tener los números para decidir con claridad.
         </p>
     </div>
 
@@ -506,11 +514,11 @@
                 <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
                 <span class="card-meta">Marzo 2026 · 4 min</span>
             </a>
-            <a href="/novedades/reporte-semanal.html" class="related-card">
-                <span class="card-category cat-producto">Producto</span>
-                <h4>Reporte semanal en tu email</h4>
-                <p>Cada lunes recibís un correo con barras de progreso y gráficos comparativos.</p>
-                <span class="card-meta">Mayo 2026 · 3 min</span>
+            <a href="/novedades/importar-datos-excel.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Cómo importar datos desde Excel</h4>
+                <p>Subí tu planilla y Ruralit detecta las columnas automáticamente.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
         </div>
     </div>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alertas inteligentes en el Dashboard | Ruralit</title>
+    <title>Cómo importar datos desde Excel | Ruralit</title>
     <meta name="description"
-        content="Carrusel de tarjetas con avisos automáticos para tu establecimiento. Rojo para aumentos de gasto, verde para ahorros.">
+        content="Subí tu planilla y Ruralit detecta las columnas automáticamente. Migrá tus datos sin cargar nada a mano.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -56,8 +56,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--agri);
-            background: rgba(46, 158, 83, 0.1);
+            color: #2563EB;
+            background: rgba(37, 99, 235, 0.1);
             padding: 5px 12px;
             border-radius: 4px;
             margin-bottom: 1.25rem;
@@ -126,8 +126,8 @@
         }
 
         .article-callout {
-            background: rgba(46, 158, 83, 0.06);
-            border-left: 3px solid var(--agri);
+            background: rgba(37, 99, 235, 0.06);
+            border-left: 3px solid #2563EB;
             border-radius: 0 12px 12px 0;
             padding: 1.25rem 1.5rem;
             margin: 2rem 0;
@@ -145,7 +145,7 @@
             font-size: 0.82rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--agri);
+            color: #2563EB;
             margin-bottom: 0.5rem;
         }
 
@@ -324,7 +324,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -399,24 +407,24 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
                 <span class="breadcrumb-sep">›</span>
-                <a href="/novedades/">Producto</a>
+                <a href="/novedades/">Guía</a>
             </div>
-            <span class="article-category-tag">Producto</span>
-            <h1 class="article-title">Alertas inteligentes en el Dashboard</h1>
+            <span class="article-category-tag">Guía</span>
+            <h1 class="article-title">Cómo importar datos desde Excel</h1>
             <p class="article-lead">
-                Carrusel de tarjetas con avisos automáticos para tu establecimiento. Rojo para aumentos de gasto, verde para ahorros.
+                Subí tu planilla y Ruralit detecta las columnas automáticamente. Migrá tus datos sin cargar nada a mano.
             </p>
             <div class="article-meta-row">
-                <span>Junio 2026</span>
+                <span>Abril 2026</span>
                 <span class="meta-dot"></span>
-                <span>3 min de lectura</span>
+                <span>4 min de lectura</span>
                 <span class="meta-dot"></span>
                 <span>Equipo Ruralit</span>
             </div>
@@ -426,70 +434,73 @@
     <div class="article-content fade-up">
 
         <p>
-            Tu campo genera señales todo el tiempo. Un gasto que se dispara, una categoría que se acerca al límite, un mes donde sorprendentemente gastaste menos en suplementación. La mayoría de los productores no ven esas señales hasta que es demasiado tarde, cuando el trimestre cierra y los números no cierran. Las alertas inteligentes de Ruralit están diseñadas para que no se te escape nada.
+            Si ya venís llevando tus gastos e ingresos en una planilla de Excel, no tenés que empezar de cero en Ruralit. La función de importación te permite subir tu archivo y migrar todos los datos de una sola vez, sin cargar movimiento por movimiento.
         </p>
 
-        <h2>Tu campo te habla, ¿estás escuchando?</h2>
+        <h2>Por qué importa la importación</h2>
 
         <p>
-            Los establecimientos agropecuarios generan patrones. Cuando algo se desvía de lo normal —ya sea para bien o para mal— hay una señal que vale la pena atender. El problema es que esos patrones son difíciles de detectar a ojo. Si siempre gastás entre $8.000 y $12.000 en combustible por mes y de repente gastás $18.000, algo cambia. Pero si no estás mirando el historial, no lo notás hasta que el saldo baja de forma inexplicable.
-        </p>
-
-        <p>
-            Las alertas inteligentes monitorean tus movimientos de forma continua y te avisan cuando algo merece tu atención. No son notificaciones molestas ni alertas genéricas. Son avisos específicos basados en tu propio historial de gastos y en los umbrales que vos definís.
-        </p>
-
-        <h2>Cómo funcionan las alertas</h2>
-
-        <p>
-            Cuando entrás al dashboard de Ruralit, lo primero que ves es un carrusel de tarjetas con alertas activas. Cada tarjeta tiene un código de color intuitivo: rojo para aumentos de gasto que requieren atención, verde para disminuciones positivas, y neutro para información sobre gastos dominantes o nuevas categorías. Deslizás y ves el panorama completo en segundos, sin tener que buscar en menues ni generar reportes.
+            El mayor obstáculo para cambiar de herramienta no es aprender a usarla: es migrar los datos. Si tenés dos años de movimientos cargados en Excel, la idea de volver a tipear todo a mano es suficiente para postergar el cambio indefinidamente. Por eso construimos una importación que hace el trabajo pesado por vos.
         </p>
 
         <p>
-            El sistema analiza de forma automática los movimientos de la última semana, el último mes y el histórico completo de tu establecimiento. Compara lo actual con lo que es normal para vos, no con promedios genéricos. Si gastás más de lo habitual en un rubro, la alerta aparece. Si estás gastando menos de lo previsto, también se genera una señal positiva.
+            Subís tu planilla, Ruralit detecta las columnas automáticamente, y vos solo verificás que el mapeo sea correcto antes de confirmar. En pocos minutos tenés todo tu histórico cargado en la plataforma.
         </p>
 
-        <h2>Tipos de alertas</h2>
+        <h2>Cómo funciona paso a paso</h2>
 
         <ul>
-            <li><strong>Aumento de gasto:</strong> Cuando un rubro supera el promedio de los últimos meses. Si normalmente gastás $10.000 en combustible y este mes va $16.000, la tarjeta roja aparece con el porcentaje de aumento.</li>
-            <li><strong>Disminución de gasto:</strong> Cuando redujiste el gasto en una categoría respecto al período anterior. Una tarjeta verde que te confirma que estás gastando menos en un rubro.</li>
-            <li><strong>Gasto dominante:</strong> Cuando una o dos categorías concentran la mayoría de tus gastos. Si el 60% de tu presupuesto se va en dos rubros, la alerta te lo hace notar para que puedas tomar decisiones.</li>
-            <li><strong>Nuevo gasto:</strong> Cuando aparece una categoría que no tenías en períodos anteriores. Un gasto en "Sanidad" que nunca habías registrado te genera una alerta para que lo confirmes o lo reclasifiques.</li>
+            <li><strong>Subís el archivo:</strong> Arrastrás tu Excel a la plataforma o lo seleccionás desde tu computadora. Aceptamos archivos .xlsx y .csv.</li>
+            <li><strong>Detección automática de columnas:</strong> Ruralit analiza los encabezados de tu planilla y los asocia con los campos correspondientes: fecha, monto, categoría, moneda, descripción. No tenés que mapear nada a mano en la mayoría de los casos.</li>
+            <li><strong>Revisás el mapeo:</strong> Ves una vista previa con la asociación que hizo el sistema. Si una columna quedó mal asignada, la corregís con un clic. Si hay columnas que no reconocen, las ignorás o las asignás manualmente.</li>
+            <li><strong>Confirmás y se importa:</strong> Cuando todo está bien, confirmás y Ruralit carga todos los movimientos de la planilla. Los datos quedan disponibles en la plataforma como si los hubieras cargado a mano.</li>
         </ul>
 
         <div class="article-callout">
-            <div class="callout-label">Aprendé de tus patrones</div>
+            <div class="callout-label">Detección inteligente de columnas</div>
             <p>
-                El sistema mejora con el tiempo. Cuantos más movimientos registres, más preciso se vuelve en la detección de anomalías. Después de un par de meses, las alertas ya conocen tu ritmo y solo te avisan cuando algo realmente se sale de lo esperado.
+                No hace falta que tu planilla tenga un formato específico. Si tenés una columna que se llama "Fecha", "fecha", "Día" o "When", Ruralit la reconoce. Lo mismo con "Monto", "Importe", "Total" o "Valor". El sistema identifica los campos por el contenido y el nombre del encabezado. El detalle: la compatibilidad máxima, donde la importación no tiene ningún fallo, es con archivos de Excel generados por Ruralit. Si exportaste una planilla desde la plataforma y la volvés a importar, el mapeo es exacto.
             </p>
         </div>
 
-        <h2>Actuá antes de que sea tarde</h2>
+        <h2>Prepará tu planilla</h2>
 
         <p>
-            La diferencia entre un productor proactivo y uno reactivo no es la cantidad de información, sino el momento en que la recibe. Las alertas inteligentes te dan la información en el momento justo: cuando todavía podés hacer algo al respecto. Si el gasto en ración se está yendo de presupuesto a mitad de mes, podés ajustar la compra. Si un proveedor subió los precios, lo notás en la primera compra y no a fin de trimestre.
+            Aunque Ruralit detecta las columnas automáticamente, hay un par de cosas que podés hacer antes de subir el archivo para que la importación salga perfecta:
+        </p>
+
+        <ul>
+            <li><strong>Una fila por movimiento:</strong> Cada fila de la planilla tiene que representar un movimiento. No agrupes varios gastos en una sola fila.</li>
+            <li><strong>Encabezados claros:</strong> La primera fila tiene que tener los nombres de las columnas. Sin títulos merged ni celdas combinadas.</li>
+            <li><strong>Fechas en formato consistente:</strong> Usá el mismo formato de fecha en toda la columna. DD/MM/YYYY es el más seguro.</li>
+            <li><strong>Montos numéricos:</strong> Los montos tienen que ser números, no texto. Si tenés símbolos de moneda en la misma celda, quitálos antes de subir.</li>
+        </ul>
+
+        <h2>Después de la importación</h2>
+
+        <p>
+            Una vez que los datos están cargados, podés revisarlos como cualquier otro movimiento en Ruralit. Si algo quedó mal, lo editás individualmente. Y a partir de ese momento, los nuevos movimientos los cargás directo en la plataforma, sin volver a tocar la planilla.
         </p>
 
         <p>
-            Y no se trata solo de evitar problemas. Las tarjetas verdes de disminución te permiten identificar qué estás haciendo bien y repetirlo. Si este mes gastaste menos en un rubro porque organizaste las tareas de forma más eficiente, la alerta te lo hace notar y podés aplicar la misma estrategia el mes que viene.
+            La importación está pensada para ser un puente: te ayuda a migrar lo que ya tenés, pero después vivís en Ruralit. La idea es que no vuelvas a necesitar Excel para llevar los números de tu campo.
         </p>
 
         <div class="article-divider"></div>
 
         <p>
-            Las alertas inteligentes ya están activas en el dashboard de Ruralit. Entrá y vas a ver las tarjetas con las señales que tu campo te está mandando.
+            La importación desde Excel ya está disponible en Ruralit. Subí tu planilla y vas a ver lo rápido que se migra un histórico entero cuando no tenés que tipear nada.
         </p>
     </div>
 
     <div class="related-section">
         <div class="related-header">Artículos relacionados</div>
         <div class="related-grid">
-            <a href="/novedades/reporte-semanal.html" class="related-card">
-                <span class="card-category cat-producto">Producto</span>
-                <h4>Reporte semanal en tu email</h4>
-                <p>Cada lunes recibís un correo con barras de progreso y gráficos comparativos.</p>
-                <span class="card-meta">Mayo 2026 · 3 min</span>
+            <a href="/novedades/organiz%C3%A1-los-gastos.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Organizá los gastos de tu campo</h4>
+                <p>Clasificá gastos por categoría, monto y stock para tener claridad total.</p>
+                <span class="card-meta">Mayo 2026 · 5 min</span>
             </a>
             <a href="/novedades/dictado-inteligente.html" class="related-card">
                 <span class="card-category cat-producto">Producto</span>

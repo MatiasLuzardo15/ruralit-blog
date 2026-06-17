@@ -324,7 +324,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -399,9 +407,9 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
@@ -442,17 +450,17 @@
         <h2>Cómo funciona la lectura</h2>
 
         <p>
-            La lectura automática de Ruralit convierte el proceso de cargar una factura en algo que toma segundos en vez de minutos. Funciona así: subís el archivo PDF de la factura o tomás una foto del comprobante, y el sistema analiza el documento usando inteligencia artificial para extraer los datos clave.
+            La lectura automática de Ruralit convierte el proceso de cargar una factura en algo que toma segundos en vez de minutos. Funciona así: subís el archivo PDF de la factura, y el sistema analiza el documento para extraer los datos clave.
         </p>
 
         <ul>
-            <li><strong>Subís el archivo:</strong> Podés arrastrar un PDF a la plataforma, subirlo desde tu computadora, o seleccionarlo desde el teléfono. Es el mismo gesto que enviar un archivo por WhatsApp.</li>
-            <li><strong>La IA procesa el documento:</strong> En segundos, el sistema identifica los campos relevantes: fecha, monto, proveedor, tipo de comprobante. No importa si la factura tiene un formato estándar de la DGI o es un remito del proveedor local.</li>
+            <li><strong>Subís el archivo:</strong> Podés arrastrar un PDF a la plataforma, subirlo desde tu computadora, o seleccionarlo desde el teléfono. La app solo acepta facturas en formato PDF.</li>
+            <li><strong>El sistema procesa el documento:</strong> En segundos, identifica los campos relevantes: fecha, monto, proveedor, tipo de comprobante. No importa si la factura tiene un formato estándar de la DGI o es un remito del proveedor local.</li>
             <li><strong>Confirmás y listo:</strong> Antes de registrar el movimiento, ves una vista previa con todos los datos extraídos. Si algo no coincide, lo corregís con un toque. Si todo está bien, confirmás y el gasto queda registrado con toda la información completa.</li>
         </ul>
 
         <p>
-            Lo importante es que siempre tenés la última palabra. La IA hace el trabajo pesado —leer el documento, identificar los campos, tipear los números—pero vos verificás y confirmás. No se registra nada sin tu aprobación.
+            Lo importante es que siempre tenés la última palabra. El sistema hace el trabajo pesado —leer el documento, identificar los campos, tipear los números— pero vos verificás y confirmás. No se registra nada sin tu aprobación.
         </p>
 
         <h2>Campos que detecta</h2>
@@ -467,20 +475,12 @@
             <li><strong>Proveedor:</strong> El nombre de la empresa o persona que emitió la factura, asociado automáticamente si ya lo tenés en tu lista.</li>
             <li><strong>Categoría:</strong> Sugerida según el tipo de proveedor y el contenido de la factura. Una factura de una estación de servicio se clasifica como Combustible; una del veterinario, como Sanidad.</li>
             <li><strong>Moneda:</strong> Detecta si el monto está en pesos uruguayos o dólares, y asigna la divisa correspondiente.</li>
-            <li><strong>Establecimiento:</strong> Si la factura corresponde a un proyecto o establecimiento específico, se asigna automáticamente.</li>
         </ul>
-
-        <div class="article-callout">
-            <div class="callout-label">Acepta fotos también</div>
-            <p>
-                No hace que tengas un PDF prolijo. Si recibiste un ticket en papel o un remito manuscrito, podés tomar una foto con tu teléfono y subirla directamente. La IA procesa la imagen de la misma forma que un PDF, extrayendo los datos visibles del comprobante.
-            </p>
-        </div>
 
         <h2>Revisión rápida</h2>
 
         <p>
-            Después de que la IA procesa la factura, ves una pantalla de confirmación con todos los campos extraídos. Cada campo aparece editable, así que si el sistema interpretó mal un número o no reconoció un proveedor nuevo, lo corregís en el momento. Pero en la gran mayoría de los casos, los datos vienen bien y solo tenés que confirmar.
+            Después de que el sistema procesa la factura, ves una pantalla de confirmación con todos los campos extraídos. Cada campo aparece editable, así que si el sistema interpretó mal un número o no reconoció un proveedor nuevo, lo corregís en el momento. Pero en la gran mayoría de los casos, los datos vienen bien y solo tenés que confirmar.
         </p>
 
         <p>
@@ -506,7 +506,7 @@
             <a href="/novedades/organiz%C3%A1-los-gastos.html" class="related-card">
                 <span class="card-category cat-guia">Guía</span>
                 <h4>Organizá los gastos de tu campo</h4>
-                <p>Clasificá gastos por lote, actividad y rubro para tener claridad total.</p>
+                <p>Clasificá gastos por categoría, monto y stock para tener claridad total.</p>
                 <span class="card-meta">Mayo 2026 · 5 min</span>
             </a>
             <a href="/novedades/motor-impositivo.html" class="related-card">

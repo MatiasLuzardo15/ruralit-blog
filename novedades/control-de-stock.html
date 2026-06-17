@@ -324,7 +324,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -399,9 +407,9 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
@@ -458,9 +466,9 @@
         </p>
 
         <div class="article-callout">
-            <div class="callout-label">Integrado con tus movimientos</div>
+            <div class="callout-label">Vinculación manual con movimientos</div>
             <p>
-                Los cambios de stock se vinculan automáticamente con tus registros de gastos e ingresos. Cuando anotás la compra de 50 bolsas de ración, el stock sube. Cuando registrás que se consumieron 5 bolsas esta semana, el stock baja. No tenés que cargar la información dos veces: un solo movimiento actualiza todo.
+                Los cambios de stock no se vinculan automáticamente con tus registros de gastos e ingresos. Sos vos quien decide cuando un movimiento de stock se relaciona con un gasto o ingreso. Por ejemplo, cuando registrás la compra de 50 bolsas de ración, podés vincularla con el stock para que el inventario suba. Pero si no lo hacés, el stock y los movimientos quedan independientes.
             </p>
         </div>
 
@@ -512,11 +520,11 @@
                 <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
                 <span class="card-meta">Marzo 2026 · 4 min</span>
             </a>
-            <a href="/novedades/reporte-semanal.html" class="related-card">
-                <span class="card-category cat-producto">Producto</span>
-                <h4>Reporte semanal en tu email</h4>
-                <p>Cada lunes recibís un correo con barras de progreso y gráficos comparativos.</p>
-                <span class="card-meta">Mayo 2026 · 3 min</span>
+            <a href="/novedades/importar-datos-excel.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Cómo importar datos desde Excel</h4>
+                <p>Subí tu planilla y Ruralit detecta las columnas automáticamente.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
         </div>
     </div>

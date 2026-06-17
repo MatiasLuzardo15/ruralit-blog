@@ -324,7 +324,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -399,9 +407,9 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
@@ -506,11 +514,11 @@
                 <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
                 <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
-            <a href="/novedades/alertas-inteligentes.html" class="related-card">
-                <span class="card-category cat-producto">Producto</span>
-                <h4>Alertas inteligentes en el Dashboard</h4>
-                <p>Carrusel de tarjetas con avisos automáticos para tu establecimiento.</p>
-                <span class="card-meta">Junio 2026 · 3 min</span>
+            <a href="/novedades/lectura-automatica.html" class="related-card">
+                <span class="card-category cat-mejora">Mejora</span>
+                <h4>Lectura automática de facturas</h4>
+                <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
+                <span class="card-meta">Marzo 2026 · 4 min</span>
             </a>
         </div>
     </div>

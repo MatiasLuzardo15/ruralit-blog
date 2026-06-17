@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictado inteligente: Cargá gastos con tu voz | Ruralit</title>
     <meta name="description"
-        content="Decí &quot;gasté 5000 en gasoil&quot; y Ruralit escucha, entiende y carga el movimiento por vos. Funciona offline con inteligencia artificial local.">
+        content="Decí &quot;gasté 5000 en gasoil&quot; y Ruralit escucha, entiende y carga el movimiento por vos. Sin tipear nada, directamente desde el campo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -323,7 +323,15 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
 
         @media (max-width: 768px) {
             .article-hero {
@@ -398,9 +406,9 @@
 
     <div class="article-hero">
         <div style="max-width: 680px; width: 90%; margin: 0 auto;">
-            <a href="/novedades/" class="btn-outline back-link">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
-                VOLVER
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
             </a>
             <div class="article-breadcrumb">
                 <a href="/novedades/">Blog</a>
@@ -431,7 +439,7 @@
         <h2>Cómo funciona</h2>
 
         <p>
-            Tocás el ícono del micrófono dentro de Ruralit y simplemente hablás. Nada de formularios, nada de seleccionar categorías a mano. Decís lo que necesitás registrar y la plataforma se encarga del resto. La información se procesa con inteligencia artificial directamente en tu dispositivo, sin depender de una conexión a internet.
+            Tocás el ícono del micrófono dentro de Ruralit y simplemente hablás. Nada de formularios, nada de seleccionar categorías a mano. Decís lo que necesitás registrar y la plataforma se encarga del resto. Necesitás una conexión a internet para que el procesamiento funcione.
         </p>
 
         <p>
@@ -442,26 +450,19 @@
             <li><strong>"Gasté 5000 en gasoil"</strong> · Se registra un gasto de $5.000 en la categoría Combustible.</li>
             <li><strong>"Compré ración por 12.000"</strong> · Se crea un movimiento en Suplementación con el monto correcto.</li>
             <li><strong>"Pagué 30 dólares de sanidad"</strong> · Se carga en la divisa USD dentro de Sanidad animal.</li>
-            <li><strong>"Gasto de electricidad 4500 para el establecimiento La Esperanza"</strong> · Se asigna al proyecto o establecimiento específico.</li>
+            <li><strong>"Gasto de electricidad 4500"</strong> · Se carga en el establecimiento en el que estás trabajando en esa sesión.</li>
         </ul>
-
-        <div class="article-callout">
-            <div class="callout-label">Funciona sin conexión</div>
-            <p>
-                El modelo de inteligencia artificial corre localmente en tu teléfono. Esto significa que podés dictar gastos estando en medio del campo, donde la señal de datos es débil o inexistente. Todo se procesa y se guarda en tu dispositivo, y se sincroniza cuando volvás a tener conexión.
-            </p>
-        </div>
 
         <h2>Organización automática</h2>
 
         <p>
-            La parte más tediosa de registrar un gasto nunca fue tipear el monto · fue acordarse de elegir la categoría, la moneda y el proyecto correcto. Con el dictado inteligente, eso ya no es tu problema. Ruralit analiza tu frase y extrae tres datos clave:
+            La parte más tediosa de registrar un gasto nunca fue tipear el monto · fue acordarse de elegir la categoría y la moneda correctas. Con el dictado inteligente, eso ya no es tu problema. Ruralit analiza tu frase y extrae los datos clave:
         </p>
 
         <ul>
-            <li><strong>Categoría:</strong> Detecta si es gasoil, ración, sanidad, alquiler, o cualquier otra rubro, y lo clasifica automáticamente.</li>
+            <li><strong>Categoría:</strong> Detecta si es gasoil, ración, sanidad, alquiler, o cualquier otra categoría, y lo clasifica automáticamente.</li>
             <li><strong>Moneda:</strong> Reconoce si hablaste en pesos uruguayos, dólares, o la unidad que uses, y asigna la divisa correcta.</li>
-            <li><strong>Proyecto o establecimiento:</strong> Si mencionás un nombre de establecimiento o lote, lo vincula con el proyecto correspondiente.</li>
+            <li><strong>Establecimiento:</strong> El movimiento se asigna automáticamente al establecimiento en el que estás trabajando en esa sesión. No tenés que aclararlo en la frase.</li>
         </ul>
 
         <p>
@@ -475,7 +476,7 @@
         </p>
 
         <p>
-            El dictado inteligente también funciona en contextos ruidosos: el modelo está entrenado para filtrar el sonido ambiente y captar la instrucción con precisión. Y si estás en una zona sin señal, no hay problema: todo se almacena localmente y se sincroniza cuando tenés conexión de nuevo.
+            Necesitás una conexión a internet para que funcione, pero más allá de eso, el dictado está pensado para ser lo más práctico posible cuando estás en movimiento. Sacar el teléfono y hablar es mucho más rápido que frenar y escribir cada detalle a mano.
         </p>
 
         <div class="article-divider"></div>
@@ -488,12 +489,6 @@
     <div class="related-section">
         <div class="related-header">Artículos relacionados</div>
         <div class="related-grid">
-            <a href="/novedades/alertas-inteligentes.html" class="related-card">
-                <span class="card-category cat-dashboard">Dashboard</span>
-                <h4>Alertas inteligentes en el Dashboard</h4>
-                <p>Carrusel de tarjetas con avisos automáticos para tu establecimiento.</p>
-                <span class="card-meta">Junio 2026 · 3 min</span>
-            </a>
             <a href="/novedades/lectura-automatica.html" class="related-card">
                 <span class="card-category cat-mejora">Mejora</span>
                 <h4>Lectura automática de facturas</h4>
@@ -504,6 +499,12 @@
                 <span class="card-category cat-producto">Producto</span>
                 <h4>Control de stock y recursos</h4>
                 <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
+            </a>
+            <a href="/novedades/importar-datos-excel.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Cómo importar datos desde Excel</h4>
+                <p>Subí tu planilla y Ruralit detecta las columnas automáticamente.</p>
                 <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
         </div>

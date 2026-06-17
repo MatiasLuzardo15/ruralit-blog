@@ -410,6 +410,26 @@ footer {
 .page-back-link:hover { color: var(--dark); }
 .page-back-link svg { width: 16px; height: 16px; }
 
+.page-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.page-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.page-breadcrumb a:hover { color: var(--dark); }
+.page-breadcrumb .breadcrumb-sep {
+  color: rgba(14, 30, 18, 0.2);
+  font-size: 0.7rem;
+}
+
 .hero {
   background: var(--cream);
   display: flex;
