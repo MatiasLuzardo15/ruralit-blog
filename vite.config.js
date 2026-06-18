@@ -20,7 +20,7 @@ export default defineConfig({
         'lectura-automatica': resolve(__dirname, 'novedades/lectura-automatica.html'),
         'control-de-stock': resolve(__dirname, 'novedades/control-de-stock.html'),
         'establecimientos-compartidos': resolve(__dirname, 'novedades/establecimientos-compartidos.html'),
-        'organiza-los-gastos': resolve(__dirname, 'novedades/organizá-los-gastos.html'),
+        'organiza-los-gastos': resolve(__dirname, 'novedades/organiza-los-gastos.html'),
         'importar-datos-excel': resolve(__dirname, 'novedades/importar-datos-excel.html'),
       },
     },

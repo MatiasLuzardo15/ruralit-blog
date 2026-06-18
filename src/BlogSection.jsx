@@ -30,7 +30,7 @@ const articles = [
       'Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.',
     date: 'Mayo 2026',
     readTime: '5 min',
-    link: '/novedades/organiz%C3%A1-los-gastos.html',
+    link: '/novedades/organiza-los-gastos.html',
   },
   {
     id: 4,

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizá los gastos de tu campo | Ruralit</title>
+    <meta name="description"
+        content="Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
+    <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://ruralit.site/novedades/organiza-los-gastos.html">
+    <link rel="icon" href="/z.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ruralit">
+    <meta property="og:locale" content="es_UY">
+    <meta property="og:title" content="Organizá los gastos de tu campo">
+    <meta property="og:description" content="Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
+    <meta property="og:url" content="https://ruralit.site/novedades/organiza-los-gastos.html">
+    <meta property="og:image" content="https://ruralit.site/og-image.png">
+    <meta property="og:image:alt" content="Organización de gastos del campo con Ruralit">
+    <meta property="article:published_time" content="2026-05-01">
+    <meta property="article:author" content="Equipo Ruralit">
+    <meta property="article:section" content="Guía">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Organizá los gastos de tu campo">
+    <meta name="twitter:description" content="Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso en tu establecimiento rural.">
+    <meta name="twitter:image" content="https://ruralit.site/og-image.png">
+
+    <!-- Structured data: Article + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Organizá los gastos de tu campo",
+          "description": "Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso en tu establecimiento rural.",
+          "image": "https://ruralit.site/og-image.png",
+          "inLanguage": "es-UY",
+          "datePublished": "2026-05-01",
+          "dateModified": "2026-05-01",
+          "author": { "@type": "Person", "name": "Equipo Ruralit", "url": "https://ruralit.site/" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Ruralit",
+            "logo": { "@type": "ImageObject", "url": "https://ruralit.site/z.svg" }
+          },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ruralit.site/novedades/organiza-los-gastos.html" },
+          "articleSection": "Guía"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ruralit.site/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ruralit.site/novedades/" },
+            { "@type": "ListItem", "position": 3, "name": "Organizá los gastos de tu campo", "item": "https://ruralit.site/novedades/organiza-los-gastos.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .article-body {
+            background: var(--cream);
+            color: var(--fg);
+        }
+
+        .article-hero {
+            background: var(--cream);
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+            padding: 8rem 0 3rem;
+        }
+
+        .article-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .article-breadcrumb a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .article-breadcrumb a:hover {
+            color: var(--dark);
+        }
+
+        .article-breadcrumb .breadcrumb-sep {
+            color: rgba(14, 30, 18, 0.2);
+            font-size: 0.7rem;
+        }
+
+        .article-category-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dark);
+            background: rgba(14, 30, 18, 0.07);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .article-meta-row .meta-dot {
+            width: 3px;
+            height: 3px;
+            background: var(--muted);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .article-content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+            width: 90%;
+        }
+
+        .article-content h2 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: var(--dark);
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .article-callout {
+            background: rgba(46, 158, 83, 0.06);
+            border-left: 3px solid var(--agri);
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .article-callout p {
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .article-callout .callout-label {
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--agri);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content ul {
+            margin: 1rem 0 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .article-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .article-content ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            background: var(--agri);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .article-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(14, 30, 18, 0.08);
+            margin: 3rem 0;
+        }
+
+        .related-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 4rem;
+        }
+
+        .related-header {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid rgba(14, 30, 18, 0.06);
+            border-radius: 14px;
+            padding: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .related-card:hover {
+            border-color: var(--agri);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(14, 30, 18, 0.08);
+        }
+
+        .related-card .card-category {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .related-card .card-category.cat-producto { color: var(--agri); }
+        .related-card .card-category.cat-dashboard { color: var(--amber); }
+        .related-card .card-category.cat-mejora { color: #C06040; }
+        .related-card .card-category.cat-guia { color: var(--dark); }
+
+        .related-card h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.35;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .related-card .card-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        .cta-section {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 5rem;
+        }
+
+        .cta-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+
+        .cta-card h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background: #b37a25;
+            transform: translateY(-1px);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 2rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover { color: var(--dark); }
+        .back-link svg { width: 16px; height: 16px; }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: 7rem 0 2rem;
+            }
+
+            .article-title {
+                font-size: 1.65rem;
+            }
+
+            .article-lead {
+                font-size: 1rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cta-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-meta-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .article-hero {
+                padding: 6.5rem 0 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.25rem;
+            }
+
+            .article-content p,
+            .article-content ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="article-body">
+    <nav id="navbar">
+        <a href="/" class="nav-logo"><img src="/z.svg" alt="Ruralit" /></a>
+        <div class="nav-links">
+            <a href="/#soluciones">Explora</a>
+            <a href="/#como">Cómo funciona</a>
+            <a href="/novedades/">Novedades</a>
+            <a href="/#casos">Casos</a>
+        </div>
+        <div class="nav-cta">
+            <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+            <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+        </div>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#soluciones">Explora</a>
+        <a href="/#como">Cómo funciona</a>
+        <a href="/novedades/">Novedades</a>
+        <a href="/#casos">Casos</a>
+        <a href="https://www.ruralit.site/login" class="btn-outline">Iniciar sesión</a>
+        <a href="https://www.ruralit.site/signup" class="btn-primary">Crear cuenta</a>
+    </div>
+
+    <div class="article-hero">
+        <div style="max-width: 680px; width: 90%; margin: 0 auto;">
+            <a href="/novedades/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                Volver al blog
+            </a>
+            <div class="article-breadcrumb">
+                <a href="/novedades/">Blog</a>
+                <span class="breadcrumb-sep">›</span>
+                <a href="/novedades/">Guía</a>
+            </div>
+            <span class="article-category-tag">Guía</span>
+            <h1 class="article-title">Organizá los gastos de tu campo</h1>
+            <p class="article-lead">
+                Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.
+            </p>
+            <div class="article-meta-row">
+                <span>Mayo de 2026</span>
+                <span class="meta-dot"></span>
+                <span>5 min de lectura</span>
+                <span class="meta-dot"></span>
+                <span>Equipo Ruralit</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content fade-up">
+
+        <p>
+            Llevás meses registrando gastos con disciplina. Gasoil, ración, veterinaria, sueldos, alambrado. Todo está cargado en Ruralit. Pero cuando querés saber cuánto gastaste en sanidad el trimestre pasado, o cuánto se fue en suplementación el mes pasado, la respuesta no aparece clara. Los datos están, pero no están <strong>organizados</strong>. Y los datos sin organización son solo ruido.
+        </p>
+
+        <p>
+            Esta guía es para productores que ya registran movimientos pero quieren sacarle más jugo a la información. La clave no es cargar más datos: es clasificarlos bien desde el principio.
+        </p>
+
+        <h2>Cómo se clasifican los gastos</h2>
+
+        <p>
+            En Ruralit, cada gasto se clasifica principalmente por su <strong>categoría</strong> y su <strong>monto</strong>. Además, podés vincularlo con el <strong>stock o inventario</strong> cuando corresponde. Estos tres datos son los que te permiten después ver con claridad en qué se va tu plata.
+        </p>
+
+        <ul>
+            <li><strong>Categoría:</strong> es el tipo de gasto. Combustible, sanidad animal, suplementación, mano de obra, infraestructura, maquinaria. Es lo que más te ayuda a ver en qué gastás tu plata a grandes rasgos.</li>
+            <li><strong>Monto:</strong> el importe del movimiento, en la moneda que corresponda. Tener los montos bien cargados es lo que te permite comparar períodos y ver tendencias.</li>
+            <li><strong>Stock o inventario:</strong> cuando un gasto está relacionado con un recurso de tu establecimiento (por ejemplo, la compra de bolsas de ración), podés vincularlo manualmente con el stock para que ambos datos queden conectados.</li>
+        </ul>
+
+        <div class="article-callout">
+            <div class="callout-label">El rubro se define al principio</div>
+            <p>
+                El rubro de tu establecimiento se define durante la configuración inicial de la app. No es algo que cambiás movimiento por movimiento: lo elegís una vez al arrancar y después se mantiene. Si en algún momento necesitás cambiarlo, lo hacés desde configuraciones, pero no es una función pensada para convivir con varios rubros a la vez. No hay métricas que calculen variaciones por rubro.
+            </p>
+        </div>
+
+        <h2>Por dónde empezar</h2>
+
+        <p>
+            Si recién arrancás con Ruralit, lo primero es asegurarte de tener bien definido el rubro en la configuración inicial. Eso te ahorra headaches más adelante. Después, cuando cargues gastos, el foco tiene que estar en elegir bien la categoría y cargar el monto correcto.
+        </p>
+
+        <p>
+            La vinculación con stock o inventario es opcional y la hacés vos cuando un gasto tiene relación con un recurso concreto. No es obligatoria, pero mientras más la uses, más precisa va a ser la foto de tu establecimiento.
+        </p>
+
+        <h2>Un ejemplo concreto</h2>
+
+        <p>
+            Imaginá que cargás un gasto de $45.000 en ración. Sin clasificación, es solo un número. Con la categoría asignada (Suplementación), ya sabés cuánto gastás en feeding. Y si lo vinculás con el stock de ración, ves al mismo tiempo cuánto entró al inventario y cuánto te queda disponible.
+        </p>
+
+        <p>
+            Ese mismo gasto, cargado tres veces en el año, te permite ver una tendencia. ¿El costo de ración está subiendo? ¿Está por encima de lo que habías previsto? Sin la clasificación, esas preguntas ni siquiera se te ocurrirían.
+        </p>
+
+        <h2>Errores comunes que conviene evitar</h2>
+
+        <ul>
+            <li><strong>Cargar todo en "Otros":</strong> es el camino más rápido para perder información útil. Si un gasto no encaja en ninguna categoría, buscala la más cercana antes de usar "Otros" como cajón de sastre.</li>
+            <li><strong>No cargar el monto correcto:</strong> un monto mal cargado te arruina cualquier comparación entre períodos. Vale la pena tomarse el segundo extra para verificarlo.</li>
+            <li><strong>No vincular con stock cuando corresponde:</strong> si compraste ración o gasoil, vincular el gasto con el inventario te da una visión integral. No lo saltees por "ahorrar tiempo".</li>
+        </ul>
+
+        <div class="article-divider"></div>
+
+        <p>
+            La buena noticia es que en Ruralit la clasificación es parte del flujo de carga. No es un paso aparte ni una tarea extra. Cada vez que registrás un gasto, elegís la categoría y cargás el monto en el mismo formulario. Y si usás el dictado inteligente, la plataforma te sugiere la categoría automáticamente a partir de lo que decís. La organización no es un esfuerzo adicional: es la forma natural de cargar los datos.
+        </p>
+
+        <p>
+            Si todavía no estás prestandle atención a la categoría de cada gasto, este es el momento de empezar. Los primeros días vas a estar acomodando gastos viejos, pero después se vuelve costumbre. Y cuando llegue el momento de tomar decisiones · comprar, vender, ajustar el stocking rate, cambiar de proveedor · vas a tener los números para decidir con claridad.
+        </p>
+    </div>
+
+    <div class="related-section">
+        <div class="related-header">Artículos relacionados</div>
+        <div class="related-grid">
+            <a href="/novedades/control-de-stock.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Control de stock y recursos</h4>
+                <p>Conteo de cabezas, litros de leche y más, todo en un solo lugar.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
+            </a>
+            <a href="/novedades/lectura-automatica.html" class="related-card">
+                <span class="card-category cat-mejora">Mejora</span>
+                <h4>Lectura automática de facturas</h4>
+                <p>Subí un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
+                <span class="card-meta">Marzo 2026 · 4 min</span>
+            </a>
+            <a href="/novedades/importar-datos-excel.html" class="related-card">
+                <span class="card-category cat-guia">Guía</span>
+                <h4>Cómo importar datos desde Excel</h4>
+                <p>Subí tu planilla y Ruralit detecta las columnas automáticamente.</p>
+                <span class="card-meta">Abril 2026 · 4 min</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-card">
+            <h3>Probá Ruralit gratis</h3>
+            <p>Organizá los resultados de tu campo con claridad financiera. Sin compromiso.</p>
+            <a href="https://www.ruralit.site/signup" class="cta-button">
+                Crear cuenta gratis
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-simple">
+                <a href="/" class="nav-logo">ruralit<span class="logo-dot">.</span></a>
+                <a href="/" class="footer-back">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    Volver al inicio
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-40px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                nav.style.boxShadow = '0 1px 20px rgba(14,30,18,0.08)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

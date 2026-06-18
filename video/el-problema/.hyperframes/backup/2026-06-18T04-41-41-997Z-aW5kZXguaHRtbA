@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>El Problema — Ruralit</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Hanken Grotesk";
+        font-style: normal;
+        font-weight: 400 800;
+        font-display: block;
+        src: url(capture/assets/fonts/HankenGrotesk-Latin.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Caveat";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: block;
+        src: url(capture/assets/fonts/Caveat-Latin.woff2) format("woff2");
+      }
+      :root {
+        --cream: #f8f1e5;
+        --paper: #ffffff;
+        --inner: #f0ebe3;
+        --sand: #e9e1d5;
+        --ink: #0e1e12;
+        --graphite: #2a3a2f;
+        --muted: #576246;
+        --muted-bright: #6b7a5e;
+        --line: rgba(14, 30, 18, 0.14);
+        --line-soft: rgba(14, 30, 18, 0.08);
+        --green: #2e9e53;
+        --green-deep: #1a7a3a;
+        --amber: #c78b2e;
+        --amber-ink: #8a5c12;
+        --alert: #c04a38;
+        --alert-ink: #a83a28;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: var(--cream);
+        font-family: "Hanken Grotesk", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--cream);
+      }
+
+      /* Notebook-paper texture: faint dot grid */
+      .bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(14, 30, 18, 0.07) 1.4px, transparent 1.6px);
+        background-size: 34px 34px;
+        background-position: 0 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* Notebook margin rule (gentle ambient breath) */
+      .margin-rule {
+        position: absolute;
+        left: 250px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: rgba(46, 158, 83, 0.18);
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+      }
+
+      /* Header (clean state) */
+      .header {
+        position: absolute;
+        left: 338px;
+        top: 148px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        z-index: 6;
+      }
+      .header-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--green);
+        display: block;
+      }
+      .header-kicker {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+      .header-kicker .count {
+        color: var(--muted);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+      }
+      .header-rule {
+        position: absolute;
+        left: 600px;
+        top: 163px;
+        width: 980px;
+        height: 2px;
+        background: var(--line);
+        transform-origin: left center;
+        transform: scaleX(0);
+        display: block;
+        z-index: 5;
+      }
+
+      /* Group labels + rules (clean state) */
+      .group-label {
+        position: absolute;
+        font-size: 17px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        z-index: 6;
+      }
+      .group-label.g1 { left: 338px; top: 330px; color: var(--green-deep); }
+      .group-label.g2 { left: 338px; top: 640px; color: var(--amber-ink); }
+      .group-rule {
+        position: absolute;
+        top: 350px;
+        left: 500px;
+        width: 1080px;
+        height: 2px;
+        background: rgba(46, 158, 83, 0.32);
+        transform-origin: left center;
+        transform: scaleX(0);
+        display: block;
+        z-index: 5;
+      }
+      .group-rule.r2 { top: 660px; background: rgba(199, 139, 46, 0.34); }
+
+      /* Record note-cards */
+      .card {
+        position: absolute;
+        width: 380px;
+        height: 172px;
+        background: var(--paper);
+        border: 1px solid var(--line-soft);
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(14, 30, 18, 0.07);
+        padding: 24px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform-origin: center center;
+        z-index: 10;
+        overflow: hidden;
+      }
+      .card .kicker {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .card .kicker.green { color: var(--green-deep); }
+      .card .kicker.amber { color: var(--amber-ink); }
+      .card .value {
+        font-size: 29px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+      .card .meta {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.02em;
+      }
+      .card .meta .lote { color: var(--ink); font-weight: 700; }
+
+      /* Handwritten marks (Caveat) — manual corrections / uncertainty */
+      .mark {
+        position: absolute;
+        font-family: "Caveat", cursive;
+        font-weight: 600;
+        pointer-events: none;
+        z-index: 12;
+        line-height: 1;
+      }
+      .mark.question {
+        right: 22px;
+        top: 20px;
+        font-size: 38px;
+        color: var(--alert);
+        transform: rotate(-6deg);
+      }
+      .mark.crossed {
+        left: 28px;
+        bottom: 18px;
+        font-size: 32px;
+        color: var(--alert);
+        transform: rotate(-3deg);
+      }
+
+      /* Strike-through SVG (correction lines), drawn in disorder, fade in organize */
+      .strike {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 11;
+      }
+      .strike line {
+        stroke: var(--alert);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-dasharray: 340;
+        stroke-dashoffset: 340;
+      }
+
+      /* Alert dot — loss / flagged uncertainty on a card */
+      .alert-dot {
+        position: absolute;
+        right: 26px;
+        bottom: 22px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--alert);
+        box-shadow: 0 0 0 4px rgba(192, 74, 56, 0.16);
+        z-index: 13;
+        transform: scale(0);
+        transform-origin: center;
+      }
+
+      /* Duplicate record card (the duplication problem) */
+      .dup {
+        position: absolute;
+        left: 920px;
+        top: 360px;
+        width: 300px;
+        height: 132px;
+        background: var(--paper);
+        border: 1px dashed rgba(192, 74, 56, 0.45);
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(14, 30, 18, 0.08);
+        padding: 18px 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform-origin: center center;
+        z-index: 20;
+      }
+      .dup .dup-tag {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--alert-ink);
+      }
+      .dup .dup-val {
+        font-size: 23px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+      .dup .dup-meta {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Green payoff — "ordenado" (clarity) */
+      .payoff {
+        position: absolute;
+        left: 1360px;
+        top: 942px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 30;
+        transform-origin: center center;
+      }
+      .payoff .check {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--green);
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+      .payoff .check svg { width: 19px; height: 19px; color: #fff; }
+      .payoff .payoff-label {
+        font-family: "Caveat", cursive;
+        font-weight: 600;
+        font-size: 30px;
+        color: var(--green-deep);
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-2fgw" id="root" data-composition-id="el-problema" data-start="0" data-width="1920" data-height="1080" data-duration="10">
+      <div data-hf-id="hf-855n" class="bg-grid" data-layout-ignore=""></div>
+      <div data-hf-id="hf-fse0" class="margin-rule" data-layout-ignore=""></div>
+
+      <section data-hf-id="hf-nkdf" class="clip" id="scene-problema" data-start="0" data-duration="10" data-track-index="1" data-layout-allow-overlap="" data-layout-allow-occlusion="">
+        <!-- Header (emerges during organization) -->
+        <div data-hf-id="hf-49xq" class="header" id="header">
+          <span data-hf-id="hf-0qj8" class="header-dot"></span>
+          <span data-hf-id="hf-pbm6" class="header-kicker">Registros <span data-hf-id="hf-6dnj" class="count">· 6 entradas y salidas</span></span>
+        </div>
+        <span data-hf-id="hf-c3tn" class="header-rule" id="header-rule"></span>
+
+        <!-- Group labels + rules (emerge during organization) -->
+        <div data-hf-id="hf-4hyg" class="group-label g1" id="g1">MOVIMIENTOS</div>
+        <span data-hf-id="hf-03vp" class="group-rule" id="gr1"></span>
+        <div data-hf-id="hf-o9cn" class="group-label g2" id="g2">INVENTARIO</div>
+        <span data-hf-id="hf-88pc" class="group-rule r2" id="gr2"></span>
+
+        <!-- Row 1 — Sanidad (clean positions) -->
+        <div data-hf-id="hf-5z5o" class="card" id="c1" style="left:338px; top:372px;">
+          <span style="color: rgb(122, 26, 26)" data-hf-id="hf-oiw3" class="kicker green">salida</span>
+          <span data-hf-id="hf-c8uh" class="value">Vacuna · Aftosa</span>
+          <span data-hf-id="hf-0gnw" class="meta"><span data-hf-id="hf-c3xf" class="lote">&lt;span data-hf-id="hf-c3xf" class="lote" data-hf-text-key="child:0:span"&gt;$ 7.600&lt;/span&gt; · 10</span> · 10/03</span>
+        </div>
+
+        <div data-hf-id="hf-8fsx" class="card" id="c2" style="left:770px; top:372px;">
+          <span data-hf-id="hf-alcz" class="kicker green">INGRESO</span>
+          <span data-hf-id="hf-ju00" class="value">Venta de vaquillonas</span>
+          <span data-hf-id="hf-2v7h" class="meta"><span data-hf-id="hf-bpme" class="lote">&lt;span data-hf-id="hf-bpme" class="lote" data-hf-text-key="child:0:span"&gt;U$S 67.000&lt;/span&gt; · GANADO</span> · 11/03</span>
+          <svg data-hf-id="hf-cjad" class="strike" id="strike2" viewBox="0 0 380 172" preserveAspectRatio="none">
+            <line data-hf-id="hf-9j7c" x1="44" y1="96" x2="338" y2="104" />
+          </svg>
+        </div>
+
+        <div data-hf-id="hf-830x" class="card" id="c3" style="left:1202px; top:372px;">
+          <span style="color: rgb(122, 26, 26)" data-hf-id="hf-a71y" class="kicker green">Salida</span>
+          <span data-hf-id="hf-i71a" class="value">Pago de jornales
+</span>
+          <span data-hf-id="hf-nwhy" class="meta"><span data-hf-id="hf-345p" class="lote">&lt;span data-hf-id="hf-345p" class="lote" data-hf-text-key="child:0:span"&gt;$ 30.000&lt;/span&gt; · PERSONAL</span> · 12/03</span>
+          <span data-hf-id="hf-yhm3" class="mark question" id="mark-q">¿?</span>
+          <span data-hf-id="hf-c0oz" class="alert-dot" id="alert-dot"></span>
+        </div>
+
+        <!-- Row 2 — Movimiento (clean positions) -->
+        <div data-hf-id="hf-n417" class="card" id="c4" style="left:338px; top:682px;">
+          <span data-hf-id="hf-pzpe" class="kicker amber">stock</span>
+          <span data-hf-id="hf-kx6n" class="value">Fertilizante
+</span>
+          <span data-hf-id="hf-j7m2" class="meta"><span data-hf-id="hf-ti3n" class="lote">12 bolsas </span> · 12/03</span>
+        </div>
+
+        <div data-hf-id="hf-wmqc" class="card" id="c5" style="left:770px; top:682px;">
+          <span data-hf-id="hf-p27a" class="kicker amber">STOCK</span>
+          <span data-hf-id="hf-n23g" class="value">Ración ganado
+</span>
+          <span data-hf-id="hf-jlx3" class="meta"><span data-hf-id="hf-d87u" class="lote">18 bolsas · Actualizado</span> · 12/03</span>
+          <span data-hf-id="hf-b36h" class="mark crossed" id="mark-mal">mal</span>
+          <svg data-hf-id="hf-szrw" class="strike" id="strike5" viewBox="0 0 380 172" preserveAspectRatio="none">
+            <line data-hf-id="hf-3zky" x1="34" y1="132" x2="200" y2="140" />
+          </svg>
+        </div>
+
+        <div data-hf-id="hf-b8b4" class="card" id="c6" style="left:1202px; top:682px;">
+          <span data-hf-id="hf-pgib" class="kicker amber">Stock</span>
+          <span data-hf-id="hf-pbal" class="value">Gasoil
+</span>
+          <span data-hf-id="hf-m98v" class="meta"><span data-hf-id="hf-2cqp" class="lote">240 L disponibles </span> · 13/03</span>
+        </div>
+
+        <!-- Duplicate record (slides in during disorder, removed during organization) -->
+        <div data-hf-id="hf-cixw" class="dup" id="dup">
+          <span data-hf-id="hf-5v9y" class="dup-tag">Movimiento · dup</span>
+          <span data-hf-id="hf-y4rp" class="dup-val">Ingreso · 8 cabezas</span>
+          <span data-hf-id="hf-ecd0" class="dup-meta">Lote 7A · 12/03</span>
+        </div>
+
+        <!-- Payoff (clean state) -->
+        <div data-hf-id="hf-52iu" class="payoff" id="payoff">
+          <span data-hf-id="hf-vacz" class="check">
+            <svg data-hf-id="hf-b4mr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline data-hf-id="hf-mlxs" points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <span data-hf-id="hf-vdjb" class="payoff-label">ordenado</span>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Phase 1 — entrance into controlled disorder (0.15s → ~1.0s)
+      tl.fromTo("#c1", { opacity: 0, x:  546, y: -197, rotation: -18 }, { opacity: 1, x:  580, y: -175, rotation: -13, duration: 0.7, ease: "power3.out" }, 0.15);
+      tl.fromTo("#c2", { opacity: 0, x: -274, y:  177, rotation:  15 }, { opacity: 1, x: -300, y:  205, rotation:  10, duration: 0.7, ease: "power3.out" }, 0.23);
+      tl.fromTo("#c3", { opacity: 0, x: -404, y:  116, rotation: -12 }, { opacity: 1, x: -380, y:   90, rotation:  -7, duration: 0.7, ease: "power3.out" }, 0.31);
+      tl.fromTo("#c4", { opacity: 0, x:  670, y: -253, rotation:  17 }, { opacity: 1, x:  640, y: -285, rotation:  12, duration: 0.7, ease: "power3.out" }, 0.39);
+      tl.fromTo("#c5", { opacity: 0, x: -448, y: -254, rotation: -16 }, { opacity: 1, x: -420, y: -230, rotation: -11, duration: 0.7, ease: "power3.out" }, 0.47);
+      tl.fromTo("#c6", { opacity: 0, x: -526, y:   65, rotation:  13 }, { opacity: 1, x: -560, y:   95, rotation:   8, duration: 0.7, ease: "power3.out" }, 0.55);
+
+      // Phase 2 — disorder intensifies (2.6s → ~4.0s): jitter + overlap
+      tl.to("#c1", { x:  600, y: -159, rotation: -11, duration: 0.9, ease: "sine.inOut" }, 2.60);
+      tl.to("#c2", { x: -318, y:  191, rotation:   8, duration: 0.9, ease: "sine.inOut" }, 2.67);
+      tl.to("#c3", { x: -364, y:   72, rotation:  -4, duration: 0.9, ease: "sine.inOut" }, 2.74);
+      tl.to("#c4", { x:  618, y: -265, rotation:  10, duration: 0.9, ease: "sine.inOut" }, 2.81);
+      tl.to("#c5", { x: -400, y: -246, rotation:  -9, duration: 0.9, ease: "sine.inOut" }, 2.88);
+      tl.to("#c6", { x: -580, y:  113, rotation:   5, duration: 0.9, ease: "sine.inOut" }, 2.95);
+
+      // "Loss" beat — card 6 sinks into the cluster and dims (a record feels lost among the notes)
+      tl.to("#c6", { y: 200, opacity: 0.4, duration: 0.75, ease: "power2.in" }, 3.9);
+
+      // Handwritten marks appear during disorder
+      tl.fromTo("#mark-q", { opacity: 0, scale: 0.7, rotation: -12 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.5, ease: "back.out(1.6)" }, 1.15);
+      tl.fromTo("#mark-mal", { opacity: 0, x: -14, rotation: -8 }, { opacity: 1, x: 0, rotation: -3, duration: 0.5, ease: "back.out(1.5)" }, 1.4);
+
+      // Strike-through correction lines draw during disorder
+      tl.fromTo("#strike2 line", { strokeDashoffset: 340, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" }, 3.05);
+      tl.fromTo("#strike5 line", { strokeDashoffset: 340, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" }, 3.3);
+
+      // Alert dot pops on card 3 (flagged uncertainty) + gentle finite pulse
+      tl.fromTo("#alert-dot", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 3.35);
+      tl.to("#alert-dot", { scale: 1.28, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.85);
+
+      // Duplicate record slides in and overlaps (the duplication problem)
+      tl.fromTo("#dup", { opacity: 0, x: 320, y: -22, rotation: 6 }, { opacity: 1, x: 0, y: 0, rotation: 4, duration: 0.6, ease: "power2.out" }, 3.0);
+
+      // Phase 3 — organization (5.1s → ~7.0s): chaos → clean alignment
+      tl.to("#c1", { x: 0, y: 0, rotation: 0, duration: 1.15, ease: "expo.out" }, 5.10);
+      tl.to("#c2", { x: 0, y: 0, rotation: 0, duration: 1.15, ease: "expo.out" }, 5.19);
+      tl.to("#c3", { x: 0, y: 0, rotation: 0, duration: 1.15, ease: "expo.out" }, 5.28);
+      tl.to("#c4", { x: 0, y: 0, rotation: 0, duration: 1.15, ease: "expo.out" }, 5.37);
+      tl.to("#c5", { x: 0, y: 0, rotation: 0, duration: 1.15, ease: "expo.out" }, 5.46);
+      tl.to("#c6", { x: 0, y: 0, rotation: 0, opacity: 1, duration: 1.15, ease: "expo.out" }, 5.55);
+
+      // Corrections / uncertainty fade out as order arrives
+      tl.to("#mark-q", { opacity: 0, scale: 0.85, duration: 0.45, ease: "power2.in" }, 5.35);
+      tl.to("#mark-mal", { opacity: 0, x: -8, duration: 0.45, ease: "power2.in" }, 5.5);
+      tl.to("#strike2 line", { opacity: 0, duration: 0.45, ease: "power2.in" }, 5.6);
+      tl.to("#strike5 line", { opacity: 0, duration: 0.45, ease: "power2.in" }, 5.75);
+      tl.to("#alert-dot", { opacity: 0, scale: 0.6, duration: 0.45, ease: "power2.in" }, 5.9);
+
+      // Duplicate is removed / merged as order arrives
+      tl.to("#dup", { opacity: 0, x: 520, y: 44, rotation: 9, duration: 0.7, ease: "power2.in" }, 5.2);
+
+      // Structure emerges — header, group labels, guide rules
+      tl.fromTo("#header", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 5.9);
+      tl.fromTo("#header-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "expo.out" }, 6.1);
+      tl.fromTo("#g1", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 6.05);
+      tl.fromTo("#g2", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, 6.22);
+      tl.fromTo("#gr1", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out" }, 6.25);
+      tl.fromTo("#gr2", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out" }, 6.4);
+
+      // Phase 4 — clean payoff (8.0s): "ordenado" clarity mark + gentle breath
+      tl.fromTo("#payoff", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 8.0);
+      tl.to("#payoff", { scale: 1.06, duration: 0.65, ease: "sine.inOut", yoyo: true, repeat: 1 }, 8.6);
+
+      // Ambient breath on the notebook margin rule (gentle, finite, full 10s)
+      tl.to(".margin-rule", { opacity: 0.55, duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 5 }, 0.4);
+
+      window.__timelines["el-problema"] = tl;
+    </script>
+  </body>
+</html>

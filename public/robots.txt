@@ -1,0 +1,16 @@
+# robots.txt — Ruralit
+# https://ruralit.site
+
+User-agent: *
+Allow: /
+
+# Áreas privadas y de aplicación (no indexables)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Recursos de renderización: NO bloquear CSS/JS/IMG
+# (necesarios para que Googlebot renderice la página correctamente)
+
+# Sitemap principal
+Sitemap: https://ruralit.site/sitemap.xml
