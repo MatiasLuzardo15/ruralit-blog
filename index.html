@@ -527,18 +527,18 @@
     };
 
     const examples = [
-      { text: 'Registrar gasto de gasoil por $4.500', icon: 'gasoil', sign: '-', currency: '$ ', title: 'Gasoil', date: '25/05/2026', badge: 'Combustible', amount: '4.500', quote: '"Registré gasto de gasoil por $4.500"' },
-      { text: 'Anotar compra de ración por $8.200', icon: 'racion', sign: '-', currency: '$ ', title: 'Ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Anoté compra de ración por $8.200"' },
-      { text: 'Guardar pago de alambrado por $12.000', icon: 'alambrado', sign: '-', currency: '$ ', title: 'Alambrado', date: '25/05/2026', badge: 'Infraestructura', amount: '12.000', quote: '"Guardé pago de alambrado por $12.000"' },
-      { text: 'Anotar gasto de veterinaria por $3.800', icon: 'veterinaria', sign: '-', currency: '$ ', title: 'Veterinaria', date: '25/05/2026', badge: 'Sanidad', amount: '3.800', quote: '"Anoté gasto de veterinaria por $3.800"' },
-      { text: 'Cargar sueldo del peón rural por $28.000', icon: 'sueldo', sign: '-', currency: '$ ', title: 'Sueldo del peón', date: '25/05/2026', badge: 'Mano de obra', amount: '28.000', quote: '"Cargué sueldo del peón rural por $28.000"' },
-      { text: 'Registrar mantenimiento del tractor por $9.500', icon: 'mantenimiento', sign: '-', currency: '$ ', title: 'Mantenimiento del tractor', date: '25/05/2026', badge: 'Maquinaria', amount: '9.500', quote: '"Registré mantenimiento del tractor por $9.500"' },
-      { text: 'Registrar ingreso por venta de lana por USD 1.850', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de lana', date: '25/05/2026', badge: 'Venta de lana', amount: '1.850', quote: '"Registré ingreso por venta de lana por USD 1.850"' },
-      { text: 'Cargar venta de 12 terneros a USD 430 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '5.160', quote: '"Cargué venta de 12 terneros a USD 430 cada uno"' },
-      { text: 'Registrar salida de 8 terneros por venta a USD 445 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '3.560', quote: '"Registré salida de 8 terneros por venta a USD 445 cada uno"' },
-      { text: 'Cargar venta de 25 corderos a USD 92 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de corderos', date: '25/05/2026', badge: 'Venta de ganado', amount: '2.300', quote: '"Cargué venta de 25 corderos a USD 92 cada uno"' },
-      { text: 'Registrar compra de 20 bolsas de ración a $410 cada una', icon: 'racion', sign: '-', currency: '$ ', title: 'Compra de ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Compré 20 bolsas de ración a $410 cada una"' },
-      { text: 'Anotar ingreso de 15 ovejas al stock por USD 78 cada una', icon: 'stock', sign: '+', currency: 'US$ ', title: 'Ingreso de ovejas', date: '25/05/2026', badge: 'Stock', amount: '1.170', quote: '"Anoté ingreso de 15 ovejas al stock por USD 78 cada una"' }
+      { text: 'Gasté $4500 en gasoil', icon: 'gasoil', sign: '-', currency: '$ ', title: 'Gasoil', date: '25/05/2026', badge: 'Combustible', amount: '4.500', quote: '"Gasté $4500 en gasoil"' },
+      { text: 'Compré ración por $8.200', icon: 'racion', sign: '-', currency: '$ ', title: 'Ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Compré ración por $8.200"' },
+      { text: 'Pagué $12.000 de alambrado', icon: 'alambrado', sign: '-', currency: '$ ', title: 'Alambrado', date: '25/05/2026', badge: 'Infraestructura', amount: '12.000', quote: '"Pagué $12.000 de alambrado"' },
+      { text: 'gasté $3.800 en la veterinaria', icon: 'veterinaria', sign: '-', currency: '$ ', title: 'Veterinaria', date: '25/05/2026', badge: 'Sanidad', amount: '3.800', quote: '"gasté $3.800 en la veterinaria"' },
+      { text: 'Pagué el sueldo al peón por $28.000', icon: 'sueldo', sign: '-', currency: '$ ', title: 'Sueldo del peón', date: '25/05/2026', badge: 'Mano de obra', amount: '28.000', quote: '"Pagué el sueldo al peón por $28.000"' },
+      { text: 'gasté 9500 en mantenimiento del tractor', icon: 'mantenimiento', sign: '-', currency: '$ ', title: 'Mantenimiento del tractor', date: '25/05/2026', badge: 'Maquinaria', amount: '9.500', quote: '"gasté 9500 en mantenimiento del tractor"' },
+      { text: 'Vendí lana por USD 1.850', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de lana', date: '25/05/2026', badge: 'Venta de lana', amount: '1.850', quote: '"Vendí lana por USD 1.850"' },
+      { text: 'vendí 12 terneros a USD 430 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '5.160', quote: '"vendí 12 terneros a USD 430 cada uno"' },
+      { text: 'vendí 8 terneros a USD 445 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de terneros', date: '25/05/2026', badge: 'Venta de ganado', amount: '3.560', quote: '"vendí 8 terneros a USD 445 cada uno"' },
+      { text: 'vendí 25 corderos a USD 92 cada uno', icon: 'venta', sign: '+', currency: 'US$ ', title: 'Venta de corderos', date: '25/05/2026', badge: 'Venta de ganado', amount: '2.300', quote: '"vendí 25 corderos a USD 92 cada uno"' },
+      { text: 'Compré 20 bolsas de ración a $410 cada una', icon: 'racion', sign: '-', currency: '$ ', title: 'Compra de ración', date: '25/05/2026', badge: 'Suplementación', amount: '8.200', quote: '"Compré 20 bolsas de ración a $410 cada una"' },
+      { text: 'Compré 15 ovejas a USD 78 cada una', icon: 'stock', sign: '-', currency: 'US$ ', title: 'Compra de ovejas', date: '25/05/2026', badge: 'Stock', amount: '1.170', quote: '"Compré 15 ovejas a USD 78 cada una"' }
     ];
 
     let currentIdx = 0;
