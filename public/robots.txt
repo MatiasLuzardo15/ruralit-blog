@@ -1,5 +1,5 @@
 # robots.txt — Ruralit
-# https://ruralit.site
+# https://ruralit.blog
 
 User-agent: *
 Allow: /
@@ -13,4 +13,4 @@ Disallow: /private/
 # (necesarios para que Googlebot renderice la página correctamente)
 
 # Sitemap principal
-Sitemap: https://ruralit.site/sitemap.xml
+Sitemap: https://ruralit.blog/sitemap.xml

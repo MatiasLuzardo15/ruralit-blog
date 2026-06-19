@@ -10,7 +10,7 @@ const articles = [
     date: 'Junio 2026',
     readTime: '3 min',
     featured: true,
-    link: '/novedades/dictado-inteligente.html',
+    link: '/novedades/dictado-inteligente',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const articles = [
       'Interruptores inteligentes para IMEBA o IVA al registrar una venta. Monto bruto y neto a la vista, sin calculadoras externas.',
     date: 'Junio 2026',
     readTime: '4 min',
-    link: '/novedades/motor-impositivo.html',
+    link: '/novedades/motor-impositivo',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const articles = [
       'Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.',
     date: 'Mayo 2026',
     readTime: '5 min',
-    link: '/novedades/organiza-los-gastos.html',
+    link: '/novedades/organiza-los-gastos',
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const articles = [
       'Subí una factura en PDF y Ruralit extrae fecha, monto, proveedor y categoría. Sin cargar nada a mano.',
     date: 'Marzo 2026',
     readTime: '4 min',
-    link: '/novedades/lectura-automatica.html',
+    link: '/novedades/lectura-automatica',
   },
 ];
 
