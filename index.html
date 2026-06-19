@@ -289,7 +289,7 @@
       <div class="equipo-demo">
         <div class="demo-panel">
           <div class="demo-side">
-            <div class="demo-action demo-step" data-step="1">
+            <div class="demo-action demo-step" data-step="1" data-demo-order="1">
               <div class="demo-share">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="demo-share-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.698.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.61l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
                 <span>Compartir establecimiento "El Ceibo"</span>
@@ -321,7 +321,7 @@
                 </span>
               </div>
             </div>
-            <div class="demo-perms demo-step" data-step="4">
+            <div class="demo-perms demo-step" data-step="4" data-demo-order="2">
               <div class="demo-perms-head">
                 <div class="demo-avatar user sm">J</div>
                 <div class="demo-perms-identity">
@@ -355,21 +355,21 @@
           </div>
 
           <div class="demo-side">
-            <div class="demo-join demo-step" data-step="2">
+            <div class="demo-join demo-step" data-step="2" data-demo-order="3">
               <div class="demo-avatar user">J</div>
               <div class="demo-join-info">
                 <span class="demo-join-name">Juan se unió</span>
                 <span class="demo-join-badge">Colaborador</span>
               </div>
             </div>
-            <div class="demo-control demo-step" data-step="5">
+            <div class="demo-control demo-step" data-step="5" data-demo-order="4">
               <div class="demo-avatar admin">V</div>
               <div class="demo-control-info">
                 <span class="demo-control-name">Vos (Administrador)</span>
                 <span class="demo-control-tag">Control total</span>
               </div>
             </div>
-            <div class="demo-team demo-step" data-step="6">
+            <div class="demo-team demo-step" data-step="6" data-demo-order="5">
               <span class="demo-team-title">Tu equipo · El Ceibo</span>
               <div class="demo-team-members">
                 <div class="demo-team-member">
@@ -784,18 +784,7 @@
           setTlState(6, 'active');
         }, 5500);
 
-        // FINAL: Todo se muestra a opacidad completa (sin desvanecer) - paso 6 visible ~3.3s
-        schedule(() => {
-          allSteps.forEach(step => {
-            if (!step) return;
-            step.classList.remove('done', 'exit');
-            step.classList.add('active');
-          });
-          permItems.forEach(item => item.classList.add('active'));
-          setTlState(6, 'done');
-        }, 8800);
-
-        // REINICIAR ciclo (12500ms) - estado final visible ~3.7s
+        // REINICIAR ciclo (12500ms)
         schedule(runDemoCycle, 12500);
       }
 
