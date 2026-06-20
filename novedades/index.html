@@ -689,6 +689,7 @@
         const upcomingSection = document.getElementById('upcoming-section');
         const noResults = document.getElementById('no-results');
         const searchInput = document.getElementById('blog-search');
+        const blogMain = document.querySelector('.blog-main');
         let activeFilter = 'all';
 
         function normalize(value) {
@@ -703,6 +704,16 @@
             const matchFilter = activeFilter === 'all' || category === activeFilter;
             const matchSearch = !query || text.includes(query);
             return matchFilter && matchSearch;
+        }
+
+        function hasActiveSearchOrFilter() {
+            return normalize(searchInput.value) || activeFilter !== 'all';
+        }
+
+        function lockBlogHeight() {
+            if (!blogMain || hasActiveSearchOrFilter()) return;
+            blogMain.style.minHeight = '';
+            blogMain.style.minHeight = `${blogMain.offsetHeight}px`;
         }
 
         function applyFilters() {
@@ -722,6 +733,10 @@
             latestSection.style.display = latestVisible ? '' : 'none';
             upcomingSection.style.display = query || activeFilter !== 'all' ? 'none' : '';
             noResults.style.display = visibleCount === 0 && (query || activeFilter !== 'all') ? 'block' : 'none';
+
+            if (!query && activeFilter === 'all') {
+                requestAnimationFrame(lockBlogHeight);
+            }
         }
 
         filterBtns.forEach(btn => {
@@ -734,6 +749,9 @@
         });
 
         searchInput.addEventListener('input', applyFilters);
+        requestAnimationFrame(lockBlogHeight);
+        window.addEventListener('load', lockBlogHeight);
+        window.addEventListener('resize', () => requestAnimationFrame(lockBlogHeight));
     </script>
 </body>
 </html>
