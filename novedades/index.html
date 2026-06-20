@@ -742,32 +742,70 @@
 
     <script>
         const filterBtns = document.querySelectorAll('.bfilter-btn');
-        const cards = document.querySelectorAll('#articles-grid .bcard');
+        const cards = document.querySelectorAll('#articles-grid .bcard, .bfeat-secondary .bcard');
         const featuredArea = document.getElementById('featured-area');
+        const featuredLink = featuredArea ? featuredArea.querySelector('.bfeatured-link') : null;
+        const featuredSecondary = featuredArea ? featuredArea.querySelector('.bfeat-secondary') : null;
+        const featuredSecondaryCards = featuredSecondary ? featuredSecondary.querySelectorAll('.bcard') : [];
         const noResults = document.getElementById('no-results');
         const searchInput = document.getElementById('blog-search');
+        const sectionLabels = document.querySelectorAll('.bsection-label');
+        const comingSoon = document.querySelector('.bcoming');
+        const ctaCard = document.querySelector('.bcta-card');
+        const articlesGrid = document.getElementById('articles-grid');
         let activeFilter = 'all';
 
         function applyFilters() {
             const query = searchInput.value.toLowerCase().trim();
+            const isSearching = query.length > 0;
             let visibleCount = 0;
 
             cards.forEach(card => {
                 const cat = card.dataset.category;
                 const title = (card.dataset.title || card.querySelector('h3').textContent).toLowerCase();
+                const excerpt = card.querySelector('.bexcerpt')?.textContent.toLowerCase() || '';
                 const matchFilter = activeFilter === 'all' || cat === activeFilter;
-                const matchSearch = !query || title.includes(query) || card.querySelector('.bexcerpt').textContent.toLowerCase().includes(query);
-                card.style.display = (matchFilter && matchSearch) ? '' : 'none';
-                if (card.style.display !== 'none') visibleCount++;
+                const matchSearch = !query || title.includes(query) || excerpt.includes(query);
+                const shouldShow = matchFilter && matchSearch;
+                card.style.display = shouldShow ? '' : 'none';
+                if (shouldShow) visibleCount++;
             });
 
-            if (featuredArea) {
-                const featCat = featuredArea.querySelector('.bfeatured-link').dataset.category;
+            if (featuredArea && featuredLink && featuredSecondary) {
+                const featCat = featuredLink.dataset.category;
+                const featTitle = featuredLink.querySelector('h2')?.textContent.toLowerCase() || '';
+                const featExcerpt = featuredLink.querySelector('.bexcerpt')?.textContent.toLowerCase() || '';
                 const matchFilter = activeFilter === 'all' || featCat === activeFilter;
-                featuredArea.style.display = matchFilter ? '' : 'none';
+                const matchSearch = !query || featTitle.includes(query) || featExcerpt.includes(query);
+                const shouldShowFeatured = matchFilter && matchSearch;
+
+                if (isSearching) {
+                    featuredLink.style.display = shouldShowFeatured ? '' : 'none';
+                    const secondaryVisible = Array.from(featuredSecondaryCards).some(c => c.style.display !== 'none');
+                    featuredSecondary.style.display = secondaryVisible ? 'flex' : 'none';
+                } else {
+                    featuredLink.style.display = matchFilter ? '' : 'none';
+                    featuredSecondary.style.display = matchFilter ? 'flex' : 'none';
+                }
+                const areaVisible = isSearching 
+                    ? (shouldShowFeatured || Array.from(featuredSecondaryCards).some(c => c.style.display !== 'none'))
+                    : matchFilter;
+                featuredArea.style.display = areaVisible ? '' : 'none';
             }
 
-            noResults.style.display = visibleCount === 0 && (activeFilter !== 'all' || searchInput.value) ? '' : 'none';
+            if (isSearching) {
+                sectionLabels.forEach(label => label.style.display = 'none');
+                if (comingSoon) comingSoon.style.display = 'none';
+                if (ctaCard) ctaCard.style.display = 'none';
+                if (articlesGrid) articlesGrid.style.marginBottom = '0';
+            } else {
+                sectionLabels.forEach(label => label.style.display = '');
+                if (comingSoon) comingSoon.style.display = '';
+                if (ctaCard) ctaCard.style.display = '';
+                if (articlesGrid) articlesGrid.style.marginBottom = '';
+            }
+
+            noResults.style.display = visibleCount === 0 && (activeFilter !== 'all' || isSearching) ? '' : 'none';
         }
 
         filterBtns.forEach(btn => {
