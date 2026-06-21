@@ -777,6 +777,128 @@
       font-style: italic;
     }
 
+    /* Balance demo */
+    .balance-section {
+      background: var(--cream);
+      padding: 96px 80px;
+    }
+    .balance-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .balance-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .balance-header .eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .balance-header h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .balance-toggle {
+      display: flex;
+      gap: 6px;
+      background: var(--inner);
+      padding: 4px;
+      border-radius: 14px;
+      width: fit-content;
+      margin: 0 auto 40px;
+      user-select: none;
+    }
+    .balance-toggle button {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 11px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .balance-toggle button small { font-weight: 400; opacity: 0.6; }
+    .balance-toggle button.active {
+      background: var(--white);
+      color: var(--dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .balance-toggle button.active small { opacity: 0.8; }
+    .balance-charts-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .balance-chart-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 28px 32px 24px;
+      box-shadow: 0 4px 24px rgba(14, 30, 18, 0.06);
+    }
+    .balance-chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .balance-chart-header h3 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .balance-chart-header span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .balance-chart-sub {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .balance-period-label {
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(14,30,18,0.05);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .balance-period-label strong { color: var(--dark); }
+    .balance-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .balance-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+    @media (max-width: 1024px) {
+      .balance-charts-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .balance-section { padding: 56px 20px; }
+      .balance-header h2 { font-size: 1.5rem; }
+      .balance-chart-card { padding: 20px; border-radius: 20px; }
+      .balance-toggle button { padding: 8px 16px; font-size: 0.8125rem; }
+    }
     /* Novedades */
     .section-novedades { background: var(--cream); }
     .novedades-header {
@@ -1223,6 +1345,8 @@
       </div>
     </div>
   </section>
+
+  <div id="react-chart-root"></div>
 
   <!-- Novedades -->
   <section class="section-novedades" id="novedades">
