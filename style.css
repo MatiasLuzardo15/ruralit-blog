@@ -849,7 +849,7 @@ button.solucion-card:focus-visible {
 .solucion-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(14, 30, 18, 0.55);
+  background: rgba(18, 16, 14, 0.5);
   backdrop-filter: blur(6px);
   animation: modal-fade 0.3s ease;
 }
@@ -863,23 +863,51 @@ button.solucion-card:focus-visible {
   box-shadow: 0 30px 80px rgba(14, 30, 18, 0.28);
   animation: modal-pop 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.1);
   overflow: hidden;
+  --modal-accent: var(--agri);
+}
+.solucion-modal-accent {
+  height: 5px;
+  width: 100%;
+  flex-shrink: 0;
+  background: var(--modal-accent);
+  transition: background 0.3s;
 }
 .solucion-modal-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 18px;
-  padding: 40px 40px 0;
+  padding: 32px 40px 0;
+}
+.solucion-modal-head-text {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
 }
 .solucion-modal-icon {
   flex-shrink: 0;
   width: 56px;
   height: 56px;
   border-radius: 16px;
-  background: var(--dark);
+  background: var(--modal-accent);
   display: grid;
   place-items: center;
+  transition: background 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .solucion-modal-icon svg { width: 28px; height: 28px; color: var(--white); }
+.solucion-modal-tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--modal-accent);
+  color: var(--white);
+  margin-bottom: 6px;
+  transition: background 0.3s;
+}
 .solucion-modal-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -888,13 +916,43 @@ button.solucion-card:focus-visible {
   padding-right: 36px;
 }
 .solucion-modal-body {
+  position: relative;
   padding: 22px 40px 36px;
+  overflow: hidden;
+}
+.solucion-modal-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  background: radial-gradient(circle at 100% 100%, var(--modal-accent) 0%, transparent 70%);
+  opacity: 0.05;
+  transition: background 0.3s;
 }
 .solucion-modal-desc {
   font-size: 1rem;
   color: var(--muted);
   line-height: 1.7;
   margin-bottom: 22px;
+}
+.solucion-modal-extra {
+  font-size: 0.875rem;
+  color: var(--dark);
+  line-height: 1.6;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: rgba(18, 16, 14, 0.04);
+  border-left: 3px solid var(--modal-accent);
+}
+.solucion-modal-extra::before {
+  content: '\2192';
+  font-weight: 700;
+  margin-right: 8px;
+  color: var(--modal-accent);
 }
 .solucion-modal-points {
   list-style: none;
@@ -929,7 +987,8 @@ button.solucion-card:focus-visible {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--agri);
+  background: var(--modal-accent);
+  transition: background 0.3s;
 }
 .solucion-modal-close {
   position: absolute;
@@ -980,14 +1039,17 @@ button.solucion-card:focus-visible {
 }
 @media (max-width: 768px) {
   .solucion-modal { padding: 16px; }
-  .solucion-modal-head { padding: 32px 24px 0; gap: 14px; }
+  .solucion-modal-head { padding: 28px 24px 0; gap: 14px; }
   .solucion-modal-icon { width: 48px; height: 48px; border-radius: 14px; }
   .solucion-modal-icon svg { width: 24px; height: 24px; }
+  .solucion-modal-tag { font-size: 0.625rem; padding: 2px 10px; }
   .solucion-modal-title { font-size: 1.25rem; padding-right: 30px; }
   .solucion-modal-body { padding: 18px 24px 28px; }
   .solucion-modal-desc { font-size: 0.9375rem; margin-bottom: 18px; }
+  .solucion-modal-extra { font-size: 0.8125rem; padding: 12px 14px; }
   .solucion-modal-points { gap: 10px; margin-bottom: 22px; }
   .solucion-modal-points li { font-size: 0.875rem; }
+  .solucion-modal-body::after { width: 120px; height: 120px; }
 }
 
 .section-como { background: var(--cream); }
