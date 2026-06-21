@@ -513,6 +513,7 @@ const styles = `
     .balance-section { padding: 56px 20px; }
     .balance-header h2 { font-size: 1.5rem; }
     .balance-chart-card { padding: 20px; border-radius: 20px; }
+    .balance-chart-card .recharts-text { font-size: 9px !important; }
     .balance-toggle button { padding: 8px 16px; font-size: 0.8125rem; }
     .export-section { padding: 0 20px 56px; }
 
@@ -591,9 +592,19 @@ const dailyAccum = dailyData.map(d => {
   return { name: d.name, Ingresos: accI, Gastos: accG, Margen: d.Margen };
 });
 
+const monthShort = { 'Ene':'En','Feb':'Fe','Mar':'Mr','Abr':'Ab','May':'My','Jun':'Jn','Jul':'Jl','Ago':'Ag','Sep':'Sp','Oct':'Oc','Nov':'Nv','Dic':'Dc' };
+
 const ChartDemo = () => {
   const [mode, setMode] = useState('civil');
   const [view, setView] = useState('anual');
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  const fmtLabel = (v) => (view === 'anual' || view === 'trimestral') && isMobile && monthShort[v] ? monthShort[v] : v;
   const tableRef = React.useRef(null);
   React.useEffect(() => {
     const el = tableRef.current;
@@ -695,7 +706,7 @@ const ChartDemo = () => {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(14,30,18,0.06)" />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#6b7a5e', fontWeight: 600 }} tickMargin={6} interval={0} />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#6b7a5e', fontWeight: 600 }} tickMargin={6} interval={0} tickFormatter={fmtLabel} />
                     <YAxis axisLine={false} tickLine={false} width={42} tick={{ fontSize: 11, fill: '#6b7a5e', fontWeight: 500 }} tickFormatter={formatAxis} />
                     <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(14,30,18,0.1)', strokeWidth: 1 }} />
                     <Legend verticalAlign="bottom" height={28} wrapperStyle={{ paddingTop: 6, fontSize: 12, fontWeight: 600, color: '#6b7a5e' }} iconType="circle" />
@@ -705,7 +716,7 @@ const ChartDemo = () => {
                 ) : (
                   <BarChart data={barData} margin={{ top: 8, right: 4, left: 0, bottom: 4 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(14,30,18,0.06)" />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#6b7a5e', fontWeight: 600 }} tickMargin={6} interval={0} />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#6b7a5e', fontWeight: 600 }} tickMargin={6} interval={0} tickFormatter={fmtLabel} />
                     <YAxis axisLine={false} tickLine={false} width={42} tick={{ fontSize: 11, fill: '#6b7a5e', fontWeight: 500 }} tickFormatter={formatAxis} />
                     <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(14,30,18,0.03)' }} />
                     <Legend verticalAlign="bottom" height={28} wrapperStyle={{ paddingTop: 6, fontSize: 12, fontWeight: 600, color: '#6b7a5e' }} iconType="circle" />
@@ -743,6 +754,7 @@ const ChartDemo = () => {
                     tick={{ fontSize: 12, fill: '#6b7a5e', fontWeight: 600 }}
                     tickMargin={6}
                     interval={0}
+                    tickFormatter={fmtLabel}
                   />
                   <YAxis
                     axisLine={false}
