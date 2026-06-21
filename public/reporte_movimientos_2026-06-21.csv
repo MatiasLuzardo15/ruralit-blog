@@ -1,0 +1,34 @@
+﻿sep=;
+Movimientos
+Periodo:;junio 2026
+Generado el:;21/6/2026
+
+RESUMEN FINANCIERO
+Moneda;Ingresos;Egresos;Saldo Neto
+USD;34900;10626.1;24273.9
+UYU;15000;31000;-16000
+
+
+DETALLE DE OPERACIONES
+Fecha;Tipo;Categoria;Proyecto;Monto;Moneda;Nota
+2026-06-21;Salida;Alimentación / ración;;40;USD;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Salida;Alimentación / ración;;40;USD;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Entrada;Venta de terneros;;900;USD;Vendí 2 terneros por 900 USD
+2026-06-17;Salida;Fertilizantes;;700;USD;Gasté 700 en fertilizantes
+2026-06-16;Salida;Combustible;;3500;UYU;Gasté 3.500 UYU en combustible
+2026-06-16;Salida;Suplementos;;2000;USD;Gaste 2000 en suplementos 
+2026-06-12;Entrada;Venta de vacas;;10000;USD;Vendi 20 vacas a 500 dls cada una
+2026-06-12;Salida;Vacunas;;4000;UYU;Gaste 4000 pesos en vacunas
+2026-06-12;Entrada;Venta de novillos;;10000;USD;
+2026-06-12;Salida;Impuestos;;250;USD;Impuestos sobre venta: Venta de novillos (BPS 0% + IMEBA 2% + INMOBILIARIA 0% + MEVIR 0.5% + PATRIMONIO 0% + PRIMARIA 0%)
+2026-06-12;Salida;Combustible;;354.1;USD;
+2026-06-12;Salida;Salidas/fiesta;;3000;UYU;Gasto 3000 alcohol
+2026-06-06;Salida;Alambrados;;2042;USD;Gaste 2042 dólares en postes
+2026-06-06;Salida;Super;;3000;UYU;Super 3000 pesos
+2026-06-05;Salida;Combustible;;8000;UYU;Combustible tractor 8000
+2026-06-04;Salida;Electricidad;;5000;UYU;Gaste 5000 en el pago de la luz
+2026-06-04;Entrada;Venta de vacas;;14000;USD;Vendi 20 vacas a 700 dls cada una
+2026-06-04;Entrada;Otros ingresos;;15000;UYU;Cobré servicio de maquinaria 15000
+2026-06-04;Salida;Combustible;;4500;UYU;Cargué combustible por 4500
+2026-06-04;Salida;Antiparasitarios;;200;USD;Compre dectomax por 200 dls
+2026-06-04;Salida;Arrendamiento de campo;;5000;USD;Rente el campo por 5000 dls

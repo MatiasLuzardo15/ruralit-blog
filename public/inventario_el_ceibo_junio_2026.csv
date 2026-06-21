@@ -1,0 +1,29 @@
+﻿sep=;
+Ruralit - Inventario: El ceibo
+Periodo:;junio 2026
+Alcance:;General
+Generado el:;21/6/2026
+
+
+
+INVENTARIO FISICO
+Recurso;Tipo;Unidad;Stock actual;Entradas del periodo;Salidas del periodo;Cambios del periodo
+Racion;Insumo;bolsas;110;100;0;5
+Vacas;Ganado;cabezas;257;40;40;4
+Terneros;Ganado;cabezas;15;0;2;1
+Fertilizante;Insumo;kg;220;0;0;0
+Fungicida;Insumo;litros;22;0;0;0
+Toros;Ganado;cabezas;2;0;0;0
+
+CAMBIOS DE INVENTARIO DEL PERIODO
+Fecha;Recurso;Operacion;Entrada/Salida;Cantidad;Unidad;Proyecto;Vinculo financiero;Nota
+2026-06-04;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas a 700 dls cada una
+2026-06-07;Vacas;Compra;Entrada;20;cabezas;;Si;Compre 20 vacas a 500 dolares cada una
+2026-06-12;Vacas;Compra;Entrada;20;cabezas;;Si;Compré 20 vaquillonas
+2026-06-12;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas a 500 dls cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Terneros;Venta;Salida;2;cabezas;;Si;Vendí 2 terneros por 900 USD

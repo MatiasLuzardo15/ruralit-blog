@@ -210,16 +210,320 @@ const styles = `
   .balance-toggle { animation: chart-fade-up 0.6s ease both; animation-delay: 0.05s; }
   .balance-charts-grid { animation: chart-fade-up 0.6s ease both; animation-delay: 0.1s; }
   .balance-note-wrap { animation: chart-fade-up 0.6s ease both; animation-delay: 0.15s; }
+
+  .export-section {
+    background: var(--cream);
+    padding: 0 80px 96px;
+  }
+  .export-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .export-table-wrap {
+    margin-top: 40px;
+    position: relative;
+  }
+  .export-table-hint {
+    display: none;
+    text-align: center;
+    font-size: 0.6875rem;
+    color: var(--muted);
+    padding: 10px 0 2px;
+    font-weight: 500;
+    animation: chart-fade-up 0.4s ease;
+  }
+  .export-table-hint span { display: inline-block; animation: hint-arrow 1.2s ease infinite; }
+  @keyframes hint-arrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+  .export-table-wrap.is-scrollable + .export-table-hint { display: block; }
+  .export-table-wrap::-webkit-scrollbar { display: none; }
+  .export-table-wrap { scrollbar-width: none; -ms-overflow-style: none; }
+  .export-table {
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(14, 30, 18, 0.06);
+  }
+  .export-table-head {
+    display: grid;
+    grid-template-columns: 36px 140px repeat(6, 1fr) 100px;
+    gap: 4px;
+    padding: 14px 18px;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(14, 30, 18, 0.06);
+  }
+  .export-table-head .et-col {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .export-table-row {
+    display: grid;
+    grid-template-columns: 36px 140px repeat(6, 1fr) 100px;
+    gap: 4px;
+    padding: 14px 18px;
+    align-items: center;
+    border-bottom: 1px solid rgba(14, 30, 18, 0.04);
+    transition: background 0.15s;
+  }
+  .export-table-row:last-child { border-bottom: none; }
+  .export-table-row:hover { background: rgba(14, 30, 18, 0.02); }
+  .et-col { display: flex; align-items: center; }
+  .et-col.et-name {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  .et-col.et-feat { justify-content: center; overflow: hidden; }
+  .et-col.et-feat > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: inherit; }
+  .et-col.et-dl { gap: 4px; justify-content: flex-end; }
+  .export-btn {
+    padding: 7px 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: var(--inner);
+    color: var(--muted);
+  }
+  .export-btn.csv {
+    background: rgba(46, 158, 83, 0.1);
+    color: #2E9E53;
+  }
+  a.export-btn { text-decoration: none; display: inline-block; text-align: center; }
+  .export-btn.csv:hover { background: rgba(46, 158, 83, 0.2); }
+  .export-btn.pdf {
+    background: rgba(229, 115, 74, 0.1);
+    color: #E5734A;
+  }
+  .export-btn.pdf:hover { background: rgba(229, 115, 74, 0.2); }
+  .export-preview {
+    margin-top: 48px;
+    background: var(--white);
+    border-radius: 28px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 24px rgba(14, 30, 18, 0.06);
+  }
+  .export-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(14, 30, 18, 0.06);
+  }
+  .export-preview-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  .export-preview-header .preview-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: rgba(14, 30, 18, 0.05);
+    padding: 4px 12px;
+    border-radius: 8px;
+    color: var(--muted);
+  }
+  .export-preview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .export-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .export-kpi {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .export-kpi .kpi-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .export-kpi .kpi-value {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  .export-chart-preview {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 80px;
+    padding: 0 4px;
+  }
+  .export-chart-preview .bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    min-height: 8px;
+    transition: height 0.3s;
+  }
+  .export-chart-preview .bar.green { background: #2E9E53; }
+  .export-chart-preview .bar.warm { background: #E5734A; }
+  .export-cat-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .export-cat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .export-cat-row .cat-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--dark);
+    width: 80px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .export-cat-row .cat-bar {
+    flex: 1;
+    height: 18px;
+    border-radius: 9px;
+    background: var(--inner);
+    overflow: hidden;
+  }
+  .export-cat-row .cat-bar .fill {
+    height: 100%;
+    border-radius: 9px;
+    transition: width 0.5s;
+  }
+  .export-cat-row .cat-pct {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--muted);
+    width: 32px;
+    text-align: right;
+  }
+  .export-footer-text {
+    margin-top: 24px;
+    font-size: 0.6875rem;
+    color: var(--muted);
+    text-align: center;
+    border-top: 1px solid rgba(14, 30, 18, 0.06);
+    padding-top: 16px;
+    font-weight: 500;
+  }
+  .export-footer-text strong { font-family: 'Courier New', monospace; }
+
+  .export-downloads {
+    margin-top: 48px;
+    background: var(--white);
+    border-radius: 28px;
+    padding: 28px 32px 32px;
+    box-shadow: 0 4px 24px rgba(14, 30, 18, 0.06);
+  }
+  .export-downloads-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  }
+  .export-group {
+    margin-bottom: 6px;
+  }
+  .export-group:last-child { margin-bottom: 0; }
+  .export-group-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(14, 30, 18, 0.05);
+  }
+  .export-group-files {
+    display: flex;
+    flex-direction: column;
+  }
+  .export-file {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 6px;
+    text-decoration: none;
+    color: var(--dark);
+    border-radius: 10px;
+    transition: background 0.15s;
+    font-size: 0.8125rem;
+  }
+  .export-file:hover { background: var(--cream); }
+  .export-file svg { color: var(--muted); flex-shrink: 0; }
+  .export-file span:not(.export-file-btn):not(.export-file-size) { flex: 1; font-weight: 500; font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace; font-size: 0.75rem; }
+  .export-file-size {
+    flex: none;
+    font-size: 0.6875rem;
+    color: var(--muted);
+    font-weight: 400;
+    font-family: inherit;
+  }
+  .export-file-btn {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 5px;
+    flex: none;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.4;
+  }
+  .export-file-btn.csv { background: rgba(46,158,83,0.1); color: #2E9E53; }
+  .export-file-btn.pdf { background: rgba(229,115,74,0.1); color: #E5734A; }
+
   @media (max-width: 1024px) {
-    .balance-charts-grid {
-      grid-template-columns: 1fr;
-    }
+    .balance-charts-grid { grid-template-columns: 1fr; }
+    .export-table-wrap { overflow-x: auto; }
+    .export-table-head, .export-table-row { grid-template-columns: 30px 110px repeat(6, 80px) 110px; gap: 4px; padding: 10px 14px; }
+    .export-file span:not(.export-file-btn):not(.export-file-size) { font-size: 0.6875rem; }
   }
   @media (max-width: 768px) {
     .balance-section { padding: 56px 20px; }
     .balance-header h2 { font-size: 1.5rem; }
     .balance-chart-card { padding: 20px; border-radius: 20px; }
     .balance-toggle button { padding: 8px 16px; font-size: 0.8125rem; }
+    .export-section { padding: 0 20px 56px; }
+
+    .export-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .export-table { min-width: 840px; }
+    .export-table-head, .export-table-row { grid-template-columns: 26px 100px repeat(6, 88px) 140px; gap: 4px; padding: 10px 14px 10px 12px; }
+    .export-table-row .et-dl .export-btn { padding: 2px 8px; font-size: 0.5rem; }
+
+    .export-downloads { padding: 20px; border-radius: 20px; }
+    .export-file span:not(.export-file-btn):not(.export-file-size) { font-size: 0.6875rem; }
+    .export-file { flex-wrap: wrap; gap: 8px; }
   }
 `;
 
@@ -290,6 +594,16 @@ const dailyAccum = dailyData.map(d => {
 const ChartDemo = () => {
   const [mode, setMode] = useState('civil');
   const [view, setView] = useState('anual');
+  const tableRef = React.useRef(null);
+  React.useEffect(() => {
+    const el = tableRef.current;
+    if (!el) return;
+    const check = () => el.classList.toggle('is-scrollable', el.scrollWidth > el.clientWidth);
+    check();
+    el.addEventListener('scroll', check);
+    window.addEventListener('resize', check);
+    return () => { el.removeEventListener('scroll', check); window.removeEventListener('resize', check); };
+  }, []);
 
   const currentOrder = mode === 'civil' ? civilOrder : ejercicioOrder;
   const fullData = currentOrder.map(name => civilData.find(d => d.name === name));
@@ -499,6 +813,155 @@ const ChartDemo = () => {
                 </>
               )}
             </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="export-section">
+        <div className="export-container">
+          <div className="balance-header">
+            <span className="eyebrow">Sistema de Exportación</span>
+            <h2>Exportá tus reportes</h2>
+            <p className="balance-subtitle">Descargá balances, movimientos y archivos contables en CSV o PDF con un diagnóstico automático de tu evolución financiera.</p>
+          </div>
+
+          <div className="export-table-wrap" ref={tableRef}>
+            <div className="export-table" style={{ animation: 'chart-fade-up 0.6s ease both', animationDelay: '0.1s' }}>
+              <div className="export-table-head">
+                <span className="et-col et-icon"></span>
+                <span className="et-col et-name">Tipo</span>
+                <span className="et-col et-feat"><span>KPIs</span></span>
+                <span className="et-col et-feat"><span>Categorías</span></span>
+                <span className="et-col et-feat"><span>Inventario</span></span>
+                <span className="et-col et-feat"><span>IVA</span></span>
+                <span className="et-col et-feat"><span>Proyectos</span></span>
+                <span className="et-col et-feat"><span>Diagnóstico</span></span>
+                <span className="et-col et-dl"></span>
+              </div>
+              {[
+                { icon: 'balance', name: 'Balance', feat: [true, true, false, false, false, true], csv: '/reporte_analisis_de_balance_2026-06-21.csv', pdf: '/Ruralit%20-%20Balance%20Trimestral%20-%20Q4%20Ejercicio%20(abr%20-%20jun).pdf' },
+                { icon: 'movs', name: 'Movimientos', feat: [false, true, false, false, false, false], csv: '/reporte_movimientos_2026-06-21.csv', pdf: '/Ruralit%20-%20Libreta%20junio%202026.pdf' },
+                { icon: 'contable', name: 'Archivo Contable', feat: [true, true, true, true, true, true], csv: '/reporte_ruralit_-_el_ceibo_2026-06-21.csv', pdf: '/Ruralit%20-%20Informe%20Integral%20-%20El%20ceibo.pdf' },
+                { icon: 'inventario', name: 'Inventario Físico', feat: [false, false, true, false, false, false], csv: '/inventario_el_ceibo_junio_2026.csv', pdf: '/Ruralit%20-%20Inventario%20junio%202026.pdf' },
+              ].map((row, i) => (
+                <div className="export-table-row" key={i}>
+                  <span className="et-col et-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.6" stroke="currentColor" width="18" height="18" style={{ color: 'var(--muted)' }}>
+                      {row.icon === 'balance' && <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />}
+                      {row.icon === 'movs' && <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />}
+                      {row.icon === 'contable' && <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />}
+                      {row.icon === 'inventario' && <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />}
+                    </svg>
+                  </span>
+                  <span className="et-col et-name">{row.name}</span>
+                  {row.feat.map((f, j) => (
+                    <span className="et-col et-feat" key={j}>
+                      {f ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="#2E9E53" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                      ) : (
+                        <span style={{ color: 'var(--border)', fontSize: '0.875rem' }}>–</span>
+                      )}
+                    </span>
+                  ))}
+                  <span className="et-col et-dl">
+                    <a className="export-btn csv" href={row.csv} download>CSV</a>
+                    <a className="export-btn pdf" href={row.pdf} target="_blank">PDF</a>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="export-table-hint">Deslizá para ver más columnas <span>→</span></div>
+
+          <div className="export-downloads" style={{ animation: 'chart-fade-up 0.6s ease both', animationDelay: '0.35s' }}>
+            <div className="export-downloads-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="18" height="18"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+              Descargá ejemplos reales
+            </div>
+
+            <div className="export-group">
+              <div className="export-group-head">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+                Balance
+              </div>
+              <div className="export-group-files">
+                <a href="/reporte_analisis_de_balance_2026-06-21.csv" download className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>reporte_analisis_de_balance_2026-06-21.csv</span>
+                  <span className="export-file-size">4.2 KB</span>
+                  <span className="export-file-btn csv">CSV</span>
+                </a>
+                <a href="/Ruralit%20-%20Balance%20Trimestral%20-%20Q4%20Ejercicio%20(abr%20-%20jun).pdf" target="_blank" className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>Ruralit — Balance Trimestral — Q4 Ejercicio (abr-jun).pdf</span>
+                  <span className="export-file-size">156 KB</span>
+                  <span className="export-file-btn pdf">PDF</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="export-group">
+              <div className="export-group-head">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                Movimientos
+              </div>
+              <div className="export-group-files">
+                <a href="/reporte_movimientos_2026-06-21.csv" download className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>reporte_movimientos_2026-06-21.csv</span>
+                  <span className="export-file-size">8.7 KB</span>
+                  <span className="export-file-btn csv">CSV</span>
+                </a>
+                <a href="/Ruralit%20-%20Libreta%20junio%202026.pdf" target="_blank" className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>Ruralit — Libreta junio 2026.pdf</span>
+                  <span className="export-file-size">98 KB</span>
+                  <span className="export-file-btn pdf">PDF</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="export-group">
+              <div className="export-group-head">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+                Archivo Contable
+              </div>
+              <div className="export-group-files">
+                <a href="/reporte_ruralit_-_el_ceibo_2026-06-21.csv" download className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>reporte_ruralit_el_ceibo_2026-06-21.csv</span>
+                  <span className="export-file-size">12.1 KB</span>
+                  <span className="export-file-btn csv">CSV</span>
+                </a>
+                <a href="/Ruralit%20-%20Informe%20Integral%20-%20El%20ceibo.pdf" target="_blank" className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>Ruralit — Informe Integral — El Ceibo.pdf</span>
+                  <span className="export-file-size">324 KB</span>
+                  <span className="export-file-btn pdf">PDF</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="export-group">
+              <div className="export-group-head">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+                Inventario Físico
+              </div>
+              <div className="export-group-files">
+                <a href="/inventario_el_ceibo_junio_2026.csv" download className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>inventario_el_ceibo_junio_2026.csv</span>
+                  <span className="export-file-size">3.4 KB</span>
+                  <span className="export-file-btn csv">CSV</span>
+                </a>
+                <a href="/Ruralit%20-%20Inventario%20junio%202026.pdf" target="_blank" className="export-file">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="16" height="16"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                  <span>Ruralit — Inventario junio 2026.pdf</span>
+                  <span className="export-file-size">212 KB</span>
+                  <span className="export-file-btn pdf">PDF</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

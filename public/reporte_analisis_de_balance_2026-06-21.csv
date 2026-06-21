@@ -1,0 +1,385 @@
+﻿sep=;
+Analisis de Balance
+Periodo:;Q4 Ejercicio (abr - jun)
+Generado el:;21/6/2026
+
+RESUMEN FINANCIERO
+Moneda;Ingresos;Egresos;Saldo Neto
+USD;946030;1300336.4100000001;-354306.41000000015
+UYU;7015000;35000;6980000
+
+
+DETALLE DE OPERACIONES
+Fecha;Tipo;Categoria;Proyecto;Monto;Moneda;Nota
+2026-06-21;Salida;Alimentación / ración;;40;USD;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Salida;Alimentación / ración;;40;USD;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Entrada;Venta de terneros;;900;USD;Vendí 2 terneros por 900 USD
+2026-06-17;Salida;Fertilizantes;;700;USD;Gasté 700 en fertilizantes
+2026-06-16;Salida;Combustible;;3500;UYU;Gasté 3.500 UYU en combustible
+2026-06-16;Salida;Suplementos;;2000;USD;Gaste 2000 en suplementos 
+2026-06-12;Entrada;Venta de vacas;;10000;USD;Vendi 20 vacas a 500 dls cada una
+2026-06-12;Salida;Vacunas;;4000;UYU;Gaste 4000 pesos en vacunas
+2026-06-12;Entrada;Venta de novillos;;10000;USD;
+2026-06-12;Salida;Impuestos;;250;USD;Impuestos sobre venta: Venta de novillos (BPS 0% + IMEBA 2% + INMOBILIARIA 0% + MEVIR 0.5% + PATRIMONIO 0% + PRIMARIA 0%)
+2026-06-12;Salida;Combustible;;354.1;USD;
+2026-06-12;Salida;Salidas/fiesta;;3000;UYU;Gasto 3000 alcohol
+2026-06-06;Salida;Alambrados;;2042;USD;Gaste 2042 dólares en postes
+2026-06-06;Salida;Super;;3000;UYU;Super 3000 pesos
+2026-06-05;Salida;Combustible;;8000;UYU;Combustible tractor 8000
+2026-06-04;Salida;Electricidad;;5000;UYU;Gaste 5000 en el pago de la luz
+2026-06-04;Entrada;Venta de vacas;;14000;USD;Vendi 20 vacas a 700 dls cada una
+2026-06-04;Entrada;Otros ingresos;;15000;UYU;Cobré servicio de maquinaria 15000
+2026-06-04;Salida;Combustible;;4500;UYU;Cargué combustible por 4500
+2026-06-04;Salida;Antiparasitarios;;200;USD;Compre dectomax por 200 dls
+2026-06-04;Salida;Arrendamiento de campo;;5000;USD;Rente el campo por 5000 dls
+2026-05-27;Entrada;Venta de animales;;5000;USD;
+2026-05-27;Entrada;Venta de animales;;5000;USD;
+2026-05-27;Salida;Fertilizantes;;500;USD;Gaste 500 dolares en fertilizantes
+2026-05-27;Salida;Impuestos;;360.11;USD;IVA
+2026-05-26;Entrada;Venta de animales;;5000;USD;
+2026-05-25;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-25;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-25;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-25;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-25;Entrada;Venta de Animales;Vaquillonas;2799;USD;Vendi 4 vaquillonas
+2026-05-25;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-25;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-25;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-25;Entrada;Venta de animales;Vaquillonas;5995;USD;vendi una vaquillona
+2026-05-25;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-25;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-25;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-25;Entrada;Servicios agrícolas;Massey;2000;USD;Ingreso monetario
+2026-05-25;Salida;Vacunas;Vaquillonas;200;USD;Gaste 200 dls en vacunas
+2026-05-25;Entrada;Venta de Animales;Vaquillonas;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-25;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-25;Salida;Otros gastos;;2000;UYU;
+2026-05-25;Salida;Medicamentos;;302.1;USD;Gasto Proveedor PDF
+2026-05-25;Salida;Otros gastos;;2000;UYU;
+2026-05-25;Salida;Medicamentos;;302.1;USD;Gasto Proveedor PDF
+2026-05-24;Salida;Compra de ganado;;10000;USD;Compre 20 terneros a 500 dls
+2026-05-24;Entrada;Venta de vacas;;1233;USD;Vendi 33 vacas por 1233 dls
+2026-05-24;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-24;Salida;Herbicidas;;2000;USD;Compre 2000 litros de herbicida
+2026-05-24;Salida;Fertilizantes;;8000;USD;Compre 40 kg de fertilizante a 200 dls
+2026-05-24;Salida;Compra de ganado;;1000;USD;Compre 1000 dls de terneros
+2026-05-24;Salida;Vacunas;;300;USD;Gaste 300 en vacunas
+2026-05-24;Entrada;Otros ingresos;;100;USD;
+2026-05-24;Salida;Alimentación / ración;;800;USD;Compre 20 bolsas de ración por 40dls
+2026-05-24;Salida;Arrendamiento de campo;;30000;USD;Pague renta por 30000 dls
+2026-05-24;Salida;Otros gastos;;200;USD;
+2026-05-24;Salida;Reparación de maquinaria;;200;USD;Compre racion 200
+2026-05-24;Salida;Compra de ganado;;2000;USD;Compre 10 terneros
+2026-05-24;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-24;Entrada;Venta de vacas;;4600;USD;Vendi 20 vacas por 230 dls c/u
+2026-05-24;Salida;Fungicidas;;440;USD;Compre 22 lts de fungicida
+2026-05-24;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-24;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-24;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-24;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-24;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-24;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-24;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-24;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-24;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-24;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-24;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-24;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-24;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-24;Salida;Vacunas;;200;USD;Gaste 200 dls en vacunas
+2026-05-24;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-24;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-24;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-24;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-24;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-24;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-24;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-24;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-24;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-24;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-24;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-24;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-24;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-24;Salida;Vacunas;;200;USD;Gaste 200 dls en vacunas
+2026-05-24;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-24;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-24;Entrada;Servicios agrícolas;;2000;USD;Ingreso monetario
+2026-05-24;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-24;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-24;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-24;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-24;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-24;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-24;Entrada;Servicios agrícolas;;2000;USD;Ingreso monetario
+2026-05-24;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-24;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-24;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-24;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-24;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-24;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-24;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-24;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-24;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-23;Salida;Compra de ganado;;10000;USD;Compre 20 terneros a 500 dls
+2026-05-23;Salida;Compra de ganado;;1000;USD;Compre 1000 dls de terneros
+2026-05-23;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-23;Salida;Herbicidas;;2000;USD;Compre 2000 litros de herbicida
+2026-05-23;Salida;Vacunas;;300;USD;Gaste 300 en vacunas
+2026-05-23;Salida;Otros gastos;;200;USD;
+2026-05-23;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-23;Salida;Herbicidas;;2000;USD;Compre 2000 litros de herbicida
+2026-05-23;Salida;Compra de ganado;;10000;USD;Compre 20 terneros a 500 dls
+2026-05-23;Entrada;Venta de vacas;;1233;USD;Vendi 33 vacas por 1233 dls
+2026-05-23;Salida;Reparación de maquinaria;;200;USD;Compre racion 200
+2026-05-23;Salida;Compra de ganado;;2000;USD;Compre 10 terneros
+2026-05-23;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-23;Salida;Fertilizantes;;8000;USD;Compre 40 kg de fertilizante a 200 dls
+2026-05-23;Entrada;Venta de vacas;;1233;USD;Vendi 33 vacas por 1233 dls
+2026-05-23;Salida;Alimentación / ración;;800;USD;Compre 20 bolsas de ración por 40dls
+2026-05-23;Entrada;Venta de vacas;;4600;USD;Vendi 20 vacas por 230 dls c/u
+2026-05-23;Salida;Fertilizantes;;8000;USD;Compre 40 kg de fertilizante a 200 dls
+2026-05-23;Entrada;Otros ingresos;;100;USD;
+2026-05-23;Salida;Arrendamiento de campo;;30000;USD;Pague renta por 30000 dls
+2026-05-23;Salida;Fungicidas;;440;USD;Compre 22 lts de fungicida
+2026-05-23;Salida;Compra de ganado;;1000;USD;Compre 1000 dls de terneros
+2026-05-23;Salida;Vacunas;;300;USD;Gaste 300 en vacunas
+2026-05-23;Entrada;Otros ingresos;;100;USD;
+2026-05-23;Salida;Alimentación / ración;;800;USD;Compre 20 bolsas de ración por 40dls
+2026-05-23;Salida;Otros gastos;;200;USD;
+2026-05-23;Entrada;Venta de vacas;;300;USD;Vendi vacas por 300 dls
+2026-05-23;Salida;Arrendamiento de campo;;30000;USD;Pague renta por 30000 dls
+2026-05-23;Salida;Reparación de maquinaria;;200;USD;Compre racion 200
+2026-05-23;Salida;Compra de ganado;;2000;USD;Compre 10 terneros
+2026-05-23;Entrada;Venta de vacas;;4600;USD;Vendi 20 vacas por 230 dls c/u
+2026-05-23;Salida;Fungicidas;;440;USD;Compre 22 lts de fungicida
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-23;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-23;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Salida;Electricidad;;2000;USD;Pague la luz por 2000
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Salida;Vacunas;;300;USD;Gaste 300 dls en vacunas
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Salida;Alimentación / ración;;200;USD;Gaste 200 dolares en racion
+2026-05-23;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Salida;Otros gastos;;800;USD;Compre 2000kg de fertilizante
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-23;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-23;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Salida;Vacunas;;200;USD;Gaste 200 dls en vacunas
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-23;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-23;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-23;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Arrendamiento cobrado;;5000;USD;Ingreso 5000 dolares de arrendamiento
+2026-05-23;Entrada;Venta de animales;;1000;USD;Venta / salida
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Venta de animales;;5995;USD;vendi una vaquillona
+2026-05-23;Entrada;Otros ingresos;;20000;USD;Vendi todo por 20000
+2026-05-23;Entrada;Servicios ganaderos;;2000;USD;Ingreso monetario
+2026-05-23;Entrada;Venta de animales;;5000;USD;Vendi vaquillona por 5000 dls
+2026-05-23;Entrada;Venta de novillos;;16000;USD;Vendi 20 novillos a 800 dls cada uno
+2026-05-23;Salida;Compra de ganado;;10000;USD;Compre 20 vacas a 500 dls cada una
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Entrada;Venta de animales;;2799;USD;Vendi 4 vaquillonas
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Entrada;Venta de animales;;1000000;UYU;Vendi animales por 100000
+2026-05-23;Entrada;Pastoreo cobrado;;3000;USD;Ingreso monetario
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-23;Entrada;Otros ingresos;;2000;USD;Venta / salida
+2026-05-21;Salida;Alambrados;;20000;USD;
+2026-05-21;Salida;Mantenimiento maquinaria;;40000;USD;
+2026-05-21;Entrada;Arrendamiento cobrado;terneros;2000;USD;
+2026-05-21;Entrada;Venta de animales;terneros;5000;USD;
+2026-05-21;Salida;Contratistas;;20000;USD;
+2026-05-21;Salida;Alambrados;;10000;USD;
+2026-05-21;Salida;Inversión / Compra de Activos;;50000;USD;
+2026-05-21;Entrada;Pastoreo cobrado;terneros;4000;USD;
+2026-05-21;Salida;Medicamentos;;4000;USD;Compre medicamentos por 4000 dls
+2026-05-21;Salida;Jornales;;10000;USD;
+2026-05-21;Salida;Corrales;;50000;USD;
+2026-05-21;Salida;Infraestructura;;100000;USD;
+2026-05-21;Salida;Alambrados;terneros;5000;USD;
+2026-05-21;Entrada;Arrendamiento cobrado;terneros;9000;USD;
+2026-05-20;Entrada;Venta de animales;;5000;USD;
+2026-05-20;Entrada;Pastoreo cobrado;;4000;USD;
+2026-05-20;Salida;Medicamentos;;4000;USD;Compre medicamentos por 4000 dls
+2026-05-20;Salida;Corrales;;50000;USD;
+2026-05-20;Salida;Jornales;;10000;USD;
+2026-05-20;Salida;Mantenimiento maquinaria;;40000;USD;
+2026-05-20;Entrada;Venta de animales;;5000;USD;
+2026-05-20;Salida;Medicamentos;;4000;USD;Compre medicamentos por 4000 dls
+2026-05-20;Salida;Infraestructura;;100000;USD;
+2026-05-20;Salida;Inversión / Compra de Activos;;50000;USD;
+2026-05-20;Entrada;Arrendamiento cobrado;;2000;USD;
+2026-05-20;Entrada;Pastoreo cobrado;;4000;USD;
+2026-05-20;Salida;Corrales;;50000;USD;
+2026-05-20;Salida;Alambrados;;20000;USD;
+2026-05-20;Salida;Contratistas;;20000;USD;
+2026-05-20;Salida;Alambrados;;10000;USD;
+2026-05-20;Entrada;Arrendamiento cobrado;;9000;USD;
+2026-05-20;Salida;Alambrados;;10000;USD;
+2026-05-20;Salida;Alambrados;;5000;USD;
+2026-05-20;Entrada;Arrendamiento cobrado;;9000;USD;
+2026-05-20;Salida;Contratistas;;20000;USD;
+2026-05-20;Salida;Jornales;;10000;USD;
+2026-05-20;Entrada;Arrendamiento cobrado;;2000;USD;
+2026-05-20;Salida;Infraestructura;;100000;USD;
+2026-05-20;Salida;Alambrados;;20000;USD;
+2026-05-20;Salida;Mantenimiento maquinaria;;40000;USD;
+2026-05-20;Salida;Inversión / Compra de Activos;;50000;USD;
+2026-05-20;Salida;Alambrados;;5000;USD;
+2026-05-19;Salida;Suplementos;;342;USD;Gaste 342 en suplementos
+2026-05-18;Salida;Inversión / Compra de Activos;Massey;1000;USD;Costo inicial: Massey
+2026-05-18;Salida;Reparación de maquinaria;Massey;7000;USD;
+2026-05-18;Entrada;Otros Ingresos;Massey;1999;USD;
+2026-05-18;Salida;Secado de granos;terneros;20000;USD;
+2026-05-18;Entrada;Otros Ingresos;;600;USD;
+2026-05-18;Entrada;Otros Ingresos;Massey;10000;USD;
+2026-05-18;Entrada;Venta de toros;terneros;10000;USD;
+2026-05-18;Entrada;Otros Ingresos;terneros;30000;USD;
+2026-05-18;Salida;Lubricantes;Massey;1000;USD;
+2026-05-18;Entrada;Otros ingresos;terneros;20000;USD;
+2026-05-18;Entrada;Otros Ingresos;terneros;10000;USD;
+2026-05-18;Salida;Suplementos;;342;USD;Gaste 342 en suplementos
+2026-05-18;Salida;Suplementos;;342;USD;Gaste 342 en suplementos
+2026-05-17;Salida;Alimentación;;200;USD;200 en fertilizantes
+2026-05-17;Salida;Otros gastos;;200;USD;200 fungicida
+2026-05-17;Salida;Veterinaria;;2000;USD;Gaste 2000 en la veterinaria
+2026-05-17;Salida;Reparación de maquinaria;;3000;USD;Gaste 3000 en gomas
+2026-05-17;Salida;Otros gastos;;300;USD;se murio una
+2026-05-17;Salida;Alimentación / ración;;4000;USD;Gaste 4000 dls en racion
+2026-05-17;Salida;Fertilizantes;;700;USD;Gaste 700 dls  en fertilizantes
+2026-05-17;Salida;Combustible;;2000;USD;Gaste 2000 en el super
+2026-05-17;Entrada;Venta de Animales;;10000;USD;Ingreso 10000 dls de novillos
+2026-05-17;Salida;Mascotas;;300;USD;Compre perro 300 dls
+2026-05-17;Salida;Alimentación;;200;USD;200 en fertilizantes
+2026-05-17;Salida;Fungicidas;;500;USD;500 fingucidas
+2026-05-17;Salida;Insecticidas;;2000;USD;Gaste 2000 en insecticidas
+2026-05-17;Salida;Herbicidas;;2000;USD;Gaste 2000 en herbicidas
+2026-05-17;Entrada;Otros ingresos;;10000;USD;
+2026-05-17;Entrada;Otros ingresos;;10000;USD;
+2026-05-17;Salida;Secado de granos;;20000;USD;
+2026-05-17;Entrada;Otros ingresos;;600;USD;
+2026-05-17;Entrada;Otros ingresos;;30000;USD;
+2026-05-17;Entrada;Otros ingresos;;1999;USD;
+2026-05-17;Entrada;Otros ingresos;;10000;USD;
+2026-05-17;Salida;Reparación de maquinaria;;7000;USD;
+2026-05-17;Salida;Inversión / Compra de Activos;;1000;USD;Costo inicial: Massey
+2026-05-17;Entrada;Otros ingresos;;20000;USD;
+2026-05-17;Entrada;Venta de toros;;10000;USD;
+2026-05-17;Entrada;Otros ingresos;;30000;USD;
+2026-05-17;Entrada;Otros ingresos;;600;USD;
+2026-05-17;Salida;Secado de granos;;20000;USD;
+2026-05-17;Entrada;Otros ingresos;;10000;USD;
+2026-05-17;Salida;Lubricantes;;1000;USD;
+2026-05-17;Entrada;Venta de toros;;10000;USD;
+2026-05-17;Salida;Reparación de maquinaria;;7000;USD;
+2026-05-17;Salida;Inversión / Compra de Activos;;1000;USD;Costo inicial: Massey
+2026-05-17;Entrada;Otros ingresos;;20000;USD;
+2026-05-17;Entrada;Otros ingresos;;1999;USD;
+2026-05-17;Salida;Lubricantes;;1000;USD;
+2026-05-16;Salida;Otros gastos;;200;USD;200 fungicida
+2026-05-16;Salida;Alimentación;;200;USD;200 en fertilizantes
+2026-05-16;Salida;Veterinaria;;2000;USD;Gaste 2000 en la veterinaria
+2026-05-16;Salida;Veterinaria;;2000;USD;Gaste 2000 en la veterinaria
+2026-05-16;Salida;Otros gastos;;300;USD;se murio una
+2026-05-16;Salida;Reparación de maquinaria;;3000;USD;Gaste 3000 en gomas
+2026-05-16;Salida;Otros gastos;;200;USD;200 fungicida
+2026-05-16;Salida;Alimentación;;200;USD;200 en fertilizantes
+
+
+INVENTARIO FISICO
+Recurso;Tipo;Unidad;Stock actual;Entradas del periodo;Salidas del periodo;Cambios del periodo
+Vacas;Ganado;cabezas;257;472;215;11
+Racion;Insumo;bolsas;110;120;10;7
+Terneros;Ganado;cabezas;15;32;17;6
+Vaquillonas;Ganado;cabezas;0;6;6;4
+Toros;Ganado;cabezas;2;7;5;3
+Fertilizante;Insumo;kg;220;220;0;2
+Fungicida;Insumo;litros;22;22;0;1
+vaquillonas;Ganado;cabezas;7;7;0;1
+
+CAMBIOS DE INVENTARIO DEL PERIODO
+Fecha;Recurso;Operacion;Entrada/Salida;Cantidad;Unidad;Proyecto;Vinculo financiero;Nota
+2026-05-24;Terneros;Perdida;Salida;3;cabezas;;No;Murieron 3 terneros
+2026-05-24;Terneros;Compra;Entrada;20;cabezas;;Si;Compre 20 terneros a 500 dls
+2026-05-24;Terneros;Venta;Salida;12;kg;;Si;
+2026-05-24;Terneros;Ajuste;Entrada;10;cabezas;;No;
+2026-05-24;Toros;Stock inicial;Entrada;7;cabezas;;No;
+2026-05-24;Toros;Venta;Salida;3;cabezas;;No;
+2026-05-24;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas por 230 dls c/u
+2026-05-24;Racion;Compra;Entrada;20;bolsas;;Si;Compre 20 bolsas de ración por 40dls
+2026-05-24;Vacas;Ajuste;Entrada;412;cabezas;;No;
+2026-05-24;Vacas;Venta;Salida;30;cabezas;;Si;Vendi 30 vacas por 200 cada una
+2026-05-24;Fertilizante;Compra;Entrada;200;kg;;Si;Compre 200kg de fertilizante
+2026-05-24;Fungicida;Compra;Entrada;22;litros;;Si;Compre 22 lts de fungicida
+2026-05-25;Vacas;Venta;Salida;100;cabezas;;Si;Vendi animales por 100000
+2026-05-25;Toros;Venta;Salida;2;cabezas;;No;
+2026-05-25;vaquillonas;Stock inicial;Entrada;7;cabezas;Proyecto;No;Stock inicial: vaquillonas
+2026-05-25;Vaquillonas;Stock inicial;Entrada;6;cabezas;Vaquillonas;No;Stock inicial: Vaquillonas
+2026-05-25;Vaquillonas;Venta;Salida;4;cabezas;Vaquillonas;Si;Vendi 4 vaquillonas
+2026-05-25;Vaquillonas;Venta;Salida;1;cabezas;Vaquillonas;Si;vendi una vaquillona
+2026-05-25;Vaquillonas;Venta;Salida;1;cabezas;Vaquillonas;Si;Vendi vaquillona por 5000 dls
+2026-05-25;Vacas;Compra;Entrada;20;cabezas;;Si;Compre 20 vacas a 500 dls cada una
+2026-05-25;Fertilizante;Compra;Entrada;20;bolsas;;Si;Compre 2000kg de fertilizante
+2026-05-26;Racion;Ajuste;Salida;10;bolsas;;No;
+2026-05-27;Terneros;Compra;Entrada;2;cabezas;;Si;
+2026-05-28;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas a 300 dolares cada una
+2026-05-28;Vacas;Venta;Salida;5;cabezas;;Si;
+2026-06-04;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas a 700 dls cada una
+2026-06-07;Vacas;Compra;Entrada;20;cabezas;;Si;Compre 20 vacas a 500 dolares cada una
+2026-06-12;Vacas;Compra;Entrada;20;cabezas;;Si;Compré 20 vaquillonas
+2026-06-12;Vacas;Venta;Salida;20;cabezas;;Si;Vendi 20 vacas a 500 dls cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Racion;Compra;Entrada;20;bolsas;;Si;Compré 20 bolsas de ración por 40 USD cada una
+2026-06-21;Terneros;Venta;Salida;2;cabezas;;Si;Vendí 2 terneros por 900 USD
