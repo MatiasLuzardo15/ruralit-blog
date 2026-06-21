@@ -1897,12 +1897,28 @@ button.solucion-card:focus-visible {
   .hero-content { padding-top: 24px; }
   .hero h1 { font-size: 2.4rem; }
   .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: 1fr; }
-  .soluciones-grid { grid-template-columns: repeat(2, 1fr); }
-  .soluciones-grid > .solucion-card:nth-child(1),
-  .soluciones-grid > .solucion-card:nth-child(2),
-  .soluciones-grid > .solucion-card:nth-child(3),
-  .soluciones-grid > .solucion-card:nth-child(4),
+  .soluciones-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .soluciones-grid > .solucion-card:nth-child(1) { grid-column: 1 / -1; }
+  .soluciones-grid > .solucion-card:nth-child(2) { grid-column: span 1; }
+  .soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 1; }
+  .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 1; }
   .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 1; }
+  .solucion-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .solucion-card h3 { font-size: 0.85rem; margin-bottom: 6px; }
+  .solucion-card p { font-size: 0.75rem; line-height: 1.5; }
+  .solucion-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .solucion-icon svg { width: 17px; height: 17px; }
   .novedades-grid { grid-template-columns: 1fr; }
   .novedades-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .section-equipo { padding: 56px 20px; }

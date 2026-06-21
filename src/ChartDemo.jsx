@@ -515,6 +515,20 @@ const styles = `
     .balance-chart-card { padding: 20px; border-radius: 20px; }
     .balance-chart-card .recharts-text { font-size: 9px !important; }
     .balance-toggle button { padding: 8px 16px; font-size: 0.8125rem; }
+    .balance-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 0 20px;
+    }
+    .balance-stat {
+      min-width: 0;
+      padding: 12px 14px;
+      border-radius: 14px;
+    }
+    .balance-stat-value { font-size: 1rem; }
     .export-section { padding: 0 20px 56px; }
 
     .export-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
