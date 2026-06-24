@@ -299,6 +299,7 @@ footer {
   text-decoration: none;
 }
 .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+.footer-bottom .footer-legal { display: none; }
 .footer-contact {
   display: flex;
   gap: 16px;
@@ -402,6 +403,31 @@ footer {
   border-top: 1px solid rgba(14, 30, 18, 0.08);
   margin: 40px 0;
 }
+.inner-page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 24px;
+  font-size: 0.9rem;
+}
+.inner-page-content th,
+.inner-page-content td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.inner-page-content th {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--inner);
+  border-bottom: 1px solid var(--border-strong);
+}
+.inner-page-content td { color: var(--muted); }
+.inner-page-content td strong { color: var(--dark); }
 .callout {
   background: rgba(46, 158, 83, 0.06);
   border-left: 3px solid var(--agri);
@@ -2038,6 +2064,8 @@ button.solucion-card:focus-visible {
   footer { padding: 40px 20px 24px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-legal-col { display: none; }
+  .footer-bottom .footer-legal { display: flex; justify-content: center; }
   .footer-simple { flex-direction: column; gap: 20px; text-align: center; }
   .inner-page { padding-top: 80px; }
   .card-surface { padding: 24px; }
