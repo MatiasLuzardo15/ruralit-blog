@@ -860,6 +860,18 @@ section { padding: 56px 80px; }
   text-align: center;
   margin-bottom: 64px;
 }
+.problema-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+.problema-media img {
+  max-width: 820px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  image-rendering: -webkit-optimize-contrast;
+}
 .problema-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
