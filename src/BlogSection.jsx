@@ -1,5 +1,5 @@
 import React from 'react';
-
+// BlogSection.jsx
 const articles = [
   {
     id: 1,
