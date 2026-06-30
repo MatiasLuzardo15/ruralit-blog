@@ -1,3 +1,4 @@
+// This file is the entry point for the React application. It renders the BlogSection component into the 'react-blog-root' element and the ChartDemo component into the 'react-chart-root' element if it exists in the DOM.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import BlogSection from './BlogSection';
