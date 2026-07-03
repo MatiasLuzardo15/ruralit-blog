@@ -3,6 +3,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import BlogSection from './BlogSection';
 import ChartDemo from './ChartDemo';
+import BlogRuralitHeroAnimation from './BlogRuralitHeroAnimation';
+
+const rootHero = document.getElementById('react-hero-root');
+if (rootHero) {
+  ReactDOM.createRoot(rootHero).render(
+    <React.StrictMode>
+      <BlogRuralitHeroAnimation />
+    </React.StrictMode>
+  );
+}
 
 const rootBlog = ReactDOM.createRoot(document.getElementById('react-blog-root'));
 rootBlog.render(
