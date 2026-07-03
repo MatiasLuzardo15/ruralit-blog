@@ -552,6 +552,10 @@ const styles = `
   from { opacity: 0; transform: translateY(0.8em) scale(0.97); }
   to { opacity: 1; transform: none; }
 }
+@keyframes rha-mobile-card-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-0.4em) scale(0.985); }
+}
 @keyframes rha-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes rha-panel-in { from { transform: translateX(100%); } to { transform: none; } }
 @keyframes rha-backdrop-out { from { opacity: 1; } to { opacity: 0; } }
@@ -577,7 +581,8 @@ const styles = `
   .rha-sticker { display: none; }
   .rha-frame {
     font-size: clamp(11px, 3vw, 14px) !important;
-    aspect-ratio: 4 / 3;
+    height: 14em;
+    aspect-ratio: auto;
     border-radius: 1.3em;
     background: transparent;
     border: 0;
@@ -597,26 +602,20 @@ const styles = `
     height: 100%;
     margin: 0;
     justify-content: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 1.55em;
-    box-shadow: 0 0.6em 1.8em rgba(16,24,40,0.06);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
   .rha-center {
     flex: 1 1 auto;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     width: 100%;
     max-width: none;
-    padding: 1.45em 1.45em 1.35em;
+    padding: 3em 1.45em 1.1em;
   }
-  .rha-mobile-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    order: 1;
-    text-align: left;
-  }
+  .rha-mobile-intro { display: none; }
   .rha-mobile-title {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 1.48em;
@@ -636,11 +635,7 @@ const styles = `
     color: var(--t3);
   }
   .rha-chips {
-    display: flex;
-    order: 2;
-    justify-content: flex-start;
-    gap: 0.55em;
-    margin-top: 0.72em;
+    display: none;
   }
   .rha-chip {
     height: 2.75em;
@@ -653,7 +648,7 @@ const styles = `
   .rha-input-shell {
     order: 3;
     height: 3.55em;
-    margin: 1.05em 0 0;
+    margin: 0;
     border-radius: 1.35em;
     padding: 0.25em 0.38em 0.25em 0.82em;
     box-shadow: 0 0.55em 1.5em rgba(16,24,40,0.07);
@@ -697,6 +692,10 @@ const styles = `
     box-shadow: 0 0.5em 1.4em rgba(16,24,40,0.06);
     text-align: left;
     animation: rha-mobile-card-in 0.45s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .rha-mobile-result.leaving {
+    animation: rha-mobile-card-out 0.4s cubic-bezier(0.4,0,1,1) both;
+    pointer-events: none;
   }
   .rha-mobile-result-icon {
     width: 2.45em; height: 2.45em; border-radius: 0.72em;
@@ -1017,6 +1016,8 @@ const BlogRuralitHeroAnimation = () => {
 
   const applyRegistro = useCallback((r) => {
     setMobileResult({ ...r, uid: 'm' + Date.now() });
+    schedule(() => setMobileResult((current) => current ? { ...current, isLeaving: true } : current), 1700);
+    schedule(() => setMobileResult(null), 2100);
     setRows((prev) => {
       const next = [{ uid: 'c' + Date.now() + Math.random().toString(36).slice(2, 6), isNew: true, ...r }, ...prev];
       return next.slice(0, 3);
@@ -1264,7 +1265,7 @@ const BlogRuralitHeroAnimation = () => {
               </div>
 
               {mobileResult && (
-                <div className="rha-mobile-result" key={mobileResult.uid}>
+                <div className={'rha-mobile-result' + (mobileResult.isLeaving ? ' leaving' : '')} key={mobileResult.uid}>
                   <span className={'rha-mobile-result-icon ' + mobileResult.type}><MobileResultIcon /></span>
                   <span className="rha-mobile-result-copy">
                     <span className="rha-mobile-result-title">{mobileResult.title}</span>

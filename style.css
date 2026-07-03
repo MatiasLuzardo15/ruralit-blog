@@ -2177,6 +2177,8 @@ button.solucion-card:focus-visible {
 
 @media (max-width: 768px) {
   .hero-demo-stage::before { display: none; }
+  .hero-demo-stage { margin-top: 20px; }
+  .hero-preview-mount { margin-top: 0; }
   section { padding: 40px 20px; }
   nav { padding: 16px 20px; }
   .nav-links, .nav-cta { display: none; }
@@ -2188,9 +2190,11 @@ button.solucion-card:focus-visible {
   .hero h1.hero-title {
     width: auto;
     max-width: 100%;
+    margin-bottom: 28px;
+    font-size: 2rem;
     white-space: normal;
   }
-  .hero-dynamic-line { font-size: 2.4rem; }
+  .hero-dynamic-line { display: none; }
   .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: 1fr; }
   .soluciones-grid {
     grid-template-columns: repeat(2, 1fr);
