@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   Home, BookOpen, Package, BarChart2, Folder, FileText, Settings,
   Bell, FileSpreadsheet, ArrowDownRight, ArrowUpRight, Mic, Send,
-  Check, CornerDownRight, ChevronRight, PanelLeftClose, Building2, Plus
+  Check, CornerDownRight, ChevronRight, PanelLeftClose, Building2, Plus,
+  X, ListChecks, MessageSquare, LockKeyhole, WalletCards, StickyNote,
+  RotateCcw, ExternalLink, Paperclip, ChevronLeft, MousePointer2
 } from 'lucide-react';
 
 /**
@@ -371,6 +373,137 @@ const styles = `
 .rha-row-amt.red { color: var(--red-soft); }
 .rha-row-amt.blue { color: var(--blue-main); }
 
+/* ---------- Flujo lateral: actividad del equipo ---------- */
+.rha-team-block.tapped { animation: rha-team-tap 0.55s ease both; }
+.rha-team-overlay { position: absolute; inset: 0; z-index: 20; display: flex; justify-content: flex-end; }
+.rha-team-backdrop { position: absolute; inset: 0; background: rgba(18,23,20,0.42); animation: rha-backdrop-in 0.35s ease both; }
+.rha-team-panel {
+  position: relative; z-index: 1; width: 42%; height: 100%; overflow: hidden;
+  display: flex; flex-direction: column; background: #fff; border-left: 1px solid var(--border);
+  box-shadow: -0.6em 0 1.8em rgba(16,24,40,0.08); animation: rha-panel-in 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  text-align: left;
+}
+.rha-team-overlay.closing .rha-team-backdrop { animation: rha-backdrop-out 0.6s ease both; }
+.rha-team-overlay.closing .rha-team-panel { animation: rha-panel-out 0.65s cubic-bezier(0.4,0,0.2,1) both; }
+.rha-demo-cursor {
+  position: absolute; z-index: 40; width: 1.55em; height: 1.55em;
+  display: grid; place-items: center; pointer-events: none;
+  color: #171717; filter: drop-shadow(0 0.12em 0.18em rgba(0,0,0,0.28));
+  transition: left 0.85s cubic-bezier(0.16,1,0.3,1), top 0.85s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+}
+.rha-demo-cursor svg { width: 1.35em; height: 1.35em; fill: #fff; stroke-width: 1.7; }
+.rha-demo-cursor.team { left: 9.5%; top: 88%; }
+.rha-demo-cursor.entry { left: 70%; top: 48%; }
+.rha-demo-cursor.comment { left: 84%; top: 79%; }
+.rha-demo-cursor.send { left: 94%; top: 90%; }
+.rha-demo-cursor.closing { left: 96%; top: 90%; opacity: 0; }
+.rha-demo-cursor::after {
+  content: ''; position: absolute; width: 1.7em; height: 1.7em;
+  border: 1px solid rgba(27,94,32,0.5); border-radius: 50%; opacity: 0;
+}
+.rha-demo-cursor.clicking::after { animation: rha-cursor-click 0.55s ease-out both; }
+.rha-panel-head { display: flex; align-items: flex-start; gap: 0.75em; padding: 1.1em 1.2em 0.9em; border-bottom: 1px solid var(--border-sm); }
+.rha-panel-close { width: 1.5em; height: 1.5em; margin-top: 0.05em; display: grid; place-items: center; color: var(--t2); flex-shrink: 0; }
+.rha-panel-close svg { width: 0.9em; height: 0.9em; }
+.rha-panel-heading { min-width: 0; display: flex; flex-direction: column; gap: 0.15em; }
+.rha-panel-heading strong { font-size: 0.9em; font-weight: 800; color: var(--charcoal); letter-spacing: -0.025em; }
+.rha-panel-heading span { font-size: 0.53em; color: var(--t3); }
+.rha-panel-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border-sm); }
+.rha-panel-tab { min-height: 2.5em; display: flex; align-items: center; justify-content: center; gap: 0.45em; font-size: 0.62em; font-weight: 700; color: var(--t3); position: relative; }
+.rha-panel-tab.active { color: var(--t1); }
+.rha-panel-tab.active::after { content: ''; position: absolute; left: 1em; right: 1em; bottom: 0; height: 1px; background: var(--t1); }
+.rha-panel-tab svg { width: 1em; height: 1em; }
+.rha-panel-people { display: flex; gap: 0.4em; padding: 0.65em 1.2em; border-bottom: 1px solid var(--border-sm); }
+.rha-person-chip { display: inline-flex; align-items: center; gap: 0.35em; padding: 0.25em 0.5em 0.25em 0.28em; border: 1px solid var(--border-sm); border-radius: 99px; font-size: 0.5em; font-weight: 650; }
+.rha-panel-avatar { width: 1.85em; height: 1.85em; border-radius: 50%; display: grid; place-items: center; color: #fff; background: #805564; font-size: 0.9em; font-weight: 700; }
+.rha-panel-avatar.farmer { background: #edf4ed; }
+.rha-panel-avatar.max { color: #665188; background: #eee9f7; }
+.rha-panel-notice { display: flex; align-items: center; gap: 0.42em; padding: 0.55em 1.25em; border-bottom: 1px solid var(--border-sm); color: var(--t3); font-size: 0.5em; }
+.rha-panel-notice svg { width: 1em; height: 1em; }
+.rha-activity-filters { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--border-sm); }
+.rha-filter { min-height: 2.35em; display: flex; align-items: center; justify-content: center; gap: 0.25em; font-size: 0.48em; font-weight: 650; color: var(--t3); position: relative; }
+.rha-filter.active { color: var(--t1); }
+.rha-filter.active::after { content: ''; position: absolute; left: 0.7em; right: 0.7em; bottom: 0; height: 1px; background: var(--t1); }
+.rha-filter svg { width: 0.9em; height: 0.9em; }
+.rha-panel-view { min-height: 0; flex: 1; display: flex; flex-direction: column; animation: rha-view-in 0.32s ease both; }
+.rha-activity-day { padding: 0.55em 1.2em 0.3em; font-size: 0.48em; font-weight: 700; color: var(--t3); }
+.rha-activity-list { min-height: 0; overflow: hidden; }
+.rha-activity-entry { display: flex; align-items: center; gap: 0.6em; padding: 0.72em 1.2em; border-bottom: 1px solid var(--border-sm); transition: background 0.2s, transform 0.2s; }
+.rha-activity-entry.selected { background: var(--green-light); transform: translateX(-0.15em); }
+.rha-activity-entry .rha-panel-avatar { width: 2.1em; height: 2.1em; flex-shrink: 0; font-size: 0.55em; }
+.rha-entry-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.16em; }
+.rha-entry-line { font-size: 0.56em; color: var(--t3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rha-entry-line b { color: var(--t1); font-weight: 750; }
+.rha-entry-desc { font-size: 0.49em; color: var(--t3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rha-entry-time { font-size: 0.43em; color: var(--t3); flex-shrink: 0; }
+.rha-detail-body {
+  padding: 0.9em 1.2em 1.1em;
+  display: flex; flex-direction: column; gap: 0.82em;
+  overflow: hidden;
+}
+.rha-back-link { display: inline-flex; align-items: center; gap: 0.3em; font-size: 0.52em; font-weight: 700; color: var(--t2); }
+.rha-back-link svg { width: 0.9em; height: 0.9em; }
+.rha-detail-actor { display: flex; align-items: center; gap: 0.55em; }
+.rha-detail-actor .rha-panel-avatar { width: 2.15em; height: 2.15em; font-size: 0.58em; }
+.rha-detail-actor-copy { display: flex; flex-direction: column; gap: 0.12em; }
+.rha-detail-actor-copy b { font-size: 0.6em; }
+.rha-detail-actor-copy span { font-size: 0.47em; color: var(--t3); }
+.rha-change-card { padding: 0.9em; border-radius: 0.72em; background: #f8efe5; border: 1px solid #efd9cd; }
+.rha-change-card-top { display: flex; align-items: center; gap: 0.55em; }
+.rha-change-icon { width: 1.8em; height: 1.8em; border-radius: 0.5em; display: grid; place-items: center; background: #fff; color: var(--red-soft); }
+.rha-change-icon svg { width: 0.9em; height: 0.9em; }
+.rha-change-label { display: flex; flex-direction: column; gap: 0.08em; }
+.rha-change-label small { font-size: 0.42em; font-weight: 800; color: var(--t3); }
+.rha-change-label b { font-size: 0.6em; }
+.rha-change-amount { margin-top: 0.35em; font-size: 1em; font-weight: 850; color: var(--red-soft); }
+.rha-detail-section-title { font-size: 0.45em; font-weight: 800; color: var(--t3); text-transform: uppercase; }
+.rha-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.72em 1em; }
+.rha-detail-field {
+  min-height: 2.35em; padding: 0.55em 0.12em 0.3em;
+  border-top: 1px solid var(--border-sm);
+  display: flex; flex-direction: column; gap: 0.24em;
+}
+.rha-detail-field small { font-size: 0.4em; font-weight: 750; color: var(--t3); text-transform: uppercase; }
+.rha-detail-field b { font-size: 0.49em; color: var(--t1); }
+.rha-detail-note { padding: 0.68em 0; border-top: 1px solid var(--border-sm); border-bottom: 1px solid var(--border-sm); font-size: 0.49em; line-height: 1.5; color: var(--t3); }
+.rha-detail-actions { display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.08em; }
+.rha-detail-btn { height: 2.35em; padding: 0 0.8em; display: inline-flex; align-items: center; gap: 0.35em; border: 1px solid var(--border); border-radius: 0.55em; background: #fff; font-size: 0.5em; font-weight: 700; }
+.rha-detail-btn.dark { color: #fff; background: #262626; border-color: #262626; }
+.rha-detail-btn.danger { color: var(--red-soft); }
+.rha-detail-btn.tapped { animation: rha-button-tap 0.55s ease both; }
+.rha-detail-btn svg { width: 0.95em; height: 0.95em; }
+.rha-chat-head { display: flex; align-items: flex-start; justify-content: space-between; padding: 1.1em 1.2em 0.9em; border-bottom: 1px solid var(--border-sm); }
+.rha-chat-member { display: flex; align-items: center; gap: 0.55em; padding: 0.72em 1.2em; border-bottom: 1px solid var(--border-sm); }
+.rha-chat-member .rha-panel-avatar { width: 2.1em; height: 2.1em; font-size: 0.58em; }
+.rha-chat-thread { flex: 1; min-height: 0; padding: 0.7em 1.2em; display: flex; flex-direction: column; gap: 0.55em; overflow: hidden; }
+.rha-chat-message { display: flex; align-items: flex-start; gap: 0.48em; }
+.rha-chat-message .rha-panel-avatar { width: 1.8em; height: 1.8em; font-size: 0.5em; flex-shrink: 0; }
+.rha-message-copy { display: flex; flex-direction: column; gap: 0.1em; }
+.rha-message-copy b { font-size: 0.53em; }
+.rha-message-copy > span:not(.rha-chat-record) { font-size: 0.49em; color: var(--t2); }
+.rha-chat-message.outgoing { justify-content: flex-start; animation: rha-view-in 0.35s ease both; }
+.rha-chat-message.outgoing .rha-message-copy { max-width: 86%; padding: 0; background: transparent; }
+.rha-chat-message.reply { animation: rha-reply-in 0.42s cubic-bezier(0.16,1,0.3,1) both; }
+.rha-chat-message.reply .rha-message-copy { max-width: 82%; padding: 0; background: transparent; }
+.rha-chat-record { margin-top: auto; padding: 0.55em 0.65em; display: flex; align-items: center; gap: 0.5em; border: 1px solid var(--border-sm); border-radius: 0.65em; }
+.rha-chat-record.embedded { width: 100%; min-width: 18em; margin-top: 0.38em; background: #fff; }
+.rha-chat-record-copy { flex: 1; display: flex; flex-direction: column; gap: 0.08em; }
+.rha-chat-record-copy b { font-size: 0.5em; }
+.rha-chat-record-copy span { font-size: 0.43em; color: var(--t3); }
+.rha-chat-compose { padding: 0.65em 1.2em 0.85em; border-top: 1px solid var(--border-sm); }
+.rha-chat-input { min-height: 3.7em; padding: 0.55em; border-radius: 0.75em; background: var(--beige-bg); display: flex; flex-direction: column; }
+.rha-chat-typed { min-height: 1.3em; font-size: 0.53em; color: var(--t2); }
+.rha-chat-input-foot { margin-top: auto; display: flex; align-items: center; justify-content: flex-end; gap: 0.4em; }
+.rha-chat-tool { width: 2em; height: 2em; display: grid; place-items: center; border-radius: 0.5em; background: #fff; color: var(--t3); }
+.rha-chat-tool svg { width: 0.95em; height: 0.95em; }
+.rha-chat-send {
+  height: 3.85em; padding: 0 1.35em;
+  display: inline-flex; align-items: center; gap: 0.62em;
+  border-radius: 1em; background: #282828; color: #fff;
+  font-size: 0.52em; font-weight: 700;
+}
+.rha-chat-send svg { width: 1.5em; height: 1.5em; }
+
 /* ---------- Keyframes ---------- */
 @keyframes rha-blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 @keyframes rha-ph-in { from { opacity: 0; transform: translateY(0.5em); } to { opacity: 1; transform: none; } }
@@ -382,6 +515,15 @@ const styles = `
   from { opacity: 0; transform: translateY(0.8em) scale(0.97); }
   to { opacity: 1; transform: none; }
 }
+@keyframes rha-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rha-panel-in { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes rha-backdrop-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes rha-panel-out { from { transform: none; opacity: 1; } to { transform: translateX(100%); opacity: 0.92; } }
+@keyframes rha-view-in { from { opacity: 0; transform: translateX(0.5em); } to { opacity: 1; transform: none; } }
+@keyframes rha-reply-in { from { opacity: 0; transform: translateY(0.55em); } to { opacity: 1; transform: none; } }
+@keyframes rha-team-tap { 0%,100% { transform: scale(1); } 45% { transform: scale(0.96); background: var(--green-light); } }
+@keyframes rha-button-tap { 0%,100% { transform: scale(1); } 45% { transform: scale(0.94); background: var(--green-light); border-color: var(--green-main); } }
+@keyframes rha-cursor-click { 0% { opacity: 0; transform: scale(0.35); } 35% { opacity: 1; } 100% { opacity: 0; transform: scale(1.25); } }
 
 /* ---------- Mobile: pieza dedicada, solo el input animado ---------- */
 @media (max-width: 768px) {
@@ -404,7 +546,9 @@ const styles = `
   .rha-qe-sub,
   .rha-chips,
   .rha-sugg,
-  .rha-recent-section { display: none; }
+  .rha-recent-section,
+  .rha-team-overlay,
+  .rha-demo-cursor { display: none; }
   .rha-main {
     width: 100%;
     height: 100%;
@@ -532,7 +676,10 @@ const styles = `
 @media (prefers-reduced-motion: reduce) {
   .rha-cursor, .rha-send.success, .rha-item .rha-badge.pulse,
   .rha-recent-count.bump, .rha-row.new, .rha-placeholder > span,
-  .rha-mobile-result { animation: none !important; }
+  .rha-mobile-result, .rha-team-backdrop, .rha-team-panel, .rha-panel-view,
+  .rha-team-block.tapped, .rha-detail-btn.tapped,
+  .rha-chat-message.reply, .rha-demo-cursor::after { animation: none !important; }
+  .rha-demo-cursor { transition: none !important; }
 }
 `;
 
@@ -558,10 +705,180 @@ function RecentRow({ row }) {
   );
 }
 
+const TEAM_EVENTS = [
+  { actor: 'Matias (tú)', kind: 'Stock', desc: 'Agregó 8 bolsas de ración al stock', time: '22:12', avatar: 'M' },
+  { actor: 'Max', kind: 'Editó gasto', desc: 'Cambió Veterinaria de $1.200 a $500', time: '21:25', avatar: 'M', target: true },
+  { actor: 'Nahuel', kind: 'Ingreso', desc: 'Registró una venta de lana por US$ 620', time: '21:14', avatar: '🧑‍🌾' },
+  { actor: 'Matias (tú)', kind: 'Gasto', desc: 'Registró combustible por $3.500', time: '20:48', avatar: 'M' },
+  { actor: 'Max', kind: 'Nota', desc: 'Actualizó la nota del proyecto Alambrado norte', time: '20:31', avatar: 'M' },
+];
+
+function PanelPeople() {
+  return (
+    <div className="rha-panel-people">
+      <span className="rha-person-chip"><span className="rha-panel-avatar">M</span> Matias (tú)</span>
+      <span className="rha-person-chip"><span className="rha-panel-avatar farmer">🧑‍🌾</span> Nahuel</span>
+      <span className="rha-person-chip"><span className="rha-panel-avatar max">M</span> Max</span>
+    </div>
+  );
+}
+
+function TeamFlowPanel({ flow, chatTyped, chatSent }) {
+  const activitySelected = flow === 'activityTap';
+  const detailTapped = flow === 'detailTap';
+
+  const commonHeader = (
+    <>
+      <div className="rha-panel-head">
+        <span className="rha-panel-close"><X /></span>
+        <span className="rha-panel-heading">
+          <strong>Actividad del equipo</strong>
+          <span>Acciones y cambios realizados en El ceibo.</span>
+        </span>
+      </div>
+      <PanelPeople />
+    </>
+  );
+
+  return (
+    <div className={'rha-team-overlay' + (flow === 'closing' ? ' closing' : '')}>
+      <div className="rha-team-backdrop" />
+      <aside className="rha-team-panel">
+        {(flow === 'activity' || flow === 'activityTap') && (
+          <div className="rha-panel-view" key="activity">
+            <div className="rha-panel-head">
+              <span className="rha-panel-close"><X /></span>
+              <span className="rha-panel-heading">
+                <strong>Actividad del equipo</strong>
+                <span>Acciones y cambios realizados en El ceibo.</span>
+              </span>
+            </div>
+            <div className="rha-panel-tabs">
+              <span className="rha-panel-tab active"><ListChecks /> Actividad</span>
+              <span className="rha-panel-tab"><MessageSquare /> Chats</span>
+            </div>
+            <PanelPeople />
+            <div className="rha-panel-notice"><LockKeyhole /> Historial visible para el dueño y las personas que autorice.</div>
+            <div className="rha-activity-filters">
+              <span className="rha-filter active"><ListChecks /> Todos</span>
+              <span className="rha-filter"><WalletCards /> Gastos</span>
+              <span className="rha-filter"><ArrowUpRight /> Ingresos</span>
+              <span className="rha-filter"><Package /> Stock</span>
+              <span className="rha-filter"><StickyNote /> Notas</span>
+            </div>
+            <span className="rha-activity-day">Hoy</span>
+            <div className="rha-activity-list">
+              {TEAM_EVENTS.map((event, index) => (
+                <div className={'rha-activity-entry' + (activitySelected && event.target ? ' selected' : '')} key={index}>
+                  <span className={'rha-panel-avatar' + (event.actor === 'Max' ? ' max' : event.actor === 'Nahuel' ? ' farmer' : '')}>{event.avatar}</span>
+                  <span className="rha-entry-copy">
+                    <span className="rha-entry-line"><b>{event.actor}</b> · {event.kind}</span>
+                    <span className="rha-entry-desc">{event.desc}</span>
+                  </span>
+                  <span className="rha-entry-time">{event.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {(flow === 'detail' || flow === 'detailTap') && (
+          <div className="rha-panel-view" key="detail">
+            {commonHeader}
+            <div className="rha-detail-body">
+              <span className="rha-back-link"><ChevronLeft /> Volver a la actividad</span>
+              <div className="rha-detail-actor">
+                <span className="rha-panel-avatar max">M</span>
+                <span className="rha-detail-actor-copy"><b>Max</b><span>Hoy · 21:25</span></span>
+              </div>
+              <div className="rha-change-card">
+                <div className="rha-change-card-top">
+                  <span className="rha-change-icon"><WalletCards /></span>
+                  <span className="rha-change-label"><small>GASTO · CAMBIO</small><b>Veterinaria</b></span>
+                </div>
+                <div className="rha-change-amount">− $ 500</div>
+              </div>
+              <span className="rha-detail-section-title">Información del movimiento</span>
+              <div className="rha-detail-grid">
+                <span className="rha-detail-field"><small>Fecha</small><b>Hoy, 21:25</b></span>
+                <span className="rha-detail-field"><small>Tipo</small><b>Gasto</b></span>
+                <span className="rha-detail-field"><small>Categoría</small><b>Veterinaria</b></span>
+                <span className="rha-detail-field"><small>Moneda</small><b>UYU</b></span>
+              </div>
+              <div className="rha-detail-note"><b>Nota:</b> Se corrigió el importe cargado originalmente de $1.200 a $500.</div>
+              <div className="rha-detail-actions">
+                <span className="rha-detail-btn dark"><ExternalLink /> Ver registro</span>
+                <span className="rha-detail-btn danger"><RotateCcw /> Revertir cambio</span>
+                <span className={'rha-detail-btn' + (detailTapped ? ' tapped' : '')}><MessageSquare /> Comentar</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {(flow === 'chat' || flow === 'chatReply' || flow === 'closing') && (
+          <div className="rha-panel-view" key="chat">
+            <div className="rha-chat-head">
+              <span className="rha-panel-heading"><strong>Conversación con Max</strong><span>Consultá un cambio con un integrante del equipo.</span></span>
+              <span className="rha-panel-close"><X /></span>
+            </div>
+            <div className="rha-chat-member">
+              <span className="rha-panel-avatar max">M</span>
+              <span className="rha-detail-actor-copy"><b>Max</b><span>Integrante del equipo</span></span>
+            </div>
+            <div className="rha-chat-thread">
+              <div className="rha-chat-message">
+                <span className="rha-panel-avatar max">M</span>
+                <span className="rha-message-copy"><b>Max</b><span>Actualicé el gasto de veterinaria.</span></span>
+              </div>
+              {chatSent && (
+                <div className="rha-chat-message outgoing">
+                  <span className="rha-panel-avatar">M</span>
+                  <span className="rha-message-copy">
+                    <b>Matias (tú)</b>
+                    <span>Max, ¿por qué cambiaste el registro de veterinaria a $500?</span>
+                    <span className="rha-chat-record embedded">
+                      <span className="rha-change-icon"><WalletCards /></span>
+                      <span className="rha-chat-record-copy"><b>Gasto · Veterinaria</b><span>− $500 · Hoy, 21:25</span></span>
+                      <ChevronRight />
+                    </span>
+                  </span>
+                </div>
+              )}
+              {(flow === 'chatReply' || flow === 'closing') && (
+                <div className="rha-chat-message reply">
+                  <span className="rha-panel-avatar max">M</span>
+                  <span className="rha-message-copy"><b>Max</b><span>Lo corregí porque el comprobante final era por $500. El importe anterior estaba duplicado.</span></span>
+                </div>
+              )}
+              {!chatSent && (
+                <div className="rha-chat-record">
+                  <span className="rha-change-icon"><WalletCards /></span>
+                  <span className="rha-chat-record-copy"><b>Gasto · Veterinaria</b><span>− $500 · Hoy, 21:25</span></span>
+                  <ChevronRight />
+                </div>
+              )}
+            </div>
+            <div className="rha-chat-compose">
+              <div className="rha-chat-input">
+                <span className="rha-chat-typed">{chatTyped || (chatSent ? '' : 'Escribí tu mensaje...')}{chatTyped && <span className="rha-cursor" />}</span>
+                <span className="rha-chat-input-foot">
+                  <span className="rha-chat-tool"><Paperclip /></span>
+                  <span className="rha-chat-send"><Send /> Enviar</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  );
+}
+
 // --- Componente principal ----------------------------------------------------
 const BlogRuralitHeroAnimation = () => {
   const frameRef = useRef(null);
   const idxRef = useRef(0);
+  const runCycleRef = useRef(null);
   const timersRef = useRef([]);
   const startedRef = useRef(false);
   const reduceRef = useRef(
@@ -580,6 +897,10 @@ const BlogRuralitHeroAnimation = () => {
   const [todayBump, setTodayBump] = useState(false);
   const [phIdx, setPhIdx] = useState(0);
   const [mobileResult, setMobileResult] = useState(null);
+  const [teamFlow, setTeamFlow] = useState('closed');
+  const [teamTap, setTeamTap] = useState(false);
+  const [chatTyped, setChatTyped] = useState('');
+  const [chatSent, setChatSent] = useState(false);
 
   const schedule = useCallback((fn, ms) => {
     const id = setTimeout(fn, ms);
@@ -639,6 +960,17 @@ const BlogRuralitHeroAnimation = () => {
     tick();
   }, [schedule]);
 
+  const typeChatText = useCallback((text, speed, done) => {
+    let i = 0;
+    const tick = () => {
+      i += 1;
+      setChatTyped(text.slice(0, i));
+      if (i < text.length) schedule(tick, speed);
+      else done && done();
+    };
+    tick();
+  }, [schedule]);
+
   const applyRegistro = useCallback((r) => {
     setMobileResult({ ...r, uid: 'm' + Date.now() });
     setRows((prev) => {
@@ -658,6 +990,48 @@ const BlogRuralitHeroAnimation = () => {
     }
   }, [schedule]);
 
+  const startTeamFlow = useCallback(() => {
+    const question = 'Max, ¿por qué cambiaste el registro de veterinaria a $500?';
+    setTeamTap(true);
+    schedule(() => {
+      setTeamTap(false);
+      setTeamFlow('activity');
+      schedule(() => {
+        setTeamFlow('activityTap');
+        schedule(() => {
+          setTeamFlow('detail');
+          schedule(() => {
+            setTeamFlow('detailTap');
+            schedule(() => {
+              setTeamFlow('chat');
+              setChatTyped('');
+              setChatSent(false);
+              schedule(() => {
+                typeChatText(question, 34, () => {
+                  schedule(() => {
+                    setChatTyped('');
+                    setChatSent(true);
+                    schedule(() => {
+                      setTeamFlow('chatReply');
+                      schedule(() => {
+                        setTeamFlow('closing');
+                        schedule(() => {
+                          setTeamFlow('closed');
+                          setChatSent(false);
+                          schedule(() => runCycleRef.current && runCycleRef.current(), 850);
+                        }, 680);
+                      }, 2400);
+                    }, 900);
+                  }, 450);
+                });
+              }, 900);
+            }, 550);
+          }, 2600);
+        }, 550);
+      }, 2600);
+    }, 520);
+  }, [schedule, typeChatText]);
+
   const runCycle = useCallback(() => {
     const r = REGISTROS[idxRef.current];
     setActiveChip(r.type);
@@ -673,14 +1047,21 @@ const BlogRuralitHeroAnimation = () => {
               setSendState('idle');
               setActiveChip(null);
               setFocused(false);
+              const completedLoop = idxRef.current === REGISTROS.length - 1;
               idxRef.current = (idxRef.current + 1) % REGISTROS.length;
-              schedule(runCycle, 750);
+              if (completedLoop && frameRef.current && frameRef.current.clientWidth > 768) {
+                schedule(startTeamFlow, 850);
+              } else {
+                schedule(runCycle, 750);
+              }
             });
           }, 620);
         }, 520);
       }, 480);
     });
-  }, [applyRegistro, deleteText, schedule, typeText]);
+  }, [applyRegistro, deleteText, schedule, startTeamFlow, typeText]);
+
+  runCycleRef.current = runCycle;
 
   // Arranca el ciclo cuando el frame es visible (y hay movimiento permitido).
   useEffect(() => {
@@ -704,6 +1085,16 @@ const BlogRuralitHeroAnimation = () => {
 
   const chipClass = (type) => 'rha-chip ' + (activeChip === type ? 'active ' + type : '');
   const MobileResultIcon = mobileResult ? ROW_ICON[mobileResult.type].Icon : null;
+  const cursorPhase = teamTap
+    ? 'team'
+    : (teamFlow === 'activity' || teamFlow === 'activityTap')
+      ? 'entry'
+      : (teamFlow === 'detail' || teamFlow === 'detailTap')
+        ? 'comment'
+        : (teamFlow === 'chat' || teamFlow === 'chatReply')
+          ? 'send'
+          : 'closing';
+  const cursorClicking = teamTap || teamFlow === 'activityTap' || teamFlow === 'detailTap' || (teamFlow === 'chat' && chatSent);
 
   return (
     <>
@@ -745,7 +1136,7 @@ const BlogRuralitHeroAnimation = () => {
                 <ChevronRight className="rha-est-chevron" />
               </div>
               <div className="rha-item rha-side-settings"><Settings /> Ajustes</div>
-              <div className="rha-team-block">
+              <div className={'rha-team-block' + (teamTap ? ' tapped' : '')}>
                 <div className="rha-team-copy">
                   <span className="rha-team-block-title">Actividad del equipo</span>
                   <span className="rha-team-role">DUEÑO</span>
@@ -865,6 +1256,12 @@ const BlogRuralitHeroAnimation = () => {
               </div>
             </div>
           </main>
+          {teamFlow !== 'closed' && (
+            <TeamFlowPanel flow={teamFlow} chatTyped={chatTyped} chatSent={chatSent} />
+          )}
+          {(teamTap || teamFlow !== 'closed') && (
+            <span className={'rha-demo-cursor ' + cursorPhase + (cursorClicking ? ' clicking' : '')}><MousePointer2 /></span>
+          )}
          </div>
         </div>
       </div>
