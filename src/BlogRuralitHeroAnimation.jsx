@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Home, BookOpen, Package, BarChart2, Folder, FileText, Settings,
   Bell, FileSpreadsheet, ArrowDownRight, ArrowUpRight, Mic, Send,
@@ -39,6 +40,15 @@ const REGISTROS = [
   { text: 'Agregué 8 bolsas de ración al stock', type: 'stock', title: 'Ración', badge: 'STOCK', rowAmount: '+ 8 bolsas', date: 'Hoy, 17:06', stockDelta: 8 },
 ];
 
+const REGISTRATION_NARRATION = [
+  'Escribí o dictá un movimiento con palabras cotidianas. Ruralit reconoce el monto, la categoría y la moneda por vos.',
+  'Cargá los gastos apenas ocurren y dejá que se clasifiquen automáticamente. Después los encontrás listos para balances y reportes.',
+  'Registrá compras, producción, consumo o pérdidas de stock. Las existencias se recalculan sin mantener planillas paralelas.',
+  'Trabajá con pesos y dólares dentro del mismo establecimiento. Cada movimiento conserva su moneda y alimenta el margen real.',
+  'Asociá gastos e ingresos a proyectos e inversiones. Así seguís el capital invertido, lo recuperado y el punto de equilibrio.',
+  'Compartí el establecimiento con familia, socios o encargados. Cada persona accede según su rol y cada cambio queda registrado.',
+];
+
 const PLACEHOLDERS = ['¿Qué pasó hoy?', 'Describí una actividad...', 'Escribí un registro...'];
 const PILLS = ['Vendí 2 terneros por 900 USD', 'Gasté 3.500 UYU en combustible', 'Compré 20 bolsas de ración', 'Pagué 2.400 UYU de alambrado'];
 
@@ -50,6 +60,7 @@ const SEED_ROWS = [
 
 const INITIAL_STOCK = 120;
 const INITIAL_TODAY = 3;
+const CAPTION_ERASER_ICONS = [Tractor, Package, Wheat, NotebookPen];
 
 // --- Helpers -----------------------------------------------------------------
 const ROW_ICON = {
@@ -98,8 +109,8 @@ const styles = `
   pointer-events: none;
 }
 .rha-sticker svg { width: 21px; height: 21px; stroke-width: 1.8; }
-.rha-sticker.tractor { left: 7%; top: -78px; --tilt: -8deg; }
-.rha-sticker.notes { right: 7%; top: -72px; --tilt: 7deg; background: #fff0cf; color: #72490f; animation-delay: -1.2s; }
+.rha-sticker.tractor { left: 7%; top: -52px; --tilt: -8deg; }
+.rha-sticker.notes { right: 7%; top: -48px; --tilt: 7deg; background: #fff0cf; color: #72490f; animation-delay: -1.2s; }
 .rha-sticker.stock { left: 10%; bottom: -34px; --tilt: 6deg; background: #e9f0fb; color: #245a99; animation-delay: -2.4s; }
 .rha-sticker.wheat { right: 10%; bottom: -30px; --tilt: -7deg; background: #f5e9d3; color: #7c5319; animation-delay: -3.2s; }
 .rha-frame {
@@ -946,6 +957,8 @@ const BlogRuralitHeroAnimation = () => {
   const [teamTap, setTeamTap] = useState(false);
   const [chatTyped, setChatTyped] = useState('');
   const [chatSent, setChatSent] = useState(false);
+  const [displayedCaption, setDisplayedCaption] = useState(REGISTRATION_NARRATION[0]);
+  const [captionVisible, setCaptionVisible] = useState(true);
 
   const schedule = useCallback((fn, ms) => {
     const id = setTimeout(fn, ms);
@@ -1140,6 +1153,34 @@ const BlogRuralitHeroAnimation = () => {
           ? 'send'
           : 'closing';
   const cursorClicking = teamTap || teamFlow === 'activityTap' || teamFlow === 'detailTap' || (teamFlow === 'chat' && chatSent);
+  const registrationNarration = REGISTRATION_NARRATION[idxRef.current] || REGISTRATION_NARRATION[0];
+  const captionText = teamTap || teamFlow === 'activity' || teamFlow === 'activityTap'
+    ? 'Revisá el historial por persona y tipo de movimiento. Cada acción conserva usuario, fecha y hora para mantener el control.'
+    : teamFlow === 'detail' || teamFlow === 'detailTap'
+      ? 'Al abrir un cambio, ves exactamente qué valor se modificó. Desde el detalle también podés revertirlo o iniciar una consulta.'
+      : teamFlow === 'chat'
+        ? 'Citá el registro dentro de una conversación. La otra persona recibe la consulta con todo el contexto, sin explicaciones aparte.'
+        : teamFlow === 'chatReply' || teamFlow === 'closing'
+          ? 'Las respuestas quedan vinculadas al movimiento original. Podés volver al hilo cuando necesites revisar por qué se hizo un cambio.'
+          : registrationNarration;
+  useEffect(() => {
+    if (captionText === displayedCaption) {
+      setCaptionVisible(true);
+      return undefined;
+    }
+    setCaptionVisible(false);
+    const id = setTimeout(() => {
+      setDisplayedCaption(captionText);
+      setCaptionVisible(true);
+    }, 820);
+    return () => clearTimeout(id);
+  }, [captionText, displayedCaption]);
+  const captionMount = typeof document !== 'undefined'
+    ? document.getElementById('hero-animation-caption-root')
+    : null;
+  const CaptionEraserIcon = teamTap || teamFlow !== 'closed'
+    ? MessageSquare
+    : CAPTION_ERASER_ICONS[idxRef.current % CAPTION_ERASER_ICONS.length];
 
   return (
     <>
@@ -1323,6 +1364,14 @@ const BlogRuralitHeroAnimation = () => {
          </div>
         </div>
       </div>
+      {captionMount && createPortal(
+        <span className="rha-live-caption">
+          <span className="rha-live-caption-mark" />
+          <span className={'rha-live-caption-text' + (captionVisible ? ' visible' : ' hidden')}>{displayedCaption}</span>
+          <span className={'rha-caption-eraser' + (!captionVisible ? ' active' : '')}><CaptionEraserIcon /></span>
+        </span>,
+        captionMount
+      )}
     </>
   );
 };
