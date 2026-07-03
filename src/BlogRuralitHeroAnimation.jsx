@@ -98,7 +98,6 @@ const styles = `
   pointer-events: none;
 }
 .rha-sticker svg { width: 21px; height: 21px; stroke-width: 1.8; }
-.rha-sticker::after { content: '✦'; position: absolute; right: -9px; top: -10px; color: #bf7e20; font-size: 13px; }
 .rha-sticker.tractor { left: 7%; top: -78px; --tilt: -8deg; }
 .rha-sticker.notes { right: 7%; top: -72px; --tilt: 7deg; background: #fff0cf; color: #72490f; animation-delay: -1.2s; }
 .rha-sticker.stock { left: 10%; bottom: -34px; --tilt: 6deg; background: #e9f0fb; color: #245a99; animation-delay: -2.4s; }
