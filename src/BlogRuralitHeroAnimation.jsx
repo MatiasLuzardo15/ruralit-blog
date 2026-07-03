@@ -4,7 +4,8 @@ import {
   Bell, FileSpreadsheet, ArrowDownRight, ArrowUpRight, Mic, Send,
   Check, CornerDownRight, ChevronRight, PanelLeftClose, Building2, Plus,
   X, ListChecks, MessageSquare, LockKeyhole, WalletCards, StickyNote,
-  RotateCcw, ExternalLink, Paperclip, ChevronLeft, MousePointer2
+  RotateCcw, ExternalLink, Paperclip, ChevronLeft, MousePointer2,
+  Tractor, NotebookPen, Wheat
 } from 'lucide-react';
 
 /**
@@ -64,7 +65,44 @@ const styles = `
   left: 50%;
   width: min(1120px, calc(100vw - 48px));
   translate: -50% 0;
+  isolation: isolate;
 }
+.rha-browser-bar {
+  position: absolute; z-index: 2; left: 0; right: 0; top: -30px; height: 31px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 0 12px; background: #fff;
+  border: 1px solid rgba(16,24,40,0.1); border-bottom-color: rgba(16,24,40,0.07);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -5px 15px rgba(16,24,40,0.04);
+  font-family: 'Inter', system-ui, sans-serif; pointer-events: none;
+}
+.rha-browser-controls { display: flex; align-items: center; gap: 6px; }
+.rha-browser-dot { width: 7px; height: 7px; border-radius: 50%; }
+.rha-browser-dot.red { background: #ff5f57; }
+.rha-browser-dot.yellow { background: #febc2e; }
+.rha-browser-dot.green { background: #28c840; }
+.rha-browser-address {
+  min-width: 220px; height: 19px; padding: 0 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  border: 1px solid rgba(16,24,40,0.08); border-radius: 6px;
+  background: #fff; color: #767676; font-size: 9px; font-weight: 500;
+}
+.rha-browser-address svg { width: 9px; height: 9px; stroke-width: 1.7; }
+.rha-browser-tools { justify-self: end; color: #9a9a9a; font-size: 11px; letter-spacing: 2px; }
+.rha-sticker {
+  position: absolute; z-index: 3; width: 42px; height: 42px;
+  display: grid; place-items: center; border: 2px solid #1e2b21; border-radius: 50%;
+  color: #173d20; background: #e9f5e8;
+  box-shadow: 3px 4px 0 rgba(30,43,33,0.16);
+  animation: rha-sticker-float 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.rha-sticker svg { width: 21px; height: 21px; stroke-width: 1.8; }
+.rha-sticker::after { content: '✦'; position: absolute; right: -9px; top: -10px; color: #bf7e20; font-size: 13px; }
+.rha-sticker.tractor { left: 7%; top: -78px; --tilt: -8deg; }
+.rha-sticker.notes { right: 7%; top: -72px; --tilt: 7deg; background: #fff0cf; color: #72490f; animation-delay: -1.2s; }
+.rha-sticker.stock { left: 10%; bottom: -34px; --tilt: 6deg; background: #e9f0fb; color: #245a99; animation-delay: -2.4s; }
+.rha-sticker.wheat { right: 10%; bottom: -30px; --tilt: -7deg; background: #f5e9d3; color: #7c5319; animation-delay: -3.2s; }
 .rha-frame {
   --green-main: #1B5E20;
   --green-sec: #2E7D32;
@@ -97,12 +135,13 @@ const styles = `
   font-family: var(--font);
   color: var(--t1);
   position: relative;
+  z-index: 1;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bg-outer);
   border: 1px solid var(--border-rgba);
-  border-radius: 1em;
+  border-radius: 0 0 1em 1em;
   box-shadow: 0 0.35em 1.35em rgba(16,24,40,0.055), 0 0 0.55em rgba(16,24,40,0.035);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -524,6 +563,10 @@ const styles = `
 @keyframes rha-team-tap { 0%,100% { transform: scale(1); } 45% { transform: scale(0.96); background: var(--green-light); } }
 @keyframes rha-button-tap { 0%,100% { transform: scale(1); } 45% { transform: scale(0.94); background: var(--green-light); border-color: var(--green-main); } }
 @keyframes rha-cursor-click { 0% { opacity: 0; transform: scale(0.35); } 35% { opacity: 1; } 100% { opacity: 0; transform: scale(1.25); } }
+@keyframes rha-sticker-float {
+  0%,100% { transform: translateY(0) rotate(var(--tilt)); }
+  50% { transform: translateY(-7px) rotate(calc(var(--tilt) + 2deg)); }
+}
 
 /* ---------- Mobile: pieza dedicada, solo el input animado ---------- */
 @media (max-width: 768px) {
@@ -532,6 +575,8 @@ const styles = `
     width: 100%;
     translate: none;
   }
+  .rha-browser-bar { display: none; }
+  .rha-sticker { display: none; }
   .rha-frame {
     font-size: clamp(11px, 3vw, 14px) !important;
     aspect-ratio: 4 / 3;
@@ -678,7 +723,8 @@ const styles = `
   .rha-recent-count.bump, .rha-row.new, .rha-placeholder > span,
   .rha-mobile-result, .rha-team-backdrop, .rha-team-panel, .rha-panel-view,
   .rha-team-block.tapped, .rha-detail-btn.tapped,
-  .rha-chat-message.reply, .rha-demo-cursor::after { animation: none !important; }
+  .rha-chat-message.reply, .rha-demo-cursor::after,
+  .rha-sticker { animation: none !important; }
   .rha-demo-cursor { transition: none !important; }
 }
 `;
@@ -1100,6 +1146,19 @@ const BlogRuralitHeroAnimation = () => {
     <>
       <style>{styles}</style>
       <div className="rha-outer">
+        <span className="rha-sticker tractor" aria-hidden="true"><Tractor /></span>
+        <span className="rha-sticker notes" aria-hidden="true"><NotebookPen /></span>
+        <span className="rha-sticker stock" aria-hidden="true"><Package /></span>
+        <span className="rha-sticker wheat" aria-hidden="true"><Wheat /></span>
+        <span className="rha-browser-bar" aria-hidden="true">
+          <span className="rha-browser-controls">
+            <span className="rha-browser-dot red" />
+            <span className="rha-browser-dot yellow" />
+            <span className="rha-browser-dot green" />
+          </span>
+          <span className="rha-browser-address"><LockKeyhole /> ruralit.site</span>
+          <span className="rha-browser-tools">•••</span>
+        </span>
         <div className="rha-frame" ref={frameRef} aria-hidden="true">
          <div className="rha-stage">
           {/* ---------- Sidebar ---------- */}
