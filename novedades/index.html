@@ -133,6 +133,24 @@
             line-height: 1.7;
         }
 
+        .blog-caption-mount {
+            min-height: 3.8rem;
+            max-width: 680px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .blog-caption-mount .rha-live-caption {
+            max-width: 100%;
+            min-height: 3.8rem;
+            padding: 0;
+            color: var(--muted);
+            font-size: 1.12rem;
+            font-weight: 400;
+            line-height: 1.7;
+            text-align: left;
+        }
+
         .blog-toolbar {
             display: flex;
             align-items: center;
@@ -525,7 +543,9 @@
             .back-link { margin-bottom: 1.25rem; }
             .blog-hero { margin-bottom: 1.5rem; }
             .blog-hero h1 { font-size: 2.85rem; }
-            .blog-hero p { font-size: 1rem; }
+            .blog-caption-mount,
+            .blog-caption-mount .rha-live-caption { min-height: 7rem; }
+            .blog-caption-mount .rha-live-caption { font-size: 1rem; }
             .blog-toolbar { margin-bottom: 1.75rem; padding: 0; }
             .bfilters { flex-wrap: nowrap; width: 100%; overflow-x: auto; padding-bottom: 2px; }
             .bfilter-btn { white-space: nowrap; }
@@ -576,7 +596,7 @@
 
             <section class="blog-hero" aria-labelledby="blog-title">
                 <h1 id="blog-title">Ideas desde Ruralit</h1>
-                <p>Mejoras del producto, guías prácticas y actualizaciones para que saques el máximo provecho de la plataforma.</p>
+                <div id="novedades-caption-root" class="blog-caption-mount">Escribí o dictá un movimiento con palabras cotidianas. Ruralit reconoce el monto, la categoría y la moneda por vos.</div>
             </section>
 
             <div class="blog-toolbar" aria-label="Buscar y filtrar artículos">
@@ -765,5 +785,6 @@
         window.addEventListener('load', lockBlogHeight);
         window.addEventListener('resize', () => requestAnimationFrame(lockBlogHeight));
     </script>
+    <script type="module" src="/src/novedades.jsx"></script>
 </body>
 </html>

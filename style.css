@@ -610,6 +610,56 @@ footer {
   letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
+.hero h1.hero-title {
+  align-self: center;
+  width: max-content;
+  max-width: none;
+  text-wrap: balance;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+.hero-dynamic-line {
+  position: relative;
+  width: 100%;
+  height: 1.3em;
+  margin: -0.08em auto 24px;
+  overflow: hidden;
+  perspective: 900px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--green-dark);
+}
+.hero-dynamic-line-layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotateX(-88deg) translateY(16%);
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+  transition:
+    opacity 500ms ease,
+    transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 0.02em 0.08em 0.1em;
+  text-align: center;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+.hero-dynamic-line-layer.is-current {
+  opacity: 1;
+  transform: rotateX(0deg) translateY(0);
+}
+.hero-dynamic-line-layer.is-exiting {
+  opacity: 0;
+  transform: rotateX(88deg) translateY(-16%);
+  transform-origin: 50% 0%;
+}
 .hero-sub {
   font-size: 1.125rem;
   color: var(--muted);
@@ -2045,28 +2095,9 @@ button.solucion-card:focus-visible {
   transform: translateX(-50%);
   border: 1px solid rgba(27,94,32,0.055);
   border-radius: 38px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.48) 0%, rgba(255,255,255,0.22) 48%, rgba(255,255,255,0.04) 100%);
-}
-.hero-demo-stage::after {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  top: 46px;
-  width: 1px;
-  height: 30px;
-  background: linear-gradient(180deg, rgba(27,94,32,0.28), rgba(27,94,32,0.05));
+  background: rgba(255, 255, 255, 0.42);
 }
 .hero-demo-stage > * { position: relative; z-index: 1; }
-.hero-animation-caption-mount {
-  min-height: 42px;
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-}
-.hero-animation-caption-mount + .hero-preview-mount { margin-top: 58px; }
 .rha-live-caption {
   position: relative;
   display: inline-flex;
@@ -2139,13 +2170,13 @@ button.solucion-card:focus-visible {
   100% { left: calc(100% - 27px); opacity: 0; transform: translate(7px,-50%) rotate(7deg); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero-dynamic-line-layer { transition: none; }
   .rha-live-caption-text { transition: none; }
   .rha-caption-eraser { display: none; }
 }
 
 @media (max-width: 768px) {
-  .hero-demo-stage::before,
-  .hero-demo-stage::after { display: none; }
+  .hero-demo-stage::before { display: none; }
   section { padding: 40px 20px; }
   nav { padding: 16px 20px; }
   .nav-links, .nav-cta { display: none; }
@@ -2154,6 +2185,12 @@ button.solucion-card:focus-visible {
   .hero { padding: 72px 20px 28px; }
   .hero-content { padding-top: 24px; }
   .hero h1 { font-size: 2.4rem; }
+  .hero h1.hero-title {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .hero-dynamic-line { font-size: 2.4rem; }
   .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: 1fr; }
   .soluciones-grid {
     grid-template-columns: repeat(2, 1fr);
