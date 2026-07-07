@@ -16,6 +16,8 @@ export default defineConfig({
         manual: resolve(__dirname, 'manual/index.html'),
         novas: resolve(__dirname, 'novedades/index.html'),
         'dictado-inteligente': resolve(__dirname, 'novedades/dictado-inteligente.html'),
+        'actividad-del-equipo': resolve(__dirname, 'novedades/actividad-del-equipo.html'),
+        'chats-del-equipo': resolve(__dirname, 'novedades/chats-del-equipo.html'),
         'motor-impositivo': resolve(__dirname, 'novedades/motor-impositivo.html'),
         'lectura-automatica': resolve(__dirname, 'novedades/lectura-automatica.html'),
         'control-de-stock': resolve(__dirname, 'novedades/control-de-stock.html'),
