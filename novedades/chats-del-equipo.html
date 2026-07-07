@@ -396,6 +396,14 @@
         .back-link:hover { color: var(--dark); }
         .back-link svg { width: 16px; height: 16px; }
 
+        .article-hero-demo {
+            max-width: 820px;
+            width: 90%;
+            margin: 1.75rem auto 0;
+        }
+
+        .article-hero-demo .rha-outer { width: 100%; }
+
         @media (max-width: 768px) {
             .article-hero {
                 padding: 7rem 0 2rem;
@@ -490,6 +498,9 @@
                 <span class="meta-dot"></span>
                 <span>Equipo Ruralit</span>
             </div>
+        </div>
+        <div class="article-hero-demo">
+            <div id="react-chats-flow-root"></div>
         </div>
     </div>
 
@@ -658,6 +669,7 @@
             }
         }, { passive: true });
     </script>
+    <script type="module" src="/src/chatsFlowMount.jsx"></script>
 </body>
 
 </html>
