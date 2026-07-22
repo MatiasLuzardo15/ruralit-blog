@@ -14,6 +14,7 @@ export default defineConfig({
         terminos: resolve(__dirname, 'terminos/index.html'),
         faq: resolve(__dirname, 'faq/index.html'),
         manual: resolve(__dirname, 'manual/index.html'),
+        planes: resolve(__dirname, 'planes/index.html'),
         novas: resolve(__dirname, 'novedades/index.html'),
         'dictado-inteligente': resolve(__dirname, 'novedades/dictado-inteligente.html'),
         'actividad-del-equipo': resolve(__dirname, 'novedades/actividad-del-equipo.html'),

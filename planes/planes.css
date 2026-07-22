@@ -1,0 +1,1484 @@
+.plans-page {
+  background: var(--cream);
+  color: var(--dark);
+}
+
+.plans-page :focus-visible {
+  outline: 3px solid rgba(199, 139, 46, 0.72);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 999;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.plans-page nav {
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.plans-page nav.plans-nav--scrolled {
+  box-shadow: 0 1px 24px rgba(14, 30, 18, 0.1);
+}
+
+.plans-page .nav-links a[aria-current="page"],
+.plans-page .mobile-menu a[aria-current="page"] {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.plans-page .nav-links a[aria-current="page"]::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 5px;
+  background: var(--amber);
+}
+
+.plans-shell {
+  width: min(1160px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.plans-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 154px 0 88px;
+  background:
+    radial-gradient(circle at 87% 13%, rgba(46, 158, 83, 0.11), transparent 27rem),
+    linear-gradient(180deg, #fbf5eb 0%, var(--cream) 100%);
+}
+
+.plans-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(14, 30, 18, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 30, 18, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.plans-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 92px);
+}
+
+.plans-hero__copy {
+  animation: plans-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.plans-preview-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 7px 11px;
+  border: 1px solid rgba(14, 30, 18, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.plans-preview-label__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(199, 139, 46, 0.13);
+}
+
+.plans-hero h1 {
+  max-width: 720px;
+  margin: 0 0 26px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(3.3rem, 6.4vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.048em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.plans-hero__lead {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.plans-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.plans-text-link,
+.plans-light-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.plans-text-link:hover,
+.plans-light-link:hover {
+  gap: 12px;
+}
+
+.plans-hero__availability {
+  max-width: 530px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.plans-field-note {
+  position: relative;
+  overflow: hidden;
+  padding: 16px 24px 24px;
+  border: 1px solid rgba(14, 30, 18, 0.13);
+  border-radius: 4px 22px 22px 4px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 28px 70px rgba(14, 30, 18, 0.12);
+  transform: rotate(1.25deg);
+  animation: plans-note-in 0.85s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.plans-field-note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 42px;
+  width: 1px;
+  background: rgba(192, 74, 56, 0.18);
+}
+
+.plans-field-note::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 47px,
+    rgba(14, 30, 18, 0.055) 48px
+  );
+}
+
+.plans-field-note__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 5px 0 17px 32px;
+  border-bottom: 1px solid rgba(14, 30, 18, 0.09);
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.plans-field-note ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plans-field-note li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 82px;
+  padding-left: 0;
+  border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+}
+
+.plans-field-note__number {
+  color: rgba(14, 30, 18, 0.33);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.plans-field-note li > span:nth-child(2) {
+  display: grid;
+  gap: 3px;
+}
+
+.plans-field-note strong {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.plans-field-note small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.plans-field-note__status {
+  padding: 5px 8px;
+  border: 1px solid rgba(14, 30, 18, 0.12);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.plans-field-note__status--active {
+  border-color: rgba(46, 158, 83, 0.23);
+  background: rgba(46, 158, 83, 0.08);
+  color: #257a41;
+}
+
+.plans-field-note > p {
+  padding: 19px 0 0 32px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.plans-promises {
+  border-top: 1px solid rgba(14, 30, 18, 0.08);
+  border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.plans-promises__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.plans-promises__grid > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 112px;
+  padding: 30px 34px;
+  border-right: 1px solid rgba(14, 30, 18, 0.08);
+}
+
+.plans-promises__grid > div:first-child {
+  padding-left: 0;
+}
+
+.plans-promises__grid > div:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.plans-promises svg {
+  flex: 0 0 auto;
+  color: var(--amber);
+}
+
+.plans-promises span {
+  display: grid;
+  gap: 5px;
+}
+
+.plans-promises strong {
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.plans-promises small {
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.plans-cards-section,
+.plan-comparison,
+.plans-guides,
+.plans-faq {
+  padding: 112px 0;
+}
+
+.plans-section-heading {
+  max-width: 720px;
+  margin-bottom: 54px;
+}
+
+.plans-section-heading h2,
+.plans-preservation h2,
+.plans-final-cta h2 {
+  margin: 0 0 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(2.45rem, 4.6vw, 4.35rem);
+  font-weight: 300;
+  letter-spacing: -0.042em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.plans-section-heading > p:last-child,
+.plans-section-heading > div + p,
+.plans-preservation__copy > p,
+.plans-final-cta p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.plans-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 680px;
+  padding: 28px;
+  border: 1px solid rgba(14, 30, 18, 0.09);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 50px rgba(14, 30, 18, 0.055);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px rgba(14, 30, 18, 0.09);
+}
+
+.plan-card--pro {
+  min-height: 710px;
+  margin-top: -16px;
+  border-color: rgba(255, 255, 255, 0.09);
+  background:
+    radial-gradient(circle at 90% 6%, rgba(46, 158, 83, 0.25), transparent 16rem),
+    var(--dark);
+  color: var(--white);
+  box-shadow: 0 30px 70px rgba(14, 30, 18, 0.18);
+}
+
+.plan-card--teams {
+  overflow: hidden;
+  border-color: rgba(106, 67, 10, 0.26);
+  background:
+    radial-gradient(circle at 92% 5%, rgba(255, 247, 198, 0.72), transparent 15rem),
+    linear-gradient(145deg, #f2d98c 0%, #d7aa4e 55%, #bd7d20 100%);
+  color: var(--dark);
+  box-shadow: 0 24px 62px rgba(111, 72, 13, 0.18);
+}
+
+.plan-card--teams::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(115deg, transparent 0 34px, rgba(72, 45, 5, 0.07) 35px 36px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 42%);
+  mask-image: linear-gradient(to bottom, black, transparent 76%);
+}
+
+.plan-card--teams > * {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-card--teams:hover {
+  box-shadow: 0 30px 72px rgba(111, 72, 13, 0.25);
+}
+
+.plan-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 42px;
+}
+
+.plan-card__index {
+  color: rgba(14, 30, 18, 0.34);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.plan-card--pro .plan-card__index {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.plan-card--teams .plan-card__index {
+  color: rgba(14, 30, 18, 0.48);
+}
+
+.plan-status {
+  padding: 6px 9px;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.plan-status--available {
+  background: rgba(46, 158, 83, 0.09);
+  color: #257a41;
+}
+
+.plan-status--preview {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.plan-status--building {
+  border: 1px solid rgba(14, 30, 18, 0.14);
+  background: rgba(255, 248, 217, 0.48);
+  color: #4f390f;
+}
+
+.plan-card__name {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plan-card--pro .plan-card__name {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.plan-card--teams .plan-card__name {
+  color: rgba(14, 30, 18, 0.62);
+}
+
+.plan-card h3 {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.plan-card__audience {
+  min-height: 94px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.plan-card--pro .plan-card__audience {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.plan-card--teams .plan-card__audience {
+  color: rgba(14, 30, 18, 0.7);
+}
+
+.plan-card__price-state {
+  display: grid;
+  gap: 4px;
+  min-height: 82px;
+  margin: 22px 0 24px;
+  padding: 19px 0;
+  border-top: 1px solid rgba(14, 30, 18, 0.09);
+  border-bottom: 1px solid rgba(14, 30, 18, 0.09);
+}
+
+.plan-card--pro .plan-card__price-state {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.plan-card--teams .plan-card__price-state {
+  border-color: rgba(14, 30, 18, 0.16);
+}
+
+.plan-card__price-state strong {
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.plan-card__price-state span {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.plan-card--pro .plan-card__price-state span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.plan-card--teams .plan-card__price-state span {
+  color: rgba(14, 30, 18, 0.62);
+}
+
+.plan-card__features {
+  display: grid;
+  gap: 13px;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.plan-card__features li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+.plan-card__features li::before {
+  content: "";
+  position: absolute;
+  top: 0.38em;
+  left: 2px;
+  width: 8px;
+  height: 4px;
+  border-bottom: 1.5px solid var(--agri);
+  border-left: 1.5px solid var(--agri);
+  transform: rotate(-45deg);
+}
+
+.plan-card--pro .plan-card__features li {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.plan-card--pro .plan-card__features li::before {
+  border-color: #72cf8e;
+}
+
+.plan-card--teams .plan-card__features li {
+  color: rgba(14, 30, 18, 0.74);
+}
+
+.plan-card--teams .plan-card__features li::before {
+  border-color: #173f25;
+}
+
+.plan-card--teams .plan-card__features .plan-card__feature--future::before {
+  top: 0.42em;
+  width: 7px;
+  height: 7px;
+  border: 1.5px solid rgba(14, 30, 18, 0.68);
+  border-radius: 50%;
+  transform: none;
+}
+
+.plan-card__feature--future small {
+  display: inline-flex;
+  margin-left: 5px;
+  padding: 2px 5px;
+  border: 1px solid rgba(14, 30, 18, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 248, 217, 0.32);
+  color: rgba(14, 30, 18, 0.68);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+}
+
+.plan-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  margin-top: auto;
+  padding: 11px 16px;
+  border: 1px solid rgba(14, 30, 18, 0.18);
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-align: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.plan-card__cta:hover {
+  border-color: var(--dark);
+  background: rgba(14, 30, 18, 0.045);
+  transform: translateY(-2px);
+}
+
+.plan-card__cta--primary {
+  border-color: var(--dark);
+  background: var(--dark);
+  color: var(--white);
+}
+
+.plan-card__cta--primary:hover {
+  background: #1a2e1f;
+}
+
+.plan-card--pro .plan-card__cta {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.plan-card--pro .plan-card__cta:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.plan-card--teams .plan-card__cta {
+  border-color: var(--dark);
+  background: var(--dark);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(14, 30, 18, 0.16);
+}
+
+.plan-card--teams .plan-card__cta:hover {
+  border-color: #1a2e1f;
+  background: #1a2e1f;
+  box-shadow: 0 14px 28px rgba(14, 30, 18, 0.22);
+}
+
+.plan-card__footnote {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.plan-card--pro .plan-card__footnote {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.plan-card--teams .plan-card__footnote {
+  color: rgba(14, 30, 18, 0.58);
+}
+
+.plan-comparison {
+  border-top: 1px solid rgba(14, 30, 18, 0.08);
+  background: #f2eadf;
+}
+
+.plans-section-heading--comparison,
+.plans-section-heading--guides {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: none;
+}
+
+.plans-section-heading--comparison > div {
+  max-width: 710px;
+}
+
+.plans-section-heading--comparison > p {
+  max-width: 330px;
+  margin-bottom: 7px;
+  font-size: 0.85rem;
+}
+
+.plan-filter {
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 4px;
+  border: 1px solid rgba(14, 30, 18, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.plan-filter button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.plan-filter button:hover {
+  color: var(--dark);
+}
+
+.plan-filter button.is-active {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(14, 30, 18, 0.09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 50px rgba(14, 30, 18, 0.045);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 18px 20px;
+  border-right: 1px solid rgba(14, 30, 18, 0.07);
+  border-bottom: 1px solid rgba(14, 30, 18, 0.07);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+  border-right: 0;
+}
+
+.comparison-table thead th {
+  padding-top: 23px;
+  padding-bottom: 23px;
+  background: rgba(14, 30, 18, 0.035);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.comparison-table thead th:first-child {
+  width: 31%;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.comparison-table thead th small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 500;
+}
+
+.comparison-table tbody th {
+  color: var(--dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.comparison-table tbody td {
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.comparison-table tbody td strong {
+  color: var(--dark);
+  font-weight: 650;
+}
+
+.comparison-table .comparison-group th {
+  padding: 13px 20px;
+  border-right: 0;
+  background: rgba(14, 30, 18, 0.055);
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.comparison-table tr:last-child th,
+.comparison-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.included,
+.at-launch,
+.in-development,
+.not-included {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.included::before,
+.at-launch::before,
+.in-development::before,
+.not-included::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--agri);
+}
+
+.at-launch::before {
+  background: var(--amber);
+}
+
+.in-development::before {
+  border: 1px solid var(--amber);
+  background: transparent;
+}
+
+.not-included::before {
+  width: 8px;
+  height: 1px;
+  border-radius: 0;
+  background: rgba(14, 30, 18, 0.28);
+}
+
+.plan-comparison[data-plan="free"] .plan-pro,
+.plan-comparison[data-plan="free"] .plan-teams,
+.plan-comparison[data-plan="pro"] .plan-free,
+.plan-comparison[data-plan="pro"] .plan-teams,
+.plan-comparison[data-plan="teams"] .plan-free,
+.plan-comparison[data-plan="teams"] .plan-pro {
+  display: none;
+}
+
+.plan-comparison:not([data-plan="all"]) .comparison-table thead th:first-child {
+  width: 48%;
+}
+
+.comparison-note {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.comparison-note strong {
+  color: var(--dark);
+}
+
+.plans-preservation {
+  position: relative;
+  overflow: hidden;
+  padding: 112px 0;
+  background: var(--dark);
+  color: var(--white);
+}
+
+.plans-preservation::after {
+  content: "";
+  position: absolute;
+  top: -45%;
+  right: -18%;
+  width: 620px;
+  height: 620px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 46% 54% 60% 40%;
+  box-shadow:
+    0 0 0 46px rgba(255, 255, 255, 0.025),
+    0 0 0 92px rgba(255, 255, 255, 0.018);
+  transform: rotate(18deg);
+}
+
+.plans-preservation__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(60px, 9vw, 130px);
+}
+
+.plans-preservation h2 {
+  color: var(--white);
+}
+
+.plans-preservation__copy > p {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.plans-preservation .plans-light-link,
+.plans-final-cta .plans-light-link {
+  margin-top: 26px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.plans-preservation__steps {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plans-preservation__steps li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 20px;
+  padding: 23px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plans-preservation__steps li:first-child {
+  padding-top: 5px;
+}
+
+.plans-preservation__steps li > span {
+  padding-top: 4px;
+  color: var(--amber);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.plans-preservation__steps strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.plans-preservation__steps p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.plans-guides {
+  background: var(--cream);
+}
+
+.plans-section-heading--guides {
+  align-items: center;
+}
+
+.plans-section-heading--guides > div {
+  max-width: 690px;
+}
+
+.plans-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.plans-guide-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 28px;
+  border: 1px solid rgba(14, 30, 18, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.plans-guide-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(14, 30, 18, 0.18);
+  background: var(--white);
+}
+
+.plans-guide-card__tag {
+  align-self: flex-start;
+  margin-bottom: auto;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(46, 158, 83, 0.08);
+  color: #257a41;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plans-guide-card h3 {
+  margin: 38px 0 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 450;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.plans-guide-card p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.plans-guide-card__link {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.plans-faq {
+  border-top: 1px solid rgba(14, 30, 18, 0.08);
+  background: var(--inner);
+}
+
+.plans-faq__grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(54px, 8vw, 110px);
+}
+
+.plans-faq__grid .plans-section-heading {
+  margin-bottom: 0;
+}
+
+.plans-faq__list {
+  border-top: 1px solid rgba(14, 30, 18, 0.13);
+}
+
+.plans-faq details {
+  border-bottom: 1px solid rgba(14, 30, 18, 0.13);
+}
+
+.plans-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  color: var(--dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.plans-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.plans-faq summary span {
+  flex: 0 0 auto;
+  color: var(--amber);
+  font-size: 1.35rem;
+  font-weight: 300;
+  transition: transform 0.25s ease;
+}
+
+.plans-faq details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.plans-faq details p {
+  max-width: 650px;
+  padding: 0 44px 25px 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.plans-final-cta {
+  padding: 90px 0;
+  background: #15291a;
+  color: var(--white);
+}
+
+.plans-final-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 64px;
+}
+
+.plans-final-cta h2 {
+  max-width: 760px;
+  color: var(--white);
+}
+
+.plans-final-cta p {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.plans-final-cta__actions {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  min-width: 190px;
+}
+
+.plans-final-cta__actions .btn-amber {
+  justify-content: center;
+  width: 100%;
+}
+
+.plans-home {
+  padding: 100px 0;
+  border-top: 1px solid rgba(14, 30, 18, 0.08);
+  background: #f2eadf;
+}
+
+.plans-home__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.plans-home__header > div {
+  max-width: 680px;
+}
+
+.plans-home__header .section-title {
+  margin-bottom: 13px;
+}
+
+.plans-home__header .section-sub {
+  max-width: 610px;
+}
+
+.plans-home__rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid rgba(14, 30, 18, 0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.plans-home__item {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 14px;
+  min-height: 150px;
+  padding: 27px;
+  border-right: 1px solid rgba(14, 30, 18, 0.09);
+}
+
+.plans-home__item:last-child {
+  border-right: 0;
+}
+
+.plans-home__item > span:first-child {
+  color: var(--amber);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.plans-home__item div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.plans-home__item strong {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 450;
+}
+
+.plans-home__item p {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.plans-home__status {
+  margin-top: auto;
+  padding-top: 15px;
+  color: var(--muted);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.plans-home__status--available {
+  color: #257a41;
+}
+
+@keyframes plans-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes plans-note-in {
+  from { opacity: 0; transform: translateY(26px) rotate(3deg); }
+  to { opacity: 1; transform: translateY(0) rotate(1.25deg); }
+}
+
+@media (max-width: 1060px) {
+  .plans-page .nav-links {
+    gap: 20px;
+  }
+
+  .plans-hero__grid {
+    grid-template-columns: 1fr 0.78fr;
+    gap: 44px;
+  }
+
+  .plans-field-note li {
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .plans-field-note__status {
+    display: none;
+  }
+
+  .plan-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .plans-shell {
+    width: min(100% - 40px, 720px);
+  }
+
+  .plans-hero {
+    padding-top: 132px;
+  }
+
+  .plans-hero__grid,
+  .plans-preservation__grid,
+  .plans-faq__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plans-field-note {
+    max-width: 620px;
+    transform: none;
+  }
+
+  .plans-promises__grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .plans-promises__grid > div,
+  .plans-promises__grid > div:first-child,
+  .plans-promises__grid > div:last-child {
+    min-height: 0;
+    padding: 22px 20px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(14, 30, 18, 0.08);
+  }
+
+  .plans-promises__grid > div:last-child {
+    border-bottom: 0;
+  }
+
+  .plans-card-grid,
+  .plans-guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-card,
+  .plan-card--pro {
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .plan-card__audience {
+    min-height: 0;
+  }
+
+  .plans-section-heading--comparison,
+  .plans-section-heading--guides,
+  .plans-home__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .plans-preservation__grid {
+    gap: 64px;
+  }
+
+  .plans-final-cta__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 36px;
+  }
+
+  .plans-home__rail {
+    grid-template-columns: 1fr;
+  }
+
+  .plans-home__item {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(14, 30, 18, 0.09);
+  }
+
+  .plans-home__item:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .plans-page .mobile-menu.open > *:nth-child(7) {
+    transition-delay: 0.35s;
+  }
+
+  .plans-hero {
+    padding: 116px 0 64px;
+  }
+
+  .plans-hero h1 {
+    font-size: clamp(3rem, 14vw, 4.35rem);
+  }
+
+  .plans-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plans-hero__actions .btn-dark,
+  .plans-hero__actions .plans-text-link {
+    justify-content: center;
+  }
+
+  .plans-field-note {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .plans-field-note::before {
+    left: 32px;
+  }
+
+  .plans-field-note__top,
+  .plans-field-note > p {
+    padding-left: 24px;
+  }
+
+  .plans-cards-section,
+  .plan-comparison,
+  .plans-guides,
+  .plans-faq,
+  .plans-preservation {
+    padding: 80px 0;
+  }
+
+  .plans-section-heading h2,
+  .plans-preservation h2,
+  .plans-final-cta h2 {
+    font-size: clamp(2.4rem, 11vw, 3.35rem);
+  }
+
+  .plan-card {
+    padding: 24px 22px;
+  }
+
+  .plan-filter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  .plan-filter button {
+    padding: 9px 5px;
+    font-size: 0.7rem;
+  }
+
+  .comparison-table {
+    min-width: 660px;
+  }
+
+  .plan-comparison:not([data-plan="all"]) .comparison-table {
+    min-width: 0;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 15px 13px;
+  }
+
+  .plans-guide-card {
+    min-height: 250px;
+  }
+
+  .plans-final-cta {
+    padding: 72px 0;
+  }
+
+  .plans-final-cta__actions {
+    width: 100%;
+  }
+
+  .plans-home {
+    padding: 76px 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .plans-shell {
+    width: calc(100% - 30px);
+  }
+
+  .plans-preview-label {
+    font-size: 0.64rem;
+  }
+
+  .plans-field-note__top span:last-child {
+    display: none;
+  }
+
+  .plans-field-note li {
+    gap: 8px;
+  }
+
+  .plan-filter {
+    overflow-x: auto;
+  }
+
+  .plans-preservation__steps li {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plans-page *,
+  .plans-page *::before,
+  .plans-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
