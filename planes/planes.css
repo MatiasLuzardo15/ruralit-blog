@@ -380,18 +380,41 @@
   box-shadow: 0 24px 60px rgba(14, 30, 18, 0.09);
 }
 
+.plan-card--free {
+  height: 710px;
+  min-height: 710px;
+  overflow: hidden;
+  border-color: rgba(201, 233, 209, 0.14);
+  background:
+    radial-gradient(circle at 91% 5%, rgba(123, 210, 146, 0.13), transparent 15rem),
+    linear-gradient(155deg, #0d321e 0%, #082416 100%);
+  color: #f5f8f3;
+  box-shadow: 0 24px 62px rgba(1, 24, 12, 0.2);
+}
+
+.plan-card--free:hover {
+  box-shadow: 0 30px 72px rgba(1, 24, 12, 0.26);
+}
+
 .plan-card--pro {
   min-height: 710px;
   margin-top: -16px;
-  border-color: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+  border-color: rgba(35, 52, 57, 0.18);
   background:
-    radial-gradient(circle at 90% 6%, rgba(46, 158, 83, 0.25), transparent 16rem),
-    var(--dark);
-  color: var(--white);
-  box-shadow: 0 30px 70px rgba(14, 30, 18, 0.18);
+    repeating-linear-gradient(118deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 43px),
+    linear-gradient(155deg, #f4f6f6 0%, #d4dadc 52%, #b5bec1 100%);
+  color: #182326;
+  box-shadow: 0 30px 70px rgba(35, 52, 57, 0.2);
+}
+
+.plan-card--pro:hover {
+  box-shadow: 0 34px 76px rgba(35, 52, 57, 0.27);
 }
 
 .plan-card--teams {
+  height: 710px;
+  min-height: 710px;
   overflow: hidden;
   border-color: rgba(106, 67, 10, 0.26);
   background:
@@ -423,6 +446,60 @@
   box-shadow: 0 30px 72px rgba(111, 72, 13, 0.25);
 }
 
+.plan-card--teams .plan-card__header {
+  margin-bottom: 28px;
+}
+
+.plan-card--teams .plan-card__identity {
+  gap: 8px;
+}
+
+.plan-card--teams .plan-card__logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+}
+
+.plan-card--teams h3 {
+  font-size: clamp(2.65rem, 3.5vw, 3.45rem);
+}
+
+.plan-card--teams .plan-card__audience {
+  min-height: 72px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+}
+
+.plan-card--teams .plan-card__price-state {
+  min-height: 68px;
+  margin: 16px 0 18px;
+  padding: 14px 0;
+}
+
+.plan-card--teams .plan-card__features {
+  gap: 9px;
+  margin-bottom: 18px;
+}
+
+.plan-card--teams .plan-card__features li {
+  font-size: 0.76rem;
+  line-height: 1.42;
+}
+
+.plan-card--teams .plan-card__feature--future small {
+  display: none;
+}
+
+.plan-card--teams .plan-card__cta {
+  min-height: 44px;
+}
+
+.plan-card--teams .plan-card__footnote {
+  margin-top: 8px;
+  font-size: 0.62rem;
+  line-height: 1.3;
+}
+
 .plan-card__header {
   display: flex;
   align-items: center;
@@ -438,12 +515,46 @@
   letter-spacing: 0.08em;
 }
 
+.plan-card--free .plan-card__index {
+  color: rgba(245, 248, 243, 0.44);
+}
+
 .plan-card--pro .plan-card__index {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(24, 35, 38, 0.48);
 }
 
 .plan-card--teams .plan-card__index {
   color: rgba(14, 30, 18, 0.48);
+}
+
+.plan-card__identity {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.plan-card__identity-copy {
+  min-width: 0;
+}
+
+.plan-card__logo {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(1, 10, 5, 0.18);
+}
+
+.plan-card--pro .plan-card__logo {
+  border-color: rgba(57, 89, 103, 0.22);
+  box-shadow: 0 8px 20px rgba(35, 52, 57, 0.18);
+}
+
+.plan-card--teams .plan-card__logo {
+  border-color: rgba(77, 48, 7, 0.2);
+  box-shadow: 0 12px 28px rgba(77, 48, 7, 0.2);
 }
 
 .plan-status {
@@ -456,14 +567,15 @@
 }
 
 .plan-status--available {
-  background: rgba(46, 158, 83, 0.09);
-  color: #257a41;
+  border: 1px solid rgba(123, 210, 146, 0.2);
+  background: rgba(123, 210, 146, 0.12);
+  color: #b7e6c3;
 }
 
 .plan-status--preview {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(57, 89, 103, 0.22);
+  background: rgba(57, 89, 103, 0.09);
+  color: #395967;
 }
 
 .plan-status--building {
@@ -481,8 +593,12 @@
   text-transform: uppercase;
 }
 
+.plan-card--free .plan-card__name {
+  color: #a8baae;
+}
+
 .plan-card--pro .plan-card__name {
-  color: rgba(255, 255, 255, 0.46);
+  color: #46545a;
 }
 
 .plan-card--teams .plan-card__name {
@@ -505,8 +621,12 @@
   line-height: 1.65;
 }
 
+.plan-card--free .plan-card__audience {
+  color: #a8baae;
+}
+
 .plan-card--pro .plan-card__audience {
-  color: rgba(255, 255, 255, 0.62);
+  color: #46545a;
 }
 
 .plan-card--teams .plan-card__audience {
@@ -523,8 +643,12 @@
   border-bottom: 1px solid rgba(14, 30, 18, 0.09);
 }
 
+.plan-card--free .plan-card__price-state {
+  border-color: rgba(201, 233, 209, 0.14);
+}
+
 .plan-card--pro .plan-card__price-state {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(35, 52, 57, 0.16);
 }
 
 .plan-card--teams .plan-card__price-state {
@@ -541,8 +665,12 @@
   font-size: 0.74rem;
 }
 
+.plan-card--free .plan-card__price-state span {
+  color: #a8baae;
+}
+
 .plan-card--pro .plan-card__price-state span {
-  color: rgba(255, 255, 255, 0.5);
+  color: #46545a;
 }
 
 .plan-card--teams .plan-card__price-state span {
@@ -576,12 +704,20 @@
   transform: rotate(-45deg);
 }
 
+.plan-card--free .plan-card__features li {
+  color: #a8baae;
+}
+
+.plan-card--free .plan-card__features li::before {
+  border-color: #7bd292;
+}
+
 .plan-card--pro .plan-card__features li {
-  color: rgba(255, 255, 255, 0.7);
+  color: #46545a;
 }
 
 .plan-card--pro .plan-card__features li::before {
-  border-color: #72cf8e;
+  border-color: #395967;
 }
 
 .plan-card--teams .plan-card__features li {
@@ -649,15 +785,28 @@
   background: #1a2e1f;
 }
 
+.plan-card--free .plan-card__cta {
+  border-color: rgba(245, 248, 243, 0.88);
+  background: #f5f8f3;
+  color: #0d321e;
+  box-shadow: 0 10px 24px rgba(1, 10, 5, 0.2);
+}
+
+.plan-card--free .plan-card__cta:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(1, 10, 5, 0.28);
+}
+
 .plan-card--pro .plan-card__cta {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
+  border-color: rgba(24, 35, 38, 0.22);
+  background: rgba(255, 255, 255, 0.3);
+  color: #182326;
 }
 
 .plan-card--pro .plan-card__cta:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(24, 35, 38, 0.38);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .plan-card--teams .plan-card__cta {
@@ -682,7 +831,7 @@
 }
 
 .plan-card--pro .plan-card__footnote {
-  color: rgba(255, 255, 255, 0.42);
+  color: #526168;
 }
 
 .plan-card--teams .plan-card__footnote {
@@ -1209,6 +1358,22 @@
   font-weight: 450;
 }
 
+.plans-home__plan-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plans-home__plan-logo {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(14, 30, 18, 0.12);
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(14, 30, 18, 0.13);
+}
+
 .plans-home__item p {
   margin-top: 7px;
   color: var(--muted);
@@ -1228,6 +1393,10 @@
 
 .plans-home__status--available {
   color: #257a41;
+}
+
+.plans-home__status--pro {
+  color: #8a5a14;
 }
 
 @keyframes plans-rise {
@@ -1310,6 +1479,11 @@
   .plan-card--pro {
     min-height: 0;
     margin-top: 0;
+  }
+
+  .plan-card--free,
+  .plan-card--teams {
+    height: auto;
   }
 
   .plan-card__audience {
@@ -1402,6 +1576,12 @@
 
   .plan-card {
     padding: 24px 22px;
+  }
+
+  .plan-card__logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
   }
 
   .plan-filter {
