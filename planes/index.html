@@ -192,12 +192,13 @@
         </header>
 
         <div class="plans-card-grid">
-          <article class="plan-card plan-card--free">
+          <article class="plan-card plan-card--free" id="plan-gratis">
             <div class="plan-card__header">
               <span class="plan-card__index">01</span>
               <span class="plan-status plan-status--available">Disponible hoy</span>
             </div>
             <div class="plan-card__identity">
+              <img class="plan-card__logo" src="/free.svg" alt="" aria-hidden="true" width="46" height="46" loading="lazy" decoding="async" />
               <div class="plan-card__identity-copy">
                 <p class="plan-card__name">Ruralit</p>
                 <h3>Gratis</h3>
@@ -218,7 +219,7 @@
             <a href="https://ruralit.site/signup" class="plan-card__cta plan-card__cta--primary">Crear cuenta gratis</a>
           </article>
 
-          <article class="plan-card plan-card--pro">
+          <article class="plan-card plan-card--pro" id="plan-pro">
             <div class="plan-card__header">
               <span class="plan-card__index">02</span>
               <span class="plan-status plan-status--preview">Disponible por solicitud</span>
@@ -246,7 +247,7 @@
             <p class="plan-card__footnote">Una vez por cuenta, sin tarjeta ni activación automática.</p>
           </article>
 
-          <article class="plan-card plan-card--teams">
+          <article class="plan-card plan-card--teams" id="plan-equipos">
             <div class="plan-card__header">
               <span class="plan-card__index">03</span>
               <span class="plan-status plan-status--building">En desarrollo</span>
@@ -299,9 +300,30 @@
             <thead>
               <tr>
                 <th scope="col">Capacidad</th>
-                <th scope="col" class="plan-free">Gratis <small>Disponible</small></th>
-                <th scope="col" class="plan-pro">Pro <small>Disponible por solicitud</small></th>
-                <th scope="col" class="plan-teams">Equipos <small>Desarrollo</small></th>
+                <th scope="col" class="plan-free">
+                  <span class="comparison-plan">
+                    <img class="comparison-plan__logo" src="/free.svg" alt="" aria-hidden="true" width="26" height="26" loading="lazy" decoding="async" />
+                    Gratis
+                  </span>
+                  <small>Disponible</small>
+                  <a href="https://ruralit.site/signup" class="comparison-plan__cta">Crear cuenta gratis</a>
+                </th>
+                <th scope="col" class="plan-pro">
+                  <span class="comparison-plan">
+                    <img class="comparison-plan__logo" src="/silver.svg" alt="" aria-hidden="true" width="26" height="26" loading="lazy" decoding="async" />
+                    Pro
+                  </span>
+                  <small>Disponible por solicitud</small>
+                  <a href="https://ruralit.site/ajustes?tab=plan&amp;request=pro" class="comparison-plan__cta">Solicitar prueba gratuita</a>
+                </th>
+                <th scope="col" class="plan-teams">
+                  <span class="comparison-plan">
+                    <img class="comparison-plan__logo" src="/gold.svg" alt="" aria-hidden="true" width="26" height="26" loading="lazy" decoding="async" />
+                    Equipos
+                  </span>
+                  <small>Desarrollo</small>
+                  <a href="#plan-equipos" class="comparison-plan__cta">Ver funciones</a>
+                </th>
               </tr>
             </thead>
             <tbody>
