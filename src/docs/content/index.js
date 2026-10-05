@@ -45,16 +45,16 @@ const ARTICLES_BY_CATEGORY = {
 export const DOC_ARTICLES = DOC_CATEGORIES.flatMap(category => ARTICLES_BY_CATEGORY[category.id] ?? []);
 
 /**
- * Por dónde empezar. Es una lista curada y no un contador de visitas: no
- * medimos qué lee la gente, así que no podemos ordenar por popularidad.
+ * «Si es tu primera vez»: un orden de lectura curado, de crear la cuenta a
+ * compartir el campo. Es una secuencia, por eso la portada la numera.
  */
 export const DOC_STARTING_POINTS = [
   'primeros-pasos/que-es-ruralit',
+  'primeros-pasos/crear-tu-cuenta',
   'primeros-pasos/configuracion-inicial',
   'registrar/registro-rapido',
   'balances/leer-el-balance',
   'equipo/invitar-a-tu-equipo',
-  'importar/importar-desde-excel',
 ];
 
 export const docKey = article => `${article.category}/${article.slug}`;

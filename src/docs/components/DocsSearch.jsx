@@ -106,7 +106,7 @@ export default function DocsSearch({ open, initialQuery = '', onClose }) {
 
         <div className="dx-search-body">
           <p className="dx-search-caption">
-            {idle ? 'Por dónde empezar' : rows.length > 0 ? `${rows.length} ${rows.length === 1 ? 'resultado' : 'resultados'}` : ''}
+            {idle ? 'Si es tu primera vez' : rows.length > 0 ? `${rows.length} ${rows.length === 1 ? 'resultado' : 'resultados'}` : ''}
           </p>
 
           {!idle && rows.length === 0 ? (

@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Menu, Search, X } from 'lucide-react';
-import { DOCS_BASE, categoryHref, getArticle, getCategory } from './content/index.js';
+import { DOCS_BASE, categoryHref, getArticle, getCategory, sectionsOf } from './content/index.js';
+import { stripInline } from './content/text.js';
 import { navigate, parseDocsPath, useLocation } from './router.jsx';
 import DocsSearch from './components/DocsSearch.jsx';
-import DocsSidebar from './components/DocsSidebar.jsx';
+import DocsIndex from './components/DocsIndex.jsx';
 import { DocsArticlePage, DocsCategoryPage, DocsHome } from './components/DocsPages.jsx';
+import { shortcutLabel } from './components/platform.js';
 
 const SITE_URL = 'https://www.ruralit.blog';
 const HOME_TITLE = 'Documentación de Ruralit | Centro de ayuda';
@@ -29,7 +31,8 @@ const updateHead = (title, description, path) => {
 };
 
 /**
- * Marco de la documentación: barra lateral, buscador y la página en el centro.
+ * Marco de la documentación: un cuaderno abierto. En la portada, la tapa y la
+ * hoja del índice; en el resto, el lomo con el índice y la hoja de la página.
  * El buscador se abre con Ctrl/⌘+K o con «/».
  */
 export default function DocsApp() {
@@ -42,6 +45,12 @@ export default function DocsApp() {
   const { categoryId, slug } = parseDocsPath(location.pathname);
   const category = getCategory(categoryId);
   const article = category && slug ? getArticle(categoryId, slug) : null;
+  const isHome = !category;
+
+  const toc = useMemo(
+    () => (article ? sectionsOf(article).filter(section => section.id !== null).map(section => ({ id: section.id, title: stripInline(section.title) })) : []),
+    [article],
+  );
 
   const openSearch = useCallback((query = '') => {
     setMenuOpen(false);
@@ -124,43 +133,47 @@ export default function DocsApp() {
   else page = <DocsHome openSearch={openSearch} />;
 
   return (
-    <div className="dx-shell">
-      {/* Barra móvil: temas y búsqueda a mano sin ocupar una columna. */}
-      <div className="dx-mobile-bar">
-        <button type="button" onClick={() => setMenuOpen(true)} className="btn-outline" aria-expanded={menuOpen} aria-controls="dx-drawer">
-          <Menu size={16} aria-hidden="true" /> Temas
-        </button>
-        <button type="button" onClick={() => openSearch()} className="btn-outline" aria-label="Buscar en la documentación">
-          <Search size={16} aria-hidden="true" /> Buscar
-        </button>
-      </div>
+    <div className={`dx-shell${isHome ? ' is-home' : ''}`}>
+      {!isHome && (
+        <div className="dx-mobile-bar">
+          <button type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="dx-drawer">
+            <Menu size={16} aria-hidden="true" /> Índice
+          </button>
+          <button type="button" onClick={() => openSearch()} aria-label="Buscar en la documentación">
+            <Search size={16} aria-hidden="true" /> Buscar
+          </button>
+        </div>
+      )}
 
-      <div className="dx-layout">
-        <aside className="dx-layout-aside">
-          <div className="dx-sticky dx-sidebar-scroll">
-            <DocsSidebar categoryId={category?.id} slug={article?.slug} onOpenSearch={() => openSearch()} />
-          </div>
-        </aside>
-        <main className="dx-layout-main">{page}</main>
-      </div>
+      {isHome ? (
+        <main className="dx-home">{page}</main>
+      ) : (
+        <div className="dx-notebook">
+          <aside className="dx-spine">
+            <div className="dx-spine-sticky">
+              <button type="button" onClick={() => openSearch()} className="dx-spine-search" title={`Buscar (${shortcutLabel()})`}>
+                <Search size={15} strokeWidth={1.75} aria-hidden="true" />
+                <span>¿Qué querés hacer?</span>
+              </button>
+              <DocsIndex categoryId={category?.id} slug={article?.slug} toc={toc} />
+            </div>
+          </aside>
+          <main className="dx-page-main">{page}</main>
+        </div>
+      )}
 
       {menuOpen && (
-        <div id="dx-drawer" className="dx-drawer" role="dialog" aria-modal="true" aria-label="Temas de la documentación">
+        <div id="dx-drawer" className="dx-drawer" role="dialog" aria-modal="true" aria-label="Índice de la documentación">
           <div className="dx-drawer-backdrop" onClick={() => setMenuOpen(false)} />
           <div className="dx-drawer-panel">
             <div className="dx-drawer-head">
-              <span>Documentación</span>
-              <button type="button" onClick={() => setMenuOpen(false)} className="dx-icon-btn" aria-label="Cerrar temas">
+              <span>Índice</span>
+              <button type="button" onClick={() => setMenuOpen(false)} className="dx-icon-btn" aria-label="Cerrar el índice">
                 <X size={18} />
               </button>
             </div>
             <div className="dx-drawer-body">
-              <DocsSidebar
-                categoryId={category?.id}
-                slug={article?.slug}
-                onOpenSearch={() => openSearch()}
-                onNavigate={() => setMenuOpen(false)}
-              />
+              <DocsIndex categoryId={category?.id} slug={article?.slug} toc={toc} onNavigate={() => setMenuOpen(false)} />
             </div>
           </div>
         </div>
