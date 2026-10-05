@@ -28,27 +28,15 @@
 #docs-root { min-height: 100vh; }
 
 /*
- * /style.css da estilo a todo <section> (padding) y a todo <nav> (la barra
- * fija del sitio). Acá esos elementos son partes de la página. `:where()`
- * deja la especificidad en la de un selector de etiqueta, así las clases dx-
- * siguen mandando.
+ * /style.css da estilo a todo <section>, <nav> y <footer> (padding, la barra
+ * fija del sitio, el pie oscuro). En el build, Vite carga esta hoja ANTES que
+ * /style.css, así que empatar especificidad no alcanza: la documentación no
+ * usa <nav> ni <footer> (usa role="navigation" y div) y el reseteo de
+ * <section> lleva una clase para ganar sin depender del orden de carga.
  */
-:where(.dx-shell) section { padding: 0; }
+.dx-shell section { padding: 0; }
 :where(.dx-shell) ol,
 :where(.dx-shell) ul { list-style: none; padding: 0; }
-:where(.dx-shell) nav {
-  position: static;
-  display: block;
-  align-items: stretch;
-  justify-content: normal;
-  padding: 0;
-  background: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: 0;
-  box-shadow: none;
-  z-index: auto;
-}
 
 .dx-shell { padding: calc(var(--dx-nav) + 40px) 32px 96px; }
 .docs-body .nav-links a[aria-current='page'] { color: var(--dark); }

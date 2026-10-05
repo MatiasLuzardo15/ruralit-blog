@@ -27,7 +27,7 @@ export default function DocsIndex({ categoryId, slug, toc = [], onNavigate }) {
     });
 
   return (
-    <nav aria-label="Índice de la documentación" className="dx-index">
+    <div role="navigation" aria-label="Índice de la documentación" className="dx-index">
       <Link href={`${DOCS_BASE}/`} onClick={onNavigate} className="dx-index-home" aria-current={!categoryId ? 'page' : undefined}>
         Cómo usar Ruralit
       </Link>
@@ -97,6 +97,6 @@ export default function DocsIndex({ categoryId, slug, toc = [], onNavigate }) {
           );
         })}
       </ol>
-    </nav>
+    </div>
   );
 }

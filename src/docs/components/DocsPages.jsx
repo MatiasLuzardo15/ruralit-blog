@@ -117,10 +117,10 @@ export function DocsHome({ openSearch }) {
           </ul>
         </section>
 
-        <footer className="dx-sheet-foot">
+        <div className="dx-sheet-foot">
           <p>¿Una duda rápida? Las <a href="/faq/" className="dx-link">preguntas frecuentes</a> la responden en una o dos frases.</p>
           <p>¿No encontrás algo o no coincide con la app? <a href={supportHref('Documentación de Ruralit')} target="_blank" rel="noopener noreferrer" className="dx-link">Escribinos</a> y te respondemos por correo.</p>
-        </footer>
+        </div>
       </Sheet>
     </div>
   );
@@ -177,7 +177,7 @@ export function DocsArticlePage({ article, category }) {
       )}
 
       {(previous || next) && (
-        <nav aria-label={`Otros artículos de ${category.title}`} className="dx-pager">
+        <div role="navigation" aria-label={`Otros artículos de ${category.title}`} className="dx-pager">
           {previous ? (
             <Link href={docHref(previous)} className="dx-pager-link">
               <span className="dx-pager-label"><ArrowLeft size={14} aria-hidden="true" /> Anterior</span>
@@ -190,7 +190,7 @@ export function DocsArticlePage({ article, category }) {
               <span className="dx-pager-title">{next.title}</span>
             </Link>
           )}
-        </nav>
+        </div>
       )}
 
       <p className="dx-margin-note">

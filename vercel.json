@@ -5,7 +5,7 @@
   "framework": "vite",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/docs/:path+", "destination": "/docs/index.html" }
+    { "source": "/docs/:path+", "destination": "/docs" }
   ],
   "headers": [
     {
