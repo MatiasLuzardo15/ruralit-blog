@@ -3,8 +3,26 @@ import react from '@vitejs/plugin-react';
 
 import { resolve } from 'path';
 
+/**
+ * La documentación es una sola página (docs/index.html) que resuelve sus
+ * rutas en el navegador. En producción lo hace el rewrite de vercel.json;
+ * acá, en `vite` y `vite preview`, se sirve el mismo HTML para /docs/*.
+ */
+const docsFallback = () => {
+  const rewrite = (req, _res, next) => {
+    const [pathname, search = ''] = (req.url ?? '').split('?');
+    if (/^\/docs(\/[^.]*)?$/.test(pathname)) req.url = `/docs/index.html${search ? `?${search}` : ''}`;
+    next();
+  };
+  return {
+    name: 'docs-spa-fallback',
+    configureServer(server) { server.middlewares.use(rewrite); },
+    configurePreviewServer(server) { server.middlewares.use(rewrite); },
+  };
+};
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), docsFallback()],
   appType: 'mpa',
   build: {
     rollupOptions: {
@@ -14,6 +32,7 @@ export default defineConfig({
         terminos: resolve(__dirname, 'terminos/index.html'),
         faq: resolve(__dirname, 'faq/index.html'),
         manual: resolve(__dirname, 'manual/index.html'),
+        docs: resolve(__dirname, 'docs/index.html'),
         planes: resolve(__dirname, 'planes/index.html'),
         novas: resolve(__dirname, 'novedades/index.html'),
         'dictado-inteligente': resolve(__dirname, 'novedades/dictado-inteligente.html'),
