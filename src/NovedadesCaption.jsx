@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MessageSquare, NotebookPen, Package, Tractor, Wheat } from 'lucide-react';
 
 const CAPTIONS = [
+  'Hablá con Ruli: consultá el campo, pedí cómo registrar y abrí la sección que necesitás.',
   'Escribí o dictá un movimiento con palabras cotidianas. Ruralit reconoce el monto, la categoría y la moneda por vos.',
   'Cargá los gastos apenas ocurren y dejá que se clasifiquen automáticamente. Después los encontrás listos para balances y reportes.',
   'Registrá compras, producción, consumo o pérdidas de stock. Las existencias se recalculan sin mantener planillas paralelas.',

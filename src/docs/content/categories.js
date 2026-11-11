@@ -9,6 +9,11 @@ export const DOC_CATEGORIES = [
     description: 'Qué es Ruralit, cómo crear tu cuenta, configurar tu campo y moverte por la app.',
   },
   {
+    id: 'ruli',
+    title: 'Ruli',
+    description: 'El asistente del establecimiento: consultar el campo, mandarle un audio y ponerle nombre.',
+  },
+  {
     id: 'registrar',
     title: 'Registrar movimientos',
     description: 'El registro rápido con texto o voz, la carga detallada, categorías y monedas.',

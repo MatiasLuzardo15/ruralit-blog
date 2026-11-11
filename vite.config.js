@@ -35,6 +35,7 @@ export default defineConfig({
         docs: resolve(__dirname, 'docs/index.html'),
         planes: resolve(__dirname, 'planes/index.html'),
         novas: resolve(__dirname, 'novedades/index.html'),
+        'ruli-el-asistente': resolve(__dirname, 'novedades/ruli-el-asistente.html'),
         'dictado-inteligente': resolve(__dirname, 'novedades/dictado-inteligente.html'),
         'actividad-del-equipo': resolve(__dirname, 'novedades/actividad-del-equipo.html'),
         'chats-del-equipo': resolve(__dirname, 'novedades/chats-del-equipo.html'),

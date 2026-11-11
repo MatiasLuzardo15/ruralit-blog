@@ -87,8 +87,8 @@ export const seguridadArticles = [
     title: 'Qué pasa con tus datos',
     summary: 'Quién ve tus registros, qué se procesa en tu dispositivo, cómo se borra y qué no hacemos con tu información.',
     keywords: ['privacidad', 'datos', 'quién ve', 'seguridad', 'borrar cuenta', 'cifrado', 'vender datos', 'exportar', 'propiedad'],
-    updated: UPDATED,
-    related: ['equipo/roles-y-permisos', 'equipo/chats-del-equipo', 'planes/gratis-pro-y-equipos'],
+    updated: '2026-11-11',
+    related: ['ruli/que-es-ruli', 'equipo/roles-y-permisos', 'equipo/chats-del-equipo'],
     blocks: [
       h2('Quién ve tus registros'),
       p('Los datos de un establecimiento solo los ven su dueño y las personas que él (o un Encargado) invitó, cada una según su rol. Los permisos se controlan en el servidor, no solo en la pantalla.'),
@@ -99,7 +99,9 @@ export const seguridadArticles = [
         ['Las planillas de Excel y los PDF de facturas que importás', 'Se leen en tu dispositivo; solo se guardan los registros que confirmás.'],
         ['Los mensajes de los chats del equipo', 'Se cifran en tu dispositivo de extremo a extremo.'],
         ['Tu PIN', 'Queda cifrado solo en ese dispositivo.'],
+        ['Los audios que le mandás a Ruli', 'Se transcriben en la nube. Ruralit no guarda el audio, solo el texto de la conversación.'],
       ),
+      p('Las conversaciones con Ruli se borran a los 30 días sin actividad, y borrar una charla es definitivo. El registro de cuánto se usó el asistente, sin el texto de los mensajes, puede conservarse para la facturación. El detalle está en la [Política de privacidad](/privacidad/), sección 6.'),
 
       h2('Lo que no hacemos'),
       list(

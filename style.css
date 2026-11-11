@@ -986,11 +986,12 @@ section { padding: 56px 80px; }
   padding: 28px 24px;
   border: 1px solid rgba(14, 30, 18, 0.06);
 }
-.soluciones-grid > .solucion-card:nth-child(1) { grid-column: span 3; }
+.soluciones-grid > .solucion-card:nth-child(1) { grid-column: 1 / -1; }
 .soluciones-grid > .solucion-card:nth-child(2) { grid-column: span 3; }
-.soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 2; }
+.soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 3; }
 .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 2; }
 .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 2; }
+.soluciones-grid > .solucion-card:nth-child(6) { grid-column: span 2; }
 .solucion-icon {
   width: 44px;
   height: 44px;
@@ -2064,11 +2065,12 @@ button.solucion-card:focus-visible {
   .hero-content { padding-top: 32px; }
   .problema-grid, .pasos-grid, .casos-grid { grid-template-columns: repeat(2, 1fr); }
   .soluciones-grid { grid-template-columns: repeat(2, 1fr); }
-  .soluciones-grid > .solucion-card:nth-child(1) { grid-column: span 1; }
+  .soluciones-grid > .solucion-card:nth-child(1) { grid-column: 1 / -1; }
   .soluciones-grid > .solucion-card:nth-child(2) { grid-column: span 1; }
   .soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 1; }
   .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 1; }
-  .soluciones-grid > .solucion-card:nth-child(5) { grid-column: 1 / -1; }
+  .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 1; }
+  .soluciones-grid > .solucion-card:nth-child(6) { grid-column: 1 / -1; }
   .novedades-grid { grid-template-columns: repeat(2, 1fr); }
   .equipo-header { max-width: 100%; }
   .section-equipo { padding: 72px 40px; }
@@ -2204,6 +2206,7 @@ button.solucion-card:focus-visible {
   .soluciones-grid > .solucion-card:nth-child(3) { grid-column: span 1; }
   .soluciones-grid > .solucion-card:nth-child(4) { grid-column: span 1; }
   .soluciones-grid > .solucion-card:nth-child(5) { grid-column: span 1; }
+  .soluciones-grid > .solucion-card:nth-child(6) { grid-column: 1 / -1; }
   .solucion-card {
     padding: 18px 16px;
     border-radius: 14px;

@@ -1,6 +1,7 @@
 import { DOC_CATEGORIES } from './categories.js';
 import { slugify } from './text.js';
 import { primerosPasosArticles } from './articles/primeros-pasos.js';
+import { ruliArticles } from './articles/ruli.js';
 import { registrarArticles } from './articles/registrar.js';
 import { movimientosArticles } from './articles/movimientos.js';
 import { stockArticles } from './articles/stock.js';
@@ -22,6 +23,7 @@ export const DOCS_BASE = '/docs';
 
 const ARTICLES_BY_CATEGORY = {
   'primeros-pasos': primerosPasosArticles,
+  ruli: ruliArticles,
   registrar: registrarArticles,
   movimientos: movimientosArticles,
   stock: stockArticles,
@@ -52,6 +54,7 @@ export const DOC_STARTING_POINTS = [
   'primeros-pasos/que-es-ruralit',
   'primeros-pasos/crear-tu-cuenta',
   'primeros-pasos/configuracion-inicial',
+  'ruli/que-es-ruli',
   'registrar/registro-rapido',
   'balances/leer-el-balance',
   'equipo/invitar-a-tu-equipo',

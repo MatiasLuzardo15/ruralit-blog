@@ -45,7 +45,7 @@
               "name": "¿Qué es Ruralit?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Ruralit es una \"Libreta del Campo\" digital diseñada para simplificar el registro de movimientos financieros y operativos. Permite llevar el control de múltiples establecimientos, gestionar inversiones y ver balances detallados de forma profesional, eliminando la necesidad de planillas de cálculo complejas o libretas de papel."
+                "text": "Ruralit es la libreta digital del campo. Registrás movimientos, stock e inversiones y ves los balances. Cuando Ruli está habilitado, Inicio es un chat para consultar el establecimiento."
               }
             },
             {
@@ -61,7 +61,15 @@
               "name": "¿Cómo funciona el registro con lenguaje natural?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "En lugar de llenar formularios largos, puedes escribir (o dictar) frases como: \"Compré 50 novillos por 25000 pesos ayer\" y el sistema detectará automáticamente el monto, la categoría y la fecha para registrar el movimiento en segundos."
+                "text": "En Inicio, si Ruli no está habilitado, escribís o dictás una frase como \"Compré 50 novillos por 25000 pesos ayer\". Ruralit detecta monto, categoría y fecha, y muestra una vista previa antes de guardar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué es Ruli?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ruli es el asistente del establecimiento: cuando está habilitado, Inicio es un chat para consultar el campo, pedir cómo registrar y abrir una sección. El botón + sigue cargando los movimientos a mano. Si no ves el chat, Ruli todavía no está habilitado en ese establecimiento."
               }
             },
             {
@@ -93,7 +101,7 @@
               "name": "¿Funciona en mi celular?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutamente. Ruralit es una aplicación web progresiva optimizada para dispositivos móviles (Android y iOS), lo que te permite llevar tu gestión en el bolsillo en todo momento."
+                "text": "Sí. Funciona en el navegador del teléfono y podés agregarlo a la pantalla de inicio. En Android también está la aplicación Ruralit. En iPhone se usa desde Safari: no hay una app de tienda para iOS. Hace falta conexión a internet."
               }
             },
             {
@@ -109,7 +117,7 @@
               "name": "¿Quién puede ver mis datos financieros?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Solo tú. Los datos pertenecen exclusivamente al usuario y están aislados. Nadie fuera de tu cuenta tiene acceso a la información de tus establecimientos o inversiones."
+                "text": "Los ve el dueño del establecimiento y las personas invitadas, cada una según su rol. Ruli solo consulta lo que tu rol puede ver, y solo cuando le escribís o le mandás un audio. Nadie de fuera de ese equipo entra a la libreta."
               }
             }
           ]
@@ -176,10 +184,9 @@
                     <div class="accordion-item">
                         <button class="accordion-header">¿Qué es Ruralit? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
                         <div class="accordion-body">
-                            <p>Ruralit es una "Libreta del Campo" digital diseñada para simplificar el registro de
-                                movimientos financieros y operativos. Permite llevar el control de múltiples
-                                establecimientos, gestionar inversiones y ver balances detallados de forma profesional,
-                                eliminando la necesidad de planillas de cálculo complejas o libretas de papel.</p>
+                            <p>Ruralit es la libreta digital del campo. Registrás movimientos, stock e inversiones y ves
+                                los balances. Cuando Ruli está habilitado, Inicio es un chat para consultar el
+                                establecimiento.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -199,10 +206,19 @@
                     <div class="accordion-item">
                         <button class="accordion-header">¿Cómo funciona el registro con lenguaje natural? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
                         <div class="accordion-body">
-                            <p>Es una de nuestras funciones estrella. En lugar de llenar formularios largos, puedes
-                                escribir (o dictar) frases como: "Compré 50 novillos por 25000 pesos ayer" y el
-                                sistema detectará automáticamente el monto, la categoría y la fecha para registrar el
-                                movimiento en segundos.</p>
+                            <p>En Inicio, si Ruli no está habilitado, escribís o dictás una frase como
+                                "Compré 50 novillos por 25000 pesos ayer". Ruralit detecta el monto, la categoría y la
+                                fecha, y muestra una vista previa antes de guardar.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">¿Qué es Ruli? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
+                        <div class="accordion-body">
+                            <p>Ruli es el asistente del establecimiento: cuando está habilitado, Inicio es un chat
+                                para consultar el campo, pedir cómo registrar y abrir una sección. El botón + sigue
+                                cargando los movimientos a mano. Si no ves el chat, Ruli todavía no está habilitado
+                                en ese establecimiento. La guía está en la
+                                <a href="/docs/ruli/que-es-ruli">documentación</a>.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -238,9 +254,9 @@
                     <div class="accordion-item">
                         <button class="accordion-header">¿Funciona en mi celular? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
                         <div class="accordion-body">
-                            <p>Absolutamente. Ruralit es una aplicación web progresiva optimizada para dispositivos
-                                móviles (Android y iOS), lo que te permite llevar tu gestión en el bolsillo en todo
-                                momento.</p>
+                            <p>Sí. Funciona en el navegador del teléfono y podés agregarlo a la pantalla de inicio.
+                                En Android también está la aplicación Ruralit. En iPhone se usa desde Safari: no hay
+                                una app de tienda para iOS. Hace falta conexión a internet.</p>
                         </div>
                     </div>
                 </div>
@@ -260,8 +276,9 @@
                     <div class="accordion-item">
                         <button class="accordion-header">¿Quién puede ver mis datos financieros? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
                         <div class="accordion-body">
-                            <p>Solo tú. Los datos pertenecen exclusivamente al usuario y están aislados. Nadie fuera de
-                                tu cuenta tiene acceso a la información de tus establecimientos o inversiones.</p>
+                            <p>Los ve el dueño del establecimiento y las personas invitadas, cada una según su rol.
+                                Ruli solo consulta lo que tu rol puede ver, y solo cuando le escribís o le mandás un
+                                audio. Nadie de fuera de ese equipo entra a la libreta.</p>
                         </div>
                     </div>
                 </div>

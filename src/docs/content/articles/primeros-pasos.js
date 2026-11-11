@@ -9,8 +9,8 @@ export const primerosPasosArticles = [
     title: 'Qué es Ruralit y cómo está organizado',
     summary: 'La libreta digital del campo: registrás ingresos, gastos y stock, y Ruralit los convierte en balances, proyectos y reportes. Acá ves qué hace cada sección.',
     keywords: ['introducción', 'secciones', 'empezar', 'libreta', 'qué es', 'menú', 'para qué sirve'],
-    updated: UPDATED,
-    related: ['primeros-pasos/configuracion-inicial', 'primeros-pasos/moverte-por-ruralit', 'registrar/registro-rapido'],
+    updated: '2026-11-11',
+    related: ['ruli/que-es-ruli', 'primeros-pasos/configuracion-inicial', 'primeros-pasos/moverte-por-ruralit'],
     blocks: [
       p('Ruralit es la **libreta del campo** en versión digital. Anotás lo que pasa en tu establecimiento (una venta de terneros, la compra de gasoil, las bolsas de ración que entraron) y la app lo ordena por vos: lo clasifica, lo suma, lo compara con el mes anterior y lo deja listo para compartir con tu contador o tu familia.'),
       p('Está pensado para productores de ganadería, lechería, agricultura, ovinos, servicios o campos mixtos, y funciona igual desde la computadora que desde el celular.'),
@@ -18,7 +18,7 @@ export const primerosPasosArticles = [
       h2('Las secciones'),
       table(
         ['Sección', 'Para qué sirve'],
-        ['**Inicio**', 'Registrar rápido lo que pasó, escribiendo o dictando. Muestra tus últimos movimientos y avisos.'],
+        ['**Inicio**', 'Si Ruli está habilitado, el chat del asistente. Si no, el registro rápido escribiendo o dictando, con tus últimos movimientos y avisos.'],
         ['**Movimientos**', 'El historial completo de ingresos y gastos, con fechas, monedas, categorías, impuestos y notas.'],
         ['**Stock**', 'Los recursos físicos del campo: animales, cultivos, leche, insumos y maquinaria, con su saldo.'],
         ['**Balances**', 'El resultado del mes, el trimestre o el año: ingresos, gastos, margen y de dónde viene cada número.'],
@@ -46,7 +46,7 @@ export const primerosPasosArticles = [
       p('Todo lo que registrás pertenece a un **establecimiento** (tu campo). Podés tener más de uno y cambiar entre ellos sin mezclar los números: cada establecimiento tiene sus propias categorías, monedas, stock, proyectos y equipo. Cuántos podés tener depende de tu plan; lo ves en [Gratis, Pro y Equipos](/docs/planes/gratis-pro-y-equipos).'),
 
       h2('Dónde se usa'),
-      p('Ruralit funciona en el navegador, en [ruralit.site](https://ruralit.site): en la computadora, en una tablet o en el celular. Tu cuenta y tus datos son los mismos en todos los dispositivos. Los pasos para tenerlo a mano en el teléfono están en [Ruralit en el celular](/docs/primeros-pasos/ruralit-en-el-celular).'),
+      p('Ruralit funciona en el navegador: en la computadora, en una tablet o en el celular. Tu cuenta y tus datos son los mismos en todos los dispositivos. Los pasos para tenerlo a mano en el teléfono están en [Ruralit en el celular](/docs/primeros-pasos/ruralit-en-el-celular).'),
       tip('La primera vez que entrás a cada sección, Ruralit te muestra una guía corta de unos pocos pasos. Después queda libre para trabajar.'),
     ],
   },
@@ -64,7 +64,7 @@ export const primerosPasosArticles = [
 
       h2('Crear una cuenta con correo'),
       steps(
-        'Entrá a [ruralit.site/signup](https://ruralit.site/signup).',
+        'Creá la cuenta desde **Crear cuenta**.',
         'Escribí tu correo y una contraseña de **al menos 6 caracteres**, y confirmala.',
         'Creá la cuenta. Te llega un correo para **verificar tu dirección**: abrí el enlace.',
         'Volvé a Ruralit e iniciá sesión con tu correo y tu contraseña.',
@@ -144,8 +144,8 @@ export const primerosPasosArticles = [
     title: 'Moverte por Ruralit en la computadora y en el celular',
     summary: 'La barra lateral en escritorio, la barra inferior en el celular, el cambio de establecimiento y los avisos.',
     keywords: ['navegación', 'menú', 'barra lateral', 'barra inferior', 'más', 'cambiar establecimiento', 'notificaciones', 'avisos', 'campana'],
-    updated: UPDATED,
-    related: ['primeros-pasos/que-es-ruralit', 'ajustes/tus-establecimientos', 'primeros-pasos/ruralit-en-el-celular'],
+    updated: '2026-11-11',
+    related: ['ruli/que-es-ruli', 'primeros-pasos/que-es-ruralit', 'primeros-pasos/ruralit-en-el-celular'],
     blocks: [
       p('Ruralit adapta su navegación al tamaño de la pantalla. Las secciones son las mismas; lo que cambia es dónde están los accesos.'),
 
@@ -168,6 +168,7 @@ export const primerosPasosArticles = [
       h2('Cambiar de establecimiento'),
       p('Si tenés más de un campo, o te compartieron alguno, el **selector de establecimiento** te deja pasar de uno a otro. Al cambiar, toda la app pasa a mostrar los datos del campo elegido: movimientos, stock, balances, proyectos y equipo.'),
       note('Lo que registrás siempre queda en el establecimiento activo. Antes de cargar, mirá el nombre del campo arriba de la pantalla.'),
+      p('Si **Ruli** está habilitado, Inicio es el chat y la barra inferior no cambia. En el teléfono, el historial y el selector de campo están en la cabecera de la conversación. En la computadora el selector sigue al pie de la barra lateral.'),
     ],
   },
 
@@ -177,29 +178,30 @@ export const primerosPasosArticles = [
     title: 'Ruralit en el celular',
     summary: 'Usalo desde el navegador del teléfono y agregalo a la pantalla de inicio para abrirlo como una app más.',
     keywords: ['móvil', 'celular', 'teléfono', 'instalar', 'pantalla de inicio', 'app', 'android', 'iphone', 'pwa', 'acceso directo'],
-    updated: UPDATED,
-    related: ['primeros-pasos/moverte-por-ruralit', 'registrar/dictado-por-voz', 'seguridad/bloqueo-con-pin'],
+    updated: '2026-11-11',
+    related: ['ruli/escribir-o-enviar-un-audio', 'primeros-pasos/moverte-por-ruralit', 'registrar/dictado-por-voz'],
     blocks: [
       p('Ruralit está pensado para usarse en el campo, con una mano y a veces sin buena señal para escribir. En el celular tenés las mismas funciones que en la computadora, con una navegación adaptada al pulgar.'),
 
       h2('Agregarlo a la pantalla de inicio'),
       h3('En Android (Chrome)'),
       steps(
-        'Abrí [ruralit.site](https://ruralit.site) en Chrome e iniciá sesión.',
+        'Abrí Ruralit en Chrome e iniciá sesión.',
         'Tocá el menú de los tres puntos.',
         'Elegí **Agregar a la pantalla principal** o **Instalar aplicación**.',
       ),
       h3('En iPhone (Safari)'),
       steps(
-        'Abrí [ruralit.site](https://ruralit.site) en Safari e iniciá sesión.',
+        'Abrí Ruralit en Safari e iniciá sesión.',
         'Tocá el botón **Compartir**.',
         'Elegí **Agregar a inicio**.',
       ),
-      p('A partir de ahí Ruralit aparece con su ícono junto a tus otras apps y se abre a pantalla completa.'),
+      p('A partir de ahí Ruralit aparece con su ícono junto a tus otras apps y se abre a pantalla completa. En Android también está la aplicación Ruralit, con el mismo contenido que la web. En iPhone se usa desde Safari: no hay una app de tienda para iOS.'),
 
       h2('Lo que más se usa desde el teléfono'),
       list(
-        '**Dictar** un gasto o una venta con el micrófono, sin escribir. Ver [Dictado por voz](/docs/registrar/dictado-por-voz).',
+        '**Hablar con Ruli** cuando el chat está habilitado: un texto o un audio para consultar el campo. Ver [Escribirle a Ruli](/docs/ruli/escribir-o-enviar-un-audio).',
+        '**Dictar** un gasto o una venta con el micrófono del registro rápido, sin escribir. Ver [Dictado por voz](/docs/registrar/dictado-por-voz).',
         '**Revisar el stock** antes de comprar insumos.',
         'Mirar el **balance del mes** en un minuto.',
         'Responder en los **chats del equipo** sobre un registro concreto.',

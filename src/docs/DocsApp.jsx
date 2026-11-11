@@ -11,7 +11,7 @@ import { shortcutLabel } from './components/platform.js';
 const SITE_URL = 'https://www.ruralit.blog';
 const HOME_TITLE = 'Documentación de Ruralit | Centro de ayuda';
 const HOME_DESCRIPTION =
-  'Guías paso a paso para usar Ruralit: registro rápido y por voz, movimientos, stock, balances, proyectos, reportes, equipo, impuestos y seguridad.';
+  'Guías paso a paso para usar Ruralit: Ruli, registro rápido y por voz, movimientos, stock, balances, proyectos, reportes, equipo, impuestos y seguridad.';
 
 const isTypingTarget = target => {
   if (!target) return false;
