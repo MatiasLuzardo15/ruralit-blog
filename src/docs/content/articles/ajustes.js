@@ -36,14 +36,13 @@ export const ajustesArticles = [
     title: 'Tu perfil: nombre, foto y avatar',
     summary: 'Cambiá tu nombre visible y elegí una foto o un emoji para que tu equipo te reconozca.',
     keywords: ['perfil', 'nombre', 'nombre de usuario', 'foto', 'avatar', 'emoji', 'imagen'],
-    updated: '2026-11-11',
-    related: ['ruli/ponerle-nombre', 'ajustes/mapa-de-ajustes', 'equipo/actividad-del-equipo'],
+    updated: UPDATED,
+    related: ['ajustes/mapa-de-ajustes', 'equipo/actividad-del-equipo'],
     blocks: [
       path('Ajustes', 'Mi cuenta', 'Datos del Perfil'),
       list(
         '**Nombre de Usuario**: tu nombre visible en la plataforma, en la actividad del equipo y en los chats.',
         '**Foto y avatar**: subí una foto o elegí el emoji que te representa.',
-        '**Nombre de tu asistente**: cómo se llama Ruli para vos. Solo aparece si el chat está habilitado. Vacío vuelve a Ruli. Ver [Ponerle nombre](/docs/ruli/ponerle-nombre).',
       ),
       p('Tu nombre y tu avatar son los mismos en todos los establecimientos en los que participás.'),
     ],

@@ -9,11 +9,10 @@ export const registrarArticles = [
     title: 'El registro rápido: anotá lo que pasó con una frase',
     summary: 'Escribí como hablás en el campo y Ruralit arma el registro: tipo, monto, moneda, categoría y cantidad. Revisás la vista previa y confirmás.',
     keywords: ['qué pasó hoy', 'anotar', 'escribir', 'frase', 'texto', 'smart input', 'inteligente', 'vista previa', 'deshacer', 'cargar rápido', 'lenguaje natural'],
-    updated: '2026-11-11',
+    updated: UPDATED,
     related: ['registrar/dictado-por-voz', 'registrar/carga-detallada', 'stock/registrar-stock-con-una-frase'],
     blocks: [
       p('En **Inicio** está el cuadro de registro rápido: «Anotá lo que pasó en tu establecimiento» en la computadora, «¿Qué pasó hoy?» en el celular. Escribís una frase con monto, moneda, concepto y, si corresponde, cantidad, y Ruralit la convierte en un registro listo para guardar.'),
-      note('Si Inicio es el chat de [Ruli](/docs/ruli/que-es-ruli), este cuadro no está en esa pantalla. El alta manual queda en el botón + del chat.'),
 
       h2('Cómo se usa'),
       steps(

@@ -8,9 +8,9 @@ export const planesArticles = [
     category: 'planes',
     title: 'Gratis, Pro y Equipos',
     summary: 'Qué incluye cada plan, los límites de establecimientos y personas, y qué funciones son de Pro.',
-    keywords: ['plan', 'planes', 'precio', 'gratis', 'pro', 'equipos', 'límites', 'cuánto cuesta', 'usd 9,90', 'suscripción', 'premium'],
-    updated: '2026-11-11',
-    related: ['ruli/que-es-ruli', 'planes/prueba-gratuita-de-pro', 'planes/si-dejas-pro'],
+    keywords: ['plan', 'planes', 'gratis', 'pro', 'equipos', 'límites', 'suscripción', 'premium'],
+    updated: UPDATED,
+    related: ['planes/prueba-gratuita-de-pro', 'planes/si-dejas-pro'],
     blocks: [
       p('En ningún plan se cobra por movimiento: la libreta no tiene límite de registros. La diferencia está en cuántos campos y personas manejás, la profundidad del análisis y las alertas. La comparación completa está en [la página de planes](/planes/).'),
 
@@ -21,7 +21,6 @@ export const planesArticles = [
         ['**Compartidos contigo**', '1', '3', 'Sin límite comercial visible'],
         ['**Personas**', '3 en total, dueño incluido', '4 por establecimiento', 'Sin límite comercial visible'],
         ['**Importaciones de Excel**', '3 por día', 'Sin límite diario', 'Sin límite diario'],
-        ['**Precio**', 'Sin costo', 'USD 9,90 por mes, después de 30 días de prueba', 'En desarrollo'],
       ),
 
       h2('Incluido en todos los planes'),
@@ -32,7 +31,6 @@ export const planesArticles = [
         'Roles, edición compartida y chats del equipo cifrados.',
         'Seguridad: verificación en dos pasos, PIN y alertas de seguridad.',
       ),
-      note('[Ruli](/docs/ruli/que-es-ruli) no es una diferencia entre Gratis y Pro: aparece cuando se habilita para esa cuenta y ese establecimiento. Si se agotan sus créditos, la libreta sigue y el registro manual también.'),
 
       h2('Lo que suma Ruralit Pro'),
       list(

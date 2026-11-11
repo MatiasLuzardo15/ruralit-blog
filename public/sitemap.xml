@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://www.ruralit.blog/docs/primeros-pasos/moverte-por-ruralit</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -223,20 +223,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ruralit.blog/docs/ruli/escribir-o-enviar-un-audio</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.ruralit.blog/docs/ruli/ponerle-nombre</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.ruralit.blog/docs/registrar/registro-rapido</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -464,7 +452,7 @@
   </url>
   <url>
     <loc>https://www.ruralit.blog/docs/ajustes/perfil</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -512,13 +500,13 @@
   </url>
   <url>
     <loc>https://www.ruralit.blog/docs/seguridad/tus-datos</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.ruralit.blog/docs/planes/gratis-pro-y-equipos</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -561,12 +549,6 @@
   <url>
     <loc>https://www.ruralit.blog/docs/ayuda/olvide-mi-pin</loc>
     <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.ruralit.blog/docs/ayuda/ruli-no-responde</loc>
-    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

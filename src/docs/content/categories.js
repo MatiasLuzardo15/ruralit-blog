@@ -11,7 +11,7 @@ export const DOC_CATEGORIES = [
   {
     id: 'ruli',
     title: 'Ruli',
-    description: 'El asistente del establecimiento: consultar el campo, mandarle un audio y ponerle nombre.',
+    description: 'En desarrollo. Todavía no está en la app.',
   },
   {
     id: 'registrar',

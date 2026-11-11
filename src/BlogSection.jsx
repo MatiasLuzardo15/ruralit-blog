@@ -4,11 +4,11 @@ const articles = [
   {
     id: 1,
     category: 'Producto',
-    title: 'Ruli, el asistente de tu establecimiento',
+    title: 'Ruli está en desarrollo',
     excerpt:
-      'Inicio puede ser una conversación: consultás el campo y abrís la sección que necesitás.',
+      'Estamos construyendo un asistente para consultar el campo conversando. Todavía no está en la app.',
     date: 'Noviembre 2026',
-    readTime: '4 min',
+    readTime: '3 min',
     featured: true,
     link: '/novedades/ruli-el-asistente',
   },

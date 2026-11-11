@@ -54,7 +54,6 @@ export const DOC_STARTING_POINTS = [
   'primeros-pasos/que-es-ruralit',
   'primeros-pasos/crear-tu-cuenta',
   'primeros-pasos/configuracion-inicial',
-  'ruli/que-es-ruli',
   'registrar/registro-rapido',
   'balances/leer-el-balance',
   'equipo/invitar-a-tu-equipo',

@@ -38,7 +38,7 @@ export const ayudaArticles = [
     summary: 'Permiso de micrófono, navegador compatible y qué hacer si la transcripción falla.',
     keywords: ['micrófono', 'dictado', 'voz', 'no escucha', 'dictado no disponible', 'permiso', 'no pude transcribir', 'audio'],
     updated: UPDATED,
-    related: ['ayuda/ruli-no-responde', 'registrar/dictado-por-voz', 'registrar/registro-rapido'],
+    related: ['registrar/dictado-por-voz', 'registrar/registro-rapido'],
     blocks: [
       h2('Aparece «Dictado no disponible»'),
       p('Tu navegador no permite grabar audio en esa página. Probá con una versión actualizada de **Chrome**, **Edge** o **Safari**.'),
@@ -127,34 +127,6 @@ export const ayudaArticles = [
       ),
       path('Ajustes', 'Mi cuenta', 'Seguridad', 'Bloqueo de Aplicación (PIN)'),
       note('Tus registros están guardados en la nube: borrar los datos del sitio no borra nada de tu libreta, solo las preferencias guardadas en ese navegador.'),
-    ],
-  },
-
-  {
-    slug: 'ruli-no-responde',
-    category: 'ayuda',
-    title: 'Ruli no responde o no aparece',
-    summary: 'El chat solo se muestra si está habilitado. Si falla, el registro manual sigue disponible.',
-    keywords: ['ruli', 'asistente', 'no aparece', 'no responde', 'micrófono', 'audio', 'créditos', 'inicio'],
-    updated: '2026-11-11',
-    related: ['ruli/que-es-ruli', 'ruli/escribir-o-enviar-un-audio', 'registrar/registro-rapido'],
-    blocks: [
-      h2('En Inicio no veo el chat'),
-      p('Ruli queda inactivo hasta que se habilita para tu cuenta y para el establecimiento abierto. Mientras tanto, Inicio es el registro rápido.'),
-      h2('Escribí y no contestó'),
-      list(
-        'Revisá la conexión. Sin internet, Ruralit no puede consultar ni transcribir.',
-        'Si el aviso ofrece **Reintentar**, usalo: repite el mismo paso.',
-        'Si se agotaron los créditos del plan, o no se pueden verificar, Ruli no responde. El botón + y el registro manual siguen funcionando.',
-        'Cambiar de campo descarta la respuesta que estaba en camino. Volvé al campo y escribí de nuevo.',
-      ),
-      h2('El audio no se manda'),
-      steps(
-        'Permití el micrófono para Ruralit. En Chrome: el candado junto a la dirección › Permisos › Micrófono › Permitir.',
-        'Mantené apretado el micrófono: un toque muy corto no se envía.',
-        'Si dice que está transcribiendo y falla, **Reintentar** conserva ese audio en la pantalla. No queda guardado en el teléfono.',
-      ),
-      note('El micrófono de Ruli no es el dictado del registro rápido. Si el dictado de un gasto falla, mirá [El dictado por voz no funciona](/docs/ayuda/el-dictado-no-funciona).'),
     ],
   },
 ];

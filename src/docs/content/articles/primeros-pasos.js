@@ -18,7 +18,7 @@ export const primerosPasosArticles = [
       h2('Las secciones'),
       table(
         ['Sección', 'Para qué sirve'],
-        ['**Inicio**', 'Si Ruli está habilitado, el chat del asistente. Si no, el registro rápido escribiendo o dictando, con tus últimos movimientos y avisos.'],
+        ['**Inicio**', 'Registrar rápido lo que pasó, escribiendo o dictando. Muestra tus últimos movimientos y avisos.'],
         ['**Movimientos**', 'El historial completo de ingresos y gastos, con fechas, monedas, categorías, impuestos y notas.'],
         ['**Stock**', 'Los recursos físicos del campo: animales, cultivos, leche, insumos y maquinaria, con su saldo.'],
         ['**Balances**', 'El resultado del mes, el trimestre o el año: ingresos, gastos, margen y de dónde viene cada número.'],
@@ -144,8 +144,8 @@ export const primerosPasosArticles = [
     title: 'Moverte por Ruralit en la computadora y en el celular',
     summary: 'La barra lateral en escritorio, la barra inferior en el celular, el cambio de establecimiento y los avisos.',
     keywords: ['navegación', 'menú', 'barra lateral', 'barra inferior', 'más', 'cambiar establecimiento', 'notificaciones', 'avisos', 'campana'],
-    updated: '2026-11-11',
-    related: ['ruli/que-es-ruli', 'primeros-pasos/que-es-ruralit', 'primeros-pasos/ruralit-en-el-celular'],
+    updated: UPDATED,
+    related: ['primeros-pasos/que-es-ruralit', 'ajustes/tus-establecimientos', 'primeros-pasos/ruralit-en-el-celular'],
     blocks: [
       p('Ruralit adapta su navegación al tamaño de la pantalla. Las secciones son las mismas; lo que cambia es dónde están los accesos.'),
 
@@ -168,7 +168,6 @@ export const primerosPasosArticles = [
       h2('Cambiar de establecimiento'),
       p('Si tenés más de un campo, o te compartieron alguno, el **selector de establecimiento** te deja pasar de uno a otro. Al cambiar, toda la app pasa a mostrar los datos del campo elegido: movimientos, stock, balances, proyectos y equipo.'),
       note('Lo que registrás siempre queda en el establecimiento activo. Antes de cargar, mirá el nombre del campo arriba de la pantalla.'),
-      p('Si **Ruli** está habilitado, Inicio es el chat y la barra inferior no cambia. En el teléfono, el historial y el selector de campo están en la cabecera de la conversación. En la computadora el selector sigue al pie de la barra lateral.'),
     ],
   },
 
@@ -179,7 +178,7 @@ export const primerosPasosArticles = [
     summary: 'Usalo desde el navegador del teléfono y agregalo a la pantalla de inicio para abrirlo como una app más.',
     keywords: ['móvil', 'celular', 'teléfono', 'instalar', 'pantalla de inicio', 'app', 'android', 'iphone', 'pwa', 'acceso directo'],
     updated: '2026-11-11',
-    related: ['ruli/escribir-o-enviar-un-audio', 'primeros-pasos/moverte-por-ruralit', 'registrar/dictado-por-voz'],
+    related: ['primeros-pasos/moverte-por-ruralit', 'registrar/dictado-por-voz', 'seguridad/bloqueo-con-pin'],
     blocks: [
       p('Ruralit está pensado para usarse en el campo, con una mano y a veces sin buena señal para escribir. En el celular tenés las mismas funciones que en la computadora, con una navegación adaptada al pulgar.'),
 
@@ -196,12 +195,11 @@ export const primerosPasosArticles = [
         'Tocá el botón **Compartir**.',
         'Elegí **Agregar a inicio**.',
       ),
-      p('A partir de ahí Ruralit aparece con su ícono junto a tus otras apps y se abre a pantalla completa. En Android también está la aplicación Ruralit, con el mismo contenido que la web. En iPhone se usa desde Safari: no hay una app de tienda para iOS.'),
+      p('A partir de ahí Ruralit aparece con su ícono junto a tus otras apps y se abre a pantalla completa. En Android y en iPhone es la misma aplicación web. Todavía no hay una app publicada en Play Store ni en App Store.'),
 
       h2('Lo que más se usa desde el teléfono'),
       list(
-        '**Hablar con Ruli** cuando el chat está habilitado: un texto o un audio para consultar el campo. Ver [Escribirle a Ruli](/docs/ruli/escribir-o-enviar-un-audio).',
-        '**Dictar** un gasto o una venta con el micrófono del registro rápido, sin escribir. Ver [Dictado por voz](/docs/registrar/dictado-por-voz).',
+        '**Dictar** un gasto o una venta con el micrófono, sin escribir. Ver [Dictado por voz](/docs/registrar/dictado-por-voz).',
         '**Revisar el stock** antes de comprar insumos.',
         'Mirar el **balance del mes** en un minuto.',
         'Responder en los **chats del equipo** sobre un registro concreto.',
