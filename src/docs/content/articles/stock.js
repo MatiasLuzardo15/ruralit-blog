@@ -12,10 +12,10 @@ export const stockArticles = [
     updated: UPDATED,
     related: ['stock/agregar-un-recurso', 'stock/registrar-cambios-de-stock', 'stock/stock-minimo-y-alertas'],
     blocks: [
-      p('**Stock** registra lo que hay físicamente en el establecimiento: animales, cultivos, leche, insumos, maquinaria y cualquier otro recurso. Es independiente de la contabilidad: podés llevar stock sin registrar dinero, y dinero sin tocar el stock.'),
+      p('**Stock** registra lo que hay físicamente en el establecimiento: animales, cultivos, leche, insumos, maquinaria y cualquier otro recurso. Es independiente de la contabilidad: puedes llevar stock sin registrar dinero, y dinero sin tocar el stock.'),
 
       h2('Recursos'),
-      p('Cada cosa que controlás es un **recurso**, con un nombre, un tipo y una unidad base.'),
+      p('Cada cosa que controlas es un **recurso**, con un nombre, un tipo y una unidad base.'),
       table(
         ['Tipo', 'Unidades habituales'],
         ['Ganado', 'cabezas'],
@@ -27,7 +27,7 @@ export const stockArticles = [
       ),
 
       h2('Cómo se calcula el saldo'),
-      p('El saldo de un recurso es la suma de sus **entradas** menos la suma de sus **salidas**. No se escribe a mano: se recalcula solo con cada cambio que registrás.'),
+      p('El saldo de un recurso es la suma de sus **entradas** menos la suma de sus **salidas**. No se escribe a mano: se recalcula solo con cada cambio que registras.'),
       flow(
         'Ejemplo de un recurso de ganado a lo largo de un mes.',
         node('stock', 'Stock inicial', '+120 cabezas'),
@@ -43,7 +43,7 @@ export const stockArticles = [
       h2('Dónde está'),
       list(
         '**En la computadora**: **Stock** en la barra lateral.',
-        '**En el celular**: en **Movimientos**, cambiá a **Stock** con el selector de arriba.',
+        '**En el celular**: en **Movimientos**, cambia a **Stock** con el selector de arriba.',
       ),
     ],
   },
@@ -58,20 +58,20 @@ export const stockArticles = [
     related: ['stock/que-es-el-stock', 'stock/stock-minimo-y-alertas', 'importar/importar-desde-excel'],
     blocks: [
       steps(
-        'En **Stock**, tocá **Agregar recurso**.',
-        'Escribí el **nombre**: «Terneros», «Ración 18%», «Gasoil».',
-        'Elegí el **tipo** y la **unidad**. Si querés, cambiá el ícono.',
-        'Poné el **stock inicial**: lo que hay hoy.',
+        'En **Stock**, toca **Agregar recurso**.',
+        'Escribe el **nombre**: «Terneros», «Ración 18%», «Gasoil».',
+        'Elige el **tipo** y la **unidad**. Si quieres, cambia el ícono.',
+        'Pon el **stock inicial**: lo que hay hoy.',
         'Opcional: un **stock mínimo** y una nota.',
-        'Guardá. El recurso aparece en la tabla con su saldo.',
+        'Guarda. El recurso aparece en la tabla con su saldo.',
       ),
       tip('Si ya existe un recurso con ese nombre en el stock general, Ruralit no crea uno duplicado.'),
 
       h2('Cargar muchos recursos de una vez'),
-      p('Si tenés el inventario en una planilla, importalo: elegí el destino **Inventario y Stock** en el [importador de Excel](/docs/importar/importar-desde-excel).'),
+      p('Si tienes el inventario en una planilla, impórtalo: elige el destino **Inventario y Stock** en el [importador de Excel](/docs/importar/importar-desde-excel).'),
 
       h2('Quitar un recurso'),
-      p('Desde el recurso, usá la opción de quitar. Ruralit pide **confirmar dos veces** para evitar borrados accidentales. Sus movimientos dejan de contar en los saldos.'),
+      p('Desde el recurso, usa la opción de quitar. Ruralit pide **confirmar dos veces** para evitar borrados accidentales. Sus movimientos dejan de contar en los saldos.'),
     ],
   },
 
@@ -84,7 +84,7 @@ export const stockArticles = [
     updated: UPDATED,
     related: ['stock/registrar-stock-con-una-frase', 'registrar/carga-detallada', 'stock/que-es-el-stock'],
     blocks: [
-      p('Cada vez que algo entra o sale del campo, registrás un cambio en el recurso. El saldo se actualiza solo.'),
+      p('Cada vez que algo entra o sale del campo, registras un cambio en el recurso. El saldo se actualiza solo.'),
 
       h2('Las operaciones'),
       table(
@@ -100,18 +100,18 @@ export const stockArticles = [
 
       h2('Registrar un cambio'),
       steps(
-        'Buscá el recurso en la tabla y abrilo.',
-        'Elegí la **operación**.',
-        'Ingresá la **cantidad** y la **fecha**.',
-        'Agregá una nota si querés y guardá. La vista previa muestra cómo queda el stock antes de confirmar.',
+        'Busca el recurso en la tabla y ábrelo.',
+        'Elige la **operación**.',
+        'Ingresa la **cantidad** y la **fecha**.',
+        'Agrega una nota si quieres y guarda. La vista previa muestra cómo queda el stock antes de confirmar.',
       ),
 
       h2('Con dinero o sin dinero'),
-      p('Una compra o una venta de stock **no registra dinero por sí sola**. Si querés registrar las dos cosas a la vez, hacelo desde la [carga detallada](/docs/registrar/carga-detallada) con la opción de stock, o con una frase en el [registro rápido](/docs/stock/registrar-stock-con-una-frase).'),
+      p('Una compra o una venta de stock **no registra dinero por sí sola**. Si quieres registrar las dos cosas a la vez, hazlo desde la [carga detallada](/docs/registrar/carga-detallada) con la opción de stock, o con una frase en el [registro rápido](/docs/stock/registrar-stock-con-una-frase).'),
 
       h2('El historial de un recurso'),
-      p('Cada recurso guarda todos sus cambios con fecha, operación, cantidad y nota. Abrilo para ver el historial y las entradas, salidas y cambios del período.'),
-      warn('Ruralit no impide que el saldo quede negativo si registrás más salidas que entradas. Si ves un número negativo, revisá el historial: suele faltar el stock inicial o una compra.'),
+      p('Cada recurso guarda todos sus cambios con fecha, operación, cantidad y nota. Ábrelo para ver el historial y las entradas, salidas y cambios del período.'),
+      warn('Ruralit no impide que el saldo quede negativo si registras más salidas que entradas. Si ves un número negativo, revisa el historial: suele faltar el stock inicial o una compra.'),
     ],
   },
 
@@ -124,7 +124,7 @@ export const stockArticles = [
     updated: UPDATED,
     related: ['registrar/registro-rapido', 'stock/registrar-cambios-de-stock', 'registrar/dictado-por-voz'],
     blocks: [
-      p('No hace falta abrir Stock para cada cambio. En el registro rápido de **Inicio** podés escribir o dictar lo que pasó, y Ruralit detecta el recurso, la operación y la cantidad.'),
+      p('No hace falta abrir Stock para cada cambio. En el registro rápido de **Inicio** puedes escribir o dictar lo que pasó, y Ruralit detecta el recurso, la operación y la cantidad.'),
       phrase('Vendí 40 vacas a 500 dólares', [
         ['Tipo', 'Ingreso'],
         ['Monto', 'USD 20.000'],
@@ -136,11 +136,11 @@ export const stockArticles = [
 
       h2('Consejos'),
       list(
-        'Usá el atajo **Stock** de Inicio: empieza la frase con «Ingresé».',
-        'Nombrá el recurso como lo tenés en Stock. Si no existe, Ruralit lo crea al guardar.',
-        'Decí la cantidad con su unidad: cabezas, kilos, litros, bolsas.',
+        'Usa el atajo **Stock** de Inicio: empieza la frase con «Ingresé».',
+        'Nombra el recurso como lo tienes en Stock. Si no existe, Ruralit lo crea al guardar.',
+        'Di la cantidad con su unidad: cabezas, kilos, litros, bolsas.',
       ),
-      tip('Siempre ves la vista previa antes de guardar: si interpretó mal la operación o la cantidad, la corregís ahí.'),
+      tip('Siempre ves la vista previa antes de guardar: si interpretó mal la operación o la cantidad, la corriges ahí.'),
     ],
   },
 
@@ -148,7 +148,7 @@ export const stockArticles = [
     slug: 'stock-minimo-y-alertas',
     category: 'stock',
     title: 'Stock mínimo y alertas de stock bajo',
-    summary: 'Definí cuánto es lo mínimo que necesitás de cada recurso y enterate antes de que falte.',
+    summary: 'Define cuánto es lo mínimo que necesitas de cada recurso y entérate antes de que falte.',
     keywords: ['stock mínimo', 'mínimo', 'alerta', 'stock bajo', 'faltante', 'aviso', 'correo', 'email', 'estado', 'normal', 'bajo'],
     updated: UPDATED,
     related: ['stock/agregar-un-recurso', 'ajustes/notificaciones', 'planes/gratis-pro-y-equipos'],
@@ -157,9 +157,9 @@ export const stockArticles = [
 
       h2('Configurarlo'),
       steps(
-        'Abrí el recurso en **Stock**.',
-        'Activá **stock mínimo** y escribí la cantidad.',
-        'Guardá.',
+        'Abre el recurso en **Stock**.',
+        'Activa **stock mínimo** y escribe la cantidad.',
+        'Guarda.',
       ),
 
       h2('Los estados'),
@@ -172,8 +172,8 @@ export const stockArticles = [
       p('El resumen de Stock muestra cuántos recursos están disponibles, cuántos faltan y cuántos están bajos.'),
 
       h2('Alertas por correo'),
-      path('Ajustes', 'Mi cuenta', 'Email y Notificaciones', 'Alertas de Stock Bajo'),
-      p('Con esta alerta activada, recibís un correo cuando un recurso queda por debajo de su stock mínimo.'),
+      path('Ajustes', 'Mi cuenta', 'Notificaciones', 'Alertas de stock bajo'),
+      p('Con esta alerta activada, recibes un correo cuando un recurso queda por debajo de su stock mínimo.'),
       note('Las alertas de stock bajo por correo están incluidas en Ruralit Pro y Equipos. Los estados en pantalla están en todos los planes.'),
     ],
   },

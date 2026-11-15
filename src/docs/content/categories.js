@@ -46,7 +46,7 @@ export const DOC_CATEGORIES = [
   {
     id: 'importar',
     title: 'Importar datos',
-    description: 'Planillas de Excel o CSV y facturas en PDF, sin tipear fila por fila.',
+    description: 'Planillas de Excel o CSV y facturas en PDF, sin escribir fila por fila.',
   },
   {
     id: 'equipo',

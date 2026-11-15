@@ -12,7 +12,7 @@ export const planesArticles = [
     updated: UPDATED,
     related: ['planes/prueba-gratuita-de-pro', 'planes/si-dejas-pro'],
     blocks: [
-      p('En ningún plan se cobra por movimiento: la libreta no tiene límite de registros. La diferencia está en cuántos campos y personas manejás, la profundidad del análisis y las alertas. La comparación completa está en [la página de planes](/planes/).'),
+      p('En ningún plan se cobra por movimiento: la libreta no tiene límite de registros. La diferencia está en cuántos campos y personas manejas, la profundidad del análisis y las alertas. La comparación completa está en [la página de planes](/planes/).'),
 
       h2('Los límites'),
       table(
@@ -42,7 +42,7 @@ export const planesArticles = [
 
       h2('Ruralit Equipos'),
       p('Pensado para operaciones que coordinan personas y establecimientos de distintos propietarios. Está **en desarrollo** y todavía no admite solicitudes.'),
-      note('Si colaborás en el campo de otra persona, trabajás con el plan de ese campo. Eso no cambia el plan de tus campos propios.'),
+      note('Si colaboras en el campo de otra persona, trabajas con el plan de ese campo. Eso no cambia el plan de tus campos propios.'),
     ],
   },
 
@@ -57,10 +57,10 @@ export const planesArticles = [
     blocks: [
       path('Ajustes', 'Mi cuenta', 'Plan y suscripción', 'Planes y precios'),
       steps(
-        'Iniciá sesión en Ruralit con la cuenta en la que querés Pro.',
-        'Entrá a **Planes y precios** y compará Gratis, Pro y Equipos.',
-        'Solicitá la prueba gratuita de Pro.',
-        'Revisá el estado de tu solicitud en **Plan y suscripción**. Cuando la activamos, Pro queda habilitado en tu cuenta.',
+        'Inicia sesión en Ruralit con la cuenta en la que quieres Pro.',
+        'Entra a **Planes y precios** y compara Gratis, Pro y Equipos.',
+        'Solicita la prueba gratuita de Pro.',
+        'Revisa el estado de tu solicitud en **Plan y suscripción**. Cuando la activamos, Pro queda habilitado en tu cuenta.',
       ),
       list(
         'Dura **30 días**.',
@@ -75,7 +75,7 @@ export const planesArticles = [
   {
     slug: 'si-dejas-pro',
     category: 'planes',
-    title: 'Si dejás Pro o superás un límite',
+    title: 'Si dejas Pro o superas un límite',
     summary: 'Volver a Gratis no borra nada: tus datos, campos, equipo y chats siguen ahí.',
     keywords: ['downgrade', 'bajar de plan', 'cancelar', 'vencimiento', 'límite', 'cupo', 'superé', 'bloqueado', 'ver planes'],
     updated: UPDATED,
@@ -86,11 +86,11 @@ export const planesArticles = [
         'No se elimina ningún dato, establecimiento, historial, integrante ni chat.',
         'Todo lo existente sigue siendo **legible**.',
         'Solo se detienen las nuevas acciones propias de Pro, como generar reportes o recibir las alertas Pro.',
-        'Tus preferencias de notificaciones Pro quedan guardadas y vuelven a activarse si regresás a Pro.',
+        'Tus preferencias de notificaciones Pro quedan guardadas y vuelven a activarse si regresas a Pro.',
       ),
 
-      h2('Si llegás a un límite'),
-      p('Cuando una acción supera lo que incluye tu plan (por ejemplo, invitar a una cuarta persona en Gratis), Ruralit te explica el límite y te ofrece **Ver planes**. Lo que ya tenés no se toca.'),
+      h2('Si llegas a un límite'),
+      p('Cuando una acción supera lo que incluye tu plan (por ejemplo, invitar a una cuarta persona en Gratis), Ruralit te explica el límite y te ofrece **Ver planes**. Lo que ya tienes no se toca.'),
       note('Los límites de plan son independientes de los permisos: un rol nunca se degrada por una cuestión de plan.'),
     ],
   },

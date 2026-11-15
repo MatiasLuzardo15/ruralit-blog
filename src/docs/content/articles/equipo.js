@@ -7,7 +7,7 @@ export const equipoArticles = [
     slug: 'invitar-a-tu-equipo',
     category: 'equipo',
     title: 'Invitar a tu equipo',
-    summary: 'Sumá a tu familia, socios, encargado o contador por correo o con un link de invitación, y elegí su rol desde el principio.',
+    summary: 'Suma a tu familia, socios, encargado o contador por correo o con un link de invitación, y elige su rol desde el principio.',
     keywords: ['invitar', 'compartir', 'establecimiento compartido', 'colaborador', 'socio', 'contador', 'familia', 'link', 'whatsapp', 'invitación', 'correo'],
     updated: UPDATED,
     related: ['equipo/roles-y-permisos', 'equipo/actividad-del-equipo', 'planes/gratis-pro-y-equipos'],
@@ -15,35 +15,35 @@ export const equipoArticles = [
       p('Un establecimiento compartido es el mismo campo visto por varias personas, cada una con su propia cuenta. Lo que registra una lo ven las demás al instante, sin mandar capturas ni planillas.'),
       flow(
         'De la invitación al trabajo compartido.',
-        node('person', 'Invitás', 'Por correo o con un link, eligiendo el rol'),
+        node('person', 'Invitas', 'Por correo o con un link, eligiendo el rol'),
         node('mail', 'La persona acepta', 'Crea su cuenta si no la tiene'),
         node('team', 'Trabajan juntos', 'Los cambios se ven al instante'),
       ),
 
       h2('Dónde se invita'),
       path('Ajustes', 'Este establecimiento', 'Equipo'),
-      p('En la computadora también podés usar **Compartir establecimiento** desde el selector de establecimiento, al pie de la barra lateral.'),
+      p('En la computadora también puedes usar **Compartir establecimiento** desde el selector de establecimiento, al pie de la barra lateral.'),
 
       h2('Invitar por correo'),
       steps(
-        'Escribí el correo de la persona.',
-        'Elegí su **rol**: Encargado, Colaborador o Solo ver.',
-        'Tocá **Enviar invitación**. Le llega un correo con el enlace para aceptar.',
+        'Escribe el correo de la persona.',
+        'Elige su **rol**: Encargado, Colaborador o Solo ver.',
+        'Toca **Enviar invitación**. Le llega un correo con el enlace para aceptar.',
       ),
 
       h2('Invitar con un link'),
       steps(
-        'Elegí el rol.',
-        'Tocá **Generar link seguro**.',
-        'Copialo y mandalo por WhatsApp o por donde prefieras.',
+        'Elige el rol.',
+        'Toca **Generar link seguro**.',
+        'Cópialo y mándalo por WhatsApp o por donde prefieras.',
       ),
-      warn('Cualquiera que tenga el link puede usarlo para unirse con ese rol. Compartilo solo con la persona indicada.'),
+      warn('Cualquiera que tenga el link puede usarlo para unirse con ese rol. Compártelo solo con la persona indicada.'),
 
       h2('Qué pasa cuando aceptan'),
       p('La persona crea su cuenta (si no tiene una), acepta la invitación y el establecimiento aparece en su lista. Desde ese momento puede trabajar según su rol.'),
 
       h2('Invitaciones pendientes'),
-      p('Mientras nadie acepta, la invitación queda **pendiente** en la lista del equipo. Podés cancelarla en cualquier momento. Las invitaciones vencen pasado un tiempo; si venció, enviá una nueva.'),
+      p('Mientras nadie acepta, la invitación queda **pendiente** en la lista del equipo. Puedes cancelarla en cualquier momento. Las invitaciones vencen pasado un tiempo; si venció, envía una nueva.'),
       note('Las invitaciones pendientes cuentan para el límite de personas del plan, para que no se pase el cupo al aceptarse todas juntas. Ver [Gratis, Pro y Equipos](/docs/planes/gratis-pro-y-equipos).'),
     ],
   },
@@ -78,7 +78,7 @@ export const equipoArticles = [
 
       h2('Cambiar el rol o quitar a alguien'),
       path('Ajustes', 'Este establecimiento', 'Equipo', 'Roles y permisos'),
-      p('Elegí la persona y cambiale el rol, o quitala del establecimiento. Sus registros anteriores se mantienen.'),
+      p('Elige la persona y cámbiale el rol, o quítala del establecimiento. Sus registros anteriores se mantienen.'),
 
       h2('Permisos de historial'),
       p('Ver el historial de cambios del equipo es un permiso **aparte del rol**. El dueño decide quién puede:'),
@@ -89,7 +89,7 @@ export const equipoArticles = [
       note('Un Encargado sin permiso de historial no ve la actividad del equipo, aunque administre el resto del establecimiento.'),
 
       h2('Salir de un establecimiento'),
-      p('Si te compartieron un campo y ya no trabajás en él, podés abandonarlo desde **Ajustes › Mis establecimientos › Todos mis establecimientos**. Tus datos propios no se ven afectados.'),
+      p('Si te compartieron un campo y ya no trabajas en él, puedes abandonarlo desde **Ajustes › Mis establecimientos › Todos mis establecimientos**. Tus datos propios no se ven afectados.'),
     ],
   },
 
@@ -105,12 +105,12 @@ export const equipoArticles = [
       p('Cuando varias personas comparten un campo, la pregunta «¿quién cargó esto?» aparece seguido. La **actividad del equipo** responde: cada cambio queda registrado con quién lo hizo, cuándo y desde qué dispositivo (celular, tablet o web).'),
 
       h2('Abrir la actividad'),
-      p('Cuando el establecimiento tiene más de una persona, arriba aparece la fila de avatares del equipo con **Actividad del equipo**. Tocala para abrir el panel lateral.'),
-      note('Si no tenés permiso para ver el historial, el mismo botón dice **Integrantes del equipo** y muestra solo quiénes forman parte.'),
+      p('Cuando el establecimiento tiene más de una persona, arriba aparece la fila de avatares del equipo con **Actividad del equipo**. Tócala para abrir el panel lateral.'),
+      note('Si no tienes permiso para ver el historial, el mismo botón dice **Integrantes del equipo** y muestra solo quiénes forman parte.'),
 
       h2('Cómo está organizado'),
       list(
-        '**Filtro por integrante**: tocá el avatar de una persona para ver solo lo que hizo.',
+        '**Filtro por integrante**: toca el avatar de una persona para ver solo lo que hizo.',
         '**Pestañas** para acotar por tipo de cambio.',
         '**Detalle** de cada evento: el antes y el después, el responsable y la fecha.',
         'Un punto marca la **actividad de las últimas 24 horas**.',
@@ -118,8 +118,8 @@ export const equipoArticles = [
 
       h2('Revertir un cambio'),
       steps(
-        'Abrí el detalle del cambio en la actividad.',
-        'Tocá **Revertir cambio** y confirmá.',
+        'Abre el detalle del cambio en la actividad.',
+        'Toca **Revertir cambio** y confirma.',
         'El registro vuelve a su estado anterior. Si el cambio era una creación, revertirla elimina ese registro.',
       ),
       p('La reversión también queda en el historial («Este cambio fue revertido el…»): nada se pierde, solo se corrige.'),
@@ -129,7 +129,7 @@ export const equipoArticles = [
         '**Todos los planes**: autor, fecha y última edición de cada registro, visibles desde el propio registro.',
         '**Ruralit Pro y Equipos**: el panel de actividad del equipo con el historial completo y las reversiones.',
       ),
-      tip('¿Querés preguntar por un cambio? Desde el detalle podés llevarlo a los [chats del equipo](/docs/equipo/chats-del-equipo) para comentarlo con quien lo hizo.'),
+      tip('¿Quieres preguntar por un cambio? Desde el detalle puedes llevarlo a los [chats del equipo](/docs/equipo/chats-del-equipo) para comentarlo con quien lo hizo.'),
     ],
   },
 
@@ -142,29 +142,29 @@ export const equipoArticles = [
     updated: UPDATED,
     related: ['equipo/actividad-del-equipo', 'seguridad/tus-datos'],
     blocks: [
-      p('Los chats del equipo son la mensajería interna del establecimiento. La diferencia con WhatsApp es que cada conversación puede arrancar **con el dato a la vista**: citás el gasto, la venta o el recurso del que querés hablar, con su monto, su fecha y un enlace directo.'),
+      p('Los chats del equipo son la mensajería interna del establecimiento. La diferencia con WhatsApp es que cada conversación puede arrancar **con el dato a la vista**: citas el gasto, la venta o el recurso del que quieres hablar, con su monto, su fecha y un enlace directo.'),
 
       h2('Dónde están'),
       p('En el mismo panel de **Actividad del equipo**, junto a la actividad. La bandeja muestra cada conversación con avatar, último mensaje, hora y mensajes sin leer. El filtro **Todos / No leídos** te lleva a lo pendiente.'),
 
       h2('Empezar una conversación'),
       list(
-        '**Uno a uno**: tocá **Nuevo chat** y elegí a la persona.',
-        '**En grupo**: elegí varios integrantes y ponele un nombre al grupo.',
+        '**Uno a uno**: toca **Nuevo chat** y elige a la persona.',
+        '**En grupo**: elige varios integrantes y ponle un nombre al grupo.',
       ),
 
       h2('Citar un registro'),
       steps(
-        'En la conversación, tocá el **clip**.',
-        'Buscá el registro entre los últimos 50 del establecimiento: un movimiento, un recurso de stock o una nota.',
-        'Escribí tu mensaje y enviá. El registro citado va incrustado, y quien lo recibe puede abrirlo con un toque.',
+        'En la conversación, toca el **clip**.',
+        'Busca el registro entre los últimos 50 del establecimiento: un movimiento, un recurso de stock o una nota.',
+        'Escribe tu mensaje y envía. El registro citado va incrustado, y quien lo recibe puede abrirlo con un toque.',
       ),
       note('Citar un registro no da permisos extra: quien no puede ver ese dato en el establecimiento tampoco lo puede abrir desde el chat.'),
 
       h2('Privacidad'),
       p('Los mensajes están **cifrados de extremo a extremo**: se cifran en tu dispositivo y solo los pueden leer los integrantes de la conversación. Los servidores de Ruralit guardan los mensajes cifrados, sin poder leerlos.'),
       h3('En un dispositivo nuevo'),
-      p('Cada dispositivo tiene sus propias claves. Si empezás a usar Ruralit en otro teléfono o computadora, podés transferir el historial de chats desde un dispositivo donde ya tengas la sesión abierta.'),
+      p('Cada dispositivo tiene sus propias claves. Si empiezas a usar Ruralit en otro teléfono o computadora, puedes transferir el historial de chats desde un dispositivo donde ya tengas la sesión abierta.'),
       tip('Los chats están incluidos en todos los planes, también en Gratis.'),
     ],
   },

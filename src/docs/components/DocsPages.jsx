@@ -63,11 +63,11 @@ export function DocsHome({ openSearch }) {
           <p className="dx-cover-mark"><span className="dx-wordmark">ruralit<span>.</span></span> Cuaderno de ayuda</p>
           <h1 className="dx-cover-title">Cómo usar Ruralit, sección por sección.</h1>
           <p className="dx-cover-lead">
-            Contanos qué querés hacer, como cuando anotás algo en la app, y te llevamos a la guía que lo explica.
+            Cuéntanos qué quieres hacer, como cuando anotas algo en la app, y te llevamos a la guía que lo explica.
           </p>
 
           <button type="button" onClick={() => openSearch()} className="dx-ask">
-            <span className="dx-ask-prompt">¿Qué querés hacer?</span>
+            <span className="dx-ask-prompt">¿Qué quieres hacer?</span>
             <span className="dx-ask-line">
               <Search size={18} strokeWidth={1.75} aria-hidden="true" />
               <span>Ej.: cerrar el ejercicio</span>
@@ -91,7 +91,7 @@ export function DocsHome({ openSearch }) {
       <Sheet className="is-index">
         <section aria-labelledby="dx-first">
           <h2 id="dx-first" className="dx-sheet-heading">Si es tu primera vez</h2>
-          <p className="dx-sheet-note">Leelas en este orden para configurar tu campo y hacer tus primeros registros.</p>
+          <p className="dx-sheet-note">Léelas en este orden para configurar tu campo y hacer tus primeros registros.</p>
           <ol className="dx-first-steps">
             {firstSteps.map((article, index) => (
               <li key={docHref(article)}>
@@ -119,7 +119,7 @@ export function DocsHome({ openSearch }) {
 
         <div className="dx-sheet-foot">
           <p>¿Una duda rápida? Las <a href="/faq/" className="dx-link">preguntas frecuentes</a> la responden en una o dos frases.</p>
-          <p>¿No encontrás algo o no coincide con la app? <a href={supportHref('Documentación de Ruralit')} target="_blank" rel="noopener noreferrer" className="dx-link">Escribinos</a> y te respondemos por correo.</p>
+          <p>¿No encuentras algo o no coincide con la app? <a href={supportHref('Documentación de Ruralit')} target="_blank" rel="noopener noreferrer" className="dx-link">Escríbenos</a> y te respondemos por correo.</p>
         </div>
       </Sheet>
     </div>
@@ -162,7 +162,7 @@ export function DocsArticlePage({ article, category }) {
 
       {related.length > 0 && (
         <section className="dx-related" aria-labelledby="dx-related">
-          <h2 id="dx-related" className="dx-sheet-heading">Seguí leyendo</h2>
+          <h2 id="dx-related" className="dx-sheet-heading">Sigue leyendo</h2>
           <ul className="dx-lines">
             {related.map(candidate => (
               <IndexLine
@@ -196,7 +196,7 @@ export function DocsArticlePage({ article, category }) {
       <p className="dx-margin-note">
         ¿Algo no coincide con lo que ves en la app?{' '}
         <a href={supportHref(`Documentación: ${article.title}`)} target="_blank" rel="noopener noreferrer" className="dx-link">
-          Avisanos y lo corregimos
+          Avísanos y lo corregimos
         </a>.
       </p>
     </Sheet>

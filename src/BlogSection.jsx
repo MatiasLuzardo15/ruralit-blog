@@ -25,9 +25,9 @@ const articles = [
   {
     id: 3,
     category: 'Guía',
-    title: 'Organizá los gastos de tu campo',
+    title: 'Organiza los gastos de tu campo',
     excerpt:
-      'Clasificá gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.',
+      'Clasifica gastos por categoría, monto y stock para tener claridad total sobre dónde va cada peso.',
     date: 'Mayo 2026',
     readTime: '5 min',
     link: '/novedades/organiza-los-gastos',
@@ -37,7 +37,7 @@ const articles = [
     category: 'Mejora',
     title: 'Lectura automática de facturas',
     excerpt:
-      'Subí una factura en PDF y Ruralit extrae fecha, monto, proveedor y categoría. Sin cargar nada a mano.',
+      'Sube una factura en PDF y Ruralit extrae fecha, monto, proveedor y categoría. Sin cargar nada a mano.',
     date: 'Marzo 2026',
     readTime: '4 min',
     link: '/novedades/lectura-automatica',

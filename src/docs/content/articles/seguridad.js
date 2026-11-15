@@ -7,7 +7,7 @@ export const seguridadArticles = [
     slug: 'verificacion-en-dos-pasos',
     category: 'seguridad',
     title: 'Verificación en dos pasos (2FA)',
-    summary: 'Sumá un código de 6 dígitos de Google Authenticator o Authy a tu contraseña para entrar.',
+    summary: 'Suma un código de 6 dígitos de Google Authenticator o Authy a tu contraseña para entrar.',
     keywords: ['2fa', 'dos pasos', 'doble autenticación', 'google authenticator', 'authy', 'código', 'qr', 'seguridad de la cuenta', 'totp'],
     updated: UPDATED,
     related: ['seguridad/bloqueo-con-pin', 'seguridad/pregunta-de-seguridad', 'ajustes/notificaciones'],
@@ -17,16 +17,16 @@ export const seguridadArticles = [
 
       h2('Activarla'),
       steps(
-        'Instalá en tu teléfono una app de autenticación, como **Google Authenticator** o **Authy**.',
-        'En Ruralit, tocá **Comenzar Activación**.',
-        'Con la app, **escaneá el código QR** que aparece en pantalla.',
-        'Escribí el **código de 6 dígitos** que muestra la app para confirmar.',
+        'Instala en tu teléfono una app de autenticación, como **Google Authenticator** o **Authy**.',
+        'En Ruralit, toca **Comenzar Activación**.',
+        'Con la app, **escanea el código QR** que aparece en pantalla.',
+        'Escribe el **código de 6 dígitos** que muestra la app para confirmar.',
       ),
       p('Desde ese momento, cada vez que inicies sesión en un dispositivo nuevo, Ruralit te pide el código de la app.'),
 
       h2('Desactivarla'),
       p('Desde la misma sección, **Desactivar 2FA**. Tu cuenta vuelve a pedir solo correo y contraseña.'),
-      warn('Si cambiás de teléfono, pasá tus cuentas a la app de autenticación del teléfono nuevo **antes** de borrar el viejo. Sin la app no vas a poder generar el código.'),
+      warn('Si cambias de teléfono, pasa tus cuentas a la app de autenticación del teléfono nuevo **antes** de borrar el viejo. Sin la app no vas a poder generar el código.'),
     ],
   },
 
@@ -44,19 +44,19 @@ export const seguridadArticles = [
 
       h2('Activarlo'),
       steps(
-        'Tocá para crear tu PIN.',
-        'Ingresá 4 dígitos.',
-        'Volvé a ingresarlos para confirmar.',
+        'Toca para crear tu PIN.',
+        'Ingresa 4 dígitos.',
+        'Vuelve a ingresarlos para confirmar.',
       ),
 
       h2('Cómo funciona'),
       list(
-        'Ruralit pide el PIN cada vez que abrís la app en ese dispositivo.',
-        'Si dejás la app en segundo plano más de 30 segundos, al volver te lo pide de nuevo.',
+        'Ruralit pide el PIN cada vez que abres la app en ese dispositivo.',
+        'Si dejas la app en segundo plano más de 30 segundos, al volver te lo pide de nuevo.',
         'Después de **10 intentos fallidos**, se bloquea por **5 minutos**.',
-        'El PIN se guarda solo en ese dispositivo, cifrado. En otro teléfono o computadora configurás uno distinto.',
+        'El PIN se guarda solo en ese dispositivo, cifrado. En otro teléfono o computadora configuras uno distinto.',
       ),
-      p('Para quitarlo, entrá a la misma sección e ingresá tu PIN actual.'),
+      p('Para quitarlo, entra a la misma sección e ingresa tu PIN actual.'),
       note('El PIN no reemplaza tu contraseña ni la verificación en dos pasos: es una capa extra para el dispositivo.'),
     ],
   },
@@ -73,11 +73,11 @@ export const seguridadArticles = [
       p('La pregunta de seguridad es otra capa de protección, pero a diferencia del PIN, **viaja con tu cuenta**: se pide en cualquier dispositivo en el que abras Ruralit.'),
       path('Ajustes', 'Mi cuenta', 'Seguridad', 'Preguntas de Seguridad (MFA)'),
       steps(
-        'Elegí una pregunta de la lista o escribí una personalizada.',
-        'Escribí la respuesta.',
-        'Tocá **Guardar y Activar**.',
+        'Elige una pregunta de la lista o escribe una personalizada.',
+        'Escribe la respuesta.',
+        'Toca **Guardar y Activar**.',
       ),
-      tip('La verificación no distingue entre mayúsculas y minúsculas. Elegí una respuesta que recuerdes pero que nadie pueda adivinar mirando tus redes.'),
+      tip('La verificación no distingue entre mayúsculas y minúsculas. Elige una respuesta que recuerdes pero que nadie pueda adivinar mirando tus redes.'),
     ],
   },
 
@@ -96,7 +96,7 @@ export const seguridadArticles = [
       h2('Qué se procesa en tu dispositivo'),
       table(
         ['Qué', 'Dónde'],
-        ['Las planillas de Excel y los PDF de facturas que importás', 'Se leen en tu dispositivo; solo se guardan los registros que confirmás.'],
+        ['Las planillas de Excel y los PDF de facturas que importas', 'Se leen en tu dispositivo; solo se guardan los registros que confirmas.'],
         ['Los mensajes de los chats del equipo', 'Se cifran en tu dispositivo de extremo a extremo.'],
         ['Tu PIN', 'Queda cifrado solo en ese dispositivo.'],
       ),

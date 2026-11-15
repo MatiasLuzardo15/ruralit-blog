@@ -39,7 +39,7 @@ const REGISTROS = [
   { text: 'Agregué 8 bolsas de ración al stock', type: 'stock', title: 'Ración', badge: 'STOCK', rowAmount: '+ 8 bolsas', date: 'Hoy, 17:06', stockDelta: 8 },
 ];
 
-const PLACEHOLDERS = ['¿Qué pasó hoy?', 'Describí una actividad...', 'Escribí un registro...'];
+const PLACEHOLDERS = ['¿Qué pasó hoy?', 'Describe una actividad...', 'Escribe un registro...'];
 const PILLS = ['Vendí 2 terneros por 900 USD', 'Gasté 3.500 UYU en combustible', 'Compré 20 bolsas de ración', 'Pagué 2.400 UYU de alambrado'];
 
 const SEED_ROWS = [
@@ -656,7 +656,7 @@ const styles = `
   .rha-typed,
   .rha-placeholder { font-size: 0.86em; }
   .rha-placeholder > span { display: none; }
-  .rha-placeholder::after { content: 'Describí una actividad...'; }
+  .rha-placeholder::after { content: 'Describe una actividad...'; }
   .rha-desktop-mic { display: none; }
   .rha-mobile-plus { display: block; }
   .rha-mic {
@@ -883,7 +883,7 @@ function TeamFlowPanel({ flow, chatTyped, chatSent }) {
         {(flow === 'chat' || flow === 'chatReply' || flow === 'closing') && (
           <div className="rha-panel-view" key="chat">
             <div className="rha-chat-head">
-              <span className="rha-panel-heading"><strong>Conversación con Max</strong><span>Consultá un cambio con un integrante del equipo.</span></span>
+              <span className="rha-panel-heading"><strong>Conversación con Max</strong><span>Consulta un cambio con un integrante del equipo.</span></span>
               <span className="rha-panel-close"><X /></span>
             </div>
             <div className="rha-chat-member">
@@ -925,7 +925,7 @@ function TeamFlowPanel({ flow, chatTyped, chatSent }) {
             </div>
             <div className="rha-chat-compose">
               <div className="rha-chat-input">
-                <span className="rha-chat-typed">{chatTyped || (chatSent ? '' : 'Escribí tu mensaje...')}{chatTyped && <span className="rha-cursor" />}</span>
+                <span className="rha-chat-typed">{chatTyped || (chatSent ? '' : 'Escribe tu mensaje...')}{chatTyped && <span className="rha-cursor" />}</span>
                 <span className="rha-chat-input-foot">
                   <span className="rha-chat-tool"><Paperclip /></span>
                   <span className="rha-chat-send"><Send /> Enviar</span>
@@ -1251,10 +1251,10 @@ const ChatsTeamFlowAnimation = () => {
               <div className="rha-mobile-intro">
                 <strong className="rha-mobile-title">¿Qué pasó hoy?</strong>
                 <span className="rha-mobile-sub">Registro rápido del establecimiento</span>
-                <span className="rha-mobile-prompt">Podés escribir:</span>
+                <span className="rha-mobile-prompt">Puedes escribir:</span>
               </div>
-              <h2 className="rha-qe-title">Anotá lo que pasó en tu establecimiento</h2>
-              <div className="rha-qe-sub">Registrá una venta, compra, gasto o stock.</div>
+              <h2 className="rha-qe-title">Anota lo que pasó en tu establecimiento</h2>
+              <div className="rha-qe-sub">Registra una venta, compra, gasto o stock.</div>
 
               <div className={'rha-input-shell' + (focused ? ' focused' : '')}>
                 <span className="rha-mic"><Mic className="rha-desktop-mic" /><Plus className="rha-mobile-plus" /></span>
@@ -1296,7 +1296,7 @@ const ChatsTeamFlowAnimation = () => {
               </div>
 
               <div className="rha-sugg">
-                <span className="rha-sugg-label">Probá escribir algo como</span>
+                <span className="rha-sugg-label">Prueba escribir algo como</span>
                 <div className="rha-pills">
                   {PILLS.map((p) => (
                     <span className="rha-pill" key={p}><CornerDownRight /> {p}</span>
