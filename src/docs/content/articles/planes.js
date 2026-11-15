@@ -1,16 +1,16 @@
 import { h2, list, note, p, path, steps, table, tip } from '../blocks.js';
 
-const UPDATED = '2026-10-05';
+const UPDATED = '2026-11-15';
 
 export const planesArticles = [
   {
     slug: 'gratis-pro-y-equipos',
     category: 'planes',
     title: 'Gratis, Pro y Equipos',
-    summary: 'Qué incluye cada plan, los límites de establecimientos y personas, y qué funciones son de Pro.',
-    keywords: ['plan', 'planes', 'gratis', 'pro', 'equipos', 'límites', 'suscripción', 'premium'],
+    summary: 'Qué incluye cada plan, los límites de establecimientos y personas, y qué funciones son de Pro, como Ruli.',
+    keywords: ['plan', 'planes', 'gratis', 'pro', 'equipos', 'límites', 'suscripción', 'premium', 'ruli', 'asistente'],
     updated: UPDATED,
-    related: ['planes/prueba-gratuita-de-pro', 'planes/si-dejas-pro'],
+    related: ['planes/prueba-gratuita-de-pro', 'planes/si-dejas-pro', 'ruli/que-es-ruli'],
     blocks: [
       p('En ningún plan se cobra por movimiento: la libreta no tiene límite de registros. La diferencia está en cuántos campos y personas manejas, la profundidad del análisis y las alertas. La comparación completa está en [la página de planes](/planes/).'),
 
@@ -34,6 +34,7 @@ export const planesArticles = [
 
       h2('Lo que suma Ruralit Pro'),
       list(
+        '[Ruli](/docs/ruli/que-es-ruli), el asistente que responde sobre tu campo y te propone registros que tú confirmas, con un cupo mensual de uso. Hoy está en beta cerrada.',
         'La sección [Reportes](/docs/reportes/tipos-de-reporte), con el informe integral y los comparativos.',
         'La [actividad del equipo](/docs/equipo/actividad-del-equipo) con el historial completo y las reversiones.',
         'Resumen semanal, alertas de gastos y alertas de stock bajo por correo.',
@@ -41,7 +42,7 @@ export const planesArticles = [
       ),
 
       h2('Ruralit Equipos'),
-      p('Pensado para operaciones que coordinan personas y establecimientos de distintos propietarios. Está **en desarrollo** y todavía no admite solicitudes.'),
+      p('Pensado para operaciones que coordinan personas y establecimientos de distintos propietarios. Incluirá a Ruli al lanzarse. Está **en desarrollo** y todavía no admite solicitudes.'),
       note('Si colaboras en el campo de otra persona, trabajas con el plan de ese campo. Eso no cambia el plan de tus campos propios.'),
     ],
   },
@@ -85,7 +86,7 @@ export const planesArticles = [
       list(
         'No se elimina ningún dato, establecimiento, historial, integrante ni chat.',
         'Todo lo existente sigue siendo **legible**.',
-        'Solo se detienen las nuevas acciones propias de Pro, como generar reportes o recibir las alertas Pro.',
+        'Solo se detienen las nuevas acciones propias de Pro, como generar reportes, recibir las alertas Pro o usar a Ruli.',
         'Tus preferencias de notificaciones Pro quedan guardadas y vuelven a activarse si regresas a Pro.',
       ),
 

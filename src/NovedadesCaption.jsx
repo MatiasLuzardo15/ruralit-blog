@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { MessageSquare, NotebookPen, Package, Tractor, Wheat } from 'lucide-react';
 
 const CAPTIONS = [
-  'Escribe o dicta un movimiento con palabras cotidianas. Ruralit reconoce el monto, la categoría y la moneda por ti.',
-  'Carga los gastos apenas ocurren y deja que se clasifiquen automáticamente. Después los encuentras listos para balances y reportes.',
+  'Escribe o dicta un movimiento con palabras cotidianas. Ruralit reconoce el monto, la categoría y la moneda, y te muestra la vista previa.',
+  'En Ruralit Pro, pregúntale a Ruli por tus números o pídele un registro. Te muestra la propuesta y la guarda solo si la confirmas.',
+  'Carga los gastos apenas ocurren, cada uno con su categoría. Después los encuentras listos en Balances y Reportes.',
   'Registra compras, producción, consumo o pérdidas de stock. Las existencias se recalculan sin mantener planillas paralelas.',
-  'Trabaja con pesos y dólares dentro del mismo establecimiento. Cada movimiento conserva su moneda y alimenta el margen real.',
-  'Asocia gastos e ingresos a proyectos e inversiones. Así sigues el capital invertido, lo recuperado y el punto de equilibrio.',
+  'Trabaja con varias monedas en el mismo establecimiento. Cada movimiento conserva su moneda y su cotización, y los totales no las mezclan.',
+  'Asocia gastos e ingresos a proyectos. Así sigues cuánto invertiste, cuánto recuperaste y cuánto falta.',
   'Comparte el establecimiento con familia, socios o encargados. Cada persona accede según su rol y cada cambio queda registrado.',
   'Revisa el historial por persona y tipo de movimiento. Cada acción conserva usuario, fecha y hora para mantener el control.',
   'Al abrir un cambio, ves exactamente qué valor se modificó. Desde el detalle también puedes revertirlo o iniciar una consulta.',

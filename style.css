@@ -1002,6 +1002,10 @@ section { padding: 56px 80px; }
   margin-bottom: 20px;
 }
 .solucion-icon svg { width: 22px; height: 22px; color: var(--white); }
+/* Cara de Ruli: ilustración con colores fijos del personaje (DESIGN.md › Personaje Ruli), sobre fondo claro. */
+.solucion-icon.solucion-icon--ruli { background: var(--white); box-shadow: inset 0 0 0 1px rgba(14, 30, 18, 0.1); }
+.solucion-icon.solucion-icon--ruli svg { width: 34px; height: 27px; }
+.solucion-modal-icon .ruli-face-mark { width: 40px; height: 32px; }
 .solucion-card h3 {
   font-size: 1rem;
   font-weight: 700;

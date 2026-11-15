@@ -11,7 +11,7 @@ export const DOC_CATEGORIES = [
   {
     id: 'ruli',
     title: 'Ruli',
-    description: 'En desarrollo. Todavía no está en la app.',
+    description: 'El asistente de Ruralit Pro, hoy en beta cerrada: qué hace, cómo se confirma y tu privacidad.',
   },
   {
     id: 'registrar',

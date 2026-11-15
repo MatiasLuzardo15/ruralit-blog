@@ -846,9 +846,9 @@ const ChartDemo = () => {
       <section className="export-section">
         <div className="export-container">
           <div className="balance-header">
-            <span className="eyebrow">Sistema de Exportación</span>
+            <span className="eyebrow">Reportes y exportación</span>
             <h2>Exporta tus reportes</h2>
-            <p className="balance-subtitle">Descarga balances, movimientos y archivos contables en CSV o PDF con un diagnóstico automático de tu evolución financiera.</p>
+            <p className="balance-subtitle">Descarga estos ejemplos de balance, movimientos, informe integral y stock, en CSV o PDF. Cada PDF incluye todas las filas de su filtro y su período. Movimientos exporta en todos los planes; la sección Reportes es de Pro.</p>
           </div>
 
           <div className="export-table-wrap" ref={tableRef}>
@@ -867,8 +867,8 @@ const ChartDemo = () => {
               {[
                 { icon: 'balance', name: 'Balance', feat: [true, true, false, false, false, true], csv: '/reporte_analisis_de_balance_2026-06-21.csv', pdf: '/Ruralit%20-%20Balance%20Trimestral%20-%20Q4%20Ejercicio%20(abr%20-%20jun).pdf' },
                 { icon: 'movs', name: 'Movimientos', feat: [false, true, false, false, false, false], csv: '/reporte_movimientos_2026-06-21.csv', pdf: '/Ruralit%20-%20Libreta%20junio%202026.pdf' },
-                { icon: 'contable', name: 'Archivo Contable', feat: [true, true, true, true, true, true], csv: '/reporte_ruralit_-_el_ceibo_2026-06-21.csv', pdf: '/Ruralit%20-%20Informe%20Integral%20-%20El%20ceibo.pdf' },
-                { icon: 'inventario', name: 'Inventario Físico', feat: [false, false, true, false, false, false], csv: '/inventario_el_ceibo_junio_2026.csv', pdf: '/Ruralit%20-%20Inventario%20junio%202026.pdf' },
+                { icon: 'contable', name: 'Informe integral', feat: [true, true, true, true, true, true], csv: '/reporte_ruralit_-_el_ceibo_2026-06-21.csv', pdf: '/Ruralit%20-%20Informe%20Integral%20-%20El%20ceibo.pdf' },
+                { icon: 'inventario', name: 'Stock', feat: [false, false, true, false, false, false], csv: '/inventario_el_ceibo_junio_2026.csv', pdf: '/Ruralit%20-%20Inventario%20junio%202026.pdf' },
               ].map((row, i) => (
                 <div className="export-table-row" key={i}>
                   <span className="et-col et-icon">

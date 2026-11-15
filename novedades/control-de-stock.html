@@ -520,10 +520,10 @@
         </p>
 
         <ul>
-            <li><strong>Cabezas de ganado:</strong> Lleva el conteo actualizado por lote. Cuántos terneros, cuántas vacas, cuántos toros. Cada movimiento —nacimiento, venta, mortalidad, traslado— se registra y el total se actualiza automáticamente.</li>
-            <li><strong>Litros de leche:</strong> Si tienes tambo, registra la producción diaria o semanal. El sistema calcula promedios y te muestra tendencias para detectar caídas en la producción.</li>
-            <li><strong>Bolsas de ración:</strong> Sabe cuántas bolsas entraron, cuántas se consumieron y cuántas quedan. Cuando el stock baja, recibes una alerta.</li>
-            <li><strong>Combustible:</strong> Litros de gasoil o nafta disponibles. Cada carga y cada consumo se registra, y te alertamos cuando se acerca el momento de repostar.</li>
+            <li><strong>Cabezas de ganado:</strong> Lleva el conteo de terneros, vacas o toros como recursos separados. Cada movimiento —compra, venta, producción, consumo o pérdida— se registra y el saldo se actualiza solo.</li>
+            <li><strong>Litros de leche:</strong> Si tienes tambo, registra la producción como entradas del recurso leche, con su fecha y su cantidad.</li>
+            <li><strong>Bolsas de ración:</strong> Sabe cuántas bolsas entraron, cuántas se consumieron y cuántas quedan. Con un mínimo configurado, el recurso te avisa cuando baja.</li>
+            <li><strong>Combustible:</strong> Litros de gasoil o nafta disponibles. Cada carga y cada consumo se registra, y el mínimo te avisa antes de quedarte sin reserva.</li>
             <li><strong>Semillas y agroquímicos:</strong> Si siembras, lleva el registro de semillas, fertilizantes y agroquímicos. Sabe cuánto usaste y cuánto te queda para la próxima campaña.</li>
         </ul>
 
@@ -532,9 +532,9 @@
         </p>
 
         <div class="article-callout">
-            <div class="callout-label">Vinculación manual con movimientos</div>
+            <div class="callout-label">Dinero y stock en el mismo registro</div>
             <p>
-                Los cambios de stock no se vinculan automáticamente con tus registros de gastos e ingresos. Eres tú quien decide cuando un movimiento de stock se relaciona con un gasto o ingreso. Por ejemplo, cuando registras la compra de 50 bolsas de ración, puedes vincularla con el stock para que el inventario suba. Pero si no lo haces, el stock y los movimientos quedan independientes.
+                Tú decides cuándo un gasto o un ingreso mueve el stock. Por ejemplo, al registrar la compra de 50 bolsas de ración puedes elegir el recurso para que el inventario suba en el mismo registro. Si no lo eliges, el dinero y el stock quedan independientes. Y si solo cambió el stock, registras un movimiento físico sin dinero.
             </p>
         </div>
 
@@ -545,7 +545,7 @@
         </p>
 
         <ul>
-            <li><strong>Dictado inteligente:</strong> Di "entran 50 bolsas de ración" o "se vendieron 12 terneros del lote sur" y el sistema actualiza el stock automáticamente.</li>
+            <li><strong>Frase o dictado:</strong> Escribe o di «entran 50 bolsas de ración» o «vendí 12 terneros», revisa la vista previa y el stock se actualiza al confirmar.</li>
             <li><strong>Carga manual:</strong> Entra a la sección de stock, selecciona el recurso y ajusta la cantidad. Dos toques y listo.</li>
             <li><strong>Importa desde planilla:</strong> Si ya tienes el conteo en una hoja de cálculo, súbela y Ruralit importa los datos en bloque.</li>
         </ul>
@@ -557,11 +557,11 @@
         <h2>Alertas de reposición</h2>
 
         <p>
-            No basta con saber cuánto stock tienes; hay que saber cuándo se está por acabar. En Ruralit puedes definir umbrales mínimos para cada recurso. Cuando el stock baja de ese umbral, recibes una alerta en el dashboard y en el reporte semanal. Así puedes planificar las compras antes de que se agote, no cuando ya estás en cero.
+            No basta con saber cuánto stock tienes; hay que saber cuándo se está por acabar. En Ruralit puedes definir umbrales mínimos para cada recurso. Cuando el saldo llega a ese mínimo o está cerca, el recurso pasa a estado Bajo en Stock, y el resumen muestra cuántos recursos están bajos. En Ruralit Pro, además, te llega un correo cuando un recurso cruza su mínimo. Así puedes planificar las compras antes de que se agote, no cuando ya estás en cero.
         </p>
 
         <p>
-            Los umbrales se configuran por recurso y por establecimiento. Lo que es urgente en un campo puede no serlo en otro. Tú defines los límites y el sistema te avisa cuando hay que actuar.
+            Los mínimos se configuran por recurso, en cada establecimiento. Lo que es urgente en un campo puede no serlo en otro: tú defines los límites.
         </p>
 
         <div class="article-divider"></div>
@@ -576,20 +576,20 @@
         <div class="related-grid">
             <a href="/novedades/dictado-inteligente" class="related-card">
                 <span class="card-category cat-producto">Producto</span>
-                <h4>Dictado inteligente</h4>
-                <p>Di "gasté 5000 en gasoil" y Ruralit escucha, entiende y carga el movimiento por ti.</p>
+                <h4>Dictado por voz</h4>
+                <p>Di «gasté 5000 en gasoil», revisa la vista previa y guarda.</p>
                 <span class="card-meta">Junio 2026 · 3 min</span>
             </a>
             <a href="/novedades/lectura-automatica" class="related-card">
                 <span class="card-category cat-mejora">Mejora</span>
-                <h4>Lectura automática de facturas</h4>
+                <h4>Facturas en PDF, sin tipearlas</h4>
                 <p>Sube un PDF y Ruralit extrae fecha, monto, proveedor y categoría.</p>
                 <span class="card-meta">Marzo 2026 · 4 min</span>
             </a>
             <a href="/novedades/importar-datos-excel" class="related-card">
                 <span class="card-category cat-guia">Guía</span>
                 <h4>Cómo importar datos desde Excel</h4>
-                <p>Sube tu planilla y Ruralit detecta las columnas automáticamente.</p>
+                <p>Sube tu planilla, revisa el mapeo de columnas y valida antes de confirmar.</p>
                 <span class="card-meta">Abril 2026 · 4 min</span>
             </a>
         </div>

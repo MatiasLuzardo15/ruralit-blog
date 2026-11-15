@@ -4,9 +4,9 @@ const articles = [
   {
     id: 1,
     category: 'Producto',
-    title: 'Ruli está en desarrollo',
+    title: 'Ruli, el asistente de Pro',
     excerpt:
-      'Estamos construyendo un asistente para consultar el campo conversando. Todavía no está en la app.',
+      'Responde sobre los números de tu campo y te propone registros que tú confirmas. Exclusivo de Ruralit Pro, hoy en beta cerrada.',
     date: 'Noviembre 2026',
     readTime: '3 min',
     featured: true,
@@ -15,9 +15,9 @@ const articles = [
   {
     id: 2,
     category: 'Mejora',
-    title: 'Motor Impositivo: Impuestos automáticos',
+    title: 'Impuestos al registrar: IMEBA, IRAE e IVA',
     excerpt:
-      'Interruptores inteligentes para IMEBA o IVA al registrar una venta. Monto bruto y neto a la vista, sin calculadoras externas.',
+      'Activa IMEBA o IVA al registrar una venta y revisa el monto bruto y el neto antes de guardar, sin calculadoras externas.',
     date: 'Junio 2026',
     readTime: '4 min',
     link: '/novedades/motor-impositivo',
@@ -35,9 +35,9 @@ const articles = [
   {
     id: 4,
     category: 'Mejora',
-    title: 'Lectura automática de facturas',
+    title: 'Facturas en PDF, sin tipearlas',
     excerpt:
-      'Sube una factura en PDF y Ruralit extrae fecha, monto, proveedor y categoría. Sin cargar nada a mano.',
+      'Sube una factura en PDF y Ruralit propone fecha, monto, moneda, proveedor y categoría. Revisas todo antes de guardar.',
     date: 'Marzo 2026',
     readTime: '4 min',
     link: '/novedades/lectura-automatica',

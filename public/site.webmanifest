@@ -1,7 +1,7 @@
 {
   "name": "Ruralit",
   "short_name": "Ruralit",
-  "description": "Software de gestión rural para productores agropecuarios en Uruguay.",
+  "description": "Gestión rural para tu establecimiento y tu equipo.",
   "lang": "es",
   "start_url": "/",
   "display": "standalone",
