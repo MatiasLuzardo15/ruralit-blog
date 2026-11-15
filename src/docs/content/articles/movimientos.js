@@ -12,10 +12,10 @@ export const movimientosArticles = [
     updated: UPDATED,
     related: ['movimientos/buscar-y-filtrar', 'movimientos/editar-y-eliminar', 'ajustes/apariencia-y-preferencias'],
     blocks: [
-      p('**Movimientos** es tu libreta completa: cada ingreso y cada gasto del establecimiento, con fecha, monto, moneda, categoría, impuestos y notas. Lo que registrás en Inicio, en un proyecto o por importación termina acá.'),
+      p('**Movimientos** es tu libreta completa: cada ingreso y cada gasto del establecimiento, con fecha, monto, moneda, categoría, impuestos y notas. Lo que registras en Inicio, en un proyecto o por importación termina aquí.'),
 
       h2('El resumen de operaciones'),
-      p('Arriba de la lista, el **Resumen de Operaciones** suma lo que estás viendo: **Ingresos**, **Gastos** y **Balance Neto** del período y los filtros elegidos. Si trabajás con dos monedas, cada una se resume por separado.'),
+      p('Arriba de la lista, el **Resumen de Operaciones** suma lo que estás viendo: **Ingresos**, **Gastos** y **Balance Neto** del período y los filtros elegidos. Si trabajas con dos monedas, cada una se resume por separado.'),
 
       h2('Cada movimiento'),
       list(
@@ -28,10 +28,10 @@ export const movimientosArticles = [
       h2('Dos formas de recorrerlo'),
       table(
         ['Vista', 'Cómo funciona'],
-        ['**Por filtros**', 'Elegís un mes con el selector de mes y año (o «Todo el historial») y filtrás por tipo, categoría, código y divisa.'],
-        ['**Lista**', 'Ves los registros más recientes y, al llegar al final, cargás el mes anterior. Cuando no hay más, aparece «Llegaste al inicio del historial».'],
+        ['**Por filtros**', 'Eliges un mes con el selector de mes y año (o «Todo el historial») y filtras por tipo, categoría, código y divisa.'],
+        ['**Lista**', 'Ves los registros más recientes y, al llegar al final, cargas el mes anterior. Cuando no hay más, aparece «Llegaste al inicio del historial».'],
       ),
-      p('La elegiste en la configuración inicial y la cambiás cuando quieras:'),
+      p('La elegiste en la configuración inicial y la cambias cuando quieras:'),
       path('Ajustes', 'Mi cuenta', 'Apariencia y preferencias'),
 
       h2('Movimientos y Stock'),
@@ -44,12 +44,12 @@ export const movimientosArticles = [
     slug: 'buscar-y-filtrar',
     category: 'movimientos',
     title: 'Buscar y filtrar movimientos',
-    summary: 'Encontrá un registro por texto, tipo, categoría, código, divisa o período.',
+    summary: 'Encuentra un registro por texto, tipo, categoría, código, divisa o período.',
     keywords: ['buscar', 'filtro', 'búsqueda rápida', 'encontrar', 'solo gastos', 'solo ingresos', 'categoría', 'código', 'divisa', 'mes', 'todo el historial'],
     updated: UPDATED,
     related: ['movimientos/el-historial', 'movimientos/exportar-e-imprimir', 'registrar/categorias'],
     blocks: [
-      p('Cuando el historial crece, los filtros te llevan directo al movimiento que buscás.'),
+      p('Cuando el historial crece, los filtros te llevan directo al movimiento que buscas.'),
 
       h2('Los filtros'),
       table(
@@ -64,7 +64,7 @@ export const movimientosArticles = [
       tip('La búsqueda de texto puede recorrer **todo el historial**, no solo el mes que estás viendo: mientras lo hace, aparece «Buscando en todo el historial…».'),
 
       h2('Si no aparece nada'),
-      p('Si la lista dice «El reporte está vacío», probá quitar algún filtro o cambiar de mes. Revisá también que estés en el **establecimiento** correcto y en la **divisa** correcta.'),
+      p('Si la lista dice «El reporte está vacío», prueba quitar algún filtro o cambiar de mes. Revisa también que estés en el **establecimiento** correcto y en la **divisa** correcta.'),
     ],
   },
 
@@ -72,30 +72,30 @@ export const movimientosArticles = [
     slug: 'editar-y-eliminar',
     category: 'movimientos',
     title: 'Corregir o eliminar movimientos',
-    summary: 'Abrí un movimiento para editarlo, eliminalo con el borrado seguro o seleccioná varios a la vez.',
+    summary: 'Abre un movimiento para editarlo, elimínalo con el borrado seguro o selecciona varios a la vez.',
     keywords: ['editar', 'corregir', 'modificar', 'eliminar', 'borrar', 'selección múltiple', 'seleccionar todo', 'deshacer', 'borrado seguro', 'error'],
     updated: UPDATED,
     related: ['movimientos/el-historial', 'equipo/actividad-del-equipo', 'balances/cerrar-el-ejercicio'],
     blocks: [
-      p('Todo registro se puede corregir. Si tenés permiso de edición en el establecimiento, abrís el movimiento, cambiás lo que haga falta y guardás.'),
+      p('Todo registro se puede corregir. Si tienes permiso de edición en el establecimiento, abres el movimiento, cambias lo que haga falta y guardas.'),
 
       h2('Editar un movimiento'),
       steps(
-        'En **Movimientos**, tocá la fila o la tarjeta del registro (en la computadora también podés usar el menú de opciones del movimiento).',
-        'Corregí monto, categoría, fecha, moneda, nota, proyecto o impuestos.',
-        'Tocá **Guardar Cambios**.',
+        'En **Movimientos**, toca la fila o la tarjeta del registro (en la computadora también puedes usar el menú de opciones del movimiento).',
+        'Corrige monto, categoría, fecha, moneda, nota, proyecto o impuestos.',
+        'Toca **Guardar Cambios**.',
       ),
 
       h2('Eliminar un movimiento'),
-      p('Desde el detalle del movimiento usá la opción de eliminar y confirmá. Ruralit usa un **borrado seguro**: el registro desaparece de tus listas y balances, pero el cambio queda asentado en el historial del establecimiento.'),
+      p('Desde el detalle del movimiento usa la opción de eliminar y confirma. Ruralit usa un **borrado seguro**: el registro desaparece de tus listas y balances, pero el cambio queda asentado en el historial del establecimiento.'),
 
       h2('Eliminar varios a la vez'),
       steps(
-        'Elegí **Seleccionar múltiples**.',
-        'Marcá los registros, o usá **Seleccionar todo**.',
-        'Tocá **Eliminar Registros** y confirmá.',
+        'Elige **Seleccionar múltiples**.',
+        'Marca los registros, o usa **Seleccionar todo**.',
+        'Toca **Eliminar Registros** y confirma.',
       ),
-      p('Para salir sin borrar, usá **Salir de selección**.'),
+      p('Para salir sin borrar, usa **Salir de selección**.'),
 
       h2('Cuándo no se puede editar'),
       list(
@@ -110,20 +110,20 @@ export const movimientosArticles = [
     slug: 'exportar-e-imprimir',
     category: 'movimientos',
     title: 'Exportar e imprimir movimientos',
-    summary: 'Descargá la lista filtrada en CSV para tu planilla o imprimila en PDF.',
+    summary: 'Descarga la lista filtrada en CSV para tu planilla o imprímela en PDF.',
     keywords: ['exportar', 'csv', 'excel', 'planilla', 'imprimir', 'pdf', 'descargar', 'contador'],
     updated: UPDATED,
     related: ['movimientos/buscar-y-filtrar', 'reportes/generar-un-reporte'],
     blocks: [
-      p('Los botones de exportación de **Movimientos** trabajan sobre lo que estás viendo: el período y los filtros activos. Primero filtrá, después exportá.'),
+      p('Los botones de exportación de **Movimientos** trabajan sobre lo que estás viendo: el período y los filtros activos. Primero filtra, después exporta.'),
 
       h2('CSV'),
-      p('Descarga un archivo `.csv` que abrís con Excel, Google Sheets o el programa de tu contador, con fecha, tipo, categoría, monto, moneda, notas y proyecto de cada registro.'),
+      p('Descarga un archivo `.csv` que abres con Excel, Google Sheets o el programa de tu contador, con fecha, tipo, categoría, monto, moneda, notas y proyecto de cada registro.'),
 
       h2('Imprimir PDF'),
       p('**Imprimir PDF** arma una versión lista para imprimir o guardar como PDF desde el navegador.'),
-      tip('La exportación de movimientos está incluida en todos los planes. Para informes más completos (balance, stock, proyectos o el informe integral del campo) usá [Reportes](/docs/reportes/tipos-de-reporte).'),
-      note('Si la lista filtrada está vacía, el botón no exporta nada: ajustá los filtros primero.'),
+      tip('La exportación de movimientos está incluida en todos los planes. Para informes más completos (balance, stock, proyectos o el informe integral del campo) usa [Reportes](/docs/reportes/tipos-de-reporte).'),
+      note('Si la lista filtrada está vacía, el botón no exporta nada: ajusta los filtros primero.'),
     ],
   },
 ];

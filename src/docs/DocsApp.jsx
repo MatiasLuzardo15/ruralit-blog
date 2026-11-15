@@ -153,7 +153,7 @@ export default function DocsApp() {
             <div className="dx-spine-sticky">
               <button type="button" onClick={() => openSearch()} className="dx-spine-search" title={`Buscar (${shortcutLabel()})`}>
                 <Search size={15} strokeWidth={1.75} aria-hidden="true" />
-                <span>¿Qué querés hacer?</span>
+                <span>¿Qué quieres hacer?</span>
               </button>
               <DocsIndex categoryId={category?.id} slug={article?.slug} toc={toc} />
             </div>

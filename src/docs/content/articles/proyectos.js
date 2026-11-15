@@ -24,7 +24,7 @@ export const proyectosArticles = [
       ),
 
       h2('Rubro y estado'),
-      p('Cada proyecto tiene además un **rubro** (Ganadería, Agricultura, Maquinaria, Infraestructura, Servicios u Otro) y un **estado** que podés ir cambiando: en curso, pausado, finalizado y otros propios de cada tipo.'),
+      p('Cada proyecto tiene además un **rubro** (Ganadería, Agricultura, Maquinaria, Infraestructura, Servicios u Otro) y un **estado** que puedes ir cambiando: en curso, pausado, finalizado y otros propios de cada tipo.'),
 
       h2('Cómo se relaciona con el resto'),
       list(
@@ -39,17 +39,17 @@ export const proyectosArticles = [
     slug: 'crear-un-proyecto',
     category: 'proyectos',
     title: 'Crear un proyecto',
-    summary: 'Elegí el tipo, completá sus datos y, si corresponde, el capital inicial y el control productivo.',
+    summary: 'Elige el tipo, completa sus datos y, si corresponde, el capital inicial y el control productivo.',
     keywords: ['nuevo proyecto', 'crear', 'capital inicial', 'monto objetivo', 'presupuesto estimado', 'aporte sugerido', 'valor actual estimado', 'próxima revisión', 'control productivo', 'inversión inicial'],
     updated: UPDATED,
     related: ['proyectos/que-es-un-proyecto', 'proyectos/registrar-en-un-proyecto'],
     blocks: [
       steps(
-        'En **Proyectos**, tocá el botón de nuevo proyecto.',
-        'Elegí el tipo: activo o mejora, meta de ahorro, recuperar inversión o actividad.',
-        'Completá el nombre, el rubro, la moneda y las fechas.',
-        'Completá los datos propios del tipo (abajo).',
-        'Guardá. El proyecto aparece en la lista y ya podés registrar en él.',
+        'En **Proyectos**, toca el botón de nuevo proyecto.',
+        'Elige el tipo: activo o mejora, meta de ahorro, recuperar inversión o actividad.',
+        'Completa el nombre, el rubro, la moneda y las fechas.',
+        'Completa los datos propios del tipo (abajo).',
+        'Guarda. El proyecto aparece en la lista y ya puedes registrar en él.',
       ),
 
       h2('Los datos de cada tipo'),
@@ -62,11 +62,11 @@ export const proyectosArticles = [
       ),
 
       h2('El capital inicial'),
-      p('Si cargás un monto inicial, Ruralit crea automáticamente el **movimiento inicial** del proyecto: un gasto por la inversión o el costo inicial, o un aporte si es una meta de ahorro (el ahorro inicial).'),
+      p('Si cargas un monto inicial, Ruralit crea automáticamente el **movimiento inicial** del proyecto: un gasto por la inversión o el costo inicial, o un aporte si es una meta de ahorro (el ahorro inicial).'),
       note('Ese movimiento inicial pertenece al proyecto y **no cuenta en el balance operativo** del campo ni aparece en la lista de Movimientos, para no inflar los gastos del mes en que hiciste la compra.'),
 
       h2('Control productivo'),
-      p('Al crear el proyecto podés activar el **control productivo**: Ruralit crea un recurso de stock propio del proyecto con su cantidad inicial. Sirve para seguir animales, hectáreas o insumos del proyecto, por ejemplo las cabezas de una invernada.'),
+      p('Al crear el proyecto puedes activar el **control productivo**: Ruralit crea un recurso de stock propio del proyecto con su cantidad inicial. Sirve para seguir animales, hectáreas o insumos del proyecto, por ejemplo las cabezas de una invernada.'),
     ],
   },
 
@@ -79,10 +79,10 @@ export const proyectosArticles = [
     updated: UPDATED,
     related: ['proyectos/seguir-un-proyecto', 'registrar/carga-detallada'],
     blocks: [
-      p('Dentro de un proyecto, el botón de registrar abre el **Registro de proyecto**. Funciona como el registro rápido de Inicio, pero todo lo que guardás queda vinculado a ese proyecto.'),
+      p('Dentro de un proyecto, el botón de registrar abre el **Registro de proyecto**. Funciona como el registro rápido de Inicio, pero todo lo que guardas queda vinculado a ese proyecto.'),
 
       h2('Con una frase'),
-      p('Escribí lo que pasó y Ruralit decide qué tipo de registro es: dinero, stock, las dos cosas o una novedad.'),
+      p('Escribe lo que pasó y Ruralit decide qué tipo de registro es: dinero, stock, las dos cosas o una novedad.'),
       phrase('Compré 20 terneros a 450 dólares', [
         ['Tipo', 'Gasto del proyecto'],
         ['Monto', 'USD 9.000'],
@@ -93,7 +93,7 @@ export const proyectosArticles = [
       ], 'Si no hay dinero ni stock claro, queda preparado como novedad del proyecto.'),
 
       h2('Con el registro manual'),
-      p('Elegí **Registro manual** y después el tipo de registro. Los tipos cambian según el proyecto: aportes y retiros en una meta, mantenimiento y arreglos en un activo, gastos, ingresos y novedades en una actividad.'),
+      p('Elige **Registro manual** y después el tipo de registro. Los tipos cambian según el proyecto: aportes y retiros en una meta, mantenimiento y arreglos en un activo, gastos, ingresos y novedades en una actividad.'),
 
       h3('Tipos de novedad'),
       list('Novedad', 'Observación', 'Evento', 'Problema', 'Mantenimiento', 'Otro'),
@@ -101,7 +101,7 @@ export const proyectosArticles = [
       warn('No se puede registrar una venta de stock de un proyecto si ese recurso no tiene stock suficiente.'),
 
       h2('Vincular un movimiento existente'),
-      p('Si ya registraste un gasto desde Inicio y te olvidaste de vincularlo, abrilo en **Movimientos** o desde el detalle de una categoría en **Balances** y elegí el proyecto en **Proyecto vinculado**.'),
+      p('Si ya registraste un gasto desde Inicio y te olvidaste de vincularlo, ábrelo en **Movimientos** o desde el detalle de una categoría en **Balances** y elige el proyecto en **Proyecto vinculado**.'),
     ],
   },
 
@@ -116,14 +116,14 @@ export const proyectosArticles = [
     blocks: [
       h2('La lista de proyectos'),
       p('Arriba ves un **resumen consolidado** de todos los proyectos del establecimiento en una moneda base. Abajo, una tarjeta por proyecto con su estado y su número principal.'),
-      p('Filtrá por **Todas**, **Activas**, **Pausadas** o **Finalizadas** para mantener la vista enfocada.'),
+      p('Filtra por **Todas**, **Activas**, **Pausadas** o **Finalizadas** para mantener la vista enfocada.'),
 
       h2('Dentro de un proyecto'),
       list(
         '**Estado financiero del proyecto**: el número que importa según el tipo (cuánto falta recuperar, el resultado de la actividad, el progreso de la meta o el costo acumulado del activo).',
         '**Métricas**: ingresos, gastos, aportes, presupuesto o valor actual, según corresponda.',
         '**Línea de tiempo**: todos los movimientos, cambios de stock y novedades, en orden.',
-        '**Detalles**: los datos con los que creaste el proyecto, que podés editar.',
+        '**Detalles**: los datos con los que creaste el proyecto, que puedes editar.',
       ),
       table(
         ['Tipo', 'Lo que muestra primero'],
@@ -140,24 +140,24 @@ export const proyectosArticles = [
     slug: 'finalizar-un-proyecto',
     category: 'proyectos',
     title: 'Finalizar un proyecto y su informe de cierre',
-    summary: 'Cerrá el proyecto cuando termina y obtené un PDF con el rendimiento y el desglose de movimientos.',
+    summary: 'Cierra el proyecto cuando termina y obtén un PDF con el rendimiento y el desglose de movimientos.',
     keywords: ['finalizar', 'cerrar proyecto', 'terminar', 'informe de cierre', 'pdf', 'reporte del proyecto', 'eliminar proyecto'],
     updated: UPDATED,
     related: ['proyectos/seguir-un-proyecto', 'reportes/tipos-de-reporte'],
     blocks: [
       h2('Finalizar'),
       steps(
-        'Abrí el proyecto.',
-        'Usá la opción para finalizarlo y confirmá.',
+        'Abre el proyecto.',
+        'Usa la opción para finalizarlo y confirma.',
         'Ruralit calcula el resultado final y el proyecto pasa a **Finalizadas**.',
       ),
       p('Un proyecto finalizado conserva toda su historia y su vista de cierre, con el resultado y el **informe de cierre**.'),
 
       h2('El informe en PDF'),
-      p('Desde el proyecto podés generar un PDF con el rendimiento, las métricas y el desglose de **todos** los movimientos del proyecto. Con Ruralit Pro también lo armás desde [Reportes](/docs/reportes/tipos-de-reporte), con notas y análisis.'),
+      p('Desde el proyecto puedes generar un PDF con el rendimiento, las métricas y el desglose de **todos** los movimientos del proyecto. Con Ruralit Pro también lo armas desde [Reportes](/docs/reportes/tipos-de-reporte), con notas y análisis.'),
 
       h2('Eliminar un proyecto'),
-      p('Si eliminás un proyecto, sus **movimientos no se borran**: siguen en Movimientos y en Balances, y los reportes históricos los siguen mostrando.'),
+      p('Si eliminas un proyecto, sus **movimientos no se borran**: siguen en Movimientos y en Balances, y los reportes históricos los siguen mostrando.'),
       note('Finalizar es lo habitual cuando un proyecto terminó. Eliminar es para proyectos creados por error.'),
     ],
   },

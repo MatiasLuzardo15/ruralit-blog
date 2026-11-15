@@ -660,8 +660,8 @@ const ChartDemo = () => {
         <div className="balance-container">
           <div className="balance-header">
             <span className="eyebrow">Panel de Balances</span>
-            <h2>Visualizá tu evolución financiera</h2>
-            <p className="balance-subtitle">Explorá tus datos en vista <strong>Mensual</strong>, <strong>Trimestral</strong> o <strong>Anual</strong>, y alterná entre año civil y ejercicio.</p>
+            <h2>Visualiza tu evolución financiera</h2>
+            <p className="balance-subtitle">Explora tus datos en vista <strong>Mensual</strong>, <strong>Trimestral</strong> o <strong>Anual</strong>, y alterna entre año civil y ejercicio.</p>
           </div>
 
           <div className="balance-toggle">
@@ -835,7 +835,7 @@ const ChartDemo = () => {
               )}
               {view === 'anual' && mode === 'civil' && (
                 <><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="14" height="14"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  Vista clásica con orden calendario. Alterná a Ejercicio para ver la reorganización automática.
+                  Vista clásica con orden calendario. Alterna a Ejercicio para ver la reorganización automática.
                 </>
               )}
             </span>
@@ -847,8 +847,8 @@ const ChartDemo = () => {
         <div className="export-container">
           <div className="balance-header">
             <span className="eyebrow">Sistema de Exportación</span>
-            <h2>Exportá tus reportes</h2>
-            <p className="balance-subtitle">Descargá balances, movimientos y archivos contables en CSV o PDF con un diagnóstico automático de tu evolución financiera.</p>
+            <h2>Exporta tus reportes</h2>
+            <p className="balance-subtitle">Descarga balances, movimientos y archivos contables en CSV o PDF con un diagnóstico automático de tu evolución financiera.</p>
           </div>
 
           <div className="export-table-wrap" ref={tableRef}>
@@ -897,12 +897,12 @@ const ChartDemo = () => {
               ))}
             </div>
           </div>
-          <div className="export-table-hint">Deslizá para ver más columnas <span>→</span></div>
+          <div className="export-table-hint">Desliza para ver más columnas <span>→</span></div>
 
           <div className="export-downloads" style={{ animation: 'chart-fade-up 0.6s ease both', animationDelay: '0.35s' }}>
             <div className="export-downloads-header">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" width="18" height="18"><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
-              Descargá ejemplos reales
+              Descarga ejemplos reales
             </div>
 
             <div className="export-group">

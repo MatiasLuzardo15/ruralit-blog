@@ -92,7 +92,7 @@ export default function DocsSearch({ open, initialQuery = '', onClose }) {
             type="search"
             value={query}
             onChange={event => setQuery(event.target.value)}
-            placeholder="¿Qué querés hacer? Ej.: cerrar el ejercicio"
+            placeholder="¿Qué quieres hacer? Ej.: cerrar el ejercicio"
             aria-label="Buscar en la documentación"
             aria-controls="dx-search-results"
             aria-activedescendant={rows[active] ? `dx-search-row-${active}` : undefined}
@@ -112,7 +112,7 @@ export default function DocsSearch({ open, initialQuery = '', onClose }) {
           {!idle && rows.length === 0 ? (
             <div className="dx-search-empty">
               <p>No encontramos nada para «{query.trim()}».</p>
-              <p>Probá con otra palabra, por ejemplo lo que querés hacer: «invitar», «exportar», «IVA».</p>
+              <p>Prueba con otra palabra, por ejemplo lo que quieres hacer: «invitar», «exportar», «IVA».</p>
             </div>
           ) : (
             <ul id="dx-search-results" role="listbox" className="dx-search-results">

@@ -12,8 +12,8 @@ export const reportesArticles = [
     updated: UPDATED,
     related: ['reportes/generar-un-reporte', 'planes/gratis-pro-y-equipos'],
     blocks: [
-      p('**Reportes** prepara información para compartir (con tu contador, el banco, un socio o la familia) sin alterar los datos originales. Elegís qué historia querés contar y Ruralit arma el archivo con el establecimiento y los filtros actuales.'),
-      note('La sección Reportes está incluida en **Ruralit Pro** y Equipos. En Gratis no aparece en el menú, pero podés exportar e imprimir desde [Movimientos](/docs/movimientos/exportar-e-imprimir).'),
+      p('**Reportes** prepara información para compartir (con tu contador, el banco, un socio o la familia) sin alterar los datos originales. Eliges qué historia quieres contar y Ruralit arma el archivo con el establecimiento y los filtros actuales.'),
+      note('La sección Reportes está incluida en **Ruralit Pro** y Equipos. En Gratis no aparece en el menú, pero puedes exportar e imprimir desde [Movimientos](/docs/movimientos/exportar-e-imprimir).'),
 
       h2('Los reportes'),
       table(
@@ -35,17 +35,17 @@ export const reportesArticles = [
     slug: 'generar-un-reporte',
     category: 'reportes',
     title: 'Generar y descargar un reporte',
-    summary: 'Elegí el reporte, acotá período y contenido, activá las secciones opcionales, mirá la vista previa y descargá.',
+    summary: 'Elige el reporte, acota período y contenido, activa las secciones opcionales, mira la vista previa y descarga.',
     keywords: ['generar', 'descargar', 'exportar', 'período personalizado', 'filtros', 'vista previa', 'notas', 'análisis', 'pdf', 'csv'],
     updated: UPDATED,
     related: ['reportes/tipos-de-reporte', 'balances/cerrar-el-ejercicio'],
     blocks: [
       steps(
-        '**Elegí el reporte** en la lista lateral (en el celular, en el selector de arriba). Los campos se adaptan al reporte elegido.',
-        '**Acotá período y contenido**: período, tipo de movimiento, categoría, proyecto y moneda. Solo aparecen los campos que corresponden.',
-        '**Elegí detalle y formato**: activá las secciones opcionales (notas, análisis) y elegí PDF o CSV.',
-        'Revisá la **vista previa** con los números principales.',
-        '**Descargá**. El botón final valida la configuración y prepara el archivo.',
+        '**Elige el reporte** en la lista lateral (en el celular, en el selector de arriba). Los campos se adaptan al reporte elegido.',
+        '**Acota período y contenido**: período, tipo de movimiento, categoría, proyecto y moneda. Solo aparecen los campos que corresponden.',
+        '**Elige detalle y formato**: activa las secciones opcionales (notas, análisis) y elige PDF o CSV.',
+        'Revisa la **vista previa** con los números principales.',
+        '**Descarga**. El botón final valida la configuración y prepara el archivo.',
       ),
 
       h2('Períodos'),
